@@ -3,6 +3,9 @@
 // Path to your craft/ folder
 $craftPath = '../craft';
 
+// Move templates path to right above web root
+//define('CRAFT_TEMPLATES_PATH', realpath(dirname(__FILE__) . "/../craft/templates-dev").'/');
+
 // Do not edit below this line
 $path = rtrim($craftPath, '/').'/app/index.php';
 

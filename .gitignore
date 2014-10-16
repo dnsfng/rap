@@ -10,3 +10,5 @@
 
 # Node and stuff
 node_modules
+bower_components
+npm-debug.log

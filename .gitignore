@@ -3,3 +3,9 @@
 /craft/config/*
 /craft/storage/*
 !/craft/storage/logo/*
+
+# Common
+.DS_Store
+
+# Node and stuff
+node_modules

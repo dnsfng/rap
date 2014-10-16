@@ -3,6 +3,7 @@
 /craft/config/*
 /craft/storage/*
 !/craft/storage/logo/*
+/public/_assets/c/app.min.css
 
 # Common
 .DS_Store

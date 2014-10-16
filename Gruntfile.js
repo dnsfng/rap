@@ -69,7 +69,7 @@ module.exports = function(grunt) {
         tasks: ['jshint:lib_test', 'qunit']
       },
       css: {
-        files: ['dev/stylesheets/*.styl'],
+        files: ['dev/stylesheets/*.styl', 'dev/stylesheets/*.css'],
         tasks: ['stylus'],
         options: {
           // Start a live reload server on the default port 35729
@@ -83,7 +83,7 @@ module.exports = function(grunt) {
           'include css': true,
           paths: ['dev/stylesheets/**'],
           urlfunc: 'embedurl',
-          limenos: true,
+          linenos: true,
           use: [
             function () {
                       return require('autoprefixer-stylus')({ browsers: 'last 2 version' });

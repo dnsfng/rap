@@ -1,0 +1,58 @@
+html
+body
+main
+  height 100%
+  width 100%
+  background-color powderblue
+
+body
+  background-color lightblue
+
+section
+  display block
+  height 100%
+  width 100%
+    
+
+.modal
+  position fixed
+  top 0
+  left 0
+  right 0
+  bottom 0
+  opacity 0
+  overflow hidden
+  transition opacity 400ms
+  pointer-events none
+  background-color rgba(black,0.8)
+  color #fff
+
+#modal:target
+  opacity 1
+  pointer-events auto
+
+.modal
+  article
+    display block
+    position absolute
+    top 0
+    left 0
+    width 80%
+    height 100%
+    margin 0
+    padding 0
+
+    p
+    h1
+      margin 0
+      padding 20px
+  
+  for i in (1..15)
+    article:nth-child({i})
+      step = 80%
+      left (i) * step
+      margin-left -(step)
+
+
+      
+    

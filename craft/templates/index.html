@@ -20,32 +20,53 @@
 {% extends "_layout" %}
 
 {% block content %}
-  <section>
-    <h1>{{ entry.baseline }}</h1>
+
+  <section class="section--00 section--intro">
+    <h1>
+      <span class="out test">{{ siteName }}</span>
+      <a href="{{ siteUrl }}">
+        <img src="" alt="">
+      </a>
+    </h1>
+    <aside>
+      <strong>{{ entry.baseline }}</strong>
+    </aside>
   </section>
 
-  <section>
-  	<h2>{{ entry.heading }}</h2>
+  <section class="section--01 section--why">
+    <h2>{{ entry.heading }}</h2>
     <p>{{ entry.home01Description }}</p>
   </section>
 
-  <section>
+  <section class="section--02 section--how">
     <h2>{{ entry.home02Heading }}</h2>
-    <p>{{ entry.home02Description }}</p>
+    <p>{{ entry.home02Description }}</p>  
   </section>
 
-  <section>
+  <section class="section--03 section--what">
     <h2>{{ entry.home03Heading }}</h2>
     <p>{{ entry.home02Description }}</p>
   </section>
 
-  <section>
+  <section class="section--04 section--references">
     <h2>{{ entry.home04Heading }}</h2>
-  	<ul>
-  		{% for entry in craft.entries.type('projets') %}
-  			<li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
-  		{% endfor %}
-  	</ul>
+    <ul>
+      <li><a href="#modal" class="js--open-modal">test</a></li>
+      {% for entry in craft.entries.type('projets') %}
+        <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+      {% endfor %}
+    </ul>
   </section>
+
+  <div class="modal" id="modal">
+    {% for entry in craft.entries.type('projets') %}
+      <article style="background-color:{{entry.backgroundColor}}">
+        <h1>{{ entry.title }}</h1>
+        {{ entry.description }}
+      </article>
+    {% endfor %}
+    <p>lorem ipsum</p>
+    <a href="#_">close</a>
+  </div>
 
 {% endblock %}

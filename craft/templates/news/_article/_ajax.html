@@ -1,6 +1,6 @@
 {#
- # News entry template
- # -------------------
+ # News entry ajax template
+ # ------------------------
  #
  # This template gets loaded whenever a News entry’s URL is
  # requested. That’s because the News section’s Template setting is
@@ -13,8 +13,11 @@
  # http://buildwithcraft.com/docs/routing
  #}
 
-{% extends craft.request.isAjax ? "news/_article/_ajax" : "news/_article/_main" %}
-
-{% set criteria = {section: 'news', type: 'projets', order: 'postDate'} %}
-{% set prev = entry.getPrev(criteria) %}
-{% set next = entry.getNext(criteria) %}
+{% block content %}
+      <h1>{{ entry.title }}</h1>
+      {{ entry.description }}
+      <ul>
+        {% if prev %}<li><a href="{{ prev.url }}">{{ prev.title }}</a></li> {% endif %}
+        {% if next %}<li><a href="{{ next.url }}">{{ next.title }}</a></li>{% endif %}
+      </ul>
+{% endblock %}

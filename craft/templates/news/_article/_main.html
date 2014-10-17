@@ -13,8 +13,18 @@
  # http://buildwithcraft.com/docs/routing
  #}
 
-{% extends craft.request.isAjax ? "news/_article/_ajax" : "news/_article/_main" %}
+{% extends "_layout" %}
 
-{% set criteria = {section: 'news', type: 'projets', order: 'postDate'} %}
-{% set prev = entry.getPrev(criteria) %}
-{% set next = entry.getNext(criteria) %}
+{% block content %}
+  <article>
+    <h1>{{ entry.title }}</h1>
+    <p>Posted on {{ entry.postDate.format('F d, Y') }}</p>
+    {{ entry.description }}
+  </article>
+
+  <ul>
+    {% if prev %}<li><a href="{{ prev.url }}">{{ prev.title }}</a></li> {% endif %}
+    {% if next %}<li><a href="{{ next.url }}">{{ next.title }}</a></li>{% endif %}
+  </ul>
+
+{% endblock %}

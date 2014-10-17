@@ -46,14 +46,15 @@ module.exports = function(grunt) {
         browser: true,
         node:true, // add to remove node undefined error such as 'require' function from stylus config
         globals: {
+          "$": true,
           jQuery: true
         }
       },
       gruntfile: {
         src: 'Gruntfile.js'
       },
-      lib_test: {
-        src: ['lib/**/*.js', 'test/**/*.js']
+      js_test: {
+        src: ['dev/scripts/app/*.js']
       }
     },
     qunit: {
@@ -64,9 +65,9 @@ module.exports = function(grunt) {
         files: '<%= jshint.gruntfile.src %>',
         tasks: ['jshint:gruntfile']
       },
-      lib_test: {
-        files: '<%= jshint.lib_test.src %>',
-        tasks: ['jshint:lib_test', 'qunit']
+      js_test: {
+        files: '<%= jshint.js_test.src %>',
+        tasks: ['jshint:js_test', 'copy:js']
       },
       css: {
         files: ['dev/stylesheets/*.styl', 'dev/stylesheets/*.css'],
@@ -74,7 +75,7 @@ module.exports = function(grunt) {
         options: {
           // Start a live reload server on the default port 35729
           livereload: true,
-        },
+        }
       }
     },
     stylus: { 
@@ -92,9 +93,17 @@ module.exports = function(grunt) {
           ]
         },
         files: {
-          'public/_assets/c/app.min.css': 'dev/stylesheets/app.styl'
+          'public/_assets/c/main.min.css': 'dev/stylesheets/main.styl'
         }
       }
+    },
+    copy: {
+      js: {
+        expand: true,
+        src: 'dev/scripts/app/*',
+        dest: 'public/_assets/j/app/',
+        flatten: true
+      },
     }
   });
 
@@ -105,8 +114,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-stylus'); // + autoprefixer-stylus // + csso-stylus
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify', 'stylus']);
+  //grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify', 'stylus']);
+  grunt.registerTask('default', ['jshint','stylus']);
+
 
 };

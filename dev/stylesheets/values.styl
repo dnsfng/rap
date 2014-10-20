@@ -1,0 +1,28 @@
+// TRANSITIONS
+// Timings
+  t-fast = 200ms
+  t = {
+    slow : '1200ms',
+    reg  : '600ms',
+    fast : '200ms',
+  }
+
+
+// section padding
+  section-padding = 25px
+
+// diamond grid config
+  diamond-border-size = 1px
+  diamond-size = 150px
+  diamond-diagonale = floor(sqrt(((diamond-size ** 2) *2)))px
+
+// diamond calc values
+
+  // added horizontal space to parent block to join diamonds on the same row
+  diamond-interval = floor((diamond-diagonale - diamond-size) - diamond-border-size)px
+  
+  // added horizontal space to new row of diamonds
+  diamond-row-xoffset = floor((diamond-diagonale/2) - diamond-border-size)px
+  
+  // added vertical space to new row of diamonds
+  diamond-row-yoffset = -(floor(diamond-size/2) - ((diamond-diagonale - diamond-size)/2)) - (diamond-border-size)px

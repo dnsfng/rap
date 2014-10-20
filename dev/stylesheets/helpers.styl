@@ -1,0 +1,34 @@
+resetMarginPadding()
+  margin 0
+  padding 0
+
+fix3d()
+  transform translate3d(0,0,0)
+
+sqrt(x)
+  return math(x, 'sqrt') // use js math lib
+
+em(pixel, context = 16)
+  pixel = unit(pixel, px)
+  context = unit(context, px)
+  (pixel / context)em
+  
+// Media queries handlers
+
+minw(w)
+  '(min-width:' + w +')'
+ 
+maxw(w)
+  '(max-width:' + w +')'
+ 
+min-max(min-w, max-w)
+  minw(min-w) +  ' and ' + maxw(max-w)
+ 
+screen-min(w)
+  'screen and ' + minw(w)
+ 
+screen-max(w)
+  'screen and ' + maxw(w)
+ 
+screen-min-max(min-w, max-w)
+  'screen and ' + min-max(min-w, max-w)

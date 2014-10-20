@@ -1,12 +1,96 @@
-h1
-  font-family Arial
+/* General ***********************************/
+
+html
+  font-size 100%
+  -webkit-text-size-adjust 100%
+  -ms-text-size-adjust 100%
+
+body
+  font em(16)\/em(20) mgl, Arial, sans-serif
+
+h2
+  font em(35) mgb
+  text-transform uppercase
+
+
+/* Main sections *****************************/
 
 section
+  
+  fix3d()
+
+  &:before
+    content ""
+    position absolute
+    bottom 100%
+    right 0%
+    width: 0
+    height: 0
+    border-style solid
+    border-width 1024px 0 0 1024px
+    border-color transparent transparent transparent white
+
+    @media screen and (min-width 1024px)
+      border-width 100vw 0 0 100vw
+
+  &:after
+    content ""
+    position absolute
+    top 100%
+    left 0%
+    width 0
+    height 0
+    border-style solid
+    border-width 0 1024px 1024px 0
+    border-color transparent white transparent transparent
+
+    @media screen and (min-width 1024px)
+      border-width 0 100vw 100vw 0
+
+  &:nth-child(odd)
+    background-color white
+    color black
 
   &:nth-child(even)
     background-color black
     color white
 
-  &:nth-child(odd)
-    background-color white
+    &:before
+      border-color transparent transparent transparent black
+
+    &:after
+      border-color transparent black transparent transparent 
+
+
+// Section 00
+aside
+  strong
+    font-weight normal
+
+  .intro--baseline
+    font-size em(22)
+    text-align center
+
+
+// References 
+
+.ref--item
+  &:hover
+    a
+      border-color transparent
+
+    .ref--item-layer
+      opacity 1
+
+    .ref--content
+      color white
+
+  a
+    border diamond-border-size solid lighten(black,75%)
+
+  .ref--item-layer
+    opacity 0
+    transition opacity t-fast ease-in-out
+
+  .ref--content
     color black

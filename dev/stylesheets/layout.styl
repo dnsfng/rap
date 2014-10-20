@@ -3,16 +3,122 @@ body
 main
   height 100%
   width 100%
-  background-color powderblue
+  background-color white
 
-body
-  background-color lightblue
+.wrapper
+  overflow-x hidden
+  height 100%
 
 section
   display block
-  height 100%
+  position relative
   width 100%
+  margin 100% 0
+  padding section-padding
     
+  &.section--intro
+    height 50%
+    margin 0
+
+.ref--list
+  margin: 40px auto
+  font-size 0
+  line-height normal
+
+  mq2-min = ((section-padding * 2) - diamond-interval + (diamond-size + diamond-interval) * 2)px
+  mq3-min = ((section-padding * 2) - diamond-interval + (diamond-size + diamond-interval) * 3)px
+  mq4-min = ((section-padding * 2) - diamond-interval + (diamond-size + diamond-interval) * 4)px
+
+  @media screen and (max-width (mq2-min - 1))
+    max-width diamond-size + (diamond-diagonale / 2)
+
+  @media screen and (min-width mq2-min) and (max-width (mq3-min - 1))
+    max-width ((diamond-size + diamond-interval) * 2) - diamond-interval
+
+  @media screen and (min-width mq3-min) and (max-width (mq4-min - 1))
+    max-width ((diamond-size + diamond-interval) * 3) - diamond-interval
+
+  @media screen and (min-width mq4-min)
+    max-width ((diamond-size + diamond-interval) * 4) - diamond-interval
+
+
+  .ref--item
+    
+    // cf. values.styl
+
+    list-style none
+    display inline-block
+    margin-right diamond-interval
+    
+
+    @media screen and (max-width (mq2-min - 1))
+      margin-right diamond-interval
+
+      &:nth-child(odd)
+        margin-right 0
+        margin-left (diamond-diagonale / 2)
+
+      &:nth-child(n+1)
+        margin-top diamond-row-yoffset
+    
+    @media screen and (min-width mq2-min) and (max-width (mq3-min - 1))
+      &:nth-child(3n+3)
+        margin-left diamond-row-xoffset
+      
+      &:nth-child(3n+2)
+        margin-right 0
+        
+      &:nth-child(n+2)
+        margin-top diamond-row-yoffset
+
+    @media screen and (min-width mq3-min) and (max-width (mq4-min - 1))
+      &:nth-child(5n+4)
+        margin-left diamond-row-xoffset
+      
+      &:nth-child(5n+3)
+        margin-right 0
+        
+      &:nth-child(n+3)
+        margin-top diamond-row-yoffset
+
+    @media screen and (min-width mq4-min)
+      &:nth-child(7n+5)
+        margin-left diamond-row-xoffset
+      
+      &:nth-child(7n+4)
+        margin-right 0
+        
+      &:nth-child(n+4)
+        margin-top diamond-row-yoffset
+
+    a
+    .ref--content
+    .ref--item-layer
+      width diamond-size
+      height diamond-size
+      
+    a
+      position relative
+      display block
+      overflow hidden
+      transform rotate(45deg)
+      font-size 16px
+
+    .ref--item-layer
+      position absolute
+      display block
+      transform rotate(45deg)
+
+    .ref--content
+      display table-cell
+      vertical-align middle
+      text-align center
+      transform rotate(-45deg)
+
+.open--modal
+  position fixed
+  top 20px
+  right 20px
 
 .modal
   position fixed

@@ -6,12 +6,17 @@
 todo()
   background-color rgba(red,0.1)
 
-// Selector
-test00()
-  background-color lighten(green,0%)
 
-test10()
-  background-color lighten(green,10%)
+
+
+// Selector
+
+test(percent = 0)
+  percent = unit(percent,'%')
+  background-color lighten(green, percent)
+
+
+
 
 // Resetter 
 
@@ -22,10 +27,16 @@ resetMarginPadding()
 fix3d()
   transform translate3d(0,0,0)
 
+
+
+
 // Maths
 
 sqrt(x)
   return math(x, 'sqrt') // use js math lib
+
+
+
 
 // Units
 
@@ -34,6 +45,9 @@ em(pixel, context = 16)
   context = unit(context, px)
   round(pixel / context, 3)em
 
+step(value)
+  $_step = 5px
+  (round(value / $_step) * $_step)px
 
 // Alignment
 
@@ -44,6 +58,8 @@ verticalAlign(offsetY = -50%)
 
 horizontalAlign(marginTop = 0, marginBottom = 0)
   margin marginTop auto marginBottom
+
+
 
 
 // Style

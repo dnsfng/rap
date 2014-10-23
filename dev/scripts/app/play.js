@@ -70,8 +70,6 @@ $(document).ready(function(){
     var nextPosition = +(carousel.attr('data-ref-current'));
     navigateCarousel(nextPosition);
 
-    console.log(nextPosition+' / '+position_end);
-
   });
 
   $('.js--next').click(function(){
@@ -81,8 +79,6 @@ $(document).ready(function(){
     
     var nextPosition = +(carousel.attr('data-ref-current'));
     navigateCarousel(nextPosition);
-
-    console.log(nextPosition+' / '+position_end);
 
   });
 

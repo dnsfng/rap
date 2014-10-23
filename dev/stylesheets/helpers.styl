@@ -45,6 +45,13 @@ em(pixel, context = 16)
   context = unit(context, px)
   round(pixel / context, 3)em
 
+
+// Grid
+
+// You can use the square grid unit
+$step = 5px
+
+// Or a function that helps you set proper units
 step(value)
   $_step = 5px
   (round(value / $_step) * $_step)px

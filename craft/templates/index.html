@@ -35,7 +35,7 @@
       </a>
     </div>
     
-    <a href="#modal" class="modal--open">test</a>
+    <a href="#" class="modal--link js--modal-open">open reference</a>
   </section>
 
   <section class="section--01 section--why">
@@ -72,33 +72,40 @@
 
   <div class="modal" id="modal">
 
-    <a class="modal--close" href="#_">close</a>
+    <a class="modal--link js--modal-close" href="#_">close reference</a>
 
     <div class="carousel--wrapper" data-ref-current="1" data-ref-total="{{length}}" style="width:{{ 100*length ~ '%' }}">
     
+      <header class="carousel--shutter carousel--shutter-ne">
+        <div class="carousel--flap"></div>
+      </header>
+      <footer class="carousel--shutter carousel--shutter-sw"><div class="carousel--flap"></div>
+      </footer>
+
       <div class="carousel--translate">
+
       {% for entry in craft.entries.type('projets') %}
 
-        <article class="carousel--reference carousel--reference-child-{{loop.index}}" style="background-color:{{entry.backgroundColor}}" data-ref-curent="{{loop.index}}">
+        <article class="carousel--reference carousel--reference-child-{{loop.index}} reference" style="background-color:rgb(255,255,255,0.5" data-ref-bgColor="{{entry.backgroundColor}}" data-ref-curent="{{loop.index}}">
           {% set image = entry.logo.first() %}
 
-          <h1>{{ entry.title }}</h1>
-          {{ entry.description }}
-          {{ loop.index ~ ' / ' ~ length }}
-
-          <ul>
-            {% if entry.prev %}<li><a href="{{ entry.prev.url }}"> <- </a></li> {% endif %}
-            {% if entry.next %}<li><a href="{{ entry.next.url }}"> -> </a></li>{% endif %}
-          </ul>
+          <h1 class="reference--title out">{{ entry.title }}</h1>
+          {% if image %}
+            <img src="{{ image.url }}" alt="{{image.altLogo}}" class="reference--logo">
+          {% endif %}
+          
+          <div class="reference--description">
+            {{ entry.description }}
+          </div>
 
         </article>
       {% endfor %}
       
       </div>
 
-      <nav>
-        <button class="js--carousel-nav" data-ref-direction="prev"> <- </button>
-        <button class="js--carousel-nav" data-ref-direction="next"> -> </button>
+      <nav class="reference--nav">
+        <button class="reference--nav-control reference--nav-prev js--carousel-nav " data-ref-direction="prev"> <span><-</span> </button>
+        <button class="reference--nav-control reference--nav-next js--carousel-nav" data-ref-direction="next"> <span>-></span> </button>
       </nav>
 
     </div>

@@ -7,6 +7,10 @@ main
   height  100%
   width   100%
 
+body
+  &.no-scroll
+    overflow hidden
+
 /******************************************************************************/
 /* Main sections **************************************************************/
 
@@ -39,11 +43,13 @@ section
     margin-bottom step(90)
 
 /* Section 00 *****************************************************************/
+
 .section--intro
   overflow hidden //hides :after diagonale
 
   + section
     margin-top 90%
+
 
 // Wrapper
 .section--00--wrapper
@@ -57,8 +63,8 @@ section
   @media screen and (min-width $tabletPortrait['width'])
     verticalAlign(-60%)  
 
-// Components
 
+// Components
 .logo--component
   display block
   horizontalAlign(0, $step*2)
@@ -217,17 +223,12 @@ section
       transform       rotate(-45deg)
 
 /******************************************************************************/
-/* Carousel of Reference ******************************************************/
+/* Modal **********************************************************************/
 
-.modal--open
+.modal--link
   position  fixed
   top       20px
   right     @top
-
-.modal--close
-  position  absolute
-  top       20px
-  left      50%
   z-index   1
 
 .modal
@@ -244,62 +245,85 @@ section
   color             #fff
   z-index           1
 
-#modal:target
-  opacity         1
-  pointer-events  auto
+  &.is-visible
+    opacity         1
+    pointer-events  auto
+
+
+/******************************************************************************/
+/* Carousel  ******************************************************************/
 
 .modal
 
   .carousel--wrapper
     height 100%
 
+    .carousel--shutter
+      position          fixed
+      overflow          hidden
+      transform-origin  0% 0%
+
+      .carousel--flap
+        transform-origin  0% 0%
+
+      &.carousel--shutter-ne
+        height    200%
+        width     (@height/2)
+        transform rotate(-45deg) translateX(-1px)
+
+        .carousel--flap
+          height    200%
+          width     (@height/2)
+          transform translate3d(100%,0,0)        
+
+      &.carousel--shutter-sw
+        height    100%
+        width     @height*2
+        transform rotate(45deg) translateY(-1px) 
+
+        .carousel--flap
+          height    100%
+          width     @height*2
+          transform translate3d(0,100%,0)
+
+    &.shutter-toggle
+      .carousel--shutter
+        .carousel--flap
+          transform translate3d(0,0,0)
+
+
   .carousel--translate
-    width 100%
-    height 100%
+    width   100%
+    height  100%  
 
   .carousel--reference
-    float left
-    height 100%
-    width 100vw
-
-    p
-    h1
-      margin  0
-      padding 20px
-
-  // for i in (1..15)
-  //   //.carousel--reference:nth-child({i})
-  //   // Fix buggy behavior on iOS 8
-  //   .carousel--reference-child-{i}  
-  //     offset = 50%
-  //     margin-left offset * (i - 1)
-
-  nav
-    position absolute
-    bottom 0
-    background-color white
+    float     left
+    position  relative
+    height    100%
+    width     100vw
+    z-index   1
 
 
 /******************************************************************************/
-/* Reference page **************************************************************/
+/* Reference  *****************************************************************/
 
 .header--top
   padding $step*2 $step*4
 
   .logo--image
-    float none
-    height 50px
-    width @height
+    float   none
+    height  50px
+    width   @height
 
   .close
-    position absolute
-    top 20px
-    right @top
+    position  absolute
+    top       20px
+    right     @top
 
 .template--references
 .template--references main
   height auto
-  @media screen and (min-width ($tabletPortrait['width'] - 1)) and (min-height ($tabletLandscape['height'] - 109))
+  @media screen and (min-width ($tabletPortrait['width'])) and (min-height $tabletLandscape['height'])
     height 100%
 
 .reference
@@ -315,30 +339,34 @@ section
 .reference--title
   margin-bottom $step*10
 
-
-.ref--nav
-  margin-top $step*20
-  padding $step*5
-  overflow hidden
-
-  @media screen and (min-width ($tabletPortrait['width'] - 1)) and (min-height ($tabletLandscape['height'] - 109))
+.modal
+  .reference--nav
     position absolute
     right 0
     bottom 0
     left 0
 
-  .ref--nav-control
+.reference--nav
+  margin-top $step*20
+  padding $step*5
+  overflow hidden
+
+  @media screen and (min-width ($tabletPortrait['width'])) and (min-height $tabletLandscape['height'])
+    @extend .modal .reference--nav
+
+  .reference--nav-control
     display inline-block
 
     a
+    span
       display table-cell
       height $step*8
       width @height
       vertical-align middle
 
-    &.ref--nav-prev
+    &.reference--nav-prev
       float left
 
-    &.ref--nav-next
+    &.reference--nav-next
       float right
 

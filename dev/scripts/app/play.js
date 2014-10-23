@@ -11,29 +11,28 @@ $(document).ready(function(){
 
   // ———————————————————————————————————————————————————————
 
-  function getReference() {
-    var request = $.ajax({
-      url: "projets/ubisoft",
-      type: "GET",      
-      dataType: "html"
-    });
+  // function getReference() {
+  //   var request = $.ajax({
+  //     url: "projets/ubisoft",
+  //     type: "GET",      
+  //     dataType: "html"
+  //   });
 
-    request.done(function(d) {
-      console.log(d);
-      $('.modal article').html(d); 
-    });
+  //   request.done(function(d) {
+  //     console.log(d);
+  //     $('.modal article').html(d); 
+  //   });
 
-    request.fail(function(jqXHR, textStatus) {
-      alert( "Request failed: " + textStatus );
-    });
-  }
+  //   request.fail(function(jqXHR, textStatus) {
+  //     alert( "Request failed: " + textStatus );
+  //   });
+  // }
 
   // function navigateReference(e, direction){
   //   e.target.preventDefault()
   // }
 
-  $('.js--open-modal').click(getReference);
-
+  //$('.js--modal-open').click(getReference);
 
 
   // ———————————————————————————————————————————————————————
@@ -42,17 +41,29 @@ $(document).ready(function(){
 
   // Config
 
-  var carousel    = $('.carousel--wrapper'),
-      position_end = +(carousel.attr('data-ref-total'));
+  var $_modal        = $('.modal'),
+      $c_wrapper    = $('.carousel--wrapper'),
+      $c_translate  = $('.carousel--translate'),
+      $c_flap       = $('.carousel--flap'),
+      position_end  = +($c_wrapper.attr('data-ref-total'));
 
 
   // Functions
 
   function navigateCarousel(position) {
-    $('.carousel--translate').css('transform', function(){
+
+    position = position || '1';
+
+    $c_translate.css('transform', function(){
       // Can't use vw because of iOS 7 support, can't fix it with buggyfill
       //return 'translate3d(-'+ (position - 1) * 100 +'vw,0,0)';
       return 'translate3d(-'+ ((position - 1) * (100/position_end)).toFixed(3) +'%,0,0)';
+    });
+
+    $c_flap.css('background-color', function(){
+      var $child = $('.carousel--reference-child-'+position),
+          color = $child.attr('data-ref-bgColor');
+      return color;
     });
   }
 
@@ -60,33 +71,57 @@ $(document).ready(function(){
 
     if (direction === "next") {
       if (position < position_end) {
-        carousel.attr('data-ref-current', position + 1);
+        $c_wrapper.attr('data-ref-current', position + 1);
       } else {
-        carousel.attr('data-ref-current', 1);
+        $c_wrapper.attr('data-ref-current', 1);
       }
     }
 
     if (direction === "prev") {
       if (position > 0) {
-        carousel.attr('data-ref-current', position - 1);
+        $c_wrapper.attr('data-ref-current', position - 1);
       } else {
-        carousel.attr('data-ref-current', position_end);
+        $c_wrapper.attr('data-ref-current', position_end);
       }
+    }
+
+  }
+
+  function modalReference(status){
+
+    if(status === true) {
+      $('body').addClass('no-scroll');
+      $_modal.addClass('is-visible');
+      $c_wrapper.toggleClass('shutter-toggle');
+      navigateCarousel();
+      console.log(status);
+    } else {
+      $('body').removeClass('no-scroll');
+      $_modal.removeClass('is-visible');
+      $c_wrapper.toggleClass('shutter-toggle');
+      console.log(status);
     }
 
   }
 
 
   // Binding and behavior
+  $('.js--modal-open').click(function(){
+    modalReference(true);
+  });
+
+  $('.js--modal-close').click(function(){
+    modalReference(false);
+  });
 
   $('.js--carousel-nav').click(function(){
 
-    var currentPosition = +(carousel.attr('data-ref-current')),
+    var currentPosition = +($c_wrapper.attr('data-ref-current')),
         direction = $(this).attr('data-ref-direction');
 
     updateCarouselPosition(direction, currentPosition, position_end);
 
-    var nextPosition = +(carousel.attr('data-ref-current'));
+    var nextPosition = +($c_wrapper.attr('data-ref-current'));
     navigateCarousel(nextPosition);
 
   });

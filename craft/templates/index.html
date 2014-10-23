@@ -35,7 +35,7 @@
       </a>
     </div>
     
-    <a href="#modal" class="js--open-modal open--modal">test</a>
+    <a href="#modal" class="modal--open">test</a>
   </section>
 
   <section class="section--01 section--why">
@@ -57,7 +57,7 @@
     <h2 class="section--title">{{ entry.home04Heading }}</h2>
     <ul class="ref--list">
       {% for entry in craft.entries.type('projets') %}
-        <li class="ref--item ref--item-{{loop.index}}">
+        <li class="ref--item ref--item-child-{{loop.index}}">
           <div class="ref--item-layer" style="background-color : {{entry.backgroundColor}}"></div>
           <a href="{{ entry.url }}">
             <div class="ref--content">{{ entry.title }}</div>
@@ -67,15 +67,41 @@
     </ul>
   </section>
 
-  <div class="modal" id="modal">
-    {% for entry in craft.entries.type('projets') %}
-      <article style="background-color:{{entry.backgroundColor}}">
-        <h1>{{ entry.title }}</h1>
-        {{ entry.description }}
-      </article>
-    {% endfor %}
-    <p>lorem ipsum</p>
-    <a href="#_">close</a>
+
+{% set length = craft.entries.type('projets').total() %}
+
+  <div class="modal">
+
+    <a class="modal--close" href="#_">close</a>
+
+    <div class="carousel--wrapper" data-ref-current="1" data-ref-total="{{length}}" style="width:{{ 100*length ~ '%' }}">
+    
+      <div class="carousel--translate">
+      {% for entry in craft.entries.type('projets') %}
+
+        <article class="carousel--reference carousel--reference-child-{{loop.index}}" style="background-color:{{entry.backgroundColor}}" data--ref-curent="{{loop.index}}">
+          {% set image = entry.logo.first() %}
+
+          <h1>{{ entry.title }}</h1>
+          {{ entry.description }}
+          {{ loop.index ~ ' / ' ~ length }}
+
+          <ul>
+            {% if entry.prev %}<li><a href="{{ entry.prev.url }}"> <- </a></li> {% endif %}
+            {% if entry.next %}<li><a href="{{ entry.next.url }}"> -> </a></li>{% endif %}
+          </ul>
+
+        </article>
+      {% endfor %}
+      
+      </div>
+
+      <nav>
+        <button class="js--prev"> <- </button>
+        <button class="js--next"> -> </button>
+      </nav>
+
+    </div>
   </div>
 
 

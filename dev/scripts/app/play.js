@@ -1,5 +1,15 @@
 $(document).ready(function(){
 
+  // Repaint resize hack on vw unit (Safari)
+
+  var causeRepaintsOn = $("section");
+
+  $(window).resize(function() {
+    causeRepaintsOn.css("z-index", 1);
+  });
+
+  // ———————————————————————————————————————————————————————
+
   function getReference() {
     var request = $.ajax({
       url: "projets/ubisoft",
@@ -23,19 +33,57 @@ $(document).ready(function(){
 
   $('.js--open-modal').click(getReference);
 
+  var carousel    = $('.carousel--wrapper'),
+      position_end = +(carousel.attr('data-ref-total'));
 
-  // Repaint resize hack on vw unit (Safari)
+  function navigateCarousel(position) {
+    $('.carousel--translate').css('transform', function(){
+      return 'translateX(-'+ (position - 1) * 100 +'%)';
+    });
+  }
 
-  var causeRepaintsOn = $("section");
+  function updateCarouselPosition(direction, position, position_end){
 
-  $(window).resize(function() {
-    causeRepaintsOn.css("z-index", 1);
+    if (direction === "next") {
+      if (position < position_end) {
+        carousel.attr('data-ref-current', position + 1);
+      } else {
+        carousel.attr('data-ref-current', 1);
+      }
+    }
+
+    if (direction === "prev") {
+      if (position > 0) {
+        carousel.attr('data-ref-current', position - 1);
+      } else {
+        carousel.attr('data-ref-current', position_end);
+      }
+    }
+
+  }
+
+  $('.js--prev').click(function(){
+
+    var currentPosition = +(carousel.attr('data-ref-current'));
+    updateCarouselPosition('prev', currentPosition, position_end);
+
+    var nextPosition = +(carousel.attr('data-ref-current'));
+    navigateCarousel(nextPosition);
+
+    console.log(nextPosition+' / '+position_end);
+
   });
 
-  // Found a css solution
-  // $('.js--ref--item').hover(function(){
-  //     console.log('ok');
-  //     $(this).children('a').css({'background-color': 'yellow'});
-  // });
+  $('.js--next').click(function(){
+
+    var currentPosition = +(carousel.attr('data-ref-current'));
+    updateCarouselPosition('next', currentPosition, position_end);
+    
+    var nextPosition = +(carousel.attr('data-ref-current'));
+    navigateCarousel(nextPosition);
+
+    console.log(nextPosition+' / '+position_end);
+
+  });
 
 });

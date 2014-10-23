@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+  // ———————————————————————————————————————————————————————
   // Repaint resize hack on vw unit (Safari)
 
   var causeRepaintsOn = $("section");
@@ -33,12 +34,25 @@ $(document).ready(function(){
 
   $('.js--open-modal').click(getReference);
 
+
+
+  // ———————————————————————————————————————————————————————
+  // CAROUSEL NAVIGATION
+
+
+  // Config
+
   var carousel    = $('.carousel--wrapper'),
       position_end = +(carousel.attr('data-ref-total'));
 
+
+  // Functions
+
   function navigateCarousel(position) {
     $('.carousel--translate').css('transform', function(){
-      return 'translateX(-'+ (position - 1) * 100 +'%)';
+      // Can't use vw because of iOS 7 support, can't fix it with buggyfill
+      //return 'translate3d(-'+ (position - 1) * 100 +'vw,0,0)';
+      return 'translate3d(-'+ ((position - 1) * (100/position_end)).toFixed(3) +'%,0,0)';
     });
   }
 
@@ -62,21 +76,16 @@ $(document).ready(function(){
 
   }
 
-  $('.js--prev').click(function(){
 
-    var currentPosition = +(carousel.attr('data-ref-current'));
-    updateCarouselPosition('prev', currentPosition, position_end);
+  // Binding and behavior
 
-    var nextPosition = +(carousel.attr('data-ref-current'));
-    navigateCarousel(nextPosition);
+  $('.js--carousel-nav').click(function(){
 
-  });
+    var currentPosition = +(carousel.attr('data-ref-current')),
+        direction = $(this).attr('data-ref-direction');
 
-  $('.js--next').click(function(){
+    updateCarouselPosition(direction, currentPosition, position_end);
 
-    var currentPosition = +(carousel.attr('data-ref-current'));
-    updateCarouselPosition('next', currentPosition, position_end);
-    
     var nextPosition = +(carousel.attr('data-ref-current'));
     navigateCarousel(nextPosition);
 

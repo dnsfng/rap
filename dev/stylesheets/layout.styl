@@ -118,7 +118,7 @@ section
 
 /* Section 04 *****************************************************************/
 
-.ref--list
+.reference--list
   horizontalAlign(0, $step*16)
   padding-top $step*16
   font-size   0
@@ -141,7 +141,7 @@ section
     max-width (($diamond-size + $diamond-interval) * 4) - $diamond-interval
 
 
-  .ref--item
+  .reference--item
     
     // cf. values.styl
 
@@ -194,8 +194,8 @@ section
         margin-top $diamond-row-yoffset
 
     a
-    .ref--content
-    .ref--item-layer
+    .reference--content
+    .reference--item-layer
       height  $diamond-size
       width   @height
     a
@@ -205,18 +205,19 @@ section
       transform rotate(45deg)
       font-size 16px
 
-    .ref--item-layer
+    .reference--item-layer
       position  absolute
       display   block
       transform rotate(45deg)
 
-    .ref--content
+    .reference--content
       display         table-cell
       vertical-align  middle
       text-align      center
       transform       rotate(-45deg)
 
-/* Modal ****************************************************************/
+/******************************************************************************/
+/* Carousel of Reference ******************************************************/
 
 .modal--open
   position  fixed
@@ -257,22 +258,21 @@ section
     height 100%
 
   .carousel--reference
-    position  absolute
-    top 0
-    bottom 0
-    width 100%
+    float left
+    height 100%
+    width 100vw
 
     p
     h1
       margin  0
       padding 20px
 
-  for i in (1..15)
-    //.carousel--reference:nth-child({i})
-    // Fix buggy behavior on iOS 8
-    .carousel--reference-child-{i}  
-      offset = 100%
-      margin-left offset * (i - 1)
+  // for i in (1..15)
+  //   //.carousel--reference:nth-child({i})
+  //   // Fix buggy behavior on iOS 8
+  //   .carousel--reference-child-{i}  
+  //     offset = 50%
+  //     margin-left offset * (i - 1)
 
   nav
     position absolute

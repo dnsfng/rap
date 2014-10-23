@@ -146,9 +146,9 @@ aside
 
 
 
-// References 
+// References on diamond grid 
 
-.ref--item
+.reference--item
   &:hover
     position  relative
     z-index   1
@@ -156,24 +156,31 @@ aside
     a
       border-color transparent
 
-    .ref--item-layer
+    .reference--item-layer
       opacity 1
 
-    .ref--content
+    .reference--content
       color white
 
   a
     border $diamond-border-size solid lighten(black,75%)
 
-  .ref--item-layer
+  .reference--item-layer
     opacity     0
     transition  opacity $t-fast ease-in-out
 
-  .ref--content
+  .reference--content
     color black
 
+
 /******************************************************************************/
-/* Reference page **************************************************************/
+/* Carousel of Reference ******************************************************/
+
+.carousel--translate
+  transition transform $t-reg ease-out
+
+/******************************************************************************/
+/* Reference page *************************************************************/
 
 .template--references
   

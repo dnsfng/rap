@@ -525,9 +525,9 @@ table {
 
 /* line 1 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/values.styl */
 
-/* line 76 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/values.styl */
+/* line 77 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/values.styl */
 
-/* line 76 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/init.styl */
+/* line 77 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/init.styl */
 
 /* line 1 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/init.styl */
 * {
@@ -755,7 +755,7 @@ section.section--intro {
 }
 
 /* line 121 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-.ref--list {
+.reference--list {
   margin: 0 auto 80px;
   padding-top: 80px;
   font-size: 0;
@@ -764,34 +764,34 @@ section.section--intro {
 @media screen and (max-width: 361px) {
 
 /* line 131 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-  .ref--list {
+  .reference--list {
     max-width: 221.5px;
   }
 }
 @media screen and (min-width: 362px) and (max-width: 543px) {
 
 /* line 134 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-  .ref--list {
+  .reference--list {
     max-width: 312px;
   }
 }
 @media screen and (min-width: 544px) and (max-width: 775px) {
 
 /* line 137 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-  .ref--list {
+  .reference--list {
     max-width: 494px;
   }
 }
 @media screen and (min-width: 776px) {
 
 /* line 140 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-  .ref--list {
+  .reference--list {
     max-width: 676px;
   }
 }
 
 /* line 144 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-.ref--list .ref--item {
+.reference--list .reference--item {
   list-style: none;
   display: inline-block;
   margin-right: 52px;
@@ -799,83 +799,83 @@ section.section--intro {
 @media screen and (max-width: 361px) {
 
 /* line 153 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-  .ref--list .ref--item {
+  .reference--list .reference--item {
     margin-right: 52px;
   }
 
 /* line 156 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-  .ref--list .ref--item:nth-child(odd) {
+  .reference--list .reference--item:nth-child(odd) {
     margin-right: 0;
     margin-left: 91.5px;
   }
 
 /* line 160 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-  .ref--list .ref--item:nth-child(n+1) {
+  .reference--list .reference--item:nth-child(n+1) {
     margin-top: -39.5px;
   }
 }
 @media screen and (min-width: 362px) and (max-width: 543px) {
 
 /* line 165 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-  .ref--list .ref--item:nth-child(3n+3) {
+  .reference--list .reference--item:nth-child(3n+3) {
     margin-left: 91px;
   }
 
 /* line 168 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-  .ref--list .ref--item:nth-child(3n+2) {
+  .reference--list .reference--item:nth-child(3n+2) {
     margin-right: 0;
   }
 
 /* line 171 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-  .ref--list .ref--item:nth-child(n+2) {
+  .reference--list .reference--item:nth-child(n+2) {
     margin-top: -39.5px;
   }
 }
 @media screen and (min-width: 544px) and (max-width: 775px) {
 
 /* line 176 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-  .ref--list .ref--item:nth-child(5n+4) {
+  .reference--list .reference--item:nth-child(5n+4) {
     margin-left: 91px;
   }
 
 /* line 179 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-  .ref--list .ref--item:nth-child(5n+3) {
+  .reference--list .reference--item:nth-child(5n+3) {
     margin-right: 0;
   }
 
 /* line 182 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-  .ref--list .ref--item:nth-child(n+3) {
+  .reference--list .reference--item:nth-child(n+3) {
     margin-top: -39.5px;
   }
 }
 @media screen and (min-width: 776px) {
 
 /* line 187 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-  .ref--list .ref--item:nth-child(7n+5) {
+  .reference--list .reference--item:nth-child(7n+5) {
     margin-left: 91px;
   }
 
 /* line 190 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-  .ref--list .ref--item:nth-child(7n+4) {
+  .reference--list .reference--item:nth-child(7n+4) {
     margin-right: 0;
   }
 
 /* line 193 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-  .ref--list .ref--item:nth-child(n+4) {
+  .reference--list .reference--item:nth-child(n+4) {
     margin-top: -39.5px;
   }
 }
 
 /* line 196 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-.ref--list .ref--item a,
-.ref--list .ref--item .ref--content,
-.ref--list .ref--item .ref--item-layer {
+.reference--list .reference--item a,
+.reference--list .reference--item .reference--content,
+.reference--list .reference--item .reference--item-layer {
   height: 130px;
   width: 130px;
 }
 
 /* line 201 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-.ref--list .ref--item a {
+.reference--list .reference--item a {
   position: relative;
   display: block;
   overflow: hidden;
@@ -885,7 +885,7 @@ section.section--intro {
 }
 
 /* line 208 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-.ref--list .ref--item .ref--item-layer {
+.reference--list .reference--item .reference--item-layer {
   position: absolute;
   display: block;
   -webkit-transform: rotate(45deg);
@@ -893,7 +893,7 @@ section.section--intro {
 }
 
 /* line 213 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-.ref--list .ref--item .ref--content {
+.reference--list .reference--item .reference--content {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
@@ -901,14 +901,14 @@ section.section--intro {
           transform: rotate(-45deg);
 }
 
-/* line 221 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
+/* line 222 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
 .modal--open {
   position: fixed;
   top: 20px;
   right: 20px;
 }
 
-/* line 226 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
+/* line 227 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
 .modal--close {
   position: absolute;
   top: 20px;
@@ -916,7 +916,7 @@ section.section--intro {
   z-index: 1;
 }
 
-/* line 232 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
+/* line 233 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
 .modal {
   position: fixed;
   top: 0;
@@ -933,31 +933,30 @@ section.section--intro {
   z-index: 1;
 }
 
-/* line 246 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
+/* line 247 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
 #modal:target {
   opacity: 1;
   pointer-events: auto;
 }
 
-/* line 250 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
+/* line 251 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
 
-/* line 252 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
+/* line 253 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
 .modal .carousel--wrapper {
   height: 100%;
 }
 
-/* line 255 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
+/* line 256 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
 .modal .carousel--translate {
   width: 100%;
   height: 100%;
 }
 
-/* line 259 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
+/* line 260 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
 .modal .carousel--reference {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
+  float: left;
+  height: 100%;
+  width: 100vw;
 }
 
 /* line 265 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
@@ -965,81 +964,6 @@ section.section--intro {
 .modal .carousel--reference h1 {
   margin: 0;
   padding: 20px;
-}
-
-/* line 273 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-.modal .carousel--reference-child-1 {
-  margin-left: 0%;
-}
-
-/* line 273 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-.modal .carousel--reference-child-2 {
-  margin-left: 100%;
-}
-
-/* line 273 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-.modal .carousel--reference-child-3 {
-  margin-left: 200%;
-}
-
-/* line 273 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-.modal .carousel--reference-child-4 {
-  margin-left: 300%;
-}
-
-/* line 273 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-.modal .carousel--reference-child-5 {
-  margin-left: 400%;
-}
-
-/* line 273 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-.modal .carousel--reference-child-6 {
-  margin-left: 500%;
-}
-
-/* line 273 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-.modal .carousel--reference-child-7 {
-  margin-left: 600%;
-}
-
-/* line 273 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-.modal .carousel--reference-child-8 {
-  margin-left: 700%;
-}
-
-/* line 273 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-.modal .carousel--reference-child-9 {
-  margin-left: 800%;
-}
-
-/* line 273 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-.modal .carousel--reference-child-10 {
-  margin-left: 900%;
-}
-
-/* line 273 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-.modal .carousel--reference-child-11 {
-  margin-left: 1000%;
-}
-
-/* line 273 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-.modal .carousel--reference-child-12 {
-  margin-left: 1100%;
-}
-
-/* line 273 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-.modal .carousel--reference-child-13 {
-  margin-left: 1200%;
-}
-
-/* line 273 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-.modal .carousel--reference-child-14 {
-  margin-left: 1300%;
-}
-
-/* line 273 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-.modal .carousel--reference-child-15 {
-  margin-left: 1400%;
 }
 
 /* line 277 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
@@ -1358,64 +1282,70 @@ aside .error--link a {
 /* line 151 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
 
 /* line 152 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
-.ref--item:hover {
+.reference--item:hover {
   position: relative;
   z-index: 1;
 }
 
 /* line 156 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
-.ref--item:hover a {
+.reference--item:hover a {
   border-color: transparent;
 }
 
 /* line 159 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
-.ref--item:hover .ref--item-layer {
+.reference--item:hover .reference--item-layer {
   opacity: 1;
 }
 
 /* line 162 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
-.ref--item:hover .ref--content {
+.reference--item:hover .reference--content {
   color: #fff;
 }
 
 /* line 165 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
-.ref--item a {
+.reference--item a {
   border: 1px solid #bfbfbf;
 }
 
 /* line 168 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
-.ref--item .ref--item-layer {
+.reference--item .reference--item-layer {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
           transition: opacity 200ms ease-in-out;
 }
 
 /* line 172 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
-.ref--item .ref--content {
+.reference--item .reference--content {
   color: #000;
 }
 
-/* line 178 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
+/* line 179 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
+.carousel--translate {
+  -webkit-transition: -webkit-transform 600ms ease-out;
+          transition: transform 600ms ease-out;
+}
 
-/* line 180 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
+/* line 185 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
+
+/* line 187 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
 .template--references .header--top {
   background-color: #fff;
 }
 
-/* line 183 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
+/* line 190 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
 .template--references .reference {
   color: #fff;
 }
 
-/* line 186 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
+/* line 193 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
 .template--references .reference--description {
   font-size: 1.625em;
   line-height: 1.154em;
 }
 
-/* line 190 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
+/* line 197 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
 
-/* line 191 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
+/* line 198 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
 .ref--nav-control a {
   color: #fff;
   text-align: center;

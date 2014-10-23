@@ -1,3 +1,13 @@
+// Error 
+
+.todo
+  background-color rgba(red,0.1)
+
+todo()
+  background-color rgba(red,0.1)
+
+// Resetter 
+
 resetMarginPadding()
   margin 0
   padding 0
@@ -5,30 +15,33 @@ resetMarginPadding()
 fix3d()
   transform translate3d(0,0,0)
 
+// Maths
+
 sqrt(x)
   return math(x, 'sqrt') // use js math lib
+
+// Units
 
 em(pixel, context = 16)
   pixel = unit(pixel, px)
   context = unit(context, px)
-  (pixel / context)em
-  
-// Media queries handlers
+  round(pixel / context, 3)em
 
-minw(w)
-  '(min-width:' + w +')'
- 
-maxw(w)
-  '(max-width:' + w +')'
- 
-min-max(min-w, max-w)
-  minw(min-w) +  ' and ' + maxw(max-w)
- 
-screen-min(w)
-  'screen and ' + minw(w)
- 
-screen-max(w)
-  'screen and ' + maxw(w)
- 
-screen-min-max(min-w, max-w)
-  'screen and ' + min-max(min-w, max-w)
+
+// Alignment
+
+verticalAlign(offsetY = -50%)
+  position relative
+  top 50%
+  transform translateY(offsetY)
+
+horizontalAlign(marginTop = 0, marginBottom = 0)
+  margin marginTop auto marginBottom
+
+
+// Style
+
+fakeContent()
+  content ""
+  position absolute
+  

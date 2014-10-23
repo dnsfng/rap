@@ -1,51 +1,49 @@
-/* General ***********************************/
+/******************************************************************************/
+/* General ********************************************************************/
+
+html
+body
+  background-color white
 
 html
   font-size 100%
   -webkit-text-size-adjust 100%
-  -ms-text-size-adjust 100%
+  -ms-text-size-adjust     100%
 
 body
-  font em(16)\/em(20) mgl, Arial, sans-serif
+  font em(16)\/em(20) mg, Arial, sans-serif normal
 
 h2
-  font em(35) mgb
-  text-transform uppercase
+  font-size       em(35)
+  text-transform  uppercase
+  MissionGothic-Black()
 
-
-/* Main sections *****************************/
+/******************************************************************************/
+/* Main sections **************************************************************/
 
 section
   
   fix3d()
 
   &:before
-    content ""
-    position absolute
-    bottom 100%
-    right 0%
+  &:after
+    fakeContent()
     width: 0
     height: 0
     border-style solid
-    border-width 1024px 0 0 1024px
+
+  &:before
+    bottom 100%
+    right 0%
+    border-width 100vw 0 0 100vw
     border-color transparent transparent transparent white
 
-    @media screen and (min-width 1024px)
-      border-width 100vw 0 0 100vw
-
   &:after
-    content ""
-    position absolute
     top 100%
     left 0%
-    width 0
-    height 0
-    border-style solid
-    border-width 0 1024px 1024px 0
+    border-width 0 100vw 100vw 0
     border-color transparent white transparent transparent
 
-    @media screen and (min-width 1024px)
-      border-width 0 100vw 100vw 0
 
   &:nth-child(odd)
     background-color white
@@ -61,21 +59,95 @@ section
     &:after
       border-color transparent black transparent transparent 
 
+  &:first-child:before
+  &:first-child:after
+    content none /*remove :after & :before triangle on .section--intro so
+    before diagonal stays visible*/
 
-// Section 00
+  &:nth-last-child(2):after
+    content none
+
+
+/* Section 00 *****************************************************************/
+
+.logo
+  &:before,
+  &:after
+    fakeContent()
+    left 50%
+    height 1px
+    background-color lighten(black,75%)
+    transform-origin 0% 0%
+    
+  &:before
+    width 200%
+    top 0%
+    left 50%
+    margin-left - $logo-image-padding - ($logo-image-size/2)px
+    margin-top - $logo-image-padding
+    transform rotate(45*5deg)
+
+  &:after
+    content none
+    width 200%
+    transform rotate(45deg)
+  
+  @media screen and (min-width $tabletPortrait['width'])
+    &:before
+      margin-left - $logo-image-padding - ($logo-image-size_tablet/2)px
+
+    &:after
+      content ""
+      bottom - $logo-image-padding
+      margin-left $logo-image-size_tablet + $logo-image-padding
+
+  @media screen and (min-width $tabletLandscape['width'])
+    &:before
+      left 0%
+      margin-left - $logo-image-padding
+
+    &:after
+      content ""
+      top $logo-image-size_laptop + $logo-image-padding
+      bottom auto
+      left @top
+      margin-left auto
+
 aside
   strong
     font-weight normal
 
   .intro--baseline
-    font-size em(22)
+    font-size 1em
+    MissionGothic-Thin()
     text-align center
+
+    @media screen and (min-height $phoneLandscape['height']+1)
+      font-size em(22)
+      line-height em(26/@font-size)
+    
+    @media screen and (min-width $laptop)
+      text-align left  
+
+  .error--baseline
+    @extends aside .intro--baseline
+    margin-top $step*10
+
+  .error--link
+    @extend aside .intro--baseline
+    a
+      color black
+      text-decoration underline
+
 
 
 // References 
 
 .ref--item
   &:hover
+    position relative
+    z-index 1
+
     a
       border-color transparent
 
@@ -86,11 +158,34 @@ aside
       color white
 
   a
-    border diamond-border-size solid lighten(black,75%)
+    border $diamond-border-size solid lighten(black,75%)
 
   .ref--item-layer
     opacity 0
-    transition opacity t-fast ease-in-out
+    transition opacity $t-fast ease-in-out
 
   .ref--content
     color black
+
+/******************************************************************************/
+/* Reference page **************************************************************/
+
+.template--references
+  
+  .header--top
+    background-color white
+
+  .reference
+    color white
+
+  .reference--description
+    font-size em(26)
+    line-height em(30/@font-size)
+
+.ref--nav-control
+  a
+    color white
+    text-align center
+    todo()
+      
+

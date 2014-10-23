@@ -1,28 +1,77 @@
-// TRANSITIONS
+/********************************************************************/
+/* Global ***********************************************************/
+
+$step = 5px
+
+/********************************************************************/
+/* Mediaqueries *****************************************************/
+
+// $phoneLandscape = 480px
+// $phonePortrait = 320px
+$phonePortrait = {
+  width  : 320px,
+  height : 480px
+}
+$phoneLandscape = {
+  width  : 480px,
+  height : 320px
+}
+$tabletPortrait = {
+  width  : 768px,
+  height : 1024px
+}
+$tabletLandscape = {
+  width  : 1024px,
+  height : 768px
+}
+
+$laptop = 1280px
+$desktop = 1440px
+
+/********************************************************************/
+/* Transitions ******************************************************/
+
 // Timings
-  t-fast = 200ms
+  $t-fast = 200ms
+  $t-reg = 600ms
   t = {
     slow : '1200ms',
     reg  : '600ms',
     fast : '200ms',
   }
 
+/********************************************************************/
+/* Main sections ****************************************************/
 
-// section padding
-  section-padding = 25px
+  $section-padding = 25px
+
+/* Section 00 ******************************************************/
+
+  $logo-image-size = 140px
+  $logo-image-size_mobile = $logo-image-size*0.8
+  $logo-image-size_tablet = $logo-image-size*1.4
+  $logo-image-size_laptop = $logo-image-size*0.9
+
+  $logo-image-padding = 25px
+
+  $logo-wrapper-size_mobile = 300px
+  $logo-wrapper-size_laptop = 600px
+
+
+/* Section 04 ******************************************************/
 
 // diamond grid config
-  diamond-border-size = 1px
-  diamond-size = 150px
-  diamond-diagonale = floor(sqrt(((diamond-size ** 2) *2)))px
+  $diamond-border-size = 1px
+  $diamond-size = 130px
+  $diamond-diagonale = floor(sqrt((($diamond-size ** 2) *2)))px
 
 // diamond calc values
 
   // added horizontal space to parent block to join diamonds on the same row
-  diamond-interval = floor((diamond-diagonale - diamond-size) - diamond-border-size)px
+  $diamond-interval = floor(($diamond-diagonale - $diamond-size) - $diamond-border-size)px
   
   // added horizontal space to new row of diamonds
-  diamond-row-xoffset = floor((diamond-diagonale/2) - diamond-border-size)px
+  $diamond-row-xoffset = floor(($diamond-diagonale/2))px
   
   // added vertical space to new row of diamonds
-  diamond-row-yoffset = -(floor(diamond-size/2) - ((diamond-diagonale - diamond-size)/2)) - (diamond-border-size)px
+  $diamond-row-yoffset = -(floor($diamond-size/2) - (($diamond-diagonale - $diamond-size)/2)) - ($diamond-border-size)px

@@ -1,164 +1,312 @@
+/******************************************************************************/
+/* General ********************************************************************/
+
 html
 body
 main
-  height 100%
-  width 100%
-  background-color white
+  height  100%
+  width   100%
 
-.wrapper
-  overflow-x hidden
-  height 100%
+/******************************************************************************/
+/* Main sections **************************************************************/
 
 section
-  display block
-  position relative
-  width 100%
-  margin 100% 0
-  padding section-padding
+  display   block
+  position  relative
+  width     100%
+  margin    100% 0
+  padding   $section-padding
     
   &.section--intro
-    height 50%
+    height 100%
     margin 0
 
+.section--title
+  margin-bottom $step*6
+
+/* Section 00 *****************************************************************/
+.section--intro
+  overflow hidden //hides :after diagonale
+
+  + section
+    margin-top 90%
+
+// Wrapper
+.section--00--wrapper
+  verticalAlign(-78%)
+  //transition transform $t-reg ease-out    
+  
+  @media screen and (min-height ($phoneLandscape['height']+1))
+    // portrait mobile
+    verticalAlign(-39%)
+
+  @media screen and (min-width $tabletPortrait['width'])
+    verticalAlign(-60%)  
+
+// Components
+
+.logo--component
+  display block
+  horizontalAlign(0, $step*2)
+
+.logo--image
+  width   $logo-image-size_mobile
+  height  @width
+  @media screen and (orientation portrait)
+    width   $logo-image-size
+    height  @width
+
+.logo--name
+  width   250px
+  height  32px
+
+.baseline
+  width 90%
+  horizontalAlign()
+
+  strong
+    display block
+
+
+@media screen and (min-width $tabletPortrait['width'])
+  .logo--image
+    width   $logo-image-size_tablet
+    height  @width
+
+  .logo--name
+    width   350px
+    height  45px
+
+
+@media screen and (min-width $tabletLandscape['width'])
+  .logo
+    display   block
+    position  relative
+    width     $logo-wrapper-size_laptop
+    horizontalAlign()
+
+  .logo--image
+    float         left
+    width         $logo-image-size_laptop
+    height        @width
+    margin-bottom 0
+
+  .logo--name
+    margin      0
+    width       450px
+    height      76px
+    padding-top 16px
+
+  .baseline
+    width       auto
+    margin-left $logo-image-size_laptop
+    margin-top  12px
+
+/* Section 04 *****************************************************************/
+
 .ref--list
-  margin: 40px auto
-  font-size 0
+  horizontalAlign(0, $step*16)
+  padding-top $step*16
+  font-size   0
   line-height normal
 
-  mq2-min = ((section-padding * 2) - diamond-interval + (diamond-size + diamond-interval) * 2)px
-  mq3-min = ((section-padding * 2) - diamond-interval + (diamond-size + diamond-interval) * 3)px
-  mq4-min = ((section-padding * 2) - diamond-interval + (diamond-size + diamond-interval) * 4)px
+  $$mq2-min = (($section-padding * 2) - $diamond-interval + ($diamond-size + $diamond-interval) * 2)px
+  $$mq3-min = (($section-padding * 2) - $diamond-interval + ($diamond-size + $diamond-interval) * 3)px
+  $$mq4-min = (($section-padding * 2) - $diamond-interval + ($diamond-size + $diamond-interval) * 4)px
 
-  @media screen and (max-width (mq2-min - 1))
-    max-width diamond-size + (diamond-diagonale / 2)
+  @media screen and (max-width ($$mq2-min - 1))
+    max-width $diamond-size + ($diamond-diagonale / 2)
 
-  @media screen and (min-width mq2-min) and (max-width (mq3-min - 1))
-    max-width ((diamond-size + diamond-interval) * 2) - diamond-interval
+  @media screen and (min-width $$mq2-min) and (max-width ($$mq3-min - 1))
+    max-width (($diamond-size + $diamond-interval) * 2) - $diamond-interval
 
-  @media screen and (min-width mq3-min) and (max-width (mq4-min - 1))
-    max-width ((diamond-size + diamond-interval) * 3) - diamond-interval
+  @media screen and (min-width $$mq3-min) and (max-width ($$mq4-min - 1))
+    max-width (($diamond-size + $diamond-interval) * 3) - $diamond-interval
 
-  @media screen and (min-width mq4-min)
-    max-width ((diamond-size + diamond-interval) * 4) - diamond-interval
+  @media screen and (min-width $$mq4-min)
+    max-width (($diamond-size + $diamond-interval) * 4) - $diamond-interval
 
 
   .ref--item
     
     // cf. values.styl
 
-    list-style none
-    display inline-block
-    margin-right diamond-interval
+    list-style    none
+    display       inline-block
+    margin-right  $diamond-interval
     
 
-    @media screen and (max-width (mq2-min - 1))
-      margin-right diamond-interval
+    @media screen and (max-width ($$mq2-min - 1))
+      margin-right $diamond-interval
 
       &:nth-child(odd)
         margin-right 0
-        margin-left (diamond-diagonale / 2)
+        margin-left ($diamond-diagonale / 2)
 
       &:nth-child(n+1)
-        margin-top diamond-row-yoffset
+        margin-top $diamond-row-yoffset
+
     
-    @media screen and (min-width mq2-min) and (max-width (mq3-min - 1))
+    @media screen and (min-width $$mq2-min) and (max-width ($$mq3-min - 1))
       &:nth-child(3n+3)
-        margin-left diamond-row-xoffset
+        margin-left $diamond-row-xoffset
       
       &:nth-child(3n+2)
         margin-right 0
         
       &:nth-child(n+2)
-        margin-top diamond-row-yoffset
+        margin-top $diamond-row-yoffset
 
-    @media screen and (min-width mq3-min) and (max-width (mq4-min - 1))
+
+    @media screen and (min-width $$mq3-min) and (max-width ($$mq4-min - 1))
       &:nth-child(5n+4)
-        margin-left diamond-row-xoffset
+        margin-left $diamond-row-xoffset
       
       &:nth-child(5n+3)
         margin-right 0
         
       &:nth-child(n+3)
-        margin-top diamond-row-yoffset
+        margin-top $diamond-row-yoffset
 
-    @media screen and (min-width mq4-min)
+
+    @media screen and (min-width $$mq4-min)
       &:nth-child(7n+5)
-        margin-left diamond-row-xoffset
+        margin-left $diamond-row-xoffset
       
       &:nth-child(7n+4)
         margin-right 0
         
       &:nth-child(n+4)
-        margin-top diamond-row-yoffset
+        margin-top $diamond-row-yoffset
 
     a
     .ref--content
     .ref--item-layer
-      width diamond-size
-      height diamond-size
-      
+      height  $diamond-size
+      width   @height
     a
-      position relative
-      display block
-      overflow hidden
+      position  relative
+      display   block
+      overflow  hidden
       transform rotate(45deg)
       font-size 16px
 
     .ref--item-layer
-      position absolute
-      display block
+      position  absolute
+      display   block
       transform rotate(45deg)
 
     .ref--content
-      display table-cell
-      vertical-align middle
-      text-align center
-      transform rotate(-45deg)
+      display         table-cell
+      vertical-align  middle
+      text-align      center
+      transform       rotate(-45deg)
+
+/* Modal ****************************************************************/
 
 .open--modal
-  position fixed
-  top 20px
-  right 20px
+  position  fixed
+  top       20px
+  right     20px
 
 .modal
-  position fixed
-  top 0
-  left 0
-  right 0
-  bottom 0
-  opacity 0
-  overflow hidden
-  transition opacity 400ms
-  pointer-events none
-  background-color rgba(black,0.8)
-  color #fff
+  position          fixed
+  top               0
+  left              0
+  right             0
+  bottom            0
+  opacity           0
+  overflow          hidden
+  transition        opacity 400ms
+  pointer-events    none
+  background-color  rgba(black,0.8)
+  color             #fff
 
 #modal:target
-  opacity 1
-  pointer-events auto
+  opacity         1
+  pointer-events  auto
 
 .modal
   article
-    display block
-    position absolute
-    top 0
-    left 0
-    width 80%
-    height 100%
-    margin 0
-    padding 0
+    display   block
+    position  absolute
+    top       0
+    left      0
+    width     80%
+    height    100%
+    margin    0
+    padding   0
 
     p
     h1
-      margin 0
+      margin  0
       padding 20px
   
   for i in (1..15)
     article:nth-child({i})
-      step = 80%
-      left (i) * step
-      margin-left -(step)
+      $$step = 80%
+      left        (i) * $$step
+      margin-left -($$step)
+
+/******************************************************************************/
+/* Reference page **************************************************************/
+
+.header--top
+  padding $step*2 $step*4
+
+  .logo--image
+    float none
+    height 50px
+    width @height
+
+  .close
+    position absolute
+    top 20px
+    right @top
+
+.template--references
+.template--references main
+  height auto
+  @media screen and (min-width ($tabletPortrait['width'] - 1)) and (min-height ($tabletLandscape['height'] - 109))
+    height 100%
+
+.reference
+  padding $step*5
+
+.reference--logo
+  display block
+  height auto
+  width 100%
+  max-width 400px
+  horizontalAlign($step*10, $step*10)
+
+.reference--title
+  margin-bottom $step*10
 
 
-      
-    
+.ref--nav
+  margin-top $step*20
+  padding $step*5
+  overflow hidden
+
+  @media screen and (min-width ($tabletPortrait['width'] - 1)) and (min-height ($tabletLandscape['height'] - 109))
+    position absolute
+    right 0
+    bottom 0
+    left 0
+
+  .ref--nav-control
+    display inline-block
+
+    a
+      display table-cell
+      height $step*8
+      width @height
+      vertical-align middle
+
+    &.ref--nav-prev
+      float left
+
+    &.ref--nav-next
+      float right
+

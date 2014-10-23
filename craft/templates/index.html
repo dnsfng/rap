@@ -21,50 +21,51 @@
 
 {% block content %}
 
-  <div class="wrapper">
-    <section class="section--00 section--intro">
-      <h1>
-        <span class="out test">{{ siteName }}</span>
-        <a href="{{ siteUrl }}">
-          <img src="" alt="">
-        </a>
-      </h1>
-      <aside>
-        <strong class="intro--baseline">{{ entry.baseline }}</strong>
-      </aside>
-      
-      <a href="#modal" class="js--open-modal open--modal">test</a>
-    </section>
+  <section class="section--00 section--intro">
+    <div class="section--00--wrapper">
+      <a class="logo" href="{{ siteUrl }}">
+        <h1>
+          <span class="out test">{{ siteName }}</span>
+        </h1>
+        <img class="logo--component logo--image todo" src="/_assets/i/_logo_w100_h100.svg" alt="Logo Reset & Play">
+        <img class="logo--component logo--name todo" src="" alt="">
+        <aside class="baseline">
+          <strong class="intro--baseline">{{ entry.baseline }}</strong>
+        </aside>
+      </a>
+    </div>
+    
+    <a href="#modal" class="js--open-modal open--modal">test</a>
+  </section>
 
-    <section class="section--01 section--why">
-      <h2>{{ entry.heading }}</h2>
-      <p>{{ entry.home01Description }}</p>
-    </section>
+  <section class="section--01 section--why">
+    <h2 class="section--title">{{ entry.heading }}</h2>
+    <div class="section--description">{{ entry.home01Description }}</div>
+  </section>
 
-    <section class="section--02 section--how">
-      <h2>{{ entry.home02Heading }}</h2>
-      <p>{{ entry.home02Description }}</p>  
-    </section>
+  <section class="section--02 section--how">
+    <h2 class="section--title">{{ entry.home02Heading }}</h2>
+    <div class="section--description">{{ entry.home02Description }}</div>  
+  </section>
 
-    <section class="section--03 section--what">
-      <h2>{{ entry.home03Heading }}</h2>
-      <p>{{ entry.home02Description }}</p>
-    </section>
+  <section class="section--03 section--what">
+    <h2 class="section--title">{{ entry.home03Heading }}</h2>
+    <div class="section--description">{{ entry.home02Description }}</div>
+  </section>
 
-    <section class="section--04 section--references">
-      <h2>{{ entry.home04Heading }}</h2>
-      <ul class="ref--list">
-        {% for entry in craft.entries.type('projets') %}
-          <li class="ref--item ref--item-{{loop.index}}">
-            <div class="ref--item-layer" style="background-color : {{entry.backgroundColor}}"></div>
-            <a href="{{ entry.url }}">
-              <div class="ref--content">{{ entry.title }}</div>
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
-    </section>
-  </div>
+  <section class="section--04 section--references">
+    <h2 class="section--title">{{ entry.home04Heading }}</h2>
+    <ul class="ref--list">
+      {% for entry in craft.entries.type('projets') %}
+        <li class="ref--item ref--item-{{loop.index}}">
+          <div class="ref--item-layer" style="background-color : {{entry.backgroundColor}}"></div>
+          <a href="{{ entry.url }}">
+            <div class="ref--content">{{ entry.title }}</div>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
 
   <div class="modal" id="modal">
     {% for entry in craft.entries.type('projets') %}

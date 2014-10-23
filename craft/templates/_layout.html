@@ -10,7 +10,7 @@
  #}
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="fr-FR">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr-FR" style="{{ backgroundColor is defined ? 'background-color : ' ~ backgroundColor }}">
 <head>
 	<meta charset="utf-8" />
 	<title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
@@ -22,9 +22,12 @@
 
 </head>
 
-<body>
+<body class="{{ bodyClass is defined ? bodyClass }}" style="{{ backgroundColor is defined ? 'background-color : ' ~ backgroundColor }}">
 
 		<main id="content" role="main">
+
+			{% block header %} {% endblock %}
+
 			{% block content %}
 				<p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
 				<p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
@@ -35,7 +38,12 @@
 			Copyright {{ now.year }} {{ craft.request.serverName | ucfirst }}. All rights reserved  •  Built with <a href="http://buildwithcraft.com">Craft</a>
 		</footer> -->
 
+	<!-- Vendor Scripts -->
 	<script type="text/javascript" src="/_assets/j/vendor/jquery.min.js"></script>
+	<script type="text/javascript" src="/_assets/j/vendor/viewport-units-buggyfill.js"></script>
+	<script>window.viewportUnitsBuggyfill.init();</script>
+
+	<!-- App Scripts -->
 	<script type="text/javascript" src="/_assets/j/app/play.js"></script>
 
 

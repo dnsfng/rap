@@ -15,16 +15,40 @@
 
 {% extends "_layout" %}
 
+{% set bodyClass = 'template--references' %}
+{% set backgroundColor = entry.backgroundColor %}
+
+{% block header %}
+  <header class="header--top">
+    <a class="" href="{{ siteUrl }}">
+        <h1>
+          <span class="out">{{ siteName }}</span>
+          <img class="logo--image" src="/_assets/i/_logo_w100_h100.svg" alt="Logo Reset & Play">
+        </h1>
+        <aside class="close">
+          X
+        </aside>
+    </a>
+  </header>
+{% endblock %}
+
 {% block content %}
-  <article>
-    <h1>{{ entry.title }}</h1>
-    <p>Posted on {{ entry.postDate.format('F d, Y') }}</p>
-    {{ entry.description }}
+
+{% set image = entry.logo.first() %}
+
+  <article class="reference">
+    <h1 class="reference--title out">{{ entry.title }}</h1>
+    {% if image %}
+      <img src="{{ image.url }}" alt="{{image.altLogo}}" class="reference--logo">
+    {% endif %}
+    <div class="reference--description">
+      {{ entry.description }}
+    </div>
   </article>
 
-  <ul>
-    {% if prev %}<li><a href="{{ prev.url }}">{{ prev.title }}</a></li> {% endif %}
-    {% if next %}<li><a href="{{ next.url }}">{{ next.title }}</a></li>{% endif %}
+  <ul class="ref--nav">
+    {% if next %}<li class="ref--nav-control ref--nav-prev"><a href="{{ next.url }}"> <- </a></li> {% endif %}
+    {% if prev %}<li class="ref--nav-control ref--nav-next"><a href="{{ prev.url }}"> -> </a></li>{% endif %}
   </ul>
 
 {% endblock %}

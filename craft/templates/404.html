@@ -20,7 +20,21 @@
 {% set title = "404" %}
 
 {% block content %}
-	<h1>Page not found</h1>
-
-	<p>What’s worse, a hilarious 404 page can’t be found either.</p>
+  <section class="section--00 section--intro">
+    <div class="section--00--wrapper">
+      <a class="logo" href="{{ siteUrl }}">
+        <h1>
+          <span class="out test">{{ siteName }}</span>
+        </h1>
+        <img class="logo--component logo--image todo" src="_assets/i/_logo_w100_h100.svg" alt="Logo Reset & Play">
+        <img class="logo--component logo--name todo" src="" alt="">
+      </a>
+      <aside class="baseline">
+        <p class="error--baseline">La page n'a pas été trouvée</p>
+        <p class="error--link">
+          <a href="{{ siteUrl }}">retourner à l'accueil</a>
+        </p>
+      </aside>
+    </div>
+  </section>
 {% endblock %}

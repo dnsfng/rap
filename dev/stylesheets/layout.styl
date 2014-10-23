@@ -15,14 +15,27 @@ section
   position  relative
   width     100%
   margin    100% 0
-  padding   $section-padding
+  padding   step(25)
     
   &.section--intro
     height 100%
     margin 0
 
 .section--title
-  margin-bottom $step*6
+  margin-bottom step(30)
+
+
+@media screen and (min-width $tabletPortrait['width'])
+  section
+    padding step(50)
+
+  .section--title
+    margin-top    step(250)
+    margin-bottom step(420)
+
+  .section--description
+    width         60%
+    margin-bottom step(90)
 
 /* Section 00 *****************************************************************/
 .section--intro
@@ -36,8 +49,8 @@ section
   verticalAlign(-78%)
   //transition transform $t-reg ease-out    
   
-  @media screen and (min-height ($phoneLandscape['height']+1))
-    // portrait mobile
+  @media screen and (min-height ($phoneLandscape['height']+1)) 
+  // ————————————————————————————————————————— portrait mobile
     verticalAlign(-39%)
 
   @media screen and (min-width $tabletPortrait['width'])

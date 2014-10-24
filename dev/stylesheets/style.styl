@@ -26,6 +26,9 @@ section
     width         0
     height        0
     border-style  solid
+    
+    @media screen and (min-width $laptop['min-width'])
+      content none
 
   &:before
     bottom        100%
@@ -72,6 +75,15 @@ section
   .section--description
     font-size   em(22)
     line-height em(28/@font-size)
+    
+@media screen and (min-width $tabletPortrait['width'])
+  .section--title
+    font-size   em(60)
+    text-align  left
+    
+  .section--description
+    font-size   em(26)
+    line-height em(32/@font-size)
 
 /* Section 00 *****************************************************************/
 

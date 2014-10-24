@@ -20,28 +20,52 @@ section
   position  relative
   width     100%
   margin    100% 0
-  padding   step(25)
+  padding   $paddingViewport-mobile
   fix3d()
     
   &.section--intro
     height 100%
     margin 0
+  
+  @media screen and (min-width $tabletPortrait['width']) and (max-width $laptop['max-width'])
+    padding $paddingViewport-tablet
+    
+  @media screen and (min-width $laptop['min-width'])
+    display table
+    height  100%
+    margin  0
+    padding $paddingViewport-laptop
+    
+    &.section--intro
+      display block
+
+
+.section--title--wrapper
+.section--description
+  @media screen and (min-width $laptop['min-width'])
+    display table-cell
+    height 100%
+    width 50%
+    vertical-align middle
 
 .section--title
   margin-bottom step(30)
-
-
-@media screen and (min-width $tabletPortrait['width'])
-  section
-    padding step(50)
-
-  .section--title
+  
+  @media screen and (min-width $tabletPortrait['width']) and (max-width $laptop['max-width'])
     margin-top    step(250)
     margin-bottom step(420)
+      
+  @media screen and (min-width $laptop['min-width'])
+    float left
 
-  .section--description
+
+.section--description
+  
+  @media screen and (min-width $tabletPortrait['width']) and (max-width $laptop['max-width'])
     width         60%
     margin-bottom step(90)
+
+
 
 
 /* Section 00 *****************************************************************/
@@ -51,7 +75,8 @@ section
 
   + section
     margin-top 90%
-
+    @media screen and (min-width $laptop['min-width'])
+      margin-top 0
 
 // Wrapper
 .section--00--wrapper
@@ -342,12 +367,13 @@ section
   height auto
   @media screen and (min-width ($tabletPortrait['width'])) and (min-height $tabletLandscape['height'])
     height 100%
-
+    
 .reference
-  padding $step*5
+  padding $paddingViewport-mobile
   
-  @media screen and (min-width $tabletPortrait['width'])
-    padding $step*16
+  @media screen and (min-width $laptop['min-width'])
+    padding $paddingViewport-laptop
+    
   
 
 

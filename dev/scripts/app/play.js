@@ -28,10 +28,6 @@ $(document).ready(function(){
   //   });
   // }
 
-  // function navigateReference(e, direction){
-  //   e.target.preventDefault()
-  // }
-
   //$('.js--modal-open').click(getReference);
 
 
@@ -41,7 +37,7 @@ $(document).ready(function(){
 
   // Config
 
-  var $_modal        = $('.modal'),
+  var $_modal       = $('.modal'),
       $c_wrapper    = $('.carousel--wrapper'),
       $c_translate  = $('.carousel--translate'),
       $c_flap       = $('.carousel--flap'),
@@ -87,23 +83,36 @@ $(document).ready(function(){
 
   }
 
-  function modalReference(status){
+  function modalReference(status, index){
+
+    index = index || '1';
 
     if(status === true) {
-      $('body').addClass('no-scroll');
+
+      window.setTimeout(function(){
+        $('body').addClass('no-scroll');
+      }, 1200);
+      
       $_modal.addClass('is-visible');
       $c_wrapper.toggleClass('shutter-toggle');
-      navigateCarousel();
-      console.log(status);
+      
+      navigateCarousel(index);
+
     } else {
+
       $('body').removeClass('no-scroll');
       $_modal.removeClass('is-visible');
       $c_wrapper.toggleClass('shutter-toggle');
-      console.log(status);
+      window.location = "#references" ;
     }
 
   }
 
+  $('.js--ref-test').click(function(e){
+    e.preventDefault();
+    var index = $(this).attr('data-ref-index');
+    modalReference(true, index);
+  });
 
   // Binding and behavior
   $('.js--modal-open').click(function(){

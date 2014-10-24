@@ -53,13 +53,13 @@
     <div class="section--description">{{ entry.home02Description }}</div>
   </section>
 
-  <section class="section--04 section--references">
+  <section class="section--04 section--references" id="references">
     <h2 class="section--title">{{ entry.home04Heading }}</h2>
     <ul class="reference--list">
       {% for entry in craft.entries.type('projets') %}
         <li class="reference--item reference--item-child-{{loop.index}}">
           <div class="reference--item-layer" style="background-color : {{entry.backgroundColor}}"></div>
-          <a href="{{ entry.url }}">
+          <a href="{{ entry.url }}" class="js--ref-test" data-ref-index="{{loop.index}}">
             <div class="reference--content">{{ entry.title }}</div>
           </a>
         </li>
@@ -84,7 +84,7 @@
 
       {% for entry in craft.entries.type('projets') %}
 
-        <article class="carousel--reference carousel--reference-child-{{loop.index}} reference" style="background-color:rgb(255,255,255,0.5" data-ref-bgColor="{{entry.backgroundColor}}" data-ref-curent="{{loop.index}}">
+        <article class="carousel--reference carousel--reference-child-{{loop.index}} reference" style="background-color:rgb(255,255,255,0.5" data-ref-bgColor="{{entry.backgroundColor}}" data-ref-index="{{loop.index}}">
 
           {% include "/news/_reference/__content" %}
 

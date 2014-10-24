@@ -1,0 +1,16 @@
+{% set image = entry.logo.first() %}
+
+<h1 class="reference--title out">{{ entry.title }}</h1>
+
+{% if image %}
+  <div class="reference--logo-wrapper">
+    <div class="reference--logo">
+      <img src="{{ image.url }}" alt="{{image.altLogo}}">
+    </div>
+  </div>{% endif %}
+
+  <div class="reference--description-wrapper">
+    <div class="reference--description">
+    {{ entry.description }}
+    </div>
+  </div>

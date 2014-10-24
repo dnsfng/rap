@@ -9,6 +9,7 @@ main
 
 body
   &.no-scroll
+  &.no-scroll main
     overflow hidden
 
 /******************************************************************************/
@@ -41,6 +42,7 @@ section
   .section--description
     width         60%
     margin-bottom step(90)
+
 
 /* Section 00 *****************************************************************/
 
@@ -225,7 +227,7 @@ section
 /******************************************************************************/
 /* Modal **********************************************************************/
 
-.modal--link
+.modal--link-open
   position  fixed
   top       20px
   right     @top
@@ -239,10 +241,7 @@ section
   bottom            0
   opacity           0
   overflow          hidden
-  transition        opacity 400ms
   pointer-events    none
-  background-color  rgba(black,0.8)
-  color             #fff
   z-index           1
 
   &.is-visible
@@ -267,34 +266,45 @@ section
         transform-origin  0% 0%
 
       &.carousel--shutter-ne
-        height    800% //could set better dimension on this later
-        width     @height
-        transform rotate(-45deg) translateX(-1px)
+        width     200%
+        height    @width*2
+        transform rotate(-45deg) // translateX(-1px)
 
         .carousel--flap
-          height    800% //could set better dimension on this later
-          width     @height
-          transform translate3d(100%,0,0)        
+          width     200%
+          height    @width*2
+          transform translate3d(@width/2,0,0)
+          
+        &:before
+          fakeContent()
+          width 1px
+          height 400%
+          background-color white
+          transform translate3d(0,-@height/4,1px)
 
       &.carousel--shutter-sw
-        height    300% //could set better dimension on this later
-        width     @height
-        transform rotate(45deg) translateY(-1px) 
+        width     200%
+        height    @width
+        transform rotate(45deg) //translateY(-1px) 
 
         .carousel--flap
-          height    300% //could set better dimension on this later
-          width     @height
-          transform translate3d(0,100%,0)
+          width     200%
+          height    @width
+          transform translate3d(0,@width/2,0)
 
     &.shutter-toggle
       .carousel--shutter
+        &:before
+          transform translate3d(0,-90%,1px)
         .carousel--flap
           transform translate3d(0,0,0)
 
 
   .carousel--translate
     width   100%
-    height  100%  
+    height  100%
+    overflow scroll
+    -webkit-overflow-scrolling: touch; 
 
   .carousel--reference
     float     left
@@ -307,6 +317,9 @@ section
 /******************************************************************************/
 /* Reference  *****************************************************************/
 
+
+
+// Header
 .header--top
   padding $step*2 $step*4
 
@@ -320,6 +333,10 @@ section
     top       20px
     right     @top
 
+
+
+// Reference : Wrappers
+
 .template--references
 .template--references main
   height auto
@@ -328,45 +345,133 @@ section
 
 .reference
   padding $step*5
+  
+  @media screen and (min-width $tabletPortrait['width'])
+    padding $step*16
+  
+
+
+// Reference : Content
 
 .reference--logo
-  display block
-  height auto
-  width 100%
-  max-width 400px
-  horizontalAlign($step*10, $step*10)
+  horizontalAlign($step*3, $step*8)
+  
+  img
+    display     block
+    height      auto
+    width       auto
+    max-height  step(60)
+    max-width   80%
+    horizontalAlign()
+  
+  .template--references &
+    img
+      horizontalAlign(5%, 5%)
+      
 
-.reference--title
-  margin-bottom $step*10
+@media screen and (min-width $tabletPortrait['width']) and (max-width $laptop['max-width'])
 
-.modal
-  .reference--nav
-    position absolute
-    right 0
-    bottom 0
-    left 0
+  .reference--logo
+    display   inline
+    max-width 40%
+    margin    10% 0 10%
+    float     right
+    background-color blue
+
+  .reference--description
+    width         60%
+    margin-bottom step(90)
+    clear         right
+    
+
+@media screen and (min-width $laptop['min-width'])
+      
+  .reference--logo-wrapper
+  .reference--description-wrapper
+    display table
+    float left
+    width 50%
+    height 100%
+    
+  .reference--description
+  .reference--logo
+    display table-cell
+    vertical-align middle
+  
+  .reference--logo
+    img
+      max-height  inherit
+      max-width   40%
+      margin      0
+      
+  .reference--description
+    padding 0 $step*12
+    
+
+
+
+// Reference : Navigation
 
 .reference--nav
-  margin-top $step*20
-  padding $step*5
-  overflow hidden
+  margin-top  $step*20
+  overflow    hidden
+  
+  &.reference--nav-inner
+    display block
 
+  &.reference--nav-outer
+    display none
+    padding $step*10
+    
+    .modal &
+      position  absolute
+      right     0
+      bottom    0
+      left      0  
+  
   @media screen and (min-width ($tabletPortrait['width'])) and (min-height $tabletLandscape['height'])
-    @extend .modal .reference--nav
+    // @extend .modal .reference--nav !
+    position  absolute
+    right     0
+    bottom    0
+    left      0
+    
+    &.reference--nav-inner
+      display none
 
-  .reference--nav-control
-    display inline-block
+    &.reference--nav-outer
+      display block
 
-    a
-    span
-      display table-cell
-      height $step*8
-      width @height
-      vertical-align middle
 
-    &.reference--nav-prev
-      float left
 
-    &.reference--nav-next
-      float right
+.reference--nav-control
+  display inline-block
+  padding 0
+
+  a
+  span
+    display         table-cell
+    height          $step*8
+    width           @height
+    vertical-align  middle
+
+  &.reference--nav-prev
+    float left
+
+  &.reference--nav-next
+    float right
+    
+  &.reference--nav-close
+    position    absolute
+    left        50%
+    margin-left -($step*8/2)
+    
+    @media screen and (min-width $laptop['min-width'])
+      position fixed
+      top step(50)
+      right step(50)
+      left auto
+      margin-left 0
+
+    
 

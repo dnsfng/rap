@@ -34,16 +34,8 @@
 
 {% block content %}
 
-  {% set image = entry.logo.first() %}
-
   <article class="reference">
-    <h1 class="reference--title out">{{ entry.title }}</h1>
-    {% if image %}
-      <img src="{{ image.url }}" alt="{{image.altLogo}}" class="reference--logo">
-    {% endif %}
-    <div class="reference--description">
-      {{ entry.description }}
-    </div>
+    {% include "/news/_reference/__content" %}
   </article>
 
   <ul class="reference--nav">

@@ -11,7 +11,7 @@ html
   -ms-text-size-adjust     100%
 
 body
-  font em(16)\/em(20) mg, Arial, sans-serif normal
+  font em(16)\/em(24) mg, Arial, sans-serif normal
 
 /******************************************************************************/
 /* Main sections **************************************************************/
@@ -131,7 +131,7 @@ aside
       font-size   em(22)
       line-height em(26/@font-size)
     
-    @media screen and (min-width $laptop)
+    @media screen and (min-width $laptop['min-width'])
       text-align left  
 
   .error--baseline
@@ -172,35 +172,58 @@ aside
   .reference--content
     color black
 
+/******************************************************************************/
+/* Carousel of Reference ******************************************************/
+
+.modal
+  transition        opacity $t-slow
+  background-color  rgba(black,0.8)
+  color             white
 
 /******************************************************************************/
 /* Carousel of Reference ******************************************************/
 
 .carousel--translate
   transition  transform $t-reg ease-in-out
-
+              
+.carousel--shutter-ne
+  &:before
+    transition  transform $t-reg ease-out $t-fast
+  
 .carousel--flap
-  transition  transform $t-reg ease-out,
+  transition  transform $t-slow ease-out,
               background-color $t-fast ease
 
 /******************************************************************************/
 /* Reference page *************************************************************/
 
-.template--references
-  
+// Header
+
+.template--references  
   .header--top
     background-color white
 
   .reference
     color white
 
-  .reference--description
+
+// Reference : Content
+
+.reference--description
+  font-size   em(22)
+  line-height em(28/@font-size)
+  
+  @media screen and (min-width $laptop['min-width'])
     font-size   em(26)
-    line-height em(30/@font-size)
+    line-height em(32/@font-size)
+  
+
+// Reference : Navigation
 
 .reference--nav-control
   a
   span
+  /:root .modal--link-close
     color       white
     text-align  center
     todo()

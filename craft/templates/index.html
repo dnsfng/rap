@@ -35,7 +35,7 @@
       </a>
     </div>
     
-    <a href="#" class="modal--link js--modal-open">open reference</a>
+    <a href="#" class="modal--link-open js--modal-open">open reference</a>
   </section>
 
   <section class="section--01 section--why">
@@ -71,9 +71,7 @@
 {% set length = craft.entries.type('projets').total() %}
 
   <div class="modal" id="modal">
-
-    <a class="modal--link js--modal-close" href="#_">close reference</a>
-
+    
     <div class="carousel--wrapper" data-ref-current="1" data-ref-total="{{length}}" style="width:{{ 100*length ~ '%' }}">
     
       <header class="carousel--shutter carousel--shutter-ne">
@@ -87,25 +85,20 @@
       {% for entry in craft.entries.type('projets') %}
 
         <article class="carousel--reference carousel--reference-child-{{loop.index}} reference" style="background-color:rgb(255,255,255,0.5" data-ref-bgColor="{{entry.backgroundColor}}" data-ref-curent="{{loop.index}}">
-          {% set image = entry.logo.first() %}
 
-          <h1 class="reference--title out">{{ entry.title }}</h1>
-          {% if image %}
-            <img src="{{ image.url }}" alt="{{image.altLogo}}" class="reference--logo">
-          {% endif %}
-          
-          <div class="reference--description">
-            {{ entry.description }}
-          </div>
+          {% include "/news/_reference/__content" %}
+
+          <nav class="reference--nav reference--nav-inner">
+            {% include "__nav.html" %}
+          </nav>
 
         </article>
       {% endfor %}
       
       </div>
 
-      <nav class="reference--nav">
-        <button class="reference--nav-control reference--nav-prev js--carousel-nav " data-ref-direction="prev"> <span><-</span> </button>
-        <button class="reference--nav-control reference--nav-next js--carousel-nav" data-ref-direction="next"> <span>-></span> </button>
+      <nav class="reference--nav reference--nav-outer">
+        {% include "__nav.html" %}
       </nav>
 
     </div>

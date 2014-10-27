@@ -17,7 +17,7 @@ body
 /* Main sections **************************************************************/
 
 section
-  background-color  white
+  background-color  rgba(white, 0.8)
   color             black
 
   &:before
@@ -43,7 +43,7 @@ section
     border-color  transparent white transparent transparent
 
   &:nth-child(even)
-    background-color  black
+    background-color  rgba(black, 0.8)
     color             white
 
     &:before
@@ -76,7 +76,7 @@ section
     font-size   em(22)
     line-height em(28/@font-size)
     
-@media screen and (min-width $tabletPortrait['width'])
+@media screen and (min-width $laptop['min-width'])
   .section--title
     font-size   em(60)
     text-align  left
@@ -163,7 +163,6 @@ aside
 .reference--item
   &:hover
     position  relative
-    z-index   1
 
     a
       border-color transparent

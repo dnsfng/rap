@@ -9,30 +9,9 @@ $(document).ready(function(){
     causeRepaintsOn.css("z-index", 1);
   });
 
-  // ———————————————————————————————————————————————————————
-
-  // function getReference() {
-  //   var request = $.ajax({
-  //     url: "projets/ubisoft",
-  //     type: "GET",      
-  //     dataType: "html"
-  //   });
-
-  //   request.done(function(d) {
-  //     console.log(d);
-  //     $('.modal article').html(d); 
-  //   });
-
-  //   request.fail(function(jqXHR, textStatus) {
-  //     alert( "Request failed: " + textStatus );
-  //   });
-  // }
-
-  //$('.js--modal-open').click(getReference);
-
 
   // ———————————————————————————————————————————————————————
-  // CAROUSEL NAVIGATION
+  // Carousel handler
 
 
   // Config
@@ -108,13 +87,15 @@ $(document).ready(function(){
 
   }
 
+  
+  // Binding and behavior
+
   $('.js--ref-test').click(function(e){
     e.preventDefault();
     var index = $(this).attr('data-ref-index');
     modalReference(true, index);
   });
 
-  // Binding and behavior
   $('.js--modal-open').click(function(){
     modalReference(true);
   });

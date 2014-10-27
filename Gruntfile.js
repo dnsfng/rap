@@ -54,7 +54,7 @@ module.exports = function(grunt) {
         src: 'Gruntfile.js'
       },
       js_test: {
-        src: ['dev/scripts/app/*.js']
+        src: ['dev/scripts/app/reset.js']
       }
     },
     qunit: {

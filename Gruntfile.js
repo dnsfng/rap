@@ -67,7 +67,14 @@ module.exports = function(grunt) {
       },
       js_test: {
         files: '<%= jshint.js_test.src %>',
-        tasks: ['jshint:js_test', 'copy:js']
+        tasks: ['jshint:js_test']
+      },
+      js_copy: {
+        files: 'dev/scripts/app/*',
+        tasks: ['copy'],
+        options: {
+          livereload: true,
+        }
       },
       css: {
         files: ['dev/stylesheets/*.styl', 'dev/stylesheets/*.css'],

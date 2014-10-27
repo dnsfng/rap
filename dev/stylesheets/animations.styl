@@ -1,0 +1,54 @@
+/* Section 00 *****************************************************************/
+
+.main--shutter
+  position fixed
+  top 0
+  bottom 0
+  left 0
+  right 0
+  background-color rgba(red,0.5)
+  display none
+  @media screen and (min-width $laptop['min-width'])
+    display block
+  
+
+.circle
+  position absolute
+  width 100px
+  height 100px
+  border-radius 100%
+  background-color blue
+  
+
+.shutter
+  position fixed
+  background-color transparent
+  width 200%
+  height 200%
+  overflow hidden
+  z-index 1
+  
+  &.shutter-ne
+    transform-origin 0% 100%
+    transform translateY(-100%) rotate(45deg)
+    
+  &.shutter-sw
+    transform-origin 0% 0%
+    transform rotate(45deg)
+    
+
+.flap
+  background-color black
+  width 100%
+  height 100%
+  transform-origin 0% 0%
+  margin-left 40%
+  
+  .shutter-ne &
+    transform-origin 0% 100%
+    transform rotate(60deg)
+    test(50)
+    
+  .shutter-sw &
+    transform rotate(-60deg)
+    test(20)

@@ -25,12 +25,28 @@ section
     
   &.section--intro
     height 100%
-    margin 0
-  
-  @media screen and (min-width $tabletPortrait['width']) and (max-width $laptop['max-width'])
+    margin 0  
+    @media screen and (min-width $laptop['min-width'])
+      display block
+
+.section--title
+  margin-bottom step(30)
+
+
+@media screen and (min-width $tabletPortrait['width']) and (max-width $laptop['max-width'])
+  section
     padding $paddingViewport-tablet
     
-  @media screen and (min-width $laptop['min-width'])
+  .section--title
+    margin-top    step(250)
+    margin-bottom step(420)
+    
+  .section--description
+    width         60%
+    margin-bottom step(90)
+
+@media screen and (min-width $laptop['min-width'])
+  section
     display table
     height  100%
     margin  0
@@ -38,35 +54,32 @@ section
     
     &.section--intro
       display block
-
-
-.section--title--wrapper
-.section--description
-  @media screen and (min-width $laptop['min-width'])
+      
+  .section--title--wrapper
+  .section--description
     display table-cell
     height 100%
     width 50%
     vertical-align middle
-
-.section--title
-  margin-bottom step(30)
-  
-  @media screen and (min-width $tabletPortrait['width']) and (max-width $laptop['max-width'])
-    margin-top    step(250)
-    margin-bottom step(420)
+    
+  .section--description
+    padding 0 $step*12
       
-  @media screen and (min-width $laptop['min-width'])
+  .section--title
     float left
 
+/* Section 00 *****************************************************************/
 
-.section--description
-  
-  @media screen and (min-width $tabletPortrait['width']) and (max-width $laptop['max-width'])
-    width         60%
-    margin-bottom step(90)
-
-
-
+.main--shutter
+  position fixed
+  top 0
+  bottom 0
+  left 0
+  right 0
+  background-color red
+  display none
+  @media screen and (min-width $laptop['min-width'])
+    display block
 
 /* Section 00 *****************************************************************/
 
@@ -256,7 +269,6 @@ section
   position  fixed
   top       20px
   right     @top
-  z-index   1
 
 .modal
   position          fixed
@@ -267,7 +279,6 @@ section
   opacity           0
   overflow          hidden
   pointer-events    none
-  z-index           1
 
   &.is-visible
     opacity         1

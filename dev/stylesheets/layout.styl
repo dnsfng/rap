@@ -16,11 +16,11 @@ body
 /* Main sections **************************************************************/
 
 section
-  display   block
-  position  relative
-  width     100%
-  margin    100% 0
-  padding   $paddingViewport-mobile
+  display         block
+  position        relative
+  width           100%
+  margin          100% 0
+  padding         $paddingViewport-mobile
   fix3d()
     
   &.section--intro
@@ -48,14 +48,17 @@ section
 @media screen and (min-width $laptop['min-width'])
   section
     position  fixed
-    //display   none
     height    100%
     margin    0
     padding   $paddingViewport-laptop
+    pointer-events  none
+
+    &.is--visible
+      pointer-events  auto 
     
     &.section--intro
       position  absolute
-      display   block
+
 
   .section--wrapper
     display table

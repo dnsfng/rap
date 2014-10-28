@@ -469,7 +469,7 @@
       $body.height(bodyHeight);
       $window.scroll(0);
       currentWrapper = wrappers[0];
-      //$(currentWrapper).css('display','table');
+      $(currentWrapper).addClass('is--visible');
     };
 
     var convertAllPropsToPx = function() {
@@ -578,19 +578,23 @@
       if(scrollTop > (keyframes[currentKeyframe].duration + prevKeyframesDurations)) {
           prevKeyframesDurations += keyframes[currentKeyframe].duration;
           currentKeyframe++;
-          // showCurrentWrappers();
+          showCurrentWrappers();
       } else if(scrollTop < prevKeyframesDurations) {
           currentKeyframe--;
           prevKeyframesDurations -= keyframes[currentKeyframe].duration;
-          // showCurrentWrappers();
+          showCurrentWrappers();
       }
     };
 
     showCurrentWrappers = function() {
 
       if(keyframes[currentKeyframe].target !== currentWrapper) {
-        $(currentWrapper).hide();
-        $(keyframes[currentKeyframe].target).show();
+        // $(currentWrapper).hide();
+        // $(keyframes[currentKeyframe].target).show();
+
+        $(currentWrapper).removeClass('is--visible');
+        $(keyframes[currentKeyframe].target).addClass('is--visible');
+
         currentWrapper = keyframes[currentKeyframe].target;
       }
       

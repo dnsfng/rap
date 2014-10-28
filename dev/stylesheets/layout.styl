@@ -47,19 +47,27 @@ section
 
 @media screen and (min-width $laptop['min-width'])
   section
-    display table
-    height  100%
-    margin  0
-    padding $paddingViewport-laptop
+    position  fixed
+    //display   none
+    height    100%
+    margin    0
+    padding   $paddingViewport-laptop
     
     &.section--intro
-      display block
+      position  absolute
+      display   block
+
+  .section--wrapper
+    display table
+    height  100%
+    
       
   .section--title--wrapper
   .section--description
     display table-cell
     height 100%
     width 50%
+    opacity 0
     vertical-align middle
     
   .section--description
@@ -156,6 +164,9 @@ section
   padding-top $step*16
   font-size   0
   line-height normal
+  
+  @media screen and (min-width $laptop['min-width'])
+    opacity 0
 
   $$mq2-min = (($section-padding * 2) - $diamond-interval + ($diamond-size + $diamond-interval) * 2)px
   $$mq3-min = (($section-padding * 2) - $diamond-interval + ($diamond-size + $diamond-interval) * 3)px

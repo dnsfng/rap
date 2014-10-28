@@ -1,9 +1,4 @@
-$(document).ready(function(){
-
-  // ———————————————————————————————————————————————————————
-  // Carousel handler
-
-});
+// Base
 
 (function() {
   $(function() {
@@ -24,6 +19,170 @@ $(document).ready(function(){
         relativeScrollTop =        0,
         currentKeyframe =          0,
         keyframes = [
+        { // SHUTTER 00
+          'wrapper'       : 'main',
+          'target'        : '.section--00',
+          'duration'      : '100%',
+          'animations'    : [
+            {
+              'selector'  : '.main--shutter-00 .shutter-ne .flap',
+              'translateX': '-80%',
+              'rotate'    : [60,45]
+            } , {
+              'selector'  : '.main--shutter-00 .shutter-sw .flap',
+              'translateX': '-80%',
+              'rotate'    : [-60,-45]
+            } , {
+              'selector'  : '.section--01 .section--title--wrapper',
+              'opacity'   : [-1, 1]
+            } , {
+              'selector'  : '.section--01 .section--description',
+              'opacity'   : [-1, 1]
+            } 
+          ]
+        } , { // SHUTTER 01
+          'wrapper'       : 'main',
+          'target'        : '.section--01',
+          'duration'      : '100%',
+          'animations'    : [
+            {
+              'selector'  : '.main--shutter-01 .shutter-ne .flap',
+              'translateX': '-80%',
+              'rotate'    : [60,45]
+            } , {
+              'selector'  : '.main--shutter-01 .shutter-sw .flap',
+              'translateX': '-80%',
+              'rotate'    : [-60,-45]
+            } , {
+              'selector'  : '.section--01 .section--title--wrapper',
+              'opacity'   : [1, -6],
+              'translateX': '-10%',
+            } , {
+              'selector'  : '.section--01 .section--description',
+              'opacity'   : [1, -6],
+              'translateX': '10%',
+            } , {
+              'selector'  : '.section--02 .section--title--wrapper',
+              'opacity'   : [-3, 3],
+            } , {
+              'selector'  : '.section--02 .section--description',
+              'opacity'   : [-3, 3]
+            }   
+          ]
+        } , { // SHUTTER 02
+          'wrapper'       : 'main',
+          'target'        : '.section--02',
+          'duration'      : '100%',
+          'animations'    : [
+            {
+              'selector'  : '.main--shutter-02 .shutter-ne .flap',
+              'translateX': '-80%',
+              'rotate'    : [60,45]
+            } , {
+              'selector'  : '.main--shutter-02 .shutter-sw .flap',
+              'translateX': '-80%',
+              'rotate'    : [-60,-45]
+            } , {
+              'selector'  : '.section--02 .section--title--wrapper',
+              'opacity'   : [1, -6],
+              'translateX': '-10%',
+            } , {
+              'selector'  : '.section--02 .section--description',
+              'opacity'   : [1, -6],
+              'translateX': '10%',
+            } , {
+              'selector'  : '.section--03 .section--title--wrapper',
+              'opacity'   : [-3, 3],
+            } , {
+              'selector'  : '.section--03 .section--description',
+              'opacity'   : [-3, 3]
+            } 
+          ]
+        } , { // SHUTTER 03
+          'wrapper'       : 'main',
+          'target'        : '.section--03',
+          'duration'      : '100%',
+          'animations'    : [
+            {
+              'selector'  : '.main--shutter-03 .shutter-ne .flap',
+              'translateX': '-80%',
+              'rotate'    : [60,45]
+            } , {
+              'selector'  : '.main--shutter-03 .shutter-sw .flap',
+              'translateX': '-80%',
+              'rotate'    : [-60,-45]
+            } , {
+              'selector'  : '.section--03 .section--title--wrapper',
+              'opacity'   : [1, -6],
+              'translateX': '-10%',
+            } , {
+              'selector'  : '.section--03 .section--description',
+              'opacity'   : [1, -6],
+              'translateX': '10%',
+            } , {
+              'selector'  : '.section--04 .section--title--wrapper',
+              'opacity'   : [-3, 3],
+            } , {
+              'selector'  : '.section--04 .reference--list',
+              'opacity'   : [-3, 3]
+            }    
+          ]
+        } , { // SHUTTER 04
+          'wrapper'       : 'main',
+          'target'        : '.section--04',
+          'duration'      : '100%',
+          'animations'    : [
+            {
+              'selector'  : '.main--shutter-04 .shutter-ne .flap',
+              'translateX': '-80%',
+              'rotate'    : [60,45]
+            } , {
+              'selector'  : '.main--shutter-04 .shutter-sw .flap',
+              'translateX': '-80%',
+              'rotate'    : [-60,-45]
+            } , {
+              'selector'  : '.section--04 .section--title--wrapper',
+              'opacity'   : [1, -6],
+              'translateX': '-10%',
+            } , {
+              'selector'  : '.section--04 .reference--list',
+              'opacity'   : [1, -6]
+            } , {
+              'selector'  : '.section--05 .section--title--wrapper',
+              'opacity'   : [-3, 3],
+            } , {
+              'selector'  : '.section--05 .section--description',
+              'opacity'   : [-3, 3]
+            }    
+          ]
+        } , {
+          'wrapper'     : 'main',
+          'target'      : '.test',
+          'duration'    : '100%',
+          'animations'  :  []
+        }
+        // } , {
+        //   'wrapper' : '.section--00',
+        //   'duration' : '100%',
+        //   'animations' :  []
+        // } , {
+        //   'wrapper' : '.section--01',
+        //   'duration' : '100%',
+        //   'animations' :  []
+        // } , {
+        //   'wrapper' : '.section--02',
+        //   'duration' : '100%',
+        //   'animations' :  []
+        // } , {
+        //   'wrapper' : '.section--03',
+        //   'duration' : '100%',
+        //   'animations' :  []
+        // } , {
+        //   'wrapper' : '.section--04',
+        //   'duration' : '100%',
+        //   'animations' :  []
+        // }
+
           // {
           //   'wrapper' : '#intro',
           //   'duration' : '100%',
@@ -267,8 +426,12 @@ $(document).ready(function(){
     /*  Construction
     -------------------------------------------------- */
     var init = function() {
-      scrollIntervalID = setInterval(updatePage, 10);
-      setupValues();
+
+      if ($window.width() >= 1280 && $window.height() >= 600) {
+        scrollIntervalID = setInterval(updatePage, 10); //default = 10
+        setupValues();
+      }
+
       $window.resize(throwError);
       if(isTouchDevice) {
         $window.resize(throwError);
@@ -288,7 +451,7 @@ $(document).ready(function(){
       for(i=0;i<keyframes.length;i++) { // loop keyframes
           bodyHeight += keyframes[i].duration;
           if($.inArray(keyframes[i].wrapper, wrappers) === -1) {
-            wrappers.push(keyframes[i].wrapper);
+            wrappers.push(keyframes[i].target);
           }
           for(j=0;j<keyframes[i].animations.length;j++) { // loop animations
             Object.keys(keyframes[i].animations[j]).forEach(function(key) { // loop properties
@@ -302,10 +465,11 @@ $(document).ready(function(){
             });
           }
       }
+      $('main').height(windowHeight);
       $body.height(bodyHeight);
       $window.scroll(0);
       currentWrapper = wrappers[0];
-      $(currentWrapper).show();
+      //$(currentWrapper).css('display','table');
     };
 
     var convertAllPropsToPx = function() {
@@ -400,7 +564,7 @@ $(document).ready(function(){
       } else {
         value = getDefaultPropertyValue(property);
       }
-      // value = +value.toFixed(2) 
+      value = +value.toFixed(5) 
       // TEMPORARILY REMOVED CAUSE SCALE DOESN'T WORK WITHA AGRESSIVE ROUNDING LIKE THIS
       return value;
     };
@@ -414,21 +578,22 @@ $(document).ready(function(){
       if(scrollTop > (keyframes[currentKeyframe].duration + prevKeyframesDurations)) {
           prevKeyframesDurations += keyframes[currentKeyframe].duration;
           currentKeyframe++;
-          showCurrentWrappers();
+          // showCurrentWrappers();
       } else if(scrollTop < prevKeyframesDurations) {
           currentKeyframe--;
           prevKeyframesDurations -= keyframes[currentKeyframe].duration;
-          showCurrentWrappers();
+          // showCurrentWrappers();
       }
     };
 
     showCurrentWrappers = function() {
-      var i;
-      if(keyframes[currentKeyframe].wrapper !== currentWrapper) {
+
+      if(keyframes[currentKeyframe].target !== currentWrapper) {
         $(currentWrapper).hide();
-        $(keyframes[currentKeyframe].wrapper).show();
-        currentWrapper = keyframes[currentKeyframe].wrapper;
+        $(keyframes[currentKeyframe].target).show();
+        currentWrapper = keyframes[currentKeyframe].target;
       }
+      
     };
 
     /*  Helpers

@@ -17,8 +17,11 @@ body
 /* Main sections **************************************************************/
 
 section
-  background-color  rgba(white, 0.8)
+  background-color  white
   color             black
+  
+  @media screen and (min-width $laptop['min-width'])
+    background-color transparent
 
   &:before
   &:after
@@ -43,8 +46,11 @@ section
     border-color  transparent white transparent transparent
 
   &:nth-child(even)
-    background-color  rgba(black, 0.8)
+    background-color  black
     color             white
+    
+    @media screen and (min-width $laptop['min-width'])
+      background-color transparent
 
     &:before
       border-color transparent transparent transparent black

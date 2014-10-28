@@ -39,42 +39,100 @@
   </section>
 
   <section class="section--01 section--why">
-    <div class="section--title--wrapper">
-      <h2 class="section--title">{{ entry.heading }}</h2>
+    <div class="section--wrapper">
+      <div class="section--title--wrapper">
+        <h2 class="section--title">{{ entry.heading }}</h2>
+      </div>
+      <div class="section--description">{{ entry.home01Description }}</div>
     </div>
-    <div class="section--description">{{ entry.home01Description }}</div>
   </section>
 
   <section class="section--02 section--how">
-    <div class="section--title--wrapper">
-      <h2 class="section--title">{{ entry.home02Heading }}</h2>
+    <div class="section--wrapper">
+      <div class="section--title--wrapper">
+        <h2 class="section--title">{{ entry.home02Heading }}</h2>
+      </div>
+      <div class="section--description">{{ entry.home02Description }}</div>  
     </div>
-    <div class="section--description">{{ entry.home02Description }}</div>  
   </section>
 
   <section class="section--03 section--what">
-    <div class="section--title--wrapper">
-      <h2 class="section--title">{{ entry.home03Heading }}</h2>
+    <div class="section--wrapper">
+      <div class="section--title--wrapper">
+        <h2 class="section--title">{{ entry.home03Heading }}</h2>
+      </div>
+      <div class="section--description">{{ entry.home02Description }}</div>
     </div>
-    <div class="section--description">{{ entry.home02Description }}</div>
   </section>
 
   <section class="section--04 section--references" id="references">
-    <h2 class="section--title">{{ entry.home04Heading }}</h2>
-    <ul class="reference--list">
-      {% for entry in craft.entries.type('projets') %}
-        <li class="reference--item reference--item-child-{{loop.index}}">
-          <div class="reference--item-layer" style="background-color : {{entry.backgroundColor}}"></div>
-          <a href="{{ entry.url }}" class="js--ref-test" data-ref-index="{{loop.index}}">
-            <div class="reference--content">{{ entry.title }}</div>
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
+    <div class="section--wrapper">
+      <div class="section--title--wrapper">
+        <h2 class="section--title">{{ entry.home04Heading }}</h2>
+      </div>
+      <ul class="reference--list">
+        {% for entry in craft.entries.type('projets') %}
+          <li class="reference--item reference--item-child-{{loop.index}}">
+            <div class="reference--item-layer" style="background-color : {{entry.backgroundColor}}"></div>
+            <a href="{{ entry.url }}" class="js--ref-test" data-ref-index="{{loop.index}}">
+              <div class="reference--content">{{ entry.title }}</div>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section--05 section--team">
+    <div class="section--wrapper">
+      <div class="section--title--wrapper">
+        <h2 class="section--title">Équipe</h2>
+      </div>
+      <div class="section--description">lorem ipsum sit amet dolor lorem ipsum sit amet dolor lorem ipsum sit amet dolor lorem ipsum sit amet dolor lorem ipsum sit amet dolor</div>
+    </div>
   </section>
 
   <div class="main--shutter">
-    
+    <div class="main--shutter-wrapper main--shutter-00">
+      <header class="shutter shutter-ne">
+          <div class="flap"></div>
+      </header>
+      <footer class="shutter shutter-sw">
+          <div class="flap"></div>
+      </footer>
+    </div>
+    <div class="main--shutter-wrapper main--shutter-01">
+      <header class="shutter shutter-ne">
+          <div class="flap"></div>
+      </header>
+      <footer class="shutter shutter-sw">
+          <div class="flap"></div>
+      </footer>
+    </div>
+    <div class="main--shutter-wrapper main--shutter-02">
+      <header class="shutter shutter-ne">
+          <div class="flap"></div>
+      </header>
+      <footer class="shutter shutter-sw">
+          <div class="flap"></div>
+      </footer>
+    </div>
+    <div class="main--shutter-wrapper main--shutter-03">
+      <header class="shutter shutter-ne">
+          <div class="flap"></div>
+      </header>
+      <footer class="shutter shutter-sw">
+          <div class="flap"></div>
+      </footer>
+    </div>
+    <div class="main--shutter-wrapper main--shutter-04">
+      <header class="shutter shutter-ne">
+          <div class="flap"></div>
+      </header>
+      <footer class="shutter shutter-sw">
+          <div class="flap"></div>
+      </footer>
+    </div>
   </div>
 
 {% set length = craft.entries.type('projets').total() %}
@@ -86,7 +144,8 @@
       <header class="carousel--shutter carousel--shutter-ne">
         <div class="carousel--flap"></div>
       </header>
-      <footer class="carousel--shutter carousel--shutter-sw"><div class="carousel--flap"></div>
+      <footer class="carousel--shutter carousel--shutter-sw">
+        <div class="carousel--flap"></div>
       </footer>
 
       <div class="carousel--translate">

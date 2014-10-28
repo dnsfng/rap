@@ -6,23 +6,12 @@
   bottom 0
   left 0
   right 0
-  background-color rgba(red,0.5)
   display none
   @media screen and (min-width $laptop['min-width'])
     display block
-  
-
-.circle
-  position absolute
-  width 100px
-  height 100px
-  border-radius 100%
-  background-color blue
-  
 
 .shutter
-  position fixed
-  background-color transparent
+  position absolute
   width 200%
   height 200%
   overflow hidden
@@ -34,11 +23,13 @@
     
   &.shutter-sw
     transform-origin 0% 0%
-    transform rotate(45deg)
+    transform translateY(-1px) rotate(45deg)
     
 
 .flap
   background-color black
+  //background-color blue
+  position absolute
   width 100%
   height 100%
   transform-origin 0% 0%
@@ -47,8 +38,13 @@
   .shutter-ne &
     transform-origin 0% 100%
     transform rotate(60deg)
-    test(50)
     
   .shutter-sw &
     transform rotate(-60deg)
-    test(20)
+    
+.main--shutter
+  .main--shutter-wrapper
+    &:nth-child(even)
+      .flap
+        //background-color red
+        background-color white

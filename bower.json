@@ -16,7 +16,8 @@
   ],
   "dependencies": {
     "jquery": "~2.1.1",
-    "viewport-units-buggyfill": "~0.4.1"
+    "viewport-units-buggyfill": "~0.4.1",
+    "mediaCheck": "~0.4.5"
   },
   "devDependencies": {
     "modernizr": "~2.8.3"

@@ -12,7 +12,9 @@
     "grunt-contrib-qunit": "~0.5.2",
     "grunt-contrib-stylus": "^0.20.0",
     "grunt-contrib-uglify": "~0.5.0",
-    "grunt-contrib-watch": "~0.6.1"
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-modernizr": "^0.6.0",
+    "grunt-wiredep": "^1.9.0"
   },
   "name": "rap",
   "version": "1.0.0",

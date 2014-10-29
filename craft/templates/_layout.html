@@ -38,16 +38,24 @@
 	<!-- endbower -->
 
 	<!-- Vendor Scripts -->
-	<script type="text/javascript" src="/_assets/j/vendor/modernizr.js"></script>
+	<script type="text/javascript" src="/_assets/j/vendor/modernizr.load.js"></script>
 	<!-- <script type="text/javascript" src="/_assets/j/vendor/modernizr-custom.js"></script> -->
 	<script type="text/javascript" src="/_assets/j/vendor/jquery.min.js"></script>
 	<script type="text/javascript" src="/_assets/j/vendor/viewport-units-buggyfill.js"></script>
 	<script>window.viewportUnitsBuggyfill.init();</script>
 
 	<!-- App Scripts -->
-	<script type="text/javascript" src="/_assets/j/app/play.js"></script>
-	<script type="text/javascript" src="/_assets/j/app/reset.js"></script>
+	<script>
+	
+	Modernizr.load([
+	{
+	  test: !Modernizr.touch,
+	  yep : ['/_assets/j/vendor/mediaCheck-min.js','/_assets/j/app/play.js',]
+	},
+	'/_assets/j/app/reset.js'
+	]);
 
+	</script>
 
 </body>
 </html>

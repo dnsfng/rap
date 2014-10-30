@@ -13,6 +13,22 @@ function animateStart(action) {
 
     /*  Globals
     -------------------------------------------------- */
+
+    var shutterTranslateX       = '-100%',
+        shutterNERotate         = [65,44],
+        shutterSWRotate         = [-65,-44];
+
+    var next_shutterTranslateX  = ['100%','0%'],
+        next_shutterNEFixed     = [65,65],
+        next_shutterSWFixed     = [-65,-65];
+
+    var next_contentOpacity     = [-3, 3];
+
+    var prev_contentOpacity     = [1, -6],
+        prev_titleTranslateX    = '-10%',
+        prev_descTranslateX     = '10%'
+
+
     var PROPERTIES =               ['translateX', 'translateY', 'opacity', 'rotate', 'scale'],
         $window =                  $(window),
         $body =                    $('body'),
@@ -27,140 +43,180 @@ function animateStart(action) {
         relativeScrollTop =        0,
         currentKeyframe =          0,
         keyframes = [
-        { // SHUTTER 00
+        { // ————————————————————————————————————————  SHUTTER 00
           'wrapper'       : 'main',
           'target'        : '.section--00',
           'duration'      : '100%',
           'animations'    : [
             {
               'selector'  : '.main--shutter-00 .shutter-ne .flap',
-              'translateX': '-80%',
-              'rotate'    : [60,45]
+              'translateX': shutterTranslateX,
+              'rotate'    : shutterNERotate
             } , {
               'selector'  : '.main--shutter-00 .shutter-sw .flap',
-              'translateX': '-80%',
-              'rotate'    : [-60,-45]
+              'translateX': shutterTranslateX,
+              'rotate'    : shutterSWRotate
+            } , {
+              'selector'  : '.main--shutter-01 .shutter-ne .flap',
+              'translateX': next_shutterTranslateX,
+              'rotate'    : next_shutterNEFixed
+            } , {
+              'selector'  : '.main--shutter-01 .shutter-sw .flap',
+              'translateX': next_shutterTranslateX,
+              'rotate'    : next_shutterSWFixed
             } , {
               'selector'  : '.section--01 .section--title--wrapper',
-              'opacity'   : [-1, 1]
+              'opacity'   : next_contentOpacity 
             } , {
               'selector'  : '.section--01 .section--description',
-              'opacity'   : [-1, 1]
+              'opacity'   : next_contentOpacity 
             } 
           ]
-        } , { // SHUTTER 01
+        } , { // —————————————————————————————————————  SHUTTER 01
           'wrapper'       : 'main',
           'target'        : '.section--01',
           'duration'      : '100%',
           'animations'    : [
             {
               'selector'  : '.main--shutter-01 .shutter-ne .flap',
-              'translateX': '-80%',
-              'rotate'    : [60,45]
+              'translateX': shutterTranslateX,
+              'rotate'    : shutterNERotate
             } , {
               'selector'  : '.main--shutter-01 .shutter-sw .flap',
-              'translateX': '-80%',
-              'rotate'    : [-60,-45]
+              'translateX': shutterTranslateX,
+              'rotate'    : shutterSWRotate
+            } , {
+              'selector'  : '.main--shutter-02 .shutter-ne .flap',
+              'translateX': next_shutterTranslateX,
+              'rotate'    : next_shutterNEFixed 
+            } , {
+              'selector'  : '.main--shutter-02 .shutter-sw .flap',
+              'translateX': next_shutterTranslateX,
+              'rotate'    : next_shutterSWFixed
             } , {
               'selector'  : '.section--01 .section--title--wrapper',
-              'opacity'   : [1, -6],
-              'translateX': '-10%',
+              'opacity'   : prev_contentOpacity,
+              'translateX': prev_titleTranslateX
             } , {
               'selector'  : '.section--01 .section--description',
-              'opacity'   : [1, -6],
-              'translateX': '10%',
+              'opacity'   : prev_contentOpacity,
+              'translateX': prev_descTranslateX
             } , {
               'selector'  : '.section--02 .section--title--wrapper',
-              'opacity'   : [-3, 3],
+              'opacity'   : next_contentOpacity 
             } , {
               'selector'  : '.section--02 .section--description',
-              'opacity'   : [-3, 3]
+              'opacity'   : next_contentOpacity 
             }   
           ]
-        } , { // SHUTTER 02
+        } , { // —————————————————————————————————————  SHUTTER 02
           'wrapper'       : 'main',
           'target'        : '.section--02',
           'duration'      : '100%',
           'animations'    : [
             {
               'selector'  : '.main--shutter-02 .shutter-ne .flap',
-              'translateX': '-80%',
-              'rotate'    : [60,45]
+              'translateX': shutterTranslateX,
+              'rotate'    : shutterNERotate
             } , {
               'selector'  : '.main--shutter-02 .shutter-sw .flap',
-              'translateX': '-80%',
-              'rotate'    : [-60,-45]
+              'translateX': shutterTranslateX,
+              'rotate'    : shutterSWRotate
+            } , {
+              'selector'  : '.main--shutter-03 .shutter-ne .flap',
+              'translateX': next_shutterTranslateX,
+              'rotate'    : next_shutterNEFixed 
+            } , {
+              'selector'  : '.main--shutter-03 .shutter-sw .flap',
+              'translateX': next_shutterTranslateX,
+              'rotate'    : next_shutterSWFixed
             } , {
               'selector'  : '.section--02 .section--title--wrapper',
-              'opacity'   : [1, -6],
-              'translateX': '-10%',
+              'opacity'   : prev_contentOpacity,
+              'translateX': prev_titleTranslateX 
             } , {
               'selector'  : '.section--02 .section--description',
-              'opacity'   : [1, -6],
-              'translateX': '10%',
+              'opacity'   : prev_contentOpacity,
+              'translateX': prev_descTranslateX
             } , {
               'selector'  : '.section--03 .section--title--wrapper',
-              'opacity'   : [-3, 3],
+              'opacity'   : next_contentOpacity 
             } , {
               'selector'  : '.section--03 .section--description',
-              'opacity'   : [-3, 3]
+              'opacity'   : next_contentOpacity 
             } 
           ]
-        } , { // SHUTTER 03
+        } , { // —————————————————————————————————————  SHUTTER 03
           'wrapper'       : 'main',
           'target'        : '.section--03',
           'duration'      : '100%',
           'animations'    : [
             {
               'selector'  : '.main--shutter-03 .shutter-ne .flap',
-              'translateX': '-80%',
-              'rotate'    : [60,45]
+              'translateX': shutterTranslateX,
+              'rotate'    : shutterNERotate
             } , {
               'selector'  : '.main--shutter-03 .shutter-sw .flap',
-              'translateX': '-80%',
-              'rotate'    : [-60,-45]
+              'translateX': shutterTranslateX,
+              'rotate'    : shutterSWRotate
+            } , {
+              'selector'  : '.main--shutter-04 .shutter-ne .flap',
+              'translateX': next_shutterTranslateX,
+              'rotate'    : next_shutterNEFixed 
+            } , {
+              'selector'  : '.main--shutter-04 .shutter-sw .flap',
+              'translateX': next_shutterTranslateX,
+              'rotate'    : next_shutterSWFixed
             } , {
               'selector'  : '.section--03 .section--title--wrapper',
-              'opacity'   : [1, -6],
-              'translateX': '-10%',
+              'opacity'   : prev_contentOpacity,
+              'translateX': prev_titleTranslateX ,
             } , {
               'selector'  : '.section--03 .section--description',
-              'opacity'   : [1, -6],
-              'translateX': '10%',
+              'opacity'   : prev_contentOpacity,
+              'translateX': prev_descTranslateX,
             } , {
               'selector'  : '.section--04 .section--title--wrapper',
-              'opacity'   : [-3, 3],
+              'opacity'   : next_contentOpacity 
             } , {
               'selector'  : '.section--04 .reference--list',
-              'opacity'   : [-3, 3]
+              'opacity'   : next_contentOpacity 
             }    
           ]
-        } , { // SHUTTER 04
+        } , { // —————————————————————————————————————  SHUTTER 04
           'wrapper'       : 'main',
           'target'        : '.section--04',
           'duration'      : '100%',
           'animations'    : [
             {
               'selector'  : '.main--shutter-04 .shutter-ne .flap',
-              'translateX': '-80%',
-              'rotate'    : [60,45]
+              'translateX': shutterTranslateX,
+              'rotate'    : shutterNERotate
             } , {
               'selector'  : '.main--shutter-04 .shutter-sw .flap',
-              'translateX': '-80%',
-              'rotate'    : [-60,-45]
+              'translateX': shutterTranslateX,
+              'rotate'    : shutterSWRotate
+            } , {
+              'selector'  : '.main--shutter-05 .shutter-ne .flap',
+              'translateX': next_shutterTranslateX,
+              'rotate'    : next_shutterNEFixed 
+            } , {
+              'selector'  : '.main--shutter-05 .shutter-sw .flap',
+              'translateX': next_shutterTranslateX,
+              'rotate'    : next_shutterSWFixed
             } , {
               'selector'  : '.section--04 .section--title--wrapper',
-              'opacity'   : [1, -6],
-              'translateX': '-10%',
+              'opacity'   : prev_contentOpacity,
+              'translateX': prev_titleTranslateX ,
             } , {
               'selector'  : '.section--04 .reference--list',
-              'opacity'   : [1, -6]
+              'opacity'   : prev_contentOpacity
             } , {
               'selector'  : '.section--05 .section--title--wrapper',
-              'opacity'   : [-3, 3],
+              'opacity'   : next_contentOpacity 
             } , {
               'selector'  : '.section--05 .section--description',
-              'opacity'   : [-3, 3]
+              'opacity'   : next_contentOpacity 
             }    
           ]
         } , {
@@ -306,8 +362,7 @@ function animateStart(action) {
       } else {
         value = getDefaultPropertyValue(property);
       }
-      value = +value.toFixed(5) 
-      // TEMPORARILY REMOVED CAUSE SCALE DOESN'T WORK WITHA AGRESSIVE ROUNDING LIKE THIS
+      value = +value.toFixed(4) 
       return value;
     };
 
@@ -315,6 +370,10 @@ function animateStart(action) {
       //sinusoadial in and out
       return -c/2 * (Math.cos(Math.PI*t/d) - 1) + b;
     };
+
+    linear = function(t, b, c, d) {
+      return c * t / d + b
+    }
 
     setKeyframe = function() {
       if(scrollTop > (keyframes[currentKeyframe].duration + prevKeyframesDurations)) {

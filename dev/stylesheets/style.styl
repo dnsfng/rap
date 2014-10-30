@@ -4,11 +4,17 @@
 html
 body
   background-color white
+  
+
+
 
 html
   font-size 100%
   -webkit-text-size-adjust 100%
   -ms-text-size-adjust     100%
+
+
+
 
 body
   font em(16)\/em(24) mg, Arial, sans-serif normal
@@ -66,6 +72,9 @@ section
   &:nth-last-child(2):after
     content none
 
+
+
+
 // Components
 
 .section--title
@@ -91,18 +100,21 @@ section
     font-size   em(26)
     line-height em(32/@font-size)
 
+
+
+
 /* Section 00 *****************************************************************/
 
 .logo
   &:before,
   &:after
-    fakeContent()
     left              50%
     height            1px
     background-color  lighten(black,75%)
     transform-origin  0% 0%
     
   &:before
+    fakeContent()
     width       200%
     top         0%
     left        50%
@@ -111,16 +123,18 @@ section
     transform   rotate(45*5deg)
 
   &:after
-    content   none
     width     200%
     transform rotate(45deg)
   
   @media screen and (min-width $tabletPortrait['width'])
     &:before
+    &:after
+      fakeContent()
+
+    &:before
       margin-left - $logo-image-padding - ($logo-image-size_tablet/2)px
 
     &:after
-      content     ""
       bottom      - $logo-image-padding
       margin-left $logo-image-size_tablet + $logo-image-padding
 
@@ -130,11 +144,17 @@ section
       margin-left - $logo-image-padding
 
     &:after
-      content     ""
       top         $logo-image-size_laptop + $logo-image-padding
       bottom      auto
       left        @top
       margin-left auto
+      
+  @media screen and (min-width $laptop['min-width'])
+    background-color rgba(red, 0.05)
+
+    &:before
+    &:after
+      content none
 
 aside
   strong

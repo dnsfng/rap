@@ -25,9 +25,10 @@ body
 section
   background-color  white
   color             black
-  
   @media screen and (min-width $laptop['min-width'])
-    background-color transparent
+    .js &
+      background-color transparent
+
 
   &:before
   &:after
@@ -35,9 +36,10 @@ section
     width         0
     height        0
     border-style  solid
-    
     @media screen and (min-width $laptop['min-width'])
-      content none
+      .js &
+        content none
+
 
   &:before
     bottom        100%
@@ -54,9 +56,9 @@ section
   &:nth-child(even)
     background-color  black
     color             white
-    
     @media screen and (min-width $laptop['min-width'])
-      background-color transparent
+      .js &
+        background-color transparent
 
     &:before
       border-color transparent transparent transparent black
@@ -64,10 +66,12 @@ section
     &:after
       border-color transparent black transparent transparent 
 
+
   &:first-child:before
   &:first-child:after
     content none /*remove :after & :before triangle on .section--intro so
     before diagonal stays visible*/
+
 
   &:nth-last-child(2):after
     content none

@@ -11,6 +11,7 @@ body
   &.no-scroll
   &.no-scroll main
     overflow hidden
+    
 
 /******************************************************************************/
 /* Main sections **************************************************************/
@@ -27,7 +28,8 @@ section
     height 100%
     margin 0  
     @media screen and (min-width $laptop['min-width'])
-      display block
+      .js &
+        display block
 
 .section--title
   margin-bottom step(30)
@@ -47,36 +49,48 @@ section
 
 @media screen and (min-width $laptop['min-width'])
   section
-    position  fixed
-    height    100%
-    margin    0
+    height    50%
     padding   $paddingViewport-laptop
-    pointer-events  none
+      
+    .js &
+      position  fixed
+      height    100%
+      margin    0
+      pointer-events  none
 
-    &.is--visible
-      pointer-events  auto 
-    
-    &.section--intro
-      position  absolute
+      &.is--visible
+        pointer-events  auto 
       
-  .section--wrapper
-    display table
-    height  100%
-    
+      &.section--intro
+        position  absolute
+        
+
+    .section--wrapper
+      display table
+      height  100%
       
-  .section--title--wrapper
-  .section--description
-    display table-cell
-    height 100%
-    width 50%
-    opacity 0
-    vertical-align middle
-    
-  .section--description
-    padding 0 $step*12
+        
+    .section--title--wrapper
+    .section--description
+      display table-cell
+      height 100%
+      width 50%
+      vertical-align middle
       
-  .section--title
-    float left
+      .js &
+        opacity 0
+      
+
+    .section--description
+      padding 0 $step*12
+      
+
+    .section--title
+      float left
+      
+
+
+
 
 /* Section 00 *****************************************************************/
 
@@ -86,7 +100,11 @@ section
   + section
     margin-top 90%
     @media screen and (min-width $laptop['min-width'])
-      margin-top 0
+      .js &
+        margin-top 0
+
+
+
 
 // Wrapper
 .section--00--wrapper
@@ -158,6 +176,9 @@ section
     width       auto
     margin-left $logo-image-size_laptop
     margin-top  12px
+
+
+
 
 /* Section 04 *****************************************************************/
 

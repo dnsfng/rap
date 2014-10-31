@@ -8,8 +8,20 @@
   right 0
   display none
   @media screen and (min-width $laptop['min-width'])
-    display block
+    .js &
+      display block
+    
 
+
+.next-section
+  position fixed
+  z-index 10
+  width 20px
+  height 20px
+  bottom 20px
+  test(0)
+  text-align center
+  margin 95vh 0 0 0
 
 
 
@@ -21,11 +33,11 @@
   
   &.shutter-ne
     transform-origin 0% 100%
-    transform translateY(-100%) rotate(45deg)
+    transform translate3d(0, -100%, 0) rotate(45deg)
     
   &.shutter-sw
     transform-origin 0% 0%
-    transform translateY(-1px) rotate(45deg)
+    transform translate3d(0, -1px, 0) rotate(45deg)
     
 
 
@@ -41,14 +53,14 @@
   
   .shutter-ne &
     transform-origin 0% 100%
-    transform translateX(10%) rotate(65deg)
+    transform translate3d(10%, 0, 0) rotate(65deg)
     .main--shutter-00 &
-      transform translateX(0) rotate(65deg)
+      transform translate3d(0, 0 ,0) rotate(65deg)
     
   .shutter-sw &
-    transform translateX(10%) rotate(-65deg)
+    transform translate3d(10%, 0, 0) rotate(-65deg)
     .main--shutter-00 &
-      transform translateX(0) rotate(-65deg)
+      transform translate3d(0, 0, 0) rotate(-65deg)
   
 
     
@@ -63,3 +75,5 @@
     &:last-child
       .shutter-ne
         border-bottom $grey_light 1px solid
+
+

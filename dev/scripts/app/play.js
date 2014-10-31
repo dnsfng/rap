@@ -42,7 +42,7 @@ function animateStart(action) {
         $scrollTop =               0,
         relativeScrollTop =        0,
         anchor =                   1,
-        currentAnchor =            0,
+        anchorTotal =              0,
         currentKeyframe =          0,
         keyframes = [
         { // ————————————————————————————————————————  SHUTTER 00
@@ -479,7 +479,7 @@ function animateStart(action) {
 
     $('.js__next-section').click(function(e){
       e.preventDefault();
-      var nextScroll = $(document).scrollTop() + windowHeight;
+      var nextScroll = (anchor * windowHeight) + 1;
       _scrollTo($(document), nextScroll, 800);
     });
 

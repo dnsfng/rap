@@ -479,8 +479,8 @@ function animateStart(action) {
 
     $('.js__next-section').click(function(e){
       e.preventDefault();
-      var nextScroll = $body.scrollTop() + windowHeight;
-      _scrollTo($body, nextScroll, 800);
+      var nextScroll = $(document).scrollTop() + windowHeight;
+      _scrollTo($(document), nextScroll, 800);
     });
 
 };

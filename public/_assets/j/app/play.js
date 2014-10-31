@@ -8,7 +8,6 @@ mediaCheck({
   }
 });
 
-
 function animateStart(action) {
 
     /*  Globals
@@ -32,6 +31,7 @@ function animateStart(action) {
     var PROPERTIES =               ['translateX', 'translateY', 'opacity', 'rotate', 'scale'],
         $window =                  $(window),
         $body =                    $('body'),
+        $shutter =                 $('.main--shutter')
         wrappers =                 [],
         currentWrapper =           null,
         scrollIntervalID =         0,
@@ -39,13 +39,16 @@ function animateStart(action) {
         windowHeight =             0,
         windowWidth =              0,
         prevKeyframesDurations =   0,
-        scrollTop =                0,
+        $scrollTop =               0,
         relativeScrollTop =        0,
+        anchor =                   1,
+        currentAnchor =            0,
         currentKeyframe =          0,
         keyframes = [
         { // ————————————————————————————————————————  SHUTTER 00
           'wrapper'       : 'main',
           'target'        : '.section--00',
+          'anchor'        : 1,
           'duration'      : '100%',
           'animations'    : [
             {
@@ -75,6 +78,7 @@ function animateStart(action) {
         } , { // —————————————————————————————————————  SHUTTER 01
           'wrapper'       : 'main',
           'target'        : '.section--01',
+          'anchor'        : 2,
           'duration'      : '100%',
           'animations'    : [
             {
@@ -112,6 +116,7 @@ function animateStart(action) {
         } , { // —————————————————————————————————————  SHUTTER 02
           'wrapper'       : 'main',
           'target'        : '.section--02',
+          'anchor'        : 3,
           'duration'      : '100%',
           'animations'    : [
             {
@@ -149,6 +154,7 @@ function animateStart(action) {
         } , { // —————————————————————————————————————  SHUTTER 03
           'wrapper'       : 'main',
           'target'        : '.section--03',
+          'anchor'        : 4,
           'duration'      : '100%',
           'animations'    : [
             {
@@ -186,6 +192,7 @@ function animateStart(action) {
         } , { // —————————————————————————————————————  SHUTTER 04
           'wrapper'       : 'main',
           'target'        : '.section--04',
+          'anchor'        : 5,
           'duration'      : '100%',
           'animations'    : [
             {
@@ -229,34 +236,35 @@ function animateStart(action) {
 
     /*  Construction
     -------------------------------------------------- */
-    init = function() {
-      scrollIntervalID = setInterval(updatePage, 10); //default = 10
-      setupValues();
-
-      $window.resize(throwError);
+    _init = function() {
+      scrollIntervalID = setInterval(_updatePage, 10); //default = 10
+      _setupValues();
     };
 
-    setupValues = function() {
-      scrollTop = $window.scrollTop();
+    _setupValues = function() {
+      $scrollTop = $window.scrollTop();
       windowHeight = $window.height();
       windowWidth = $window.width();
-      convertAllPropsToPx();
-      buildPage();
+      _convertAllPropsToPx();
+      _buildPage();
     };
 
-    buildPage = function() {
+    _buildPage = function() {
       var i, j, k;
       for(i=0;i<keyframes.length;i++) { // loop keyframes
           bodyHeight += keyframes[i].duration;
           if($.inArray(keyframes[i].wrapper, wrappers) === -1) {
             wrappers.push(keyframes[i].target);
           }
+          if(keyframes[i].anchor !== undefined) {
+            anchorTotal = keyframes[i].anchor;
+          }
           for(j=0;j<keyframes[i].animations.length;j++) { // loop animations
             Object.keys(keyframes[i].animations[j]).forEach(function(key) { // loop properties
               value = keyframes[i].animations[j][key];
               if(key !== 'selector' && value instanceof Array === false) {
                 var valueSet = [];
-                valueSet.push(getDefaultPropertyValue(key), value);
+                valueSet.push(_getDefaultPropertyValue(key), value);
                 value = valueSet;
               }
               keyframes[i].animations[j][key] = value;
@@ -266,14 +274,16 @@ function animateStart(action) {
       $('main').height(windowHeight);
       $body.height(bodyHeight);
       $window.scroll(0);
+
       currentWrapper = wrappers[0];
       $(currentWrapper).addClass('is--visible');
+      $shutter.attr('data__anchor-total', anchorTotal);
     };
 
-    convertAllPropsToPx = function() {
+    _convertAllPropsToPx = function() {
       var i, j, k;
       for(i=0;i<keyframes.length;i++) { // loop keyframes
-        keyframes[i].duration = convertPercentToPx(keyframes[i].duration, 'y');
+        keyframes[i].duration = _convertPercentToPx(keyframes[i].duration, 'y');
         for(j=0;j<keyframes[i].animations.length;j++) { // loop animations
           Object.keys(keyframes[i].animations[j]).forEach(function(key) { // loop properties
             value = keyframes[i].animations[j][key];
@@ -282,18 +292,18 @@ function animateStart(action) {
                 for(k=0;k<value.length;k++) { // if value in array is %
                   if(typeof value[k] === "string") {
                     if(key === 'translateY') {
-                      value[k] = convertPercentToPx(value[k], 'y');
+                      value[k] = _convertPercentToPx(value[k], 'y');
                     } else {
-                      value[k] = convertPercentToPx(value[k], 'x');
+                      value[k] = _convertPercentToPx(value[k], 'x');
                     }
                   }
                 } 
               } else {
                 if(typeof value === "string") { // if single value is a %
                   if(key === 'translateY') {
-                    value = convertPercentToPx(value, 'y');
+                    value = _convertPercentToPx(value, 'y');
                   } else {
-                    value = convertPercentToPx(value, 'x');
+                    value = _convertPercentToPx(value, 'x');
                   }
                 }
               }
@@ -304,7 +314,7 @@ function animateStart(action) {
       }
     };
 
-    getDefaultPropertyValue = function(property) {
+    _getDefaultPropertyValue = function(property) {
       switch (property) {
         case 'translateX':
           return 0;
@@ -323,30 +333,30 @@ function animateStart(action) {
 
     /*  Animation/Scrolling
     -------------------------------------------------- */
-    updatePage = function() {
+    _updatePage = function() {
       window.requestAnimationFrame(function() {
-        setScrollTops();
-        if(scrollTop > 0 && scrollTop <= (bodyHeight - windowHeight)) {
-          animateElements();
-          setKeyframe();
+        _setScrollTops();
+        if($scrollTop > 0 && $scrollTop <= (bodyHeight - windowHeight)) {
+          _animateElements();
+          _setKeyframe();
         }
       });
     };
 
-    setScrollTops = function() {
-      scrollTop = $window.scrollTop();
-      relativeScrollTop = scrollTop - prevKeyframesDurations;
+    _setScrollTops = function() {
+      $scrollTop = $window.scrollTop();
+      relativeScrollTop = $scrollTop - prevKeyframesDurations;
     };
 
-    animateElements = function() {
+    _animateElements = function() {
       var animation, translateY, translateX, scale, rotate, opacity;
       for(var i=0;i<keyframes[currentKeyframe].animations.length;i++) {
         animation   = keyframes[currentKeyframe].animations[i];
-        translateY  = calcPropValue(animation, 'translateY');
-        translateX  = calcPropValue(animation, 'translateX');
-        scale       = calcPropValue(animation, 'scale');
-        rotate      = calcPropValue(animation, 'rotate');
-        opacity     = calcPropValue(animation, 'opacity');
+        translateY  = _calcPropValue(animation, 'translateY');
+        translateX  = _calcPropValue(animation, 'translateX');
+        scale       = _calcPropValue(animation, 'scale');
+        rotate      = _calcPropValue(animation, 'rotate');
+        opacity     = _calcPropValue(animation, 'opacity');
 
         $(animation.selector).css({
           'transform':    'translate3d(' + translateX +'px, ' + translateY + 'px, 0) scale('+ scale +') rotate('+ rotate +'deg)',
@@ -355,48 +365,51 @@ function animateStart(action) {
       }
     };
 
-    calcPropValue = function(animation, property) {
+    _calcPropValue = function(animation, property) {
       var value = animation[property];
       if(value) {
-        value = easeInOutQuad(relativeScrollTop, value[0], (value[1]-value[0]), keyframes[currentKeyframe].duration);
+        value = _easeInOutQuad(relativeScrollTop, value[0], (value[1]-value[0]), keyframes[currentKeyframe].duration);
       } else {
-        value = getDefaultPropertyValue(property);
+        value = _getDefaultPropertyValue(property);
       }
       value = +value.toFixed(4) 
       return value;
     };
 
-    easeInOutQuad = function (t, b, c, d) {
+    _easeInOutQuad = function (t, b, c, d) {
       //sinusoadial in and out
       return -c/2 * (Math.cos(Math.PI*t/d) - 1) + b;
     };
 
-    linear = function(t, b, c, d) {
+    _linear = function(t, b, c, d) {
       return c * t / d + b
     }
 
-    setKeyframe = function() {
-      if(scrollTop > (keyframes[currentKeyframe].duration + prevKeyframesDurations)) {
+    _setKeyframe = function() {
+      if($scrollTop > (keyframes[currentKeyframe].duration + prevKeyframesDurations)) {
           prevKeyframesDurations += keyframes[currentKeyframe].duration;
           currentKeyframe++;
-          showCurrentWrappers();
-      } else if(scrollTop < prevKeyframesDurations) {
+          _showCurrentWrappers();
+      } else if($scrollTop < prevKeyframesDurations) {
           currentKeyframe--;
           prevKeyframesDurations -= keyframes[currentKeyframe].duration;
-          showCurrentWrappers();
+          _showCurrentWrappers();
       }
     };
 
-    showCurrentWrappers = function() {
+    _showCurrentWrappers = function() {
 
       if(keyframes[currentKeyframe].target !== currentWrapper) {
-        // $(currentWrapper).hide();
-        // $(keyframes[currentKeyframe].target).show();
 
+        // Toggle visibility
         $(currentWrapper).removeClass('is--visible');
         $(keyframes[currentKeyframe].target).addClass('is--visible');
 
         currentWrapper = keyframes[currentKeyframe].target;
+
+        // Update nav data
+        anchor = keyframes[currentKeyframe].anchor;
+        $shutter.attr('data__current-shutter', anchor);
       }
       
     };
@@ -404,7 +417,7 @@ function animateStart(action) {
     /*  Helpers
     -------------------------------------------------- */
 
-    convertPercentToPx = function(value, axis) {
+    _convertPercentToPx = function(value, axis) {
       if(typeof value === "string" && value.match(/%/g)) {
         if(axis === 'y') { value = (parseFloat(value) / 100) * windowHeight; }
         if(axis === 'x') { value = (parseFloat(value) / 100) * windowWidth; }
@@ -412,14 +425,34 @@ function animateStart(action) {
       return value;
     };
 
-    throwError = function() {
-      $body.addClass('page-error');
-    };
 
-    kill = function(){
+    _nextSection = function(){
+
+    }
+
+
+    _scrollTo = function(element, to, duration) {
+        var start = element.scrollTop(),
+            change = to - start,
+            currentTime = 0,
+            increment = 20;
+
+        var animateScroll = function(){        
+            currentTime += increment;
+            var val = _easeInOutQuad(currentTime, start, change, duration);                        
+            element.scrollTop(val); 
+            if(currentTime < duration) {
+                setTimeout(animateScroll, increment);
+            }
+        };
+
+        animateScroll();
+    }
+
+
+    _kill = function(){
 
       // Destroy Interval
-
       clearInterval(scrollIntervalID);
 
       // Remove js added style/animation
@@ -437,9 +470,17 @@ function animateStart(action) {
     }
 
     if (action === 'start'){
-      init();
+      _init();
     } else {
-      kill();
+      _kill();
     }
+
+    // Binding event
+
+    $('.js__next-section').click(function(e){
+      e.preventDefault();
+      var nextScroll = $body.scrollTop() + windowHeight;
+      _scrollTo($body, nextScroll, 800);
+    });
 
 };

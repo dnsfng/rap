@@ -1,3 +1,5 @@
+var is_playable = false;
+
 $(document).ready(function(){
 
   // ———————————————————————————————————————————————————————
@@ -115,5 +117,17 @@ $(document).ready(function(){
     navigateCarousel(nextPosition);
 
   });
+
+  // ———————————————————————————————————————————————————————
+  // Conditional loader
+
+  if(!Modernizr.mq('screen and (min-width : 1200px)')){
+
+    $(window).resize(function() {
+        if (Modernizr.mq('screen and (min-width : 1200px)') && is_playable === false){
+          Modernizr.load(['/_assets/j/vendor/mediaCheck-min.js','/_assets/j/app/play.js']);
+        }
+    });
+  }
 
 });

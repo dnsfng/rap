@@ -239,6 +239,7 @@ function animateStart(action) {
     _init = function() {
       scrollIntervalID = setInterval(_updatePage, 10); //default = 10
       _setupValues();
+      is_playable = true;
     };
 
     _setupValues = function() {

@@ -1,5 +1,5 @@
 mediaCheck({
-  media: '(min-width: 1280px)',
+  media: '(min-width: 1200px)',
   entry: function() {
     animateStart('start');
   },
@@ -239,6 +239,7 @@ function animateStart(action) {
     _init = function() {
       scrollIntervalID = setInterval(_updatePage, 10); //default = 10
       _setupValues();
+      is_playable = true;
     };
 
     _setupValues = function() {

@@ -32,7 +32,8 @@ function animateStart(action) {
     var PROPERTIES =               ['translateX', 'translateY', 'opacity', 'rotate', 'scale'],
         $window =                  $(window),
         $body =                    $('body'),
-        $shutter =                 $('.main--shutter')
+        $shutter =                 $('.main--shutter'),
+        $next =                    $('.next-section__wrapper'),
         wrappers =                 [],
         currentWrapper =           null,
         scrollIntervalID =         0,
@@ -235,11 +236,12 @@ function animateStart(action) {
               'opacity'   : next_contentOpacity 
             }    
           ]
-        } , {
-          'wrapper'     : 'main',
-          'target'      : '.test',
-          'duration'    : '100%',
-          'animations'  :  []
+        } , { // —————————————————————————————————————  SHUTTER 05
+          'wrapper'       : 'main',
+          'target'        : '.section--05',
+          'anchor'        : 6,
+          'duration'      : '100%',
+          'animations'    : []
         }
         ];
 
@@ -282,7 +284,7 @@ function animateStart(action) {
           }
       }
       $('main').height(windowHeight);
-      $body.height(bodyHeight);
+      $body.height(bodyHeight); 
       $window.scroll(0);
 
       currentWrapper = wrappers[0];
@@ -331,7 +333,7 @@ function animateStart(action) {
         case 'translateY':
           return 0;
         case 'scale':
-          return 1;
+          return 1 ;
         case 'rotate':
           return 0;
         case 'opacity':
@@ -346,7 +348,7 @@ function animateStart(action) {
     _updatePage = function() {
       window.requestAnimationFrame(function() {
         _setScrollTops();
-        if($scrollTop > 0 && $scrollTop <= (bodyHeight - windowHeight)) {
+        if($scrollTop > 0 && $scrollTop <= (bodyHeight - windowHeight + 1)) { // 10px added to force behavior on last scroll
           _animateElements();
           _setKeyframe();
         }
@@ -396,7 +398,7 @@ function animateStart(action) {
     }
 
     _setKeyframe = function() {
-      if($scrollTop > (keyframes[currentKeyframe].duration + prevKeyframesDurations)) {
+      if($scrollTop >= (keyframes[currentKeyframe].duration + prevKeyframesDurations)) {
           prevKeyframesDurations += keyframes[currentKeyframe].duration;
           currentKeyframe++;
           _showCurrentWrappers();
@@ -420,6 +422,14 @@ function animateStart(action) {
         // Update nav data
         anchor = keyframes[currentKeyframe].anchor;
         $shutter.attr('data__current-shutter', anchor);
+
+        // Update nav control color
+        if( anchor % 2 == 0){ // if even
+          $next.addClass('even');
+        } else {
+          $next.removeClass('even');
+        }
+        
       }
       
     };
@@ -436,9 +446,6 @@ function animateStart(action) {
     };
 
 
-    _nextSection = function(){
-
-    }
 
 
     _scrollTo = function(element, to, duration) {
@@ -457,6 +464,22 @@ function animateStart(action) {
         };
 
         animateScroll();
+    }
+
+
+    _goTo = function(element, direction, anchor, e){
+      var target;
+
+      e.preventDefault();
+
+      if(direction === 'down') {
+        target = ((anchor) * windowHeight); 
+      } else {
+        target = ((anchor - 2) * windowHeight);
+      }
+
+      _scrollTo(element, target, 800);
+
     }
 
 
@@ -488,18 +511,22 @@ function animateStart(action) {
     // Binding event
 
     $('.js__next-section').click(function(e){
-      e.preventDefault();
-      // var nextScroll = (anchor * windowHeight) + 1;
-      var nextScroll = (4 * windowHeight) + 1;
-      _scrollTo($(document), nextScroll, 800);
+      _goTo($(document), 'down', anchor, e);
     });
 
     // Quickly bind same event on down arrow
     $('body').keydown(function(e){
+
       keyCode = e.keyCode;
+
       if (keyCode === 40) {
-        $('.js__next-section').click();
+        _goTo($(document), 'down', anchor, e);
       }
+
+      if (keyCode === 38) {
+        _goTo($(document), 'up', anchor, e);
+      } 
+
     });
 
 };

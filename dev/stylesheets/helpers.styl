@@ -57,8 +57,26 @@ $step = 5px
 step(value)
   $_step = 5px
   (round(value / $_step) * $_step)px
+  
 
 
+
+// Diamond grid
+
+_diamond__calcDiagonal(size = $diamond__size)
+    floor(sqrt(((size ** 2) *2)))px
+
+_diamond__calcInterval(size = $diamond__size)
+  diagonal = _diamond__calcDiagonal(size)
+  floor((diagonal - size) - $diamond__border-size)px
+  
+_diamond__calcXOffset(size = $diamond__size)
+  diagonal = _diamond__calcDiagonal(size)
+  floor((diagonal / 2))px
+  
+_diamond__calcYOffset(size = $diamond__size)
+  diagonal = _diamond__calcDiagonal(size)
+  -(floor(size/2) - ((diagonal - size)/2)) - ($diamond__border-size)px
 
 
 // Alignment

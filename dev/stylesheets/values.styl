@@ -69,17 +69,23 @@ $desktop = em(1440)
 /* Section 04 ******************************************************/
 
 // diamond grid config
-  $diamond-border-size = 1px
-  $diamond-size = 130px
-  $diamond-diagonale = floor(sqrt((($diamond-size ** 2) *2)))px
-
+  $diamond__border-size = 1px
+  $diamond__size        = 130px
+  $diamond__size-large  = 250px
+  
+  $diamond__diagonal       = _diamond__calcDiagonal()
+  $diamond__diagonal-large = _diamond__calcDiagonal($diamond__size-large)
+  
 // diamond calc values
 
   // added horizontal space to parent block to join diamonds on the same row
-  $diamond-interval = floor(($diamond-diagonale - $diamond-size) - $diamond-border-size)px
-  
+  $diamond__interval       = _diamond__calcInterval();
+  $diamond__interval-large = _diamond__calcInterval($diamond__size-large);
+
   // added horizontal space to new row of diamonds
-  $diamond-row-xoffset = floor(($diamond-diagonale/2))px
+  $diamond__row-xoffset       = _diamond__calcXOffset()
+  $diamond__row-xoffset-large = _diamond__calcXOffset($diamond__size-large)
   
   // added vertical space to new row of diamonds
-  $diamond-row-yoffset = -(floor($diamond-size/2) - (($diamond-diagonale - $diamond-size)/2)) - ($diamond-border-size)px
+  $diamond__row-yoffset       = _diamond__calcYOffset()
+  $diamond__row-yoffset-large = _diamond__calcYOffset($diamond__size-large)

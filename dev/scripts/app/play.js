@@ -21,7 +21,8 @@ function animateStart(action) {
         next_shutterNEFixed     = [65,65],
         next_shutterSWFixed     = [-65,-65];
 
-    var next_contentOpacity     = [-3, 3];
+    var next_contentOpacity     = [-3, 1],
+        dGrid_contentOpacity    = [-20, 1]
 
     var prev_contentOpacity     = [1, -6],
         prev_titleTranslateX    = '-10%',
@@ -176,17 +177,21 @@ function animateStart(action) {
             } , {
               'selector'  : '.section--03 .section--title--wrapper',
               'opacity'   : prev_contentOpacity,
-              'translateX': prev_titleTranslateX ,
+              'translateX': prev_titleTranslateX
             } , {
               'selector'  : '.section--03 .section--description',
               'opacity'   : prev_contentOpacity,
-              'translateX': prev_descTranslateX,
+              'translateX': prev_descTranslateX
+            } , {
+              'selector'  : '.section--04 .section__references--pattern',
+              'opacity'   : dGrid_contentOpacity,
+              'rotate'    : [-45, -45]
             } , {
               'selector'  : '.section--04 .section--title--wrapper',
               'opacity'   : next_contentOpacity 
             } , {
               'selector'  : '.section--04 .reference--list',
-              'opacity'   : next_contentOpacity 
+              'opacity'   : dGrid_contentOpacity 
             }    
           ]
         } , { // —————————————————————————————————————  SHUTTER 04
@@ -212,9 +217,13 @@ function animateStart(action) {
               'translateX': next_shutterTranslateX,
               'rotate'    : next_shutterSWFixed
             } , {
+              'selector'  : '.section--04 .section__references--pattern',
+              'opacity'   : prev_contentOpacity,
+              'rotate'    : [-45, -45]
+            } , {
               'selector'  : '.section--04 .section--title--wrapper',
               'opacity'   : prev_contentOpacity,
-              'translateX': prev_titleTranslateX ,
+              'translateX': prev_titleTranslateX
             } , {
               'selector'  : '.section--04 .reference--list',
               'opacity'   : prev_contentOpacity
@@ -480,8 +489,17 @@ function animateStart(action) {
 
     $('.js__next-section').click(function(e){
       e.preventDefault();
-      var nextScroll = (anchor * windowHeight) + 1;
+      // var nextScroll = (anchor * windowHeight) + 1;
+      var nextScroll = (4 * windowHeight) + 1;
       _scrollTo($(document), nextScroll, 800);
+    });
+
+    // Quickly bind same event on down arrow
+    $('body').keydown(function(e){
+      keyCode = e.keyCode;
+      if (keyCode === 40) {
+        $('.js__next-section').click();
+      }
     });
 
 };

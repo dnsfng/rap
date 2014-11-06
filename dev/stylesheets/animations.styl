@@ -1,25 +1,31 @@
 /* Section 00 *****************************************************************/
 
 .main--shutter
+  display         none
+  pointer-events  none
+  @media screen and (min-width $laptop['min-width'])
+    .js &
+      display block
+      
+
+
+
+.main--shutter-wrapper
   position fixed
   top 0
   bottom 0
   left 0
   right 0
-  display none
-  @media screen and (min-width $laptop['min-width'])
-    .js &
-      display block
     
 
 
 .next-section
   position fixed
-  z-index 10
+  z-index 100
   width 20px
   height 20px
   bottom 20px
-  test(0)
+  test(50)
   text-align center
   margin 95vh 0 0 0
 
@@ -74,6 +80,6 @@
         
     &:last-child
       .shutter-ne
-        border-bottom $grey_light 1px solid
+        border-bottom red 1px solid
 
 

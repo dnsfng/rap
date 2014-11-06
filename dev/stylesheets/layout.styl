@@ -66,19 +66,32 @@ section
         
 
     .section--wrapper
-      display table
-      height  100%
+      display   table
+      height    100%
       
         
     .section--title--wrapper
     .section--description
-      display table-cell
-      height 100%
-      width 50%
-      vertical-align middle
+      display         table-cell
+      height          100%
+      width           50%
+      position        relative
+      vertical-align  middle
       
       .js &
         opacity 0
+    
+
+    &.section--04 
+      .section--wrapper
+        display inline-block
+           
+      .section--title--wrapper
+        display block
+        pointer-events none
+        
+      .section--title
+        verticalAlign()
       
 
     .section--description
@@ -102,27 +115,33 @@ section
     @media screen and (min-width $laptop['min-width'])
       .js &
         margin-top 0
-
+        
 
 
 
 // Wrapper
-.section--00--wrapper
-  verticalAlign(-78%)
-  //transition transform $t-reg ease-out    
-  
-  @media screen and (min-height ($phoneLandscape['height']+1)) 
-  // ————————————————————————————————————————— portrait mobile
-    verticalAlign(-39%)
+.section--intro
+  .section--wrapper
+    display block
+    height  auto
+    verticalAlign(-78%)
+    //transition transform $t-reg ease-out    
+    
+    @media screen and (min-height ($phoneLandscape['height']+1)) 
+    // ————————————————————————————————————————— portrait mobile
+      verticalAlign(-39%)
 
-  @media screen and (min-width $tabletPortrait['width'])
-    verticalAlign(-60%)  
+    @media screen and (min-width $tabletPortrait['width'])
+      verticalAlign(-60%)  
+
+
 
 
 // Components
 .logo--component
   display block
   horizontalAlign(0, $step*2)
+
 
 .logo--image
   width   $logo-image-size_mobile
@@ -131,9 +150,11 @@ section
     width   $logo-image-size
     height  @width
 
+
 .logo--name
   width   250px
   height  32px
+
 
 .baseline
   width 90%
@@ -187,25 +208,36 @@ section
   padding-top $step*16
   font-size   0
   line-height normal
+  -webkit-transform: perspective(1000)
   
   @media screen and (min-width $laptop['min-width'])
     opacity 0
 
-  $$mq2-min = (($section-padding * 2) - $diamond-interval + ($diamond-size + $diamond-interval) * 2)px
-  $$mq3-min = (($section-padding * 2) - $diamond-interval + ($diamond-size + $diamond-interval) * 3)px
-  $$mq4-min = (($section-padding-large * 2) - $diamond-interval + ($diamond-size + $diamond-interval) * 4)px
+  $$mq2-min = (($section-padding * 2) - $diamond__interval + ($diamond__size + $diamond__interval) * 2)px
+  $$mq3-min = (($section-padding * 2) - $diamond__interval + ($diamond__size + $diamond__interval) * 3)px
+  $$mq4-min = (($section-padding-large * 2) - $diamond__interval + ($diamond__size + $diamond__interval) * 4)px
 
   @media screen and (max-width ($$mq2-min - 1))
-    max-width $diamond-size + ($diamond-diagonale / 2)
+    max-width $diamond__size + ($diamond__diagonal / 2)
 
   @media screen and (min-width $$mq2-min) and (max-width ($$mq3-min - 1))
-    max-width (($diamond-size + $diamond-interval) * 2) - $diamond-interval
+    max-width (($diamond__size + $diamond__interval) * 2) - $diamond__interval
 
   @media screen and (min-width $$mq3-min) and (max-width ($$mq4-min - 1))
-    max-width (($diamond-size + $diamond-interval) * 3) - $diamond-interval
+    max-width (($diamond__size + $diamond__interval) * 3) - $diamond__interval
 
-  @media screen and (min-width $$mq4-min)
-    max-width (($diamond-size + $diamond-interval) * 4) - $diamond-interval
+  @media screen and (min-width $$mq4-min) and (max-width $laptop['max-width'])
+    max-width (($diamond__size + $diamond__interval) * 4) - $diamond__interval
+    
+  @media screen and (min-width $laptop['min-width'])
+    .js &
+      background-color rgba(red, 0.05)
+      max-width none
+      position absolute
+      top 0
+      left $paddingViewport-laptop + 150
+      padding-top $diamond__interval
+      
 
 
   .reference--item
@@ -214,57 +246,94 @@ section
 
     list-style    none
     display       inline-block
-    margin-right  $diamond-interval
+    margin-right  $diamond__interval
     
 
     @media screen and (max-width ($$mq2-min - 1))
-      margin-right $diamond-interval
+      margin-right $diamond__interval
 
       &:nth-child(odd)
         margin-right 0
-        margin-left ($diamond-diagonale / 2)
+        margin-left ($diamond__diagonal / 2)
 
       &:nth-child(n+1)
-        margin-top $diamond-row-yoffset
+        margin-top $diamond__row-yoffset
 
     
     @media screen and (min-width $$mq2-min) and (max-width ($$mq3-min - 1))
       &:nth-child(3n+3)
-        margin-left $diamond-row-xoffset
+        margin-left $diamond__row-xoffset
       
       &:nth-child(3n+2)
         margin-right 0
         
       &:nth-child(n+2)
-        margin-top $diamond-row-yoffset
+        margin-top $diamond__row-yoffset
 
 
     @media screen and (min-width $$mq3-min) and (max-width ($$mq4-min - 1))
       &:nth-child(5n+4)
-        margin-left $diamond-row-xoffset
+        margin-left $diamond__row-xoffset
       
       &:nth-child(5n+3)
         margin-right 0
         
       &:nth-child(n+3)
-        margin-top $diamond-row-yoffset
+        margin-top $diamond__row-yoffset
 
 
-    @media screen and (min-width $$mq4-min)
+    @media screen and (min-width $$mq4-min) and (max-width $laptop['max-width'])
       &:nth-child(7n+5)
-        margin-left $diamond-row-xoffset
+        margin-left $diamond__row-xoffset
       
       &:nth-child(7n+4)
         margin-right 0
         
       &:nth-child(n+4)
-        margin-top $diamond-row-yoffset
+        margin-top $diamond__row-yoffset
+        
+        
+    @media screen and (min-width $laptop['min-width'])
+      margin-right $diamond__interval-large
+      display block
+      float left
+      
+      &:nth-child(2)
+        margin-right 0
+
+      &:nth-child(3)
+        margin-left $diamond__row-xoffset-large
+        
+      &:nth-child(4)
+        margin-right 0
+        
+      &:nth-child(5)
+        margin-left ($diamond__row-xoffset-large * 2) - 0.5
+        clear left
+        
+      &:nth-child(6)
+        margin-right 0
+        
+      &:nth-child(7)
+        margin-left ($diamond__row-xoffset-large * 3) - 0.5
+        
+      &:nth-child(2n+3)
+        clear left
+              
+      &:nth-child(n+3)
+        margin-top $diamond__row-yoffset-large + 0.5
+      
 
     a
     .reference--content
     .reference--item-layer
-      height  $diamond-size
+      height  $diamond__size
       width   @height
+      @media screen and (min-width $laptop['min-width'])
+        .js &
+          height  $diamond__size-large
+          width   @height
+          
     a
       position  relative
       display   block
@@ -282,6 +351,49 @@ section
       vertical-align  middle
       text-align      center
       transform       rotate(-45deg) translate3d(0,0,0)
+      
+
+
+// TODO : This one could be removed
+.section__references--layer
+  display none
+  @media screen and (min-width $laptop['min-width'])
+    .js &
+      // display block
+      position absolute
+      left 0
+      top 0
+      width 200%
+      height 100%
+      transform-origin 0 0
+      transform rotate(45deg)
+      opacity 0
+      background-color white
+      
+
+.section__references--pattern
+  @media screen and (min-width $laptop['min-width'])
+    .js &
+      width     100%
+      height    200%
+      position  fixed
+      top       0
+      left      0
+      opacity 0
+      transform-origin 0 0
+      transform rotate(-45deg)
+    
+    // TODO : Update layer with diamond pattern
+    &:before
+    &:after
+      fakeContent()
+      width 100%
+      height 1px
+      top 998px
+      background-color lighten(black,75%)
+    
+    &:after
+      top 1246px
 
 /******************************************************************************/
 /* Modal **********************************************************************/

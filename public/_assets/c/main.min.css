@@ -2002,6 +2002,6 @@ aside .error--link a {
 /* line 81 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
 
 /* line 82 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
-.main--shutter .main--shutter-wrapper:last-child .shutter-ne {
+.main--shutter .main--shutter-wrapper:nth-child(4) .shutter-ne {
   border-bottom: #f00 1px solid;
 }

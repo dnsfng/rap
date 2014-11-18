@@ -1494,7 +1494,7 @@ section.section--intro {
 
 /* line 12 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/zindex.styl */
 .section--team,
-.next-section__wrapper {
+.nextSection--wrapper {
   z-index: 4;
 }
 
@@ -1923,14 +1923,7 @@ aside .error--link a {
   background-color: #fff;
 }
 
-/* line 23 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
-
-/* line 24 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
-.main--shutter-wrapper:nth-child(4) .shutter-ne {
-  border-bottom: #b2b2b2 1px solid;
-}
-
-/* line 30 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
+/* line 26 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
 .shutter {
   position: absolute;
   width: 300%;
@@ -1938,7 +1931,7 @@ aside .error--link a {
   overflow: hidden;
 }
 
-/* line 36 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
+/* line 32 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
 .shutter.shutter-ne {
   -webkit-transform-origin: 0% 100%;
           transform-origin: 0% 100%;
@@ -1946,7 +1939,7 @@ aside .error--link a {
           transform: translate3d(0, -100%, 0) rotate(45deg);
 }
 
-/* line 40 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
+/* line 36 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
 .shutter.shutter-sw {
   -webkit-transform-origin: 0% 0%;
           transform-origin: 0% 0%;
@@ -1954,7 +1947,7 @@ aside .error--link a {
           transform: translate3d(0, -1px, 0) rotate(45deg);
 }
 
-/* line 47 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
+/* line 43 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
 .flap {
   background-color: #000;
   position: absolute;
@@ -1965,7 +1958,7 @@ aside .error--link a {
   margin-left: 130vh;
 }
 
-/* line 56 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
+/* line 52 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
 .shutter-ne .flap {
   -webkit-transform-origin: 0% 100%;
           transform-origin: 0% 100%;
@@ -1973,26 +1966,26 @@ aside .error--link a {
           transform: translate3d(10%, 0, 0) rotate(65deg);
 }
 
-/* line 59 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
+/* line 55 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
 .main--shutter-00 .shutter-ne .flap {
   -webkit-transform: translate3d(0, 0, 0) rotate(65deg);
           transform: translate3d(0, 0, 0) rotate(65deg);
 }
 
-/* line 62 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
+/* line 58 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
 .shutter-sw .flap {
   -webkit-transform: translate3d(10%, 0, 0) rotate(-65deg);
           transform: translate3d(10%, 0, 0) rotate(-65deg);
 }
 
-/* line 64 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
+/* line 60 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
 .main--shutter-00 .shutter-sw .flap {
   -webkit-transform: translate3d(0, 0, 0) rotate(-65deg);
           transform: translate3d(0, 0, 0) rotate(-65deg);
 }
 
-/* line 70 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
-.next-section__wrapper {
+/* line 66 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
+.nextSection--wrapper {
   width: 100%;
   height: 1px;
   position: fixed;
@@ -2002,10 +1995,11 @@ aside .error--link a {
           transform-origin: 0 100%;
   -webkit-transform: rotate(45deg) translateY(-1px);
           transform: rotate(45deg) translateY(-1px);
+  border-bottom: 1px solid #b2b2b2;
 }
 
-/* line 80 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
-.next-section__arrow {
+/* line 77 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
+.nextSection--arrow {
   display: block;
   width: 40px;
   height: 40px;
@@ -2015,8 +2009,8 @@ aside .error--link a {
   text-align: center;
 }
 
-/* line 89 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
-.even .next-section__arrow {
+/* line 86 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
+.even .nextSection--arrow {
   background-color: rgba(0,0,0,0.5);
   color: #000;
 }

@@ -33,7 +33,7 @@ function animateStart(action) {
         $window =                  $(window),
         $body =                    $('body'),
         $shutter =                 $('.main--shutter'),
-        $next =                    $('.next-section__wrapper'),
+        $next =                    $('.nextSection--wrapper'),
         wrappers =                 [],
         currentWrapper =           null,
         scrollIntervalID =         0,
@@ -516,7 +516,7 @@ function animateStart(action) {
 
     // Binding event
 
-    $('.js__next-section').click(function(e){
+    $('.js--nextSection').click(function(e){
       _goTo($(document), 'down', anchor, e);
     });
 

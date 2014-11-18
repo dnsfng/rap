@@ -74,7 +74,7 @@ $(document).ready(function(){
         $('body').addClass('no-scroll');
       }, 1200);
       
-      $_modal.addClass('is-visible');
+      $_modal.addClass('is_visible');
       $c_wrapper.toggleClass('shutter-toggle');
       
       navigateCarousel(index);
@@ -82,7 +82,7 @@ $(document).ready(function(){
     } else {
 
       $('body').removeClass('no-scroll');
-      $_modal.removeClass('is-visible');
+      $_modal.removeClass('is_visible');
       $c_wrapper.toggleClass('shutter-toggle');
       window.location = "#references" ;
     }

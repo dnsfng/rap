@@ -289,7 +289,7 @@ function animateStart(action) {
       $window.scroll(0);
 
       currentWrapper = wrappers[0];
-      $(currentWrapper).addClass('is--visible');
+      $(currentWrapper).addClass('is_visible');
       $shutter.attr('data__anchor-total', anchorTotal);
     };
 
@@ -415,8 +415,8 @@ function animateStart(action) {
       if(keyframes[currentKeyframe].target !== currentWrapper) {
 
         // Toggle visibility
-        $(currentWrapper).removeClass('is--visible');
-        $(keyframes[currentKeyframe].target).addClass('is--visible');
+        $(currentWrapper).removeClass('is_visible');
+        $(keyframes[currentKeyframe].target).addClass('is_visible');
 
         currentWrapper = keyframes[currentKeyframe].target;
 

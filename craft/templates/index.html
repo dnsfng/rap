@@ -75,7 +75,7 @@
       <ul class="reference--list">
         {% for entry in craft.entries.type('projets') %}
           <li class="reference--item reference--item-child-{{loop.index}}">
-            <div class="reference--item-layer" style="background-color : {{entry.backgroundColor}}"></div>
+            <div class="reference--itemLayer" style="background-color : {{entry.backgroundColor}}"></div>
             <a href="{{ entry.url }}" class="js--ref-test" data-ref-index="{{loop.index}}">
               <div class="reference--content">{{ entry.title }}</div>
             </a>

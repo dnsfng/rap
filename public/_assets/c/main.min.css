@@ -676,7 +676,7 @@ section.section--intro {
   }
 
 /* line 61 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-  .js section.is--visible {
+  .js section.is_visible {
     pointer-events: auto;
   }
 
@@ -1057,7 +1057,7 @@ section.section--intro {
 /* line 327 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
 .reference--list .reference--item a,
 .reference--list .reference--item .reference--content,
-.reference--list .reference--item .reference--item-layer {
+.reference--list .reference--item .reference--itemLayer {
   height: 130px;
   width: 130px;
 }
@@ -1066,7 +1066,7 @@ section.section--intro {
 /* line 333 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
   .js .reference--list .reference--item a,
   .js .reference--list .reference--item .reference--content,
-  .js .reference--list .reference--item .reference--item-layer {
+  .js .reference--list .reference--item .reference--itemLayer {
     height: 250px;
     width: 250px;
   }
@@ -1083,7 +1083,7 @@ section.section--intro {
 }
 
 /* line 344 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-.reference--list .reference--item .reference--item-layer {
+.reference--list .reference--item .reference--itemLayer {
   position: absolute;
   display: block;
   -webkit-transform: rotate(45deg) translate3d(0, 0, 0);
@@ -1175,7 +1175,7 @@ section.section--intro {
 }
 
 /* line 416 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
-.modal.is-visible {
+.modal.is_visible {
   opacity: 1;
   pointer-events: auto;
 }
@@ -1799,7 +1799,7 @@ aside .error--link a {
 }
 
 /* line 200 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
-.reference--item:hover .reference--item-layer {
+.reference--item:hover .reference--itemLayer {
   opacity: 1;
 }
 
@@ -1814,7 +1814,7 @@ aside .error--link a {
 }
 
 /* line 209 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
-.reference--item .reference--item-layer {
+.reference--item .reference--itemLayer {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
           transition: opacity 200ms ease-in-out;

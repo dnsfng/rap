@@ -32,7 +32,7 @@ function animateStart(action) {
     var PROPERTIES =               ['translateX', 'translateY', 'opacity', 'rotate', 'scale'],
         $window =                  $(window),
         $body =                    $('body'),
-        $shutter =                 $('.main--shutter'),
+        $shutter =                 $('.mainShutter'),
         $next =                    $('.nextSection--wrapper'),
         wrappers =                 [],
         currentWrapper =           null,
@@ -55,19 +55,19 @@ function animateStart(action) {
           'duration'      : '100%',
           'animations'    : [
             {
-              'selector'  : '.main--shutter-00 .shutter-ne .flap',
+              'selector'  : '.mainShutter_00 .shutter_ne .flap',
               'translateX': shutterTranslateX,
               'rotate'    : shutterNERotate
             } , {
-              'selector'  : '.main--shutter-00 .shutter-sw .flap',
+              'selector'  : '.mainShutter_00 .shutter_sw .flap',
               'translateX': shutterTranslateX,
               'rotate'    : shutterSWRotate
             } , {
-              'selector'  : '.main--shutter-01 .shutter-ne .flap',
+              'selector'  : '.mainShutter_01 .shutter_ne .flap',
               'translateX': next_shutterTranslateX,
               'rotate'    : next_shutterNEFixed
             } , {
-              'selector'  : '.main--shutter-01 .shutter-sw .flap',
+              'selector'  : '.mainShutter_01 .shutter_sw .flap',
               'translateX': next_shutterTranslateX,
               'rotate'    : next_shutterSWFixed
             } , {
@@ -85,19 +85,19 @@ function animateStart(action) {
           'duration'      : '100%',
           'animations'    : [
             {
-              'selector'  : '.main--shutter-01 .shutter-ne .flap',
+              'selector'  : '.mainShutter_01 .shutter_ne .flap',
               'translateX': shutterTranslateX,
               'rotate'    : shutterNERotate
             } , {
-              'selector'  : '.main--shutter-01 .shutter-sw .flap',
+              'selector'  : '.mainShutter_01 .shutter_sw .flap',
               'translateX': shutterTranslateX,
               'rotate'    : shutterSWRotate
             } , {
-              'selector'  : '.main--shutter-02 .shutter-ne .flap',
+              'selector'  : '.mainShutter_02 .shutter_ne .flap',
               'translateX': next_shutterTranslateX,
               'rotate'    : next_shutterNEFixed 
             } , {
-              'selector'  : '.main--shutter-02 .shutter-sw .flap',
+              'selector'  : '.mainShutter_02 .shutter_sw .flap',
               'translateX': next_shutterTranslateX,
               'rotate'    : next_shutterSWFixed
             } , {
@@ -123,19 +123,19 @@ function animateStart(action) {
           'duration'      : '100%',
           'animations'    : [
             {
-              'selector'  : '.main--shutter-02 .shutter-ne .flap',
+              'selector'  : '.mainShutter_02 .shutter_ne .flap',
               'translateX': shutterTranslateX,
               'rotate'    : shutterNERotate
             } , {
-              'selector'  : '.main--shutter-02 .shutter-sw .flap',
+              'selector'  : '.mainShutter_02 .shutter_sw .flap',
               'translateX': shutterTranslateX,
               'rotate'    : shutterSWRotate
             } , {
-              'selector'  : '.main--shutter-03 .shutter-ne .flap',
+              'selector'  : '.mainShutter_03 .shutter_ne .flap',
               'translateX': next_shutterTranslateX,
               'rotate'    : next_shutterNEFixed 
             } , {
-              'selector'  : '.main--shutter-03 .shutter-sw .flap',
+              'selector'  : '.mainShutter_03 .shutter_sw .flap',
               'translateX': next_shutterTranslateX,
               'rotate'    : next_shutterSWFixed
             } , {
@@ -161,19 +161,19 @@ function animateStart(action) {
           'duration'      : '100%',
           'animations'    : [
             {
-              'selector'  : '.main--shutter-03 .shutter-ne .flap',
+              'selector'  : '.mainShutter_03 .shutter_ne .flap',
               'translateX': shutterTranslateX,
               'rotate'    : shutterNERotate
             } , {
-              'selector'  : '.main--shutter-03 .shutter-sw .flap',
+              'selector'  : '.mainShutter_03 .shutter_sw .flap',
               'translateX': shutterTranslateX,
               'rotate'    : shutterSWRotate
             } , {
-              'selector'  : '.main--shutter-04 .shutter-ne .flap',
+              'selector'  : '.mainShutter_04 .shutter_ne .flap',
               'translateX': next_shutterTranslateX,
               'rotate'    : next_shutterNEFixed 
             } , {
-              'selector'  : '.main--shutter-04 .shutter-sw .flap',
+              'selector'  : '.mainShutter_04 .shutter_sw .flap',
               'translateX': next_shutterTranslateX,
               'rotate'    : next_shutterSWFixed
             } , {
@@ -203,19 +203,19 @@ function animateStart(action) {
           'duration'      : '100%',
           'animations'    : [
             {
-              'selector'  : '.main--shutter-04 .shutter-ne .flap',
+              'selector'  : '.mainShutter_04 .shutter_ne .flap',
               'translateX': shutterTranslateX,
               'rotate'    : shutterNERotate
             } , {
-              'selector'  : '.main--shutter-04 .shutter-sw .flap',
+              'selector'  : '.mainShutter_04 .shutter_sw .flap',
               'translateX': shutterTranslateX,
               'rotate'    : shutterSWRotate
             } , {
-              'selector'  : '.main--shutter-05 .shutter-ne .flap',
+              'selector'  : '.mainShutter_05 .shutter_ne .flap',
               'translateX': next_shutterTranslateX,
               'rotate'    : next_shutterNEFixed 
             } , {
-              'selector'  : '.main--shutter-05 .shutter-sw .flap',
+              'selector'  : '.mainShutter_05 .shutter_sw .flap',
               'translateX': next_shutterTranslateX,
               'rotate'    : next_shutterSWFixed
             } , {

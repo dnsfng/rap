@@ -1,6 +1,6 @@
 /* Shutter *****************************************************************/
 
-.main--shutter
+.mainShutter
   display         none
   pointer-events  none
   @media screen and (min-width $laptop['min-width'])
@@ -8,7 +8,7 @@
       display block
       
 
-.main--shutter-wrapper
+.mainShutter--wrapper
   position fixed
   top 0
   bottom 0
@@ -29,11 +29,11 @@
   height 300%
   overflow hidden
   
-  &.shutter-ne
+  &.shutter_ne
     transform-origin 0% 100%
     transform translate3d(0, -100%, 0) rotate(45deg)
     
-  &.shutter-sw
+  &.shutter_sw
     transform-origin 0% 0%
     transform translate3d(0, -1px, 0) rotate(45deg)
     
@@ -49,15 +49,15 @@
   transform-origin 0% 0%
   margin-left 130vh
   
-  .shutter-ne &
+  .shutter_ne &
     transform-origin 0% 100%
     transform translate3d(10%, 0, 0) rotate(65deg)
-    .main--shutter-00 &
+    .mainShutter_00 &
       transform translate3d(0, 0 ,0) rotate(65deg)
     
-  .shutter-sw &
+  .shutter_sw &
     transform translate3d(10%, 0, 0) rotate(-65deg)
-    .main--shutter-00 &
+    .mainShutter_00 &
       transform translate3d(0, 0, 0) rotate(-65deg)
   
 

@@ -45,6 +45,7 @@ function animateStart(action) {
         relativeScrollTop =        0,
         anchor =                   1,
         anchorTotal =              0,
+        isAnimating =              false,
         currentKeyframe =          0,
         keyframes = [
         { // ————————————————————————————————————————  SHUTTER 00
@@ -454,12 +455,18 @@ function animateStart(action) {
             currentTime = 0,
             increment = 20;
 
+        isAnimating = true;
+
         var animateScroll = function(){        
             currentTime += increment;
             var val = _easeInOutQuad(currentTime, start, change, duration);                        
             element.scrollTop(val); 
             if(currentTime < duration) {
                 setTimeout(animateScroll, increment);
+      
+            } else {
+              isAnimating = false;
+    
             }
         };
 
@@ -479,7 +486,6 @@ function animateStart(action) {
       }
 
       _scrollTo(element, target, 800);
-
     }
 
 
@@ -519,11 +525,11 @@ function animateStart(action) {
 
       keyCode = e.keyCode;
 
-      if (keyCode === 40) {
+      if (keyCode === 40 && isAnimating === false) {
         _goTo($(document), 'down', anchor, e);
       }
 
-      if (keyCode === 38) {
+      if (keyCode === 38 && isAnimating === false) {
         _goTo($(document), 'up', anchor, e);
       } 
 

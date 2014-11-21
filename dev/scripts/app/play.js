@@ -33,7 +33,7 @@ function animateStart(action) {
         $window =                  $(window),
         $body =                    $('body'),
         $shutter =                 $('.mainShutter'),
-        $next =                    $('.nextSection--wrapper'),
+        $next =                    $('.nextSection--navigation'),
         wrappers =                 [],
         currentWrapper =           null,
         scrollIntervalID =         0,

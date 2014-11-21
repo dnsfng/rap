@@ -8,6 +8,8 @@
       display block
       
 
+
+
 .mainShutter--wrapper
   position fixed
   top 0
@@ -63,33 +65,49 @@
 
     
         
-.nextSection--wrapper
+.nextSection--navigation
+.nextSection--stroke
   display none
   
   @media screen and (min-width $laptop['min-width'])
-    display block
-    width 100%
-    height 1px
-    position fixed
-    top 0
-    left 0
-    transform-origin 0 100%
-    transform rotate(45deg) translateY(-1px)
-    border-bottom 1px solid $grey_light
-  
+    display           block
+    width             100%
+    height            1px
+    position          fixed
+    top               0
+    left              0
+    opacity           1
+    transform-origin  0 100%
+    transform         rotate(45deg) translateY(-1px)
+    transition        opacity $t-slow ease-out
 
-    .nextSection--arrow
-      display block
-      width 40px
-      height @width
-      margin -(@width/2) 0 0 133vh
-      background-color rgba(white, 0.5)
-      color white
-      text-align center
-      
-      .even &
-        background-color rgba(black, 0.5)
-        color black
+
+.nextSection--stroke
+  border-bottom 1px solid $grey_light 
+  
+.nextSection--navigation
+  // Targets the section nav arrow when the last section is visible
+  section:last-of-type.is_visible + &
+    opacity 0
+    transition        opacity $t-fast ease-in
+
+
+.nextSection--arrow
+  display           block
+  width             40px
+  height            @width
+  margin            -(@width/2) 0 0 133vh
+  background-color  rgba(white, 0.5)
+  color             white
+  text-align        center
+  transition        background-color $t-slow ease-in,
+                    color $t-fast ease-in
+  
+  .even &
+    background-color  rgba(black, 0.5)
+    color             black
     
+    
+  
 
 

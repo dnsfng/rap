@@ -16,7 +16,7 @@
   overflow          hidden
   pointer-events    none
   
-  transition        opacity $t-slow
+  transition        opacity 2000ms
   // background-color  rgba(black,0.8)
   color             white
 
@@ -24,78 +24,146 @@
   &.is_visible
     opacity         1
     pointer-events  auto
+    transition        opacity $t-fast
 
 
 /******************************************************************************/
 /* Carousel  ******************************************************************/
 
-.modal
 
-  .carousel--wrapper
-    height 100%
+.carousel--wrapper
+  height 100%
 
-    .carousel--shutter
-      position          fixed
-      overflow          hidden
+  .carousel--shutter
+    position          fixed
+    overflow          hidden
+    transform-origin  0% 0%
+
+    .carousel--flap
       transform-origin  0% 0%
+      transition  transform 2000ms ease-out
+      fix3d()
+                  
+      .is_visible &
+        transition  transform $t-reg ease-out,
+                    background-color $t-reg ease $t-fast
+
+    &.carousel--shutter-ne
+      width     200%
+      height    @width*2
+      transform rotate(-45deg) //translateX(1px)
 
       .carousel--flap
-        transform-origin  0% 0%
-        
-        transition  transform $t-slow ease-out,
-                    background-color $t-fast ease
-
-      &.carousel--shutter-ne
         width     200%
         height    @width*2
-        transform rotate(-45deg) // translateX(-1px)
+        transform translate3d(@width/2,0,0)
+        
+      &:before
+        fakeContent()
+        width 1px
+        height 400%
+        transform translate3d(0,-@height/4,10px)
+        
+        background-color white
+        z-index 10
+        
+        transition  transform $t-fast ease-out $t-reg
 
-        .carousel--flap
-          width     200%
-          height    @width*2
-          transform translate3d(@width/2,0,0)
-          
-        &:before
-          fakeContent()
-          width 1px
-          height 400%
-          transform translate3d(0,-@height/4,10px)
-          
-          background-color white
-          
-          transition  transform $t-reg ease-out $t-slow
+    &.carousel--shutter-sw
+      width     200%
+      height    @width
+      transform rotate(45deg) //translateY(-1px) 
 
-      &.carousel--shutter-sw
+      .carousel--flap
         width     200%
         height    @width
-        transform rotate(45deg) //translateY(-1px) 
+        transform translate3d(0,@width/2,0)
 
-        .carousel--flap
-          width     200%
-          height    @width
-          transform translate3d(0,@width/2,0)
-
-    &.shutter-toggle
-      .carousel--shutter
-        &:before
-          transform translate3d(0,-90%,1px)
-        .carousel--flap
-          transform translate3d(0,0,0)
+  &.shutter-toggle
+    .carousel--shutter
+      &:before
+        transform translate3d(0,-90%,1px)
+      .carousel--flap
+        transform translate3d(0,0,0)
 
 
-  .carousel--translate
-    width   100%
-    height  100%
-    overflow scroll
-    -webkit-overflow-scrolling: touch
+.carousel--translate
+  width   100%
+  height  100%
+  overflow scroll
+  -webkit-overflow-scrolling: touch
+  
+  transition  transform $t-reg ease-in-out
+
+.carousel--reference
+  float     left
+  position  relative
+  height    100%
+  width     100vw
+  z-index   1
+
+
+
+
+/******************************************************************************/
+/* Transitions  ******************************************************************/
+
+// Manage opacity when launching carousel
+
+.reference--nav-control
+  opacity 0
+  transition opacity $t-fast ease-in
+  
+  .is_visible &
+    opacity 1
+    transition opacity $t-reg ease-out ($t-slow + 400)
     
-    transition  transform $t-reg ease-in-out
 
-  .carousel--reference
-    float     left
-    position  relative
-    height    100%
-    width     100vw
-    z-index   1
+// Manage opacity when navigating in carousel
+
+.reference--logo-wrapper
+.reference--description-wrapper
+  opacity 0
+  transition opacity $t-fast ease-in 
+  
+  .is_first_in &
+    opacity 1
+    transition opacity $t-fast ease-out $t-slow
+    
+  .is_in &
+    opacity 1
+    transition opacity $t-fast ease-out $t-reg
+    
+  .is_out &
+    opacity 0
+    transition opacity $t-fast ease-in
+    
+
+
+// Manage translate when navigating in carousel
+
+@media screen and (min-width $laptop['min-width'])
+  .reference--description
+    transform translate3d(0)
+      
+    .is_out.is_going_right &
+      transform translate3d(150%,0,0)
+      
+
+  .reference--logo
+    transform translate3d(0)
+      
+    .is_out.is_going_left &
+      transform translate3d(-150%,0,0)
+      
+
+  .reference--description
+  .reference--logo
+    .is_out &
+      transition transform $t-fast ease-in
+
+
+      
+
 
     

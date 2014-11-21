@@ -47,7 +47,8 @@ module.exports = function(grunt) {
         node:true, // add to remove node undefined error such as 'require' function from stylus config
         globals: {
           "$": true,
-          jQuery: true
+          jQuery: true,
+          "Modernizr": true
         }
       },
       gruntfile: {

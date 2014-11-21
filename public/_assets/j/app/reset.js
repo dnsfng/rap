@@ -42,23 +42,34 @@ $(document).ready(function(){
           color = $child.attr('data-ref-bgColor');
       return color;
     });
+
   }
 
   function updateCarouselPosition(direction, position, position_end){
 
+    $('.carousel--reference').removeClass('is_out is_in is_first_in is_going_left is_going_right');
+
     if (direction === "next") {
       if (position < position_end) {
         $c_wrapper.attr('data-ref-current', position + 1);
+        $('.carousel--reference-child-'+position).addClass('is_out is_going_right');
+        $('.carousel--reference-child-'+(position+1)).addClass('is_in');
       } else {
         $c_wrapper.attr('data-ref-current', 1);
+        $('.carousel--reference-child-'+position_end).addClass('is_out');
+        $('.carousel--reference-child-1').addClass('is_in');
       }
     }
 
     if (direction === "prev") {
-      if (position > 0) {
+      if (position > 1) {
         $c_wrapper.attr('data-ref-current', position - 1);
+        $('.carousel--reference-child-'+position).addClass('is_out is_going_left');
+        $('.carousel--reference-child-'+(position-1)).addClass('is_in');
       } else {
         $c_wrapper.attr('data-ref-current', position_end);
+        $('.carousel--reference-child-1').addClass('is_out');
+        $('.carousel--reference-child-'+position_end).addClass('is_in');
       }
     }
 
@@ -77,6 +88,8 @@ $(document).ready(function(){
       $_modal.addClass('is_visible');
       $c_wrapper.toggleClass('shutter-toggle');
       
+
+      $('.carousel--reference-child-'+index).addClass('is_first_in');
       navigateCarousel(index);
 
     } else {
@@ -108,12 +121,15 @@ $(document).ready(function(){
 
   $('.js--carousel-nav').click(function(){
 
+    // Update
     var currentPosition = +($c_wrapper.attr('data-ref-current')),
         direction = $(this).attr('data-ref-direction');
 
     updateCarouselPosition(direction, currentPosition, position_end);
 
+    // Move
     var nextPosition = +($c_wrapper.attr('data-ref-current'));
+
     navigateCarousel(nextPosition);
 
   });

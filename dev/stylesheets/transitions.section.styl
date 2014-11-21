@@ -64,28 +64,32 @@
     
         
 .nextSection--wrapper
-  width 100%
-  height 1px
-  position fixed
-  top 0
-  left 0
-  transform-origin 0 100%
-  transform rotate(45deg) translateY(-1px)
-  border-bottom 1px solid $grey_light
+  display none
+  
+  @media screen and (min-width $laptop['min-width'])
+    display block
+    width 100%
+    height 1px
+    position fixed
+    top 0
+    left 0
+    transform-origin 0 100%
+    transform rotate(45deg) translateY(-1px)
+    border-bottom 1px solid $grey_light
   
 
-.nextSection--arrow
-  display block
-  width 40px
-  height @width
-  margin -(@width/2) 0 0 133vh
-  background-color rgba(white, 0.5)
-  color white
-  text-align center
-  
-  .even &
-    background-color rgba(black, 0.5)
-    color black
+    .nextSection--arrow
+      display block
+      width 40px
+      height @width
+      margin -(@width/2) 0 0 133vh
+      background-color rgba(white, 0.5)
+      color white
+      text-align center
+      
+      .even &
+        background-color rgba(black, 0.5)
+        color black
     
 
 

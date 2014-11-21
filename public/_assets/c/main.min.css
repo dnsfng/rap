@@ -1,5 +1,5 @@
 
-/* line 10 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/main.styl */
+/* line 11 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/main.styl */
 
 /* line 1 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/node_modules/grunt-contrib-stylus/node_modules/stylus/lib/functions/index.styl */
 
@@ -1224,8 +1224,8 @@ section.section--intro {
   width: 1px;
   height: 400%;
   background-color: #fff;
-  -webkit-transform: translate3d(0, -100%, 1px);
-          transform: translate3d(0, -100%, 1px);
+  -webkit-transform: translate3d(0, -100%, 10px);
+          transform: translate3d(0, -100%, 10px);
 }
 
 /* line 454 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
@@ -1843,8 +1843,8 @@ aside .error--link a {
 
 /* line 231 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
 .carousel--shutter-ne:before {
-  -webkit-transition: -webkit-transform 600ms ease-out 200ms;
-          transition: transform 600ms ease-out 200ms;
+  -webkit-transition: -webkit-transform 600ms ease-out 1200ms;
+          transition: transform 600ms ease-out 1200ms;
 }
 
 /* line 234 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
@@ -1892,22 +1892,22 @@ aside .error--link a {
 
 /* line 270 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
 
-/* line 1 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
+/* line 1 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/transitions.section.styl */
 
-/* line 3 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
+/* line 3 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/transitions.section.styl */
 .mainShutter {
   display: none;
   pointer-events: none;
 }
 @media screen and (min-width: 75em) {
 
-/* line 7 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
+/* line 7 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/transitions.section.styl */
   .js .mainShutter {
     display: block;
   }
 }
 
-/* line 11 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
+/* line 11 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/transitions.section.styl */
 .mainShutter--wrapper {
   position: fixed;
   top: 0;
@@ -1916,14 +1916,14 @@ aside .error--link a {
   right: 0;
 }
 
-/* line 18 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
+/* line 18 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/transitions.section.styl */
 
-/* line 19 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
+/* line 19 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/transitions.section.styl */
 .mainShutter--wrapper:nth-child(even) .flap {
   background-color: #fff;
 }
 
-/* line 26 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
+/* line 26 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/transitions.section.styl */
 .shutter {
   position: absolute;
   width: 300%;
@@ -1931,7 +1931,7 @@ aside .error--link a {
   overflow: hidden;
 }
 
-/* line 32 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
+/* line 32 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/transitions.section.styl */
 .shutter.shutter_ne {
   -webkit-transform-origin: 0% 100%;
           transform-origin: 0% 100%;
@@ -1939,7 +1939,7 @@ aside .error--link a {
           transform: translate3d(0, -100%, 0) rotate(45deg);
 }
 
-/* line 36 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
+/* line 36 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/transitions.section.styl */
 .shutter.shutter_sw {
   -webkit-transform-origin: 0% 0%;
           transform-origin: 0% 0%;
@@ -1947,7 +1947,7 @@ aside .error--link a {
           transform: translate3d(0, -1px, 0) rotate(45deg);
 }
 
-/* line 43 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
+/* line 43 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/transitions.section.styl */
 .flap {
   background-color: #000;
   position: absolute;
@@ -1958,7 +1958,7 @@ aside .error--link a {
   margin-left: 130vh;
 }
 
-/* line 52 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
+/* line 52 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/transitions.section.styl */
 .shutter_ne .flap {
   -webkit-transform-origin: 0% 100%;
           transform-origin: 0% 100%;
@@ -1966,51 +1966,63 @@ aside .error--link a {
           transform: translate3d(10%, 0, 0) rotate(65deg);
 }
 
-/* line 55 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
+/* line 55 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/transitions.section.styl */
 .mainShutter_00 .shutter_ne .flap {
   -webkit-transform: translate3d(0, 0, 0) rotate(65deg);
           transform: translate3d(0, 0, 0) rotate(65deg);
 }
 
-/* line 58 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
+/* line 58 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/transitions.section.styl */
 .shutter_sw .flap {
   -webkit-transform: translate3d(10%, 0, 0) rotate(-65deg);
           transform: translate3d(10%, 0, 0) rotate(-65deg);
 }
 
-/* line 60 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
+/* line 60 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/transitions.section.styl */
 .mainShutter_00 .shutter_sw .flap {
   -webkit-transform: translate3d(0, 0, 0) rotate(-65deg);
           transform: translate3d(0, 0, 0) rotate(-65deg);
 }
 
-/* line 66 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
+/* line 66 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/transitions.section.styl */
 .nextSection--wrapper {
-  width: 100%;
-  height: 1px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  -webkit-transform-origin: 0 100%;
-          transform-origin: 0 100%;
-  -webkit-transform: rotate(45deg) translateY(-1px);
-          transform: rotate(45deg) translateY(-1px);
-  border-bottom: 1px solid #b2b2b2;
+  display: none;
+}
+@media screen and (min-width: 75em) {
+
+/* line 69 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/transitions.section.styl */
+  .nextSection--wrapper {
+    display: block;
+    width: 100%;
+    height: 1px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    -webkit-transform-origin: 0 100%;
+            transform-origin: 0 100%;
+    -webkit-transform: rotate(45deg) translateY(-1px);
+            transform: rotate(45deg) translateY(-1px);
+    border-bottom: 1px solid #b2b2b2;
+  }
+
+/* line 81 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/transitions.section.styl */
+  .nextSection--wrapper .nextSection--arrow {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0 133vh;
+    background-color: rgba(255,255,255,0.5);
+    color: #fff;
+    text-align: center;
+  }
+
+/* line 90 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/transitions.section.styl */
+  .even .nextSection--wrapper .nextSection--arrow {
+    background-color: rgba(0,0,0,0.5);
+    color: #000;
+  }
 }
 
-/* line 77 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
-.nextSection--arrow {
-  display: block;
-  width: 40px;
-  height: 40px;
-  margin: -20px 0 0 133vh;
-  background-color: rgba(255,255,255,0.5);
-  color: #fff;
-  text-align: center;
-}
+/* line 92 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/transitions.section.styl */
 
-/* line 86 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/animations.styl */
-.even .nextSection--arrow {
-  background-color: rgba(0,0,0,0.5);
-  color: #000;
-}
+/* line 1 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/transitions.reference.styl */

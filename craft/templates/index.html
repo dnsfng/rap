@@ -160,7 +160,7 @@
 
       {% for entry in craft.entries.type('projets') %}
 
-        <article class="carousel--reference carousel--reference-child-{{loop.index}} reference" style="background-color:rgb(255,255,255,0.5" data-ref-bgColor="{{entry.backgroundColor}}" data-ref-index="{{loop.index}}">
+        <article class="carousel--reference carousel--reference-child-{{loop.index}} reference" data-ref-bgColor="{{entry.backgroundColor}}" data-ref-index="{{loop.index}}">
 
           {% include "/news/_reference/__content" %}
 

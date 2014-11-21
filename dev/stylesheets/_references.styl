@@ -1,0 +1,184 @@
+
+/******************************************************************************/
+/* Reference  *****************************************************************/
+
+
+// Header
+.header--top
+  padding $step*2 $step*4
+
+  background-color white
+
+  .logo--image
+    float   none
+    height  50px
+    width   @height
+
+  .close
+    position  absolute
+    top       20px
+    right     @top
+
+
+
+// Reference : Wrappers
+
+.template--references
+.template--references main
+  height auto
+  @media screen and (min-width ($tabletPortrait['width'])) and (min-height $tabletLandscape['height'])
+    height 100%
+    
+.reference
+  padding $paddingViewport-mobile
+  
+  color   white
+  
+  @media screen and (min-width $laptop['min-width'])
+    padding $paddingViewport-laptop
+    
+  
+
+
+// Reference : Content
+
+.reference--logo
+  horizontalAlign($step*3, $step*8)
+  
+  img
+    display     block
+    height      auto
+    width       auto
+    max-height  step(60)
+    max-width   80%
+    horizontalAlign()
+  
+  .template--references &
+    img
+      horizontalAlign(5%, 5%)
+      
+
+.reference--description
+  font-size   em(22)
+  line-height em(28/@font-size)
+  
+  @media screen and (min-width $laptop['min-width'])
+    font-size   em(26)
+    line-height em(32/@font-size)
+        
+      
+
+@media screen and (min-width $tabletPortrait['width']) and (max-width $laptop['max-width'])
+
+  .reference--logo
+    display   inline
+    width     100%
+    max-width 40%
+    margin    10% 0 10%
+    float     right
+    
+
+  .reference--description
+    width         60%
+    margin-bottom step(90)
+    clear         right
+    
+
+@media screen and (min-width $laptop['min-width'])
+      
+  .reference--logo-wrapper
+  .reference--description-wrapper
+    display table
+    float left
+    width 50%
+    height 100%
+    
+  .reference--description
+  .reference--logo
+    display table-cell
+    vertical-align middle
+  
+  .reference--logo
+    img
+      max-height  inherit
+      max-width   40%
+      margin      0
+      
+  .reference--description
+    padding 0 $step*12
+    
+
+
+
+// Reference : Navigation
+
+.reference--nav
+  margin-top  $step*20
+  overflow    hidden
+  
+  &.reference--nav-inner
+    display block
+
+  &.reference--nav-outer
+    display none
+    padding $step*10
+    
+    .modal &
+      position  absolute
+      right     0
+      bottom    0
+      left      0  
+  
+  @media screen and (min-width ($tabletPortrait['width'])) and (min-height $tabletLandscape['height'])
+    // @extend .modal .reference--nav !
+    position  absolute
+    right     0
+    bottom    0
+    left      0
+    
+    &.reference--nav-inner
+      display none
+
+    &.reference--nav-outer
+      display block
+
+
+
+
+// Nav controls //
+      
+.reference--nav-control
+  display inline-block
+  padding 0
+
+  a
+  span
+    display         table-cell
+    height          $step*8
+    width           @height
+    vertical-align  middle
+    
+  a
+  span
+  /:root .modal--link-close
+    color       white
+    text-align  center
+    todo()
+
+  &.reference--nav-prev
+    float left
+
+  &.reference--nav-next
+    float right
+    
+  &.reference--nav-close
+    position    absolute
+    left        50%
+    margin-left -($step*8/2)
+    
+    @media screen and (min-width $laptop['min-width'])
+      position fixed
+      top step(50)
+      right step(50)
+      left auto
+      margin-left 0

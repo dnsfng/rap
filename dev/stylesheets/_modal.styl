@@ -1,0 +1,101 @@
+/******************************************************************************/
+/* Modal **********************************************************************/
+
+.modal--link-open
+  position  fixed
+  top       20px
+  right     @top
+
+.modal
+  position          fixed
+  top               0
+  left              0
+  right             0
+  bottom            0
+  opacity           0
+  overflow          hidden
+  pointer-events    none
+  
+  transition        opacity $t-slow
+  // background-color  rgba(black,0.8)
+  color             white
+
+
+  &.is_visible
+    opacity         1
+    pointer-events  auto
+
+
+/******************************************************************************/
+/* Carousel  ******************************************************************/
+
+.modal
+
+  .carousel--wrapper
+    height 100%
+
+    .carousel--shutter
+      position          fixed
+      overflow          hidden
+      transform-origin  0% 0%
+
+      .carousel--flap
+        transform-origin  0% 0%
+        
+        transition  transform $t-slow ease-out,
+                    background-color $t-fast ease
+
+      &.carousel--shutter-ne
+        width     200%
+        height    @width*2
+        transform rotate(-45deg) // translateX(-1px)
+
+        .carousel--flap
+          width     200%
+          height    @width*2
+          transform translate3d(@width/2,0,0)
+          
+        &:before
+          fakeContent()
+          width 1px
+          height 400%
+          transform translate3d(0,-@height/4,10px)
+          
+          background-color white
+          
+          transition  transform $t-reg ease-out $t-slow
+
+      &.carousel--shutter-sw
+        width     200%
+        height    @width
+        transform rotate(45deg) //translateY(-1px) 
+
+        .carousel--flap
+          width     200%
+          height    @width
+          transform translate3d(0,@width/2,0)
+
+    &.shutter-toggle
+      .carousel--shutter
+        &:before
+          transform translate3d(0,-90%,1px)
+        .carousel--flap
+          transform translate3d(0,0,0)
+
+
+  .carousel--translate
+    width   100%
+    height  100%
+    overflow scroll
+    -webkit-overflow-scrolling: touch
+    
+    transition  transform $t-reg ease-in-out
+
+  .carousel--reference
+    float     left
+    position  relative
+    height    100%
+    width     100vw
+    z-index   1
+
+    

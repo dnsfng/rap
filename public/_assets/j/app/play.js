@@ -1,10 +1,14 @@
 mediaCheck({
   media: '(min-width: 1200px)',
   entry: function() {
-    animateStart('start');
+    if( !$('body').hasClass('template--references')) {
+      animateStart('start');
+    }
   },
   exit: function() {
-    animateStart('stop');
+    if( !$('body').hasClass('template--references')) {
+      animateStart('stop');
+    }
   }
 });
 

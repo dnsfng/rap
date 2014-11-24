@@ -29,6 +29,12 @@
   @media screen and (min-width ($tabletPortrait['width'])) and (min-height $tabletLandscape['height'])
     height 100%
     
+    .reference
+      height 80%
+    
+
+
+    
 .reference
   padding $paddingViewport-mobile
   
@@ -56,6 +62,9 @@
   .template--references &
     img
       horizontalAlign(5%, 5%)
+      
+      @media screen and (min-width ($tabletPortrait['width'])) and (min-height $tabletLandscape['height'])
+        margin 0
       
 
 .reference--description
@@ -135,15 +144,20 @@
   @media screen and (min-width ($tabletPortrait['width'])) and (min-height $tabletLandscape['height'])
     // @extend .modal .reference--nav !
     position  absolute
-    right     0
-    bottom    0
-    left      0
+    bottom    $step*8
+    right     $step*6
+    left      @right
     
     &.reference--nav-inner
       display none
 
     &.reference--nav-outer
       display block
+      
+  @media screen and (min-width $laptop['min-width'])
+    bottom    $step*14
+    right     $step*12
+    left      @right
 
 
 

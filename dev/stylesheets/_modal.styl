@@ -111,8 +111,9 @@
 // Manage opacity when launching carousel
 
 .reference--nav-control
-  opacity 0
-  transition opacity $t-fast ease-in
+  .modal &
+    opacity 0
+    transition opacity $t-fast ease-in
   
   .is_visible &
     opacity 1
@@ -123,8 +124,9 @@
 
 .reference--logo-wrapper
 .reference--description-wrapper
-  opacity 0
-  transition opacity $t-fast ease-in 
+  .modal &
+    opacity 0
+    transition opacity $t-fast ease-in 
   
   .is_first_in &
     opacity 1
@@ -144,7 +146,8 @@
 
 @media screen and (min-width $laptop['min-width'])
   .reference--description
-    transform translate3d(0)
+    .modal &
+      transform translate3d(0)
       
     .is_out.is_going_right &
       transform translate3d(150%,0,0)

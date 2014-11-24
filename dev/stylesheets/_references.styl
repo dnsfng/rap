@@ -157,27 +157,57 @@
   a
   span
     display         table-cell
-    height          $step*8
+    height          $step*12
     width           @height
-    vertical-align  middle
+    opacity         1
+    background      transparent url(/_assets/i/__nav_references.svg) no-repeat
+    background-size cover
     
-  a
-  span
-  /:root .modal--link-close
-    color       white
-    text-align  center
-    todo()
+    will-change opacity, transform
+    transition  opacity $t-reg ease-out,
+                transform $t-reg ease-out
+    
+    &:hover
+      opacity 0.5
+      
+      transition  opacity $t-fast ease-in,
+                  transform $t-fast ease-in
+      
+    
 
   &.reference--nav-prev
     float left
+    
+    a
+    span 
+      background-position left center
+      
+      &:hover
+        transform translateX(-5%)
+
 
   &.reference--nav-next
     float right
     
+    a
+    span
+      background-position center center
+      
+      &:hover
+        transform translateX(5%)
+    
+
   &.reference--nav-close
     position    absolute
     left        50%
     margin-left -($step*8/2)
+    
+    a
+    span
+      background-position right center
+      
+      &:hover
+        transform scale(1.1)
     
     @media screen and (min-width $laptop['min-width'])
       position fixed

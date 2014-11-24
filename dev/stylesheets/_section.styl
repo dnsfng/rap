@@ -92,20 +92,36 @@
     transition        opacity $t-fast ease-in
 
 
-.nextSection--arrow
-  display           block
-  width             40px
-  height            @width
-  margin            -(@width/2) 0 0 133vh
-  background-color  rgba(white, 0.5)
-  color             white
-  text-align        center
-  transition        background-color $t-slow ease-in,
-                    color $t-fast ease-in
-  
-  .even &
-    background-color  rgba(black, 0.5)
-    color             black
+.nextSection--arrowWrapper
+  position relative
+  display  block
+  width    32px
+  height   @width
+  margin   -(@width/2) 0 0 133vh
+    
+  .nextSection--arrow
+    position        absolute
+    width           100%
+    height          @width
+    background      transparent url("/_assets/i/__nav_next_section.svg") no-repeat
+    background-size cover
+    
+    transition      opacity $t-fast ease-in
+    
+    &.nextSection--arrow-white
+      background-position left center
+      opacity 0
+      
+      .even &
+        opacity 1
+
+    &.nextSection--arrow-black
+      background-position right center
+      opacity 1
+      
+      .even &
+        opacity 0
+
     
     
   

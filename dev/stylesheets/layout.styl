@@ -208,7 +208,6 @@ section
   padding-top $step*16
   font-size   0
   line-height normal
-  -webkit-transform: perspective(1000)
   
   @media screen and (min-width $laptop['min-width'])
     opacity 0
@@ -231,7 +230,7 @@ section
     
   @media screen and (min-width $laptop['min-width'])
     .js &
-      background-color rgba(red, 0.05)
+      background-color rgba(red,0.1) // todo : remove color
       max-width none
       position absolute
       top 0
@@ -354,22 +353,6 @@ section
       
 
 
-// TODO : This one could be removed
-.section__references--layer
-  display none
-  @media screen and (min-width $laptop['min-width'])
-    .js &
-      // display block
-      position absolute
-      left 0
-      top 0
-      width 200%
-      height 100%
-      transform-origin 0 0
-      transform rotate(45deg)
-      opacity 0
-      background-color white
-      
 
 .section__references--pattern
   @media screen and (min-width $laptop['min-width'])
@@ -382,17 +365,7 @@ section
       opacity 0
       transform-origin 0 0
       transform rotate(-45deg)
-    
-    // TODO : Update layer with diamond pattern
-    &:before
-    &:after
-      fakeContent()
-      width 100%
-      height 1px
-      top 998px
-      background-color lighten(black,75%)
-    
-    &:after
-      top 1246px
+      background transparent url("/_assets/i/__ref_diamond_pattern.svg") repeat 1px 2px
+      background-size 249px 249px
       
 

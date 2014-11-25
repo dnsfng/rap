@@ -76,8 +76,17 @@
         {% for entry in craft.entries.type('projets') %}
           <li class="reference--item reference--item-child-{{loop.index}}">
             <div class="reference--itemLayer" style="background-color : {{entry.backgroundColor}}"></div>
+
+            {% set image = entry.logo.first() %}
+
             <a href="{{ entry.url }}" class="js--ref-test" data-ref-index="{{loop.index}}">
-              <div class="reference--content">{{ entry.title }}</div>
+              <div class="reference--content">
+              {% if image %}
+              <div class="reference--content-image" style="background-image:url({{image.url}})"></div>
+              {% else %}
+                {{ entry.title }}
+              {% endif %}
+              </div>
             </a>
           </li>
         {% endfor %}

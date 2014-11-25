@@ -199,6 +199,26 @@ aside
 // References on diamond grid 
 
 .reference--item
+      
+  a
+    border $diamond__border-size solid lighten(black,75%)
+
+  .reference--itemLayer
+    opacity     0
+    transition  opacity $t-fast ease-in-out
+
+  .reference--content
+    color black
+  
+  .reference--content-image
+    width auto
+    height $step*8
+    background-size cover
+    background-position left bottom
+    
+    @media screen and (min-width $laptop['min-width'])
+      height $step*16
+
   &:hover
     position  relative
 
@@ -211,15 +231,10 @@ aside
     .reference--content
       color white
       
-  a
-    border $diamond__border-size solid lighten(black,75%)
+    .reference--content-image
+      background-position left top
+    
 
-  .reference--itemLayer
-    opacity     0
-    transition  opacity $t-fast ease-in-out
-
-  .reference--content
-    color black
 
 
 

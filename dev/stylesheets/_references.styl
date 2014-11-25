@@ -50,17 +50,19 @@
 
 .reference--logo
   horizontalAlign($step*3, $step*8)
+  max-width 60%
   
-  img
-    display     block
-    height      auto
-    width       auto
-    max-height  step(60)
-    max-width   80%
+  .reference--logo-image
+    display           block
+    width             100%
+    padding-bottom    33%
+    overflow          hidden
+    background-size   cover
+    background-repeat no-repeat
     horizontalAlign()
   
   .template--references &
-    img
+    .reference--logo-image
       horizontalAlign(5%, 5%)
       
       @media screen and (min-width ($tabletPortrait['width'])) and (min-height $tabletLandscape['height'])
@@ -83,8 +85,8 @@
   .reference--logo
     display   inline
     width     100%
-    max-width 40%
-    margin    10% 0 10%
+    max-width 30%
+    margin    10% 5% 10%
     float     right
     
 
@@ -111,10 +113,11 @@
     vertical-align middle
   
   .reference--logo
-    img
-      max-height  inherit
-      max-width   40%
-      margin      0
+    max-width auto
+    .reference--logo-image
+      margin          0
+      width           50%
+      padding-bottom  16.5%
       
   .reference--description
     padding 0 $step*12

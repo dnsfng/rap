@@ -6,6 +6,7 @@
   top       20px
   right     @top
 
+
 .modal
   position          fixed
   top               0
@@ -15,16 +16,11 @@
   opacity           0
   overflow          hidden
   pointer-events    none
-  
-  transition        opacity 2000ms
-  // background-color  rgba(black,0.8)
   color             white
-
 
   &.is_visible
     opacity         1
     pointer-events  auto
-    transition        opacity $t-fast
 
 
 /******************************************************************************/
@@ -100,10 +96,18 @@
 /******************************************************************************/
 /* Transitions  ******************************************************************/
 
+
+.modal
+  will-change opacity
+  transition opacity $t-slower ease-out $t-reg
+  &.is_visible
+    transition opacity $t-fast ease-in
+
 .carousel--wrapper
   .carousel--shutter
     .carousel--flap
-      transition  transform 2000ms ease-out
+      will-change transform, background-color
+      transition  transform $t-reg ease-in-out $t-reg
                   
       .is_visible &
         transition  transform $t-reg ease-out,
@@ -111,10 +115,12 @@
 
     &.carousel--shutter-ne  
       &:before
+        will-change transform
         transition  transform $t-fast ease-out $t-reg
 
 
 .carousel--translate
+  will-change transform
   transition  transform $t-reg ease-in-out
   
 
@@ -124,6 +130,8 @@
 // Manage opacity when launching carousel
 
 .reference--nav-control
+  will-change opacity
+  
   .modal &
     opacity 0
     transition opacity $t-fast ease-in 
@@ -133,10 +141,15 @@
     transition opacity $t-reg ease-out ($t-slow + 400)
     
 
+
+
 // Manage opacity when navigating in carousel
 
 .reference--logo-wrapper
 .reference--description-wrapper
+  will-change opacity
+  transition opacity $t-slow ease-in 
+
   .modal &
     opacity 0
     transition opacity $t-fast ease-in 
@@ -159,16 +172,17 @@
 
 @media screen and (min-width $laptop['min-width'])
   .reference--description
+  .reference--logo
     .modal &
+      will-change transform
       transform translate3d(0)
-      
+
+  .reference--description
     .is_out.is_going_right &
       transform translate3d(150%,0,0)
       
 
   .reference--logo
-    transform translate3d(0)
-      
     .is_out.is_going_left &
       transform translate3d(-150%,0,0)
       

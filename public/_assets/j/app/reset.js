@@ -12,11 +12,14 @@ $(document).ready(function(){
   });
 
 
+
+
   // ———————————————————————————————————————————————————————
   // Carousel handler
 
 
   // Config
+
 
   var $_modal       = $('.modal'),
       $c_wrapper    = $('.carousel--wrapper'),
@@ -25,7 +28,10 @@ $(document).ready(function(){
       position_end  = +($c_wrapper.attr('data-ref-total'));
 
 
+
+
   // Functions
+
 
   function navigateCarousel(position) {
 
@@ -45,9 +51,12 @@ $(document).ready(function(){
 
   }
 
+
+
+
   function updateCarouselPosition(direction, position, position_end){
 
-    $('.carousel--reference').removeClass('is_out is_in is_first_in is_going_left is_going_right');
+    removeHelpers();
 
     if (direction === "next") {
       if (position < position_end) {
@@ -74,6 +83,9 @@ $(document).ready(function(){
     }
 
   }
+
+
+
 
   function modalReference(status, index){
 
@@ -102,6 +114,13 @@ $(document).ready(function(){
 
   }
 
+
+
+
+  function removeHelpers(){
+    $('.carousel--reference').removeClass('is_out is_in is_first_in is_going_left is_going_right');
+  }
+
   
   // Binding and behavior
 
@@ -111,13 +130,17 @@ $(document).ready(function(){
     modalReference(true, index);
   });
 
+
   $('.js--modal-open').click(function(){
     modalReference(true);
   });
 
+
   $('.js--modal-close').click(function(){
     modalReference(false);
+    removeHelpers();
   });
+
 
   $('.js--carousel-nav').click(function(){
 
@@ -127,12 +150,17 @@ $(document).ready(function(){
 
     updateCarouselPosition(direction, currentPosition, position_end);
 
+
     // Move
     var nextPosition = +($c_wrapper.attr('data-ref-current'));
 
     navigateCarousel(nextPosition);
 
   });
+
+
+
+
 
   // ———————————————————————————————————————————————————————
   // Conditional loader

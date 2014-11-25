@@ -41,12 +41,7 @@
 
     .carousel--flap
       transform-origin  0% 0%
-      transition  transform 2000ms ease-out
       fix3d()
-                  
-      .is_visible &
-        transition  transform $t-reg ease-out,
-                    background-color $t-reg ease $t-fast
 
     &.carousel--shutter-ne
       width     200%
@@ -65,9 +60,6 @@
         transform translate3d(0,-@height/4,10px)
         
         background-color white
-        z-index 10
-        
-        transition  transform $t-fast ease-out $t-reg
 
     &.carousel--shutter-sw
       width     200%
@@ -108,12 +100,33 @@
 /******************************************************************************/
 /* Transitions  ******************************************************************/
 
+.carousel--wrapper
+  .carousel--shutter
+    .carousel--flap
+      transition  transform 2000ms ease-out
+                  
+      .is_visible &
+        transition  transform $t-reg ease-out,
+                    background-color $t-reg ease $t-fast
+
+    &.carousel--shutter-ne  
+      &:before
+        transition  transform $t-fast ease-out $t-reg
+
+
+.carousel--translate
+  transition  transform $t-reg ease-in-out
+  
+
+
+
+
 // Manage opacity when launching carousel
 
 .reference--nav-control
   .modal &
     opacity 0
-    transition opacity $t-fast ease-in
+    transition opacity $t-fast ease-in 
   
   .is_visible &
     opacity 1

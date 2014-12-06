@@ -21,86 +21,82 @@
 
 {% block content %}
 
-  <section class="section--00 section--intro">
-    <div class="section--wrapper">
-      <a class="logo" href="{{ siteUrl }}">
-        <h1>
-          <span class="out">{{ siteName }}</span>
-        </h1>
-        <img class="logo--component logo--image" src="/_assets/i/__logo_symbol.svg" alt="R&P">
-        <img class="logo--component logo--name" src="/_assets/i/__logo_logotype.svg" alt="Reset & Play">
-        <aside class="baseline">
-          <strong class="intro--baseline">{{ entry.baseline }}</strong>
-        </aside>
-      </a>
-    </div>
-    
-    <a href="#" class="modal--link-open js--modal-open">open reference</a>
-  </section>
+  {% for block in entry.slides %}
 
-  <section class="section--01 section--why">
-    <div class="section--wrapper">
-      <div class="section--title--wrapper">
-        <h2 class="section--title">{{ entry.heading }}</h2>
+    {% if block.type == "sectionIntro" %}
+
+      <section class="section--00 section--intro">
+        <div class="section--wrapper">
+          <a class="logo" href="{{ siteUrl }}">
+            <h1>
+              <span class="out">{{ siteName }}</span>
+            </h1>
+            <img class="logo--component logo--image" src="/_assets/i/__logo_symbol.svg" alt="R&P">
+            <img class="logo--component logo--name" src="/_assets/i/__logo_logotype.svg" alt="Reset & Play">
+            <aside class="baseline">
+              <strong class="intro--baseline">{{ block.baseline }}</strong>
+            </aside>
+          </a>
+        </div>
+        
+        <a href="#" class="modal--link-open js--modal-open">open reference</a>
+      </section>
+
+    {% elseif block.type == "sectionTitle" %}
+
+      <section class="section--0{{(block.sortOrder - 1)}} section--references">
+        <div class="section--wrapper">
+          <div class="section__references--pattern"></div>
+          <div class="section--title--wrapper">
+            <h2 class="section--title">{{ block.heading }}</h2>
+          </div>
+          <ul class="reference--list">
+            {% for entry in craft.entries.type('projets') %}
+              <li class="reference--item reference--item-child-{{loop.index}}">
+                <div class="reference--itemLayer" style="background-color : {{entry.backgroundColor}}"></div>
+
+                {% set image = entry.logo.first() %}
+
+                <a href="{{ entry.url }}" class="js--ref-test" data-ref-index="{{loop.index}}">
+                  <div class="reference--content">
+                  {% if image %}
+                  <div class="reference--content-image" style="background-image:url({{image.url}})"></div>
+                  {% else %}
+                    {{ entry.title }}
+                  {% endif %}
+                  </div>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </section>
+
+    {% else %}
+
+    {% if block.type == "sectionImage" %}
+      <section class="section--0{{(block.sortOrder - 1)}}">
+    {% else %}
+      <section class="section--0{{(block.sortOrder - 1)}}">
+    {% endif %}
+
+      <div class="section--wrapper">
+
+        <div class="section--title--wrapper">
+          <h2 class="section--title">{{ block.heading }}</h2>
+        </div>
+
+        {% if block.type == "sectionDefault" or block.type == "sectionImage" %}
+          <div class="section--description">{{ block.description }}</div>
+        {% endif %}
+
       </div>
-      <div class="section--description">{{ entry.home01Description }}</div>
-    </div>
-  </section>
 
-  <section class="section--02 section--how">
-    <div class="section--wrapper">
-      <div class="section--title--wrapper">
-        <h2 class="section--title">{{ entry.home02Heading }}</h2>
-      </div>
-      <div class="section--description">{{ entry.home02Description }}</div>  
-    </div>
-  </section>
+    </section>
 
-  <section class="section--03 section--what">
-    <div class="section--wrapper">
-      <div class="section--title--wrapper">
-        <h2 class="section--title">{{ entry.home03Heading }}</h2>
-      </div>
-      <div class="section--description">{{ entry.home03Description }}</div>
-    </div>
-  </section>
+    {% endif %}
 
-  <section class="section--04 section--references" id="references">
-    <div class="section--wrapper">
-      <div class="section__references--pattern"></div>
-      <div class="section--title--wrapper">
-        <h2 class="section--title">{{ entry.home04Heading }}</h2>
-      </div>
-      <ul class="reference--list">
-        {% for entry in craft.entries.type('projets') %}
-          <li class="reference--item reference--item-child-{{loop.index}}">
-            <div class="reference--itemLayer" style="background-color : {{entry.backgroundColor}}"></div>
-
-            {% set image = entry.logo.first() %}
-
-            <a href="{{ entry.url }}" class="js--ref-test" data-ref-index="{{loop.index}}">
-              <div class="reference--content">
-              {% if image %}
-              <div class="reference--content-image" style="background-image:url({{image.url}})"></div>
-              {% else %}
-                {{ entry.title }}
-              {% endif %}
-              </div>
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-  </section>
-
-  <section class="section--05 section--team">
-    <div class="section--wrapper">
-      <div class="section--title--wrapper">
-        <h2 class="section--title">Équipe</h2>
-      </div>
-      <div class="section--description">lorem ipsum sit amet dolor lorem ipsum sit amet dolor lorem ipsum sit amet dolor lorem ipsum sit amet dolor lorem ipsum sit amet dolor</div>
-    </div>
-  </section>
+  {% endfor %}
 
   <div class="nextSection--navigation">
     <a href="#" class="nextSection--arrowWrapper js--nextSection">

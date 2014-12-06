@@ -189,16 +189,12 @@ function animateStart(action) {
               'opacity'   : prev_contentOpacity,
               'translateX': prev_descTranslateX
             } , {
-              'selector'  : '.section--04 .section__references--pattern',
-              'opacity'   : dGrid_contentOpacity,
-              'rotate'    : [-45, -45]
-            } , {
               'selector'  : '.section--04 .section--title--wrapper',
               'opacity'   : next_contentOpacity 
             } , {
-              'selector'  : '.section--04 .reference--list',
-              'opacity'   : dGrid_contentOpacity 
-            }    
+              'selector'  : '.section--04 .section--description',
+              'opacity'   : next_contentOpacity 
+            }   
           ]
         } , { // —————————————————————————————————————  SHUTTER 04
           'wrapper'       : 'main',
@@ -223,30 +219,32 @@ function animateStart(action) {
               'translateX': next_shutterTranslateX,
               'rotate'    : next_shutterSWFixed
             } , {
-              'selector'  : '.section--04 .section__references--pattern',
-              'opacity'   : prev_contentOpacity,
-              'rotate'    : [-45, -45]
-            } , {
               'selector'  : '.section--04 .section--title--wrapper',
               'opacity'   : prev_contentOpacity,
               'translateX': prev_titleTranslateX
             } , {
-              'selector'  : '.section--04 .reference--list',
-              'opacity'   : prev_contentOpacity
+              'selector'  : '.section--04 .section--description',
+              'opacity'   : prev_contentOpacity,
+              'translateX': prev_descTranslateX
+            } , {
+              'selector'  : '.section--05 .section__references--pattern',
+              'opacity'   : dGrid_contentOpacity,
+              'rotate'    : [-45, -45]
             } , {
               'selector'  : '.section--05 .section--title--wrapper',
               'opacity'   : next_contentOpacity 
             } , {
-              'selector'  : '.section--05 .section--description',
-              'opacity'   : next_contentOpacity 
-            }    
+              'selector'  : '.section--05 .reference--list',
+              'opacity'   : dGrid_contentOpacity 
+            }  
           ]
         } , { // —————————————————————————————————————  SHUTTER 05
           'wrapper'       : 'main',
           'target'        : '.section--05',
           'anchor'        : 6,
           'duration'      : '100%',
-          'animations'    : []
+          'animations'    : [
+          ]
         }
         ];
 

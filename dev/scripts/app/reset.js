@@ -5,11 +5,11 @@ $(document).ready(function(){
   // ———————————————————————————————————————————————————————
   // Repaint resize hack on vw unit (Safari)
 
-  var causeRepaintsOn = $("section");
+  // var causeRepaintsOn = $("section");
 
-  $(window).resize(function() {
-    causeRepaintsOn.css("z-index", 1);
-  });
+  // $(window).resize(function() {
+  //   causeRepaintsOn.css("z-index", 1);
+  // });
 
 
 

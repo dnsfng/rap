@@ -1,34 +1,24 @@
 /* Shutter *****************************************************************/
 
-.mainShutter
+.mainShutter--wrapper
   display         none
-  pointer-events  none
+  
   @media screen and (min-width $laptop['min-width'])
     .js &
-      display block
-      
+      position          fixed
+      top               0
+      bottom            0
+      left              0
+      right             0
+      display           block
+      pointer-events    none
+      background-size   cover
+      background-repeat no-repeat
 
-
-
-.mainShutter--wrapper
-  position fixed
-  top 0
-  bottom 0
-  left 0
-  right 0
-
-  &:nth-child(even)
-    .flap
-      // background-color red
-      background-color white
-  
-  &:nth-child(4)
-    .flap
-      background-color blue
-
-  &:nth-child(5)
-    .flap
-      background-color white
+    .js section:nth-child(even) &
+      .flap
+        // background-color red
+        background-color black
      
 
 
@@ -48,28 +38,34 @@
     transform translate3d(0, -1px, 0) rotate(45deg)
     
 
-
-
 .flap
-  background-color black
+  background-color white
   // background-color blue
   position absolute
   width 100%
   height 100%
-  transform-origin 0% 0%
-  margin-left 130vh
+  transform-origin 130vh 0%
+  overflow hidden
   
   .shutter_ne &
-    transform-origin 0% 100%
-    transform translate3d(10%, 0, 0) rotate(65deg)
-    .mainShutter_00 &
-      transform translate3d(0, 0 ,0) rotate(65deg)
-    
+    transform-origin 130vh 100%
+    transform translate3d(0, 0, 0) rotate(0deg)
+      
   .shutter_sw &
-    transform translate3d(10%, 0, 0) rotate(-65deg)
-    .mainShutter_00 &
-      transform translate3d(0, 0, 0) rotate(-65deg)
-  
+    transform translate3d(0, 0, 0) rotate(0deg)
+   
+  .section--image &
+    margin-left 130vh
+
+  .section--image .shutter_ne &
+    transform-origin 0 100%
+    transform translate3d(0, 0, 0) rotate(90deg)
+      
+  .section--image .shutter_sw &
+    transform-origin 0 0%
+    transform translate3d(0, 0, 0) rotate(-90deg)
+    
+    
 
     
         

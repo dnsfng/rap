@@ -26,10 +26,7 @@ section
     
   &.section--intro
     height 100%
-    margin 0  
-    @media screen and (min-width $laptop['min-width'])
-      .js &
-        display block
+    margin 0
 
 .section--title
   margin-bottom step(30)
@@ -47,6 +44,7 @@ section
     width         60%
     margin-bottom step(90)
 
+
 @media screen and (min-width $laptop['min-width'])
   section
     height    50%
@@ -56,13 +54,6 @@ section
       position  fixed
       height    100%
       margin    0
-      pointer-events  none
-
-      &.is_visible
-        pointer-events  auto 
-      
-      &.section--intro
-        position  absolute
         
 
     .section--wrapper
@@ -79,9 +70,11 @@ section
       vertical-align  middle
       
       .js &
-        opacity 0
-    
+        opacity 1 //todo
 
+    &.section--image
+      pointer-events none
+    
     &.section--references 
       .section--wrapper
         display inline-block
@@ -91,6 +84,7 @@ section
         pointer-events none
         
       .section--title
+        color black !important //todo
         verticalAlign()
       
 
@@ -208,9 +202,6 @@ section
   padding-top $step*16
   font-size   0
   line-height normal
-  
-  @media screen and (min-width $laptop['min-width'])
-    opacity 0
 
   $$mq2-min = (($section-padding * 2) - $diamond__interval + ($diamond__size + $diamond__interval) * 2)px
   $$mq3-min = (($section-padding * 2) - $diamond__interval + ($diamond__size + $diamond__interval) * 3)px
@@ -362,7 +353,6 @@ section
       position  fixed
       top       0
       left      0
-      opacity 0
       transform-origin 0 0
       transform rotate(-45deg)
       background transparent url("/_assets/i/__ref_diamond_pattern.svg") repeat 1px 2px

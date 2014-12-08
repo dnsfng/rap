@@ -18,12 +18,12 @@ function animateStart(action) {
     -------------------------------------------------- */
 
     var shutterTranslateX       = '-100%',
-        shutterNERotate         = [65,44],
-        shutterSWRotate         = [-65,-44];
+        shutterNERotate         = [-15,-45],
+        shutterSWRotate         = [15,45];
 
     var next_shutterTranslateX  = ['100%','0%'],
-        next_shutterNEFixed     = [65,65],
-        next_shutterSWFixed     = [-65,-65];
+        next_shutterNEFixed     = [0,-15],
+        next_shutterSWFixed     = [0,15];
 
     var next_contentOpacity     = [-3, 1],
         dGrid_contentOpacity    = [-20, 1]
@@ -36,7 +36,7 @@ function animateStart(action) {
     var PROPERTIES =               ['translateX', 'translateY', 'opacity', 'rotate', 'scale'],
         $window =                  $(window),
         $body =                    $('body'),
-        $shutter =                 $('.mainShutter'),
+        $main =                    $('main'),
         $next =                    $('.nextSection--navigation'),
         wrappers =                 [],
         currentWrapper =           null,
@@ -47,7 +47,7 @@ function animateStart(action) {
         prevKeyframesDurations =   0,
         $scrollTop =               0,
         relativeScrollTop =        0,
-        anchor =                   1,
+        anchor =                   0,
         anchorTotal =              0,
         isAnimating =              false,
         currentKeyframe =          0,
@@ -55,55 +55,50 @@ function animateStart(action) {
         { // ————————————————————————————————————————  SHUTTER 00
           'wrapper'       : 'main',
           'target'        : '.section--00',
-          'anchor'        : 1,
-          'duration'      : '100%',
+          'anchor'        : 0,
+          'duration'      : '80%',
           'animations'    : [
             {
-              'selector'  : '.mainShutter_00 .shutter_ne .flap',
+              'selector'  : '.section--00 .shutter_ne .flap',
               'translateX': shutterTranslateX,
               'rotate'    : shutterNERotate
             } , {
-              'selector'  : '.mainShutter_00 .shutter_sw .flap',
+              'selector'  : '.section--00 .shutter_sw .flap',
               'translateX': shutterTranslateX,
               'rotate'    : shutterSWRotate
             } , {
-              'selector'  : '.mainShutter_01 .shutter_ne .flap',
-              'translateX': next_shutterTranslateX,
+              'selector'  : '.logo',
+              'opacity'   : prev_contentOpacity
+            }
+          ]
+        } , { //  Transition
+          'wrapper'       : 'main',
+          'target'        : '.section--00',
+          'anchor'        : 0,
+          'duration'      : '20%',
+          'animations'    : [
+            {
+              'selector'  : '.section--01 .shutter_ne .flap',
               'rotate'    : next_shutterNEFixed
             } , {
-              'selector'  : '.mainShutter_01 .shutter_sw .flap',
-              'translateX': next_shutterTranslateX,
+              'selector'  : '.section--01 .shutter_sw .flap',
               'rotate'    : next_shutterSWFixed
-            } , {
-              'selector'  : '.section--01 .section--title--wrapper',
-              'opacity'   : next_contentOpacity 
-            } , {
-              'selector'  : '.section--01 .section--description',
-              'opacity'   : next_contentOpacity 
-            } 
+            }
           ]
         } , { // —————————————————————————————————————  SHUTTER 01
           'wrapper'       : 'main',
           'target'        : '.section--01',
-          'anchor'        : 2,
-          'duration'      : '100%',
+          'anchor'        : 1,
+          'duration'      : '80%',
           'animations'    : [
             {
-              'selector'  : '.mainShutter_01 .shutter_ne .flap',
+              'selector'  : '.section--01 .shutter_ne .flap',
               'translateX': shutterTranslateX,
               'rotate'    : shutterNERotate
             } , {
-              'selector'  : '.mainShutter_01 .shutter_sw .flap',
+              'selector'  : '.section--01 .shutter_sw .flap',
               'translateX': shutterTranslateX,
               'rotate'    : shutterSWRotate
-            } , {
-              'selector'  : '.mainShutter_02 .shutter_ne .flap',
-              'translateX': next_shutterTranslateX,
-              'rotate'    : next_shutterNEFixed 
-            } , {
-              'selector'  : '.mainShutter_02 .shutter_sw .flap',
-              'translateX': next_shutterTranslateX,
-              'rotate'    : next_shutterSWFixed
             } , {
               'selector'  : '.section--01 .section--title--wrapper',
               'opacity'   : prev_contentOpacity,
@@ -112,36 +107,36 @@ function animateStart(action) {
               'selector'  : '.section--01 .section--description',
               'opacity'   : prev_contentOpacity,
               'translateX': prev_descTranslateX
+            }
+          ]
+        } , { // Transition
+          'wrapper'       : 'main',
+          'target'        : '.section--01',
+          'anchor'        : 1,
+          'duration'      : '20%',
+          'animations'    : [
+            {
+              'selector'  : '.section--02 .shutter_ne .flap',
+              'rotate'    : next_shutterNEFixed
             } , {
-              'selector'  : '.section--02 .section--title--wrapper',
-              'opacity'   : next_contentOpacity 
-            } , {
-              'selector'  : '.section--02 .section--description',
-              'opacity'   : next_contentOpacity 
-            }   
+              'selector'  : '.section--02 .shutter_sw .flap',
+              'rotate'    : next_shutterSWFixed
+            }
           ]
         } , { // —————————————————————————————————————  SHUTTER 02
           'wrapper'       : 'main',
           'target'        : '.section--02',
-          'anchor'        : 3,
-          'duration'      : '100%',
+          'anchor'        : 2,
+          'duration'      : '80%',
           'animations'    : [
             {
-              'selector'  : '.mainShutter_02 .shutter_ne .flap',
+              'selector'  : '.section--02 .shutter_ne .flap',
               'translateX': shutterTranslateX,
               'rotate'    : shutterNERotate
             } , {
-              'selector'  : '.mainShutter_02 .shutter_sw .flap',
+              'selector'  : '.section--02 .shutter_sw .flap',
               'translateX': shutterTranslateX,
               'rotate'    : shutterSWRotate
-            } , {
-              'selector'  : '.mainShutter_03 .shutter_ne .flap',
-              'translateX': next_shutterTranslateX,
-              'rotate'    : next_shutterNEFixed 
-            } , {
-              'selector'  : '.mainShutter_03 .shutter_sw .flap',
-              'translateX': next_shutterTranslateX,
-              'rotate'    : next_shutterSWFixed
             } , {
               'selector'  : '.section--02 .section--title--wrapper',
               'opacity'   : prev_contentOpacity,
@@ -150,36 +145,36 @@ function animateStart(action) {
               'selector'  : '.section--02 .section--description',
               'opacity'   : prev_contentOpacity,
               'translateX': prev_descTranslateX
+            }
+          ]
+        } , { // Transition
+          'wrapper'       : 'main',
+          'target'        : '.section--02',
+          'anchor'        : 2,
+          'duration'      : '20%',
+          'animations'    : [
+            {
+              'selector'  : '.section--03 .shutter_ne .flap',
+              'rotate'    : next_shutterNEFixed
             } , {
-              'selector'  : '.section--03 .section--title--wrapper',
-              'opacity'   : next_contentOpacity 
-            } , {
-              'selector'  : '.section--03 .section--description',
-              'opacity'   : next_contentOpacity 
-            } 
+              'selector'  : '.section--03 .shutter_sw .flap',
+              'rotate'    : next_shutterSWFixed
+            }
           ]
         } , { // —————————————————————————————————————  SHUTTER 03
           'wrapper'       : 'main',
           'target'        : '.section--03',
-          'anchor'        : 4,
-          'duration'      : '100%',
+          'anchor'        : 3,
+          'duration'      : '80%',
           'animations'    : [
             {
-              'selector'  : '.mainShutter_03 .shutter_ne .flap',
+              'selector'  : '.section--03 .shutter_ne .flap',
               'translateX': shutterTranslateX,
               'rotate'    : shutterNERotate
             } , {
-              'selector'  : '.mainShutter_03 .shutter_sw .flap',
+              'selector'  : '.section--03 .shutter_sw .flap',
               'translateX': shutterTranslateX,
               'rotate'    : shutterSWRotate
-            } , {
-              'selector'  : '.mainShutter_04 .shutter_ne .flap',
-              'translateX': next_shutterTranslateX,
-              'rotate'    : next_shutterNEFixed 
-            } , {
-              'selector'  : '.mainShutter_04 .shutter_sw .flap',
-              'translateX': next_shutterTranslateX,
-              'rotate'    : next_shutterSWFixed
             } , {
               'selector'  : '.section--03 .section--title--wrapper',
               'opacity'   : prev_contentOpacity,
@@ -188,36 +183,43 @@ function animateStart(action) {
               'selector'  : '.section--03 .section--description',
               'opacity'   : prev_contentOpacity,
               'translateX': prev_descTranslateX
+            } 
+          ]
+        } , { //  Transition
+          'wrapper'       : 'main',
+          'target'        : '.section--03',
+          'anchor'        : 3,
+          'duration'      : '20%',
+          'animations'    : [
+            {
+              'selector'  : '.section--04 .shutter_ne .flap',
+              // 'rotate'    : next_shutterNEFixed
+              'rotate'    : [90, 65]
             } , {
-              'selector'  : '.section--04 .section--title--wrapper',
-              'opacity'   : next_contentOpacity 
-            } , {
-              'selector'  : '.section--04 .section--description',
-              'opacity'   : next_contentOpacity 
-            }   
+              'selector'  : '.section--04 .shutter_sw .flap',
+              // 'rotate'    : next_shutterSWFixed
+              'rotate'    : [-90, -65]
+            }
           ]
         } , { // —————————————————————————————————————  SHUTTER 04
           'wrapper'       : 'main',
           'target'        : '.section--04',
-          'anchor'        : 5,
-          'duration'      : '100%',
+          'anchor'        : 4,
+          'duration'      : '80%',
           'animations'    : [
             {
-              'selector'  : '.mainShutter_04 .shutter_ne .flap',
+              'selector'  : '.section--04 .shutter_ne .flap',
               'translateX': shutterTranslateX,
-              'rotate'    : shutterNERotate
+              // 'rotate'    : shutterNERotate
+              'rotate'    : [65, 40]
             } , {
-              'selector'  : '.mainShutter_04 .shutter_sw .flap',
+              'selector'  : '.section--04 .shutter_sw .flap',
               'translateX': shutterTranslateX,
-              'rotate'    : shutterSWRotate
+              // 'rotate'    : shutterSWRotate
+              'rotate'    : [-65, -40],
             } , {
-              'selector'  : '.mainShutter_05 .shutter_ne .flap',
-              'translateX': next_shutterTranslateX,
-              'rotate'    : next_shutterNEFixed 
-            } , {
-              'selector'  : '.mainShutter_05 .shutter_sw .flap',
-              'translateX': next_shutterTranslateX,
-              'rotate'    : next_shutterSWFixed
+              'selector'  : '.section--04 .mainShutter--wrapper',
+              'opacity'   : [3, 0]
             } , {
               'selector'  : '.section--04 .section--title--wrapper',
               'opacity'   : prev_contentOpacity,
@@ -226,22 +228,24 @@ function animateStart(action) {
               'selector'  : '.section--04 .section--description',
               'opacity'   : prev_contentOpacity,
               'translateX': prev_descTranslateX
-            } , {
-              'selector'  : '.section--05 .section__references--pattern',
-              'opacity'   : dGrid_contentOpacity,
-              'rotate'    : [-45, -45]
-            } , {
-              'selector'  : '.section--05 .section--title--wrapper',
-              'opacity'   : next_contentOpacity 
-            } , {
-              'selector'  : '.section--05 .reference--list',
-              'opacity'   : dGrid_contentOpacity 
-            }  
+            }
+            // } , {
+            //   'selector'  : '.section--05 .section__references--pattern',
+            //   'opacity'   : dGrid_contentOpacity,
+            //   'rotate'    : [-45, -45]
+            // } , {
+            //   'selector'  : '.section--05 .section--title--wrapper',
+            //   'opacity'   : next_contentOpacity 
+            // } , {
+            //   'selector'  : '.section--05 .reference--list',
+            //   'opacity'   : dGrid_contentOpacity 
+            // }  
           ]
         } , { // —————————————————————————————————————  SHUTTER 05
           'wrapper'       : 'main',
           'target'        : '.section--05',
-          'anchor'        : 6,
+          'anchor'        : 5,
+          'visibility'    : 'always',
           'duration'      : '100%',
           'animations'    : [
           ]
@@ -290,9 +294,9 @@ function animateStart(action) {
       $body.height(bodyHeight); 
       $window.scroll(0);
 
-      currentWrapper = wrappers[0];
-      $(currentWrapper).addClass('is_visible');
-      $shutter.attr('data__anchor-total', anchorTotal);
+      // set current wrapper and shutter and make then visible
+      currentWrapper = keyframes[currentKeyframe].target;
+      $main.attr('data__anchor-total', anchorTotal);
     };
 
     _convertAllPropsToPx = function() {
@@ -387,7 +391,7 @@ function animateStart(action) {
       } else {
         value = _getDefaultPropertyValue(property);
       }
-      value = +value.toFixed(4) 
+      value = +value.toFixed(5) 
       return value;
     };
 
@@ -397,8 +401,9 @@ function animateStart(action) {
     };
 
     _linear = function(t, b, c, d) {
+
       return c * t / d + b
-    }
+    };
 
     _setKeyframe = function() {
       if($scrollTop >= (keyframes[currentKeyframe].duration + prevKeyframesDurations)) {
@@ -414,17 +419,25 @@ function animateStart(action) {
 
     _showCurrentWrappers = function() {
 
-      if(keyframes[currentKeyframe].target !== currentWrapper) {
+      if(keyframes[currentKeyframe].target !== currentWrapper) { 
 
-        // Toggle visibility
-        $(currentWrapper).removeClass('is_visible');
-        $(keyframes[currentKeyframe].target).addClass('is_visible');
+        
 
-        currentWrapper = keyframes[currentKeyframe].target;
+        // MANAGE VISIBILITY
+
+        // Hide only if scrolling down
+        var nextAnchor = keyframes[currentKeyframe].anchor;
+        if(nextAnchor > anchor){ $(currentWrapper).hide(); };
+
+        // Always show upcoming section
+        $(keyframes[currentKeyframe].target).show();
 
         // Update nav data
+        currentWrapper = keyframes[currentKeyframe].target;
         anchor = keyframes[currentKeyframe].anchor;
-        $shutter.attr('data__current-shutter', anchor);
+
+        //
+        $main.attr('data__current-shutter', anchor);
 
         // Update nav control color
         if( anchor % 2 == 0){ // if even

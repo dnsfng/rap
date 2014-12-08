@@ -23,9 +23,29 @@
 
   {% for block in entry.slides %}
 
+    
+    {# <div class="mainShutter--wrapper mainShutter_0{{(block.sortOrder - 1)}}" style="z-index:{{(20 - block.sortOrder)}}">
+      <header class="shutter shutter_ne">
+          <div class="flap"></div>
+      </header>
+      <footer class="shutter shutter_sw">
+          <div class="flap"></div>
+      </footer>
+    </div> #}
+
     {% if block.type == "sectionIntro" %}
 
-      <section class="section--00 section--intro">
+      <section class="section--00 section--intro" style="z-index:{{(20 - block.sortOrder)}}">
+
+        <div class="mainShutter--wrapper">
+          <header class="shutter shutter_ne">
+              <div class="flap"></div>
+          </header>
+          <footer class="shutter shutter_sw">
+              <div class="flap"></div>
+          </footer>
+        </div>
+
         <div class="section--wrapper">
           <a class="logo" href="{{ siteUrl }}">
             <h1>
@@ -40,11 +60,12 @@
         </div>
         
         <a href="#" class="modal--link-open js--modal-open">open reference</a>
+
       </section>
 
     {% elseif block.type == "sectionTitle" %}
 
-      <section class="section--0{{(block.sortOrder - 1)}} section--references">
+      <section class="section--0{{(block.sortOrder - 1)}} section--references" style="z-index:{{(20 - block.sortOrder)}}">
         <div class="section--wrapper">
           <div class="section__references--pattern"></div>
           <div class="section--title--wrapper">
@@ -75,9 +96,37 @@
     {% else %}
 
     {% if block.type == "sectionImage" %}
-      <section class="section--0{{(block.sortOrder - 1)}}">
+
+    {% set image = block.backgroundImage.first() %}
+
+      <section class="section--0{{(block.sortOrder - 1)}} section--image" style="z-index:{{(20 - block.sortOrder)}}; ">
+
+      <div class="mainShutter--wrapper" style="background-image: url({{image.url}})">
+          <header class="shutter shutter_ne">
+             <div class="flap">
+                {# <div class="visual" style="background:url({{image.url}}) no-repeat; bottom:0; left:0"></div> #}
+              </div>
+         </header>
+          <footer class="shutter shutter_sw">
+             <div class="flap">
+                {# <div class="visual" style="background:url({{image.url}}) no-repeat; top:0; left:0"></div> #}
+              </div>
+         </footer>
+      </div>
+
     {% else %}
-      <section class="section--0{{(block.sortOrder - 1)}}">
+
+      <section class="section--0{{(block.sortOrder - 1)}}" style="z-index:{{(20 - block.sortOrder)}}">
+
+      <div class="mainShutter--wrapper">
+        <header class="shutter shutter_ne">
+            <div class="flap"></div>
+        </header>
+        <footer class="shutter shutter_sw">
+            <div class="flap"></div>
+        </footer>
+      </div>
+
     {% endif %}
 
       <div class="section--wrapper">
@@ -98,16 +147,16 @@
 
   {% endfor %}
 
-  <div class="nextSection--navigation">
+  {# <div class="nextSection--navigation">
     <a href="#" class="nextSection--arrowWrapper js--nextSection">
       <div class="nextSection--arrow nextSection--arrow-white"></div>
       <div class="nextSection--arrow nextSection--arrow-black"></div>
     </a>
   </div>
 
-  <div class="nextSection--stroke"></div>
+  <div class="nextSection--stroke"></div> #}
 
-  <div class="mainShutter">
+  {# <div class="mainShutter">
 
     <div class="mainShutter--wrapper mainShutter_00">
       <header class="shutter shutter_ne">
@@ -149,7 +198,7 @@
           <div class="flap"></div>
       </footer>
     </div>
-  </div>
+  </div> #}
 
 {% set length = craft.entries.type('projets').total() %}
 

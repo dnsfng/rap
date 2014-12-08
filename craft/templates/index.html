@@ -21,6 +21,8 @@
 
 {% block content %}
 
+  {% set moderator = 0 %}
+
   {% for block in entry.slides %}
 
     
@@ -33,9 +35,17 @@
       </footer>
     </div> #}
 
+    {# var moderator helps escape the color pattern of image section #}
+    {% if block.type == "sectionImage" %}
+        {% set moderator = moderator + 1 %}
+    {% endif %}
+
+    {% set count = (block.sortOrder - moderator - 1) %}
+    {% set evenOrOdd = count % 2 == 0 ? 'even' : 'odd' %}
+
     {% if block.type == "sectionIntro" %}
 
-      <section class="section--00 section--intro" style="z-index:{{(20 - block.sortOrder)}}">
+      <section class="section--00 section--intro {{evenOrOdd}}" style="z-index:{{(20 - block.sortOrder)}}">
 
         <div class="mainShutter--wrapper">
           <header class="shutter shutter_ne">
@@ -65,7 +75,7 @@
 
     {% elseif block.type == "sectionTitle" %}
 
-      <section class="section--0{{(block.sortOrder - 1)}} section--references" style="z-index:{{(20 - block.sortOrder)}}">
+      <section class="section--0{{(block.sortOrder - 1)}} section--references {{evenOrOdd}}" style="z-index:{{(20 - block.sortOrder)}}">
         <div class="section--wrapper">
           <div class="section__references--pattern"></div>
           <div class="section--title--wrapper">
@@ -116,7 +126,7 @@
 
     {% else %}
 
-      <section class="section--0{{(block.sortOrder - 1)}}" style="z-index:{{(20 - block.sortOrder)}}">
+      <section class="section--0{{(block.sortOrder - 1)}} {{evenOrOdd}}" style="z-index:{{(20 - block.sortOrder)}}">
 
       <div class="mainShutter--wrapper">
         <header class="shutter shutter_ne">

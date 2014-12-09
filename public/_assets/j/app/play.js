@@ -26,11 +26,14 @@ function animateStart(action) {
         next_shutterSWFixed     = [0,20];
 
     var next_contentOpacity     = [-3, 1],
-        dGrid_contentOpacity    = [-20, 1]
+        dGrid_contentOpacity    = [-20, 1];
 
     var prev_contentOpacity     = [1, -6],
         prev_titleTranslateX    = '-10%',
-        prev_descTranslateX     = '10%'
+        prev_descTranslateX     = '10%';
+
+    var mailOpacityOut          = [3,0],
+        mailOpacityIn           = [-3,1];
 
 
     var PROPERTIES =               ['translateX', 'translateY', 'opacity', 'rotate', 'scale'],
@@ -82,6 +85,14 @@ function animateStart(action) {
             } , {
               'selector'  : '.section--03 .flap',
               'rotate'    : 0
+            } , {
+              'selector'  : '.mail--icon-black',
+              'opacity'   : mailOpacityOut
+            } , {
+              'selector'  : '.logo--wrapper',
+              'translateX': ['-9%','0%'],
+              'translateY': ['-16%','0%'],
+              'opacity'   : [-6, 1]
             }
           ]
         } , { //  Transition
@@ -120,6 +131,12 @@ function animateStart(action) {
               'selector'  : '.section--01 .section--description',
               'opacity'   : prev_contentOpacity,
               'translateX': prev_descTranslateX
+            } , {
+              'selector'  : '.mail--icon-black',
+              'opacity'   : mailOpacityIn
+            } , {
+              'selector'  : '.logo--icon-white',
+              'opacity'   : [4, 0]
             }
           ]
         } , { // Transition
@@ -158,6 +175,12 @@ function animateStart(action) {
               'selector'  : '.section--02 .section--description',
               'opacity'   : prev_contentOpacity,
               'translateX': prev_descTranslateX
+            } , {
+              'selector'  : '.mail--icon-black',
+              'opacity'   : mailOpacityOut
+            } , {
+              'selector'  : '.logo--icon-white',
+              'opacity'   : [-2, 1]
             }
           ]
         } , { // Transition
@@ -196,7 +219,7 @@ function animateStart(action) {
               'selector'  : '.section--03 .section--description',
               'opacity'   : prev_contentOpacity,
               'translateX': prev_descTranslateX
-            } 
+            }
           ]
         } , { //  Transition
           'wrapper'       : 'main',
@@ -244,6 +267,12 @@ function animateStart(action) {
             } , {
               'selector'  : '.nextSection--arrow',
               'opacity'   : [1,0]
+            } , {
+              'selector'  : '.mail--icon-black',
+              'opacity'   : mailOpacityIn
+            } , {
+              'selector'  : '.logo--icon-white',
+              'opacity'   : [4, 0]
             }
 
           ]
@@ -535,6 +564,7 @@ function animateStart(action) {
 
     if (action === 'start'){
       _init();
+      //_scrollTo($(document), 0, 800);
     } else {
       _kill();
     }

@@ -12,6 +12,49 @@ body
   &.no-scroll main
     overflow hidden
     
+/* Mail icon ********************************************************************/
+
+.mail--wrapper
+  position  fixed
+  top       $paddingViewport-mobile
+  right     @top
+  width     40px
+  height    @width
+  display   block
+  fix3d()
+  will-change opacity
+  
+  .mail--icon
+    position  absolute
+    width     100%
+    height    100%
+  
+  @media screen and (min-width $laptop['min-width'])
+    top   $paddingViewport-tablet
+    right @top
+    
+/* logo icon ********************************************************************/
+
+.logo--wrapper
+  position  fixed
+  top       $paddingViewport-mobile
+  left      @top
+  width     70px
+  height    @width
+  display   block
+  fix3d()
+  will-change transform, opacity
+  
+  .logo--icon
+    position  absolute
+    width     100%
+    height    100%
+  
+  @media screen and (min-width $laptop['min-width'])
+    top   $paddingViewport-tablet
+    left  @top
+    
+      
 
 /******************************************************************************/
 /* Main sections **************************************************************/
@@ -234,6 +277,9 @@ section
   // @media screen and (min-width $laptop['min-width'])
   //   margin-top 0
   //   height 100%
+
+
+
 
 /* Section 04 *****************************************************************/
 

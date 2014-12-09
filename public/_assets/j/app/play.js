@@ -18,8 +18,8 @@ function animateStart(action) {
     -------------------------------------------------- */
 
     var shutterTranslateX       = '-100%',
-        shutterNERotate         = [-20,-45],
-        shutterSWRotate         = [20,45];
+        shutterNERotate         = [-20,-48],
+        shutterSWRotate         = [20,48];
 
     var next_shutterTranslateX  = ['100%','0%'],
         next_shutterNEFixed     = [0,-20],
@@ -247,12 +247,12 @@ function animateStart(action) {
               'selector'  : '.section--04 .shutter_ne .flap',
               'translateX': shutterTranslateX,
               // 'rotate'    : shutterNERotate
-              'rotate'    : [65, 45]
+              'rotate'    : [65, 42]
             } , {
               'selector'  : '.section--04 .shutter_sw .flap',
               'translateX': shutterTranslateX,
               // 'rotate'    : shutterSWRotate
-              'rotate'    : [-65, -45],
+              'rotate'    : [-65, -42],
             } , {
               'selector'  : '.section--04',
               'opacity'   : [3, 0]
@@ -290,6 +290,7 @@ function animateStart(action) {
     /*  Construction
     -------------------------------------------------- */
     _init = function() {
+      _scrollTo($(window), 1, 400); // force top of page
       scrollIntervalID = setInterval(_updatePage, 10); //default = 10
       _setupValues();
       is_playable = true;

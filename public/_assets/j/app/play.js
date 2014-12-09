@@ -224,14 +224,14 @@ function animateStart(action) {
               'selector'  : '.section--04 .shutter_ne .flap',
               'translateX': shutterTranslateX,
               // 'rotate'    : shutterNERotate
-              'rotate'    : [65, 40]
+              'rotate'    : [65, 45]
             } , {
               'selector'  : '.section--04 .shutter_sw .flap',
               'translateX': shutterTranslateX,
               // 'rotate'    : shutterSWRotate
-              'rotate'    : [-65, -40],
+              'rotate'    : [-65, -45],
             } , {
-              'selector'  : '.section--04 .mainShutter--wrapper',
+              'selector'  : '.section--04',
               'opacity'   : [3, 0]
             } , {
               'selector'  : '.section--04 .section--title--wrapper',

@@ -40,7 +40,6 @@ section
       .js &
         content none
 
-
   &:before
     bottom        100%
     right         0%
@@ -52,9 +51,11 @@ section
     left          0%
     border-width  0 100vw 100vw 0
     border-color  transparent white transparent transparent
+    
 
   &.odd
     color white
+    background-color black
     @media screen and (min-width $laptop['min-width'])
       .js &
         background-color transparent
@@ -65,14 +66,20 @@ section
     &:after
       border-color transparent black transparent transparent 
 
-
+  
   &:first-child:before
   &:first-child:after
     content none /*remove :after & :before triangle on .section--intro so
     before diagonal stays visible*/
 
+  &.section--image
+    color white
 
-  &:nth-last-child(2):after
+    &:before
+    &:after
+      content none
+
+  &:nth-last-child(3):after
     content none
 
 
@@ -106,7 +113,7 @@ section
 
 
 
-/* Section 00 *****************************************************************/
+/* Section--intro *****************************************************************/
 
 .logo
   &:visited

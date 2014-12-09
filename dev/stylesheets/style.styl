@@ -158,12 +158,11 @@ section
       left        @top
       margin-left auto
       
-  @media screen and (min-width $laptop['min-width'])  
-
+  @media screen and (min-width $laptop['min-width'])
     &:before
     &:after
       content none
-
+      
 
 
 
@@ -182,6 +181,9 @@ aside
     
     @media screen and (min-width $tabletLandscape['width'])
       text-align left  
+      
+    @media screen and (min-width $desktop) 
+      font-size em(30)
 
   .error--baseline
     @extends aside .intro--baseline

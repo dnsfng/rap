@@ -126,7 +126,12 @@ section
 
     @media screen and (min-width $tabletPortrait['width'])
       verticalAlign(-60%)  
-
+      
+    @media screen and (min-width $laptop['min-width'])  
+      transform none
+      top 0
+      left 0
+      height 100%
 
 
 
@@ -173,6 +178,8 @@ section
     position  relative
     width     $logo-wrapper-size_laptop
     horizontalAlign()
+    will-change opacity
+
 
   .logo--image
     float         left
@@ -180,16 +187,40 @@ section
     height        @width
     margin-bottom 0
 
+
   .logo--name
     margin      0
     width       auto
     height      $step*15
     padding-top 17px
 
+
   .baseline
     width       auto
     margin-left $logo-image-size_laptop
     margin-top  12px
+    
+
+
+
+@media screen and (min-width $laptop['min-width'])
+  .logo
+    top               18vw
+    left              18vw
+    width             60%
+    margin            0 0
+    
+
+  .logo--image
+    width             21%
+    height            @width
+    
+
+  .logo--name
+    margin      0
+    width       79%
+    height      auto
+    padding-top 3%
 
 
 

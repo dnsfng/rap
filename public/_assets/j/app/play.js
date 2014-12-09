@@ -18,12 +18,12 @@ function animateStart(action) {
     -------------------------------------------------- */
 
     var shutterTranslateX       = '-100%',
-        shutterNERotate         = [-15,-45],
-        shutterSWRotate         = [15,45];
+        shutterNERotate         = [-20,-45],
+        shutterSWRotate         = [20,45];
 
     var next_shutterTranslateX  = ['100%','0%'],
-        next_shutterNEFixed     = [0,-15],
-        next_shutterSWFixed     = [0,15];
+        next_shutterNEFixed     = [0,-20],
+        next_shutterSWFixed     = [0,20];
 
     var next_contentOpacity     = [-3, 1],
         dGrid_contentOpacity    = [-20, 1]
@@ -37,7 +37,6 @@ function animateStart(action) {
         $window =                  $(window),
         $body =                    $('body'),
         $main =                    $('main'),
-        $next =                    $('.nextSection--navigation'),
         wrappers =                 [],
         currentWrapper =           null,
         scrollIntervalID =         0,
@@ -52,11 +51,16 @@ function animateStart(action) {
         isAnimating =              false,
         currentKeyframe =          0,
         keyframes = [
-        { // ————————————————————————————————————————  SHUTTER 00
+        { 'wrapper'       : 'main',
+          'target'        : '.section--00',
+          'anchor'        : 0,
+          'duration'      : '20%',
+          'animations'    : []
+        } , { // ————————————————————————————————————————  SHUTTER 00
           'wrapper'       : 'main',
           'target'        : '.section--00',
           'anchor'        : 0,
-          'duration'      : '80%',
+          'duration'      : '60%',
           'animations'    : [
             {
               'selector'  : '.section--00 .shutter_ne .flap',
@@ -67,8 +71,17 @@ function animateStart(action) {
               'translateX': shutterTranslateX,
               'rotate'    : shutterSWRotate
             } , {
-              'selector'  : '.logo',
-              'opacity'   : prev_contentOpacity
+              'selector'  : '.section--00 .logo',
+              'opacity'   : [1,-6]
+            } , {
+              'selector'  : '.section--01 .flap',
+              'rotate'    : 0
+            } , {
+              'selector'  : '.section--02 .flap',
+              'rotate'    : 0
+            } , {
+              'selector'  : '.section--03 .flap',
+              'rotate'    : 0
             }
           ]
         } , { //  Transition
@@ -205,7 +218,7 @@ function animateStart(action) {
           'wrapper'       : 'main',
           'target'        : '.section--04',
           'anchor'        : 4,
-          'duration'      : '80%',
+          'duration'      : '100%',
           'animations'    : [
             {
               'selector'  : '.section--04 .shutter_ne .flap',
@@ -228,18 +241,11 @@ function animateStart(action) {
               'selector'  : '.section--04 .section--description',
               'opacity'   : prev_contentOpacity,
               'translateX': prev_descTranslateX
+            } , {
+              'selector'  : '.nextSection--arrow',
+              'opacity'   : [1,0]
             }
-            // } , {
-            //   'selector'  : '.section--05 .section__references--pattern',
-            //   'opacity'   : dGrid_contentOpacity,
-            //   'rotate'    : [-45, -45]
-            // } , {
-            //   'selector'  : '.section--05 .section--title--wrapper',
-            //   'opacity'   : next_contentOpacity 
-            // } , {
-            //   'selector'  : '.section--05 .reference--list',
-            //   'opacity'   : dGrid_contentOpacity 
-            // }  
+
           ]
         } , { // —————————————————————————————————————  SHUTTER 05
           'wrapper'       : 'main',
@@ -439,12 +445,11 @@ function animateStart(action) {
         //
         $main.attr('data__current-shutter', anchor);
 
-        // Update nav control color
-        if( anchor % 2 == 0){ // if even
-          $next.addClass('even');
+        if(anchor === anchorTotal){
+          $('.nextSection--arrow').hide();
         } else {
-          $next.removeClass('even');
-        }
+          $('.nextSection--arrow').show();
+        };
         
       }
       
@@ -465,6 +470,7 @@ function animateStart(action) {
 
 
     _scrollTo = function(element, to, duration) {
+
         var start = element.scrollTop(),
             change = to - start,
             currentTime = 0,
@@ -495,9 +501,9 @@ function animateStart(action) {
       e.preventDefault();
 
       if(direction === 'down') {
-        target = ((anchor) * windowHeight); 
+        target = ((anchor + 1) * windowHeight); 
       } else {
-        target = ((anchor - 2) * windowHeight);
+        target = ((anchor - 1) * windowHeight);
       }
 
       _scrollTo(element, target, 800);
@@ -523,19 +529,26 @@ function animateStart(action) {
 
     }
 
+
+
+    // Launcher
+
     if (action === 'start'){
       _init();
     } else {
       _kill();
     }
 
-    // Binding event
+
+
+
+    // Bind event on UI element
 
     $('.js--nextSection').click(function(e){
       _goTo($(document), 'down', anchor, e);
     });
 
-    // Quickly bind same event on down arrow
+    // Bind same event on keyboard controls
     $('body').keydown(function(e){
 
       keyCode = e.keyCode;

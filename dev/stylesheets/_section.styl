@@ -38,6 +38,8 @@
     transform translate3d(0, -1px, 0) rotate(45deg)
     
 
+
+
 .flap
   background-color white
   // background-color blue
@@ -45,21 +47,30 @@
   width 100%
   height 100%
   transform-origin 130vh 0%
+  transform translate3d(0, 0, 0) rotate(0deg)
   overflow hidden
   
+
   .shutter_ne &
     transform-origin 130vh 100%
-    transform translate3d(0, 0, 0) rotate(0deg)
-      
-  .shutter_sw &
-    transform translate3d(0, 0, 0) rotate(0deg)
+    
+
+  .section--00 .shutter_ne &
+    transform translate3d(0, 0, 0) rotate(-20deg)
+    
+
+  .section--00 .shutter_sw &
+    transform translate3d(0, 0, 0) rotate(20deg)
+    
    
   .section--image &
     margin-left 130vh
 
+
   .section--image .shutter_ne &
     transform-origin 0 100%
     transform translate3d(0, 0, 0) rotate(90deg)
+
       
   .section--image .shutter_sw &
     transform-origin 0 0%
@@ -67,10 +78,8 @@
     
     
 
-    
         
 .nextSection--navigation
-.nextSection--stroke
   display none
   
   @media screen and (min-width $laptop['min-width'])
@@ -85,9 +94,6 @@
     transform         rotate(45deg) translateY(-1px)
     transition        opacity $t-slow ease-out
 
-
-.nextSection--stroke
-  border-bottom 1px solid $grey_light 
   
 .nextSection--navigation
   // Targets the section nav arrow when the last section is visible
@@ -104,27 +110,28 @@
   margin   -(@width/2) 0 0 133vh
     
   .nextSection--arrow
-    position        absolute
-    width           100%
-    height          @width
-    background      transparent url("/_assets/i/__nav_next_section.svg") no-repeat
-    background-size cover
+    position            absolute
+    width               100%
+    height              @width
+    background          transparent url("/_assets/i/__nav_next_section.svg") no-repeat
+    background-position center center
+    background-size     cover
     
-    transition      opacity $t-fast ease-in
-    
-    &.nextSection--arrow-white
-      background-position left center
-      opacity 0
+    &:before
+    &:after
+      fakeContent();
+      width             100vw
+      height            1px
+      top               50%
+      background-color  $grey_light 
       
-      .even &
-        opacity 1
+    &:before
+      right 80%
+      
+    &:after
+      left 90%
+      
 
-    &.nextSection--arrow-black
-      background-position right center
-      opacity 1
-      
-      .even &
-        opacity 0
 
     
     

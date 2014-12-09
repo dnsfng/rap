@@ -25,16 +25,6 @@
 
   {% for block in entry.slides %}
 
-    
-    {# <div class="mainShutter--wrapper mainShutter_0{{(block.sortOrder - 1)}}" style="z-index:{{(20 - block.sortOrder)}}">
-      <header class="shutter shutter_ne">
-          <div class="flap"></div>
-      </header>
-      <footer class="shutter shutter_sw">
-          <div class="flap"></div>
-      </footer>
-    </div> #}
-
     {# var moderator helps escape the color pattern of image section #}
     {% if block.type == "sectionImage" %}
         {% set moderator = moderator + 1 %}
@@ -114,12 +104,10 @@
       <div class="mainShutter--wrapper" style="background-image: url({{image.url}})">
           <header class="shutter shutter_ne">
              <div class="flap">
-                {# <div class="visual" style="background:url({{image.url}}) no-repeat; bottom:0; left:0"></div> #}
               </div>
          </header>
           <footer class="shutter shutter_sw">
              <div class="flap">
-                {# <div class="visual" style="background:url({{image.url}}) no-repeat; top:0; left:0"></div> #}
               </div>
          </footer>
       </div>
@@ -157,58 +145,11 @@
 
   {% endfor %}
 
-  {# <div class="nextSection--navigation">
+  <div class="nextSection--navigation">
     <a href="#" class="nextSection--arrowWrapper js--nextSection">
-      <div class="nextSection--arrow nextSection--arrow-white"></div>
-      <div class="nextSection--arrow nextSection--arrow-black"></div>
+      <div class="nextSection--arrow"></div>
     </a>
   </div>
-
-  <div class="nextSection--stroke"></div> #}
-
-  {# <div class="mainShutter">
-
-    <div class="mainShutter--wrapper mainShutter_00">
-      <header class="shutter shutter_ne">
-          <div class="flap"></div>
-      </header>
-      <footer class="shutter shutter_sw">
-          <div class="flap"></div>
-      </footer>
-    </div>
-    <div class="mainShutter--wrapper mainShutter_01">
-      <header class="shutter shutter_ne">
-          <div class="flap"></div>
-      </header>
-      <footer class="shutter shutter_sw">
-          <div class="flap"></div>
-      </footer>
-    </div>
-    <div class="mainShutter--wrapper mainShutter_02">
-      <header class="shutter shutter_ne">
-          <div class="flap"></div>
-      </header>
-      <footer class="shutter shutter_sw">
-          <div class="flap"></div>
-      </footer>
-    </div>
-    <div class="mainShutter--wrapper mainShutter_03">
-      <header class="shutter shutter_ne">
-          <div class="flap"></div>
-      </header>
-      <footer class="shutter shutter_sw">
-          <div class="flap"></div>
-      </footer>
-    </div>
-    <div class="mainShutter--wrapper mainShutter_04">
-      <header class="shutter shutter_ne">
-          <div class="flap"></div>
-      </header>
-      <footer class="shutter shutter_sw">
-          <div class="flap"></div>
-      </footer>
-    </div>
-  </div> #}
 
 {% set length = craft.entries.type('projets').total() %}
 

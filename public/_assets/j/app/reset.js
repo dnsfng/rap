@@ -1,17 +1,25 @@
 var is_playable = false;
 
-$(document).ready(function(){
+// Repaint resize hack on vw unit (Safari)
+function repaint(){
+  if (!Modernizr.mq('screen and (min-width : 1200px)')){
+    $("section").css("z-index", 1);
+  }
+}
 
-  // ———————————————————————————————————————————————————————
-  // Repaint resize hack on vw unit (Safari)
+function startRepaint(){
+  $(window).resize(repaint);
+}
 
-  var causeRepaintsOn = $("section");
-
-  $(window).resize(function() {
-    causeRepaintsOn.css("z-index", 1);
+function stopRepaint(){
+  $(window).off("resize", repaint);
+  $("section").each(function(index){
+    var revertIndex = 19 - index;
+    $(this).css("z-index", revertIndex);
   });
+}
 
-
+$(document).ready(function(){
 
 
   // ———————————————————————————————————————————————————————
@@ -165,13 +173,26 @@ $(document).ready(function(){
   // ———————————————————————————————————————————————————————
   // Conditional loader
 
+  $(window).resize(function(){
+    if(Modernizr.mq('screen and (min-width : 1200px)')){
+      stopRepaint();
+    } else {
+      startRepaint();
+    }
+  });
+
   if(!Modernizr.mq('screen and (min-width : 1200px)')){
+    // If screen is below 1200px wide
+
+    startRepaint();
 
     $(window).resize(function() {
-        if (Modernizr.mq('screen and (min-width : 1200px)') && is_playable === false){
-          Modernizr.load(['/_assets/j/vendor/mediaCheck-min.js','/_assets/j/app/play.js']);
-        }
+      if (Modernizr.mq('screen and (min-width : 1200px)') && is_playable === false){
+        Modernizr.load(['/_assets/j/vendor/mediaCheck-min.js','/_assets/j/app/play.js']);
+      }
     });
+
   }
+
 
 });

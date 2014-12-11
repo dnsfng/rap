@@ -18,26 +18,28 @@ function animateStart(action) {
     -------------------------------------------------- */
 
     var shutterTranslateX       = '-100%',
-        shutterNERotate         = [65,44],
-        shutterSWRotate         = [-65,-44];
+        shutterNERotate         = [-20,-48],
+        shutterSWRotate         = [20,48];
 
     var next_shutterTranslateX  = ['100%','0%'],
-        next_shutterNEFixed     = [65,65],
-        next_shutterSWFixed     = [-65,-65];
+        next_shutterNEFixed     = [0,-20],
+        next_shutterSWFixed     = [0,20];
 
     var next_contentOpacity     = [-3, 1],
-        dGrid_contentOpacity    = [-20, 1]
+        dGrid_contentOpacity    = [-20, 1];
 
     var prev_contentOpacity     = [1, -6],
         prev_titleTranslateX    = '-10%',
-        prev_descTranslateX     = '10%'
+        prev_descTranslateX     = '10%';
+
+    var mailOpacityOut          = [3,0],
+        mailOpacityIn           = [-3,1];
 
 
     var PROPERTIES =               ['translateX', 'translateY', 'opacity', 'rotate', 'scale'],
         $window =                  $(window),
         $body =                    $('body'),
-        $shutter =                 $('.mainShutter'),
-        $next =                    $('.nextSection--navigation'),
+        $main =                    $('main'),
         wrappers =                 [],
         currentWrapper =           null,
         scrollIntervalID =         0,
@@ -47,63 +49,80 @@ function animateStart(action) {
         prevKeyframesDurations =   0,
         $scrollTop =               0,
         relativeScrollTop =        0,
-        anchor =                   1,
+        anchor =                   0,
         anchorTotal =              0,
         isAnimating =              false,
         currentKeyframe =          0,
         keyframes = [
-        { // ————————————————————————————————————————  SHUTTER 00
+        { 'wrapper'       : 'main',
+          'target'        : '.section--00',
+          'anchor'        : 0,
+          'duration'      : '20%',
+          'animations'    : []
+        } , { // ————————————————————————————————————————  SHUTTER 00
           'wrapper'       : 'main',
           'target'        : '.section--00',
-          'anchor'        : 1,
-          'duration'      : '100%',
+          'anchor'        : 0,
+          'duration'      : '60%',
           'animations'    : [
             {
-              'selector'  : '.mainShutter_00 .shutter_ne .flap',
+              'selector'  : '.section--00 .shutter_ne .flap',
               'translateX': shutterTranslateX,
               'rotate'    : shutterNERotate
             } , {
-              'selector'  : '.mainShutter_00 .shutter_sw .flap',
+              'selector'  : '.section--00 .shutter_sw .flap',
               'translateX': shutterTranslateX,
               'rotate'    : shutterSWRotate
             } , {
-              'selector'  : '.mainShutter_01 .shutter_ne .flap',
-              'translateX': next_shutterTranslateX,
+              'selector'  : '.section--00 .logo',
+              'opacity'   : [1,-6]
+            } , {
+              'selector'  : '.section--01 .flap',
+              'rotate'    : 0
+            } , {
+              'selector'  : '.section--02 .flap',
+              'rotate'    : 0
+            } , {
+              'selector'  : '.section--03 .flap',
+              'rotate'    : 0
+            } , {
+              'selector'  : '.mail--icon-black',
+              'opacity'   : mailOpacityOut
+            } , {
+              'selector'  : '.logo--wrapper',
+              'translateX': ['-9%','0%'],
+              'translateY': ['-16%','0%'],
+              'opacity'   : [-6, 1]
+            }
+          ]
+        } , { //  Transition
+          'wrapper'       : 'main',
+          'target'        : '.section--00',
+          'anchor'        : 0,
+          'duration'      : '20%',
+          'animations'    : [
+            {
+              'selector'  : '.section--01 .shutter_ne .flap',
               'rotate'    : next_shutterNEFixed
             } , {
-              'selector'  : '.mainShutter_01 .shutter_sw .flap',
-              'translateX': next_shutterTranslateX,
+              'selector'  : '.section--01 .shutter_sw .flap',
               'rotate'    : next_shutterSWFixed
-            } , {
-              'selector'  : '.section--01 .section--title--wrapper',
-              'opacity'   : next_contentOpacity 
-            } , {
-              'selector'  : '.section--01 .section--description',
-              'opacity'   : next_contentOpacity 
-            } 
+            }
           ]
         } , { // —————————————————————————————————————  SHUTTER 01
           'wrapper'       : 'main',
           'target'        : '.section--01',
-          'anchor'        : 2,
-          'duration'      : '100%',
+          'anchor'        : 1,
+          'duration'      : '80%',
           'animations'    : [
             {
-              'selector'  : '.mainShutter_01 .shutter_ne .flap',
+              'selector'  : '.section--01 .shutter_ne .flap',
               'translateX': shutterTranslateX,
               'rotate'    : shutterNERotate
             } , {
-              'selector'  : '.mainShutter_01 .shutter_sw .flap',
+              'selector'  : '.section--01 .shutter_sw .flap',
               'translateX': shutterTranslateX,
               'rotate'    : shutterSWRotate
-            } , {
-              'selector'  : '.mainShutter_02 .shutter_ne .flap',
-              'translateX': next_shutterTranslateX,
-              'rotate'    : next_shutterNEFixed 
-            } , {
-              'selector'  : '.mainShutter_02 .shutter_sw .flap',
-              'translateX': next_shutterTranslateX,
-              'rotate'    : next_shutterSWFixed
             } , {
               'selector'  : '.section--01 .section--title--wrapper',
               'opacity'   : prev_contentOpacity,
@@ -113,35 +132,41 @@ function animateStart(action) {
               'opacity'   : prev_contentOpacity,
               'translateX': prev_descTranslateX
             } , {
-              'selector'  : '.section--02 .section--title--wrapper',
-              'opacity'   : next_contentOpacity 
+              'selector'  : '.mail--icon-black',
+              'opacity'   : mailOpacityIn
             } , {
-              'selector'  : '.section--02 .section--description',
-              'opacity'   : next_contentOpacity 
-            }   
+              'selector'  : '.logo--icon-white',
+              'opacity'   : [4, 0]
+            }
+          ]
+        } , { // Transition
+          'wrapper'       : 'main',
+          'target'        : '.section--01',
+          'anchor'        : 1,
+          'duration'      : '20%',
+          'animations'    : [
+            {
+              'selector'  : '.section--02 .shutter_ne .flap',
+              'rotate'    : next_shutterNEFixed
+            } , {
+              'selector'  : '.section--02 .shutter_sw .flap',
+              'rotate'    : next_shutterSWFixed
+            }
           ]
         } , { // —————————————————————————————————————  SHUTTER 02
           'wrapper'       : 'main',
           'target'        : '.section--02',
-          'anchor'        : 3,
-          'duration'      : '100%',
+          'anchor'        : 2,
+          'duration'      : '80%',
           'animations'    : [
             {
-              'selector'  : '.mainShutter_02 .shutter_ne .flap',
+              'selector'  : '.section--02 .shutter_ne .flap',
               'translateX': shutterTranslateX,
               'rotate'    : shutterNERotate
             } , {
-              'selector'  : '.mainShutter_02 .shutter_sw .flap',
+              'selector'  : '.section--02 .shutter_sw .flap',
               'translateX': shutterTranslateX,
               'rotate'    : shutterSWRotate
-            } , {
-              'selector'  : '.mainShutter_03 .shutter_ne .flap',
-              'translateX': next_shutterTranslateX,
-              'rotate'    : next_shutterNEFixed 
-            } , {
-              'selector'  : '.mainShutter_03 .shutter_sw .flap',
-              'translateX': next_shutterTranslateX,
-              'rotate'    : next_shutterSWFixed
             } , {
               'selector'  : '.section--02 .section--title--wrapper',
               'opacity'   : prev_contentOpacity,
@@ -151,35 +176,41 @@ function animateStart(action) {
               'opacity'   : prev_contentOpacity,
               'translateX': prev_descTranslateX
             } , {
-              'selector'  : '.section--03 .section--title--wrapper',
-              'opacity'   : next_contentOpacity 
+              'selector'  : '.mail--icon-black',
+              'opacity'   : mailOpacityOut
             } , {
-              'selector'  : '.section--03 .section--description',
-              'opacity'   : next_contentOpacity 
-            } 
+              'selector'  : '.logo--icon-white',
+              'opacity'   : [-2, 1]
+            }
+          ]
+        } , { // Transition
+          'wrapper'       : 'main',
+          'target'        : '.section--02',
+          'anchor'        : 2,
+          'duration'      : '20%',
+          'animations'    : [
+            {
+              'selector'  : '.section--03 .shutter_ne .flap',
+              'rotate'    : next_shutterNEFixed
+            } , {
+              'selector'  : '.section--03 .shutter_sw .flap',
+              'rotate'    : next_shutterSWFixed
+            }
           ]
         } , { // —————————————————————————————————————  SHUTTER 03
           'wrapper'       : 'main',
           'target'        : '.section--03',
-          'anchor'        : 4,
-          'duration'      : '100%',
+          'anchor'        : 3,
+          'duration'      : '80%',
           'animations'    : [
             {
-              'selector'  : '.mainShutter_03 .shutter_ne .flap',
+              'selector'  : '.section--03 .shutter_ne .flap',
               'translateX': shutterTranslateX,
               'rotate'    : shutterNERotate
             } , {
-              'selector'  : '.mainShutter_03 .shutter_sw .flap',
+              'selector'  : '.section--03 .shutter_sw .flap',
               'translateX': shutterTranslateX,
               'rotate'    : shutterSWRotate
-            } , {
-              'selector'  : '.mainShutter_04 .shutter_ne .flap',
-              'translateX': next_shutterTranslateX,
-              'rotate'    : next_shutterNEFixed 
-            } , {
-              'selector'  : '.mainShutter_04 .shutter_sw .flap',
-              'translateX': next_shutterTranslateX,
-              'rotate'    : next_shutterSWFixed
             } , {
               'selector'  : '.section--03 .section--title--wrapper',
               'opacity'   : prev_contentOpacity,
@@ -188,36 +219,43 @@ function animateStart(action) {
               'selector'  : '.section--03 .section--description',
               'opacity'   : prev_contentOpacity,
               'translateX': prev_descTranslateX
+            }
+          ]
+        } , { //  Transition
+          'wrapper'       : 'main',
+          'target'        : '.section--03',
+          'anchor'        : 3,
+          'duration'      : '20%',
+          'animations'    : [
+            {
+              'selector'  : '.section--04 .shutter_ne .flap',
+              // 'rotate'    : next_shutterNEFixed
+              'rotate'    : [90, 65]
             } , {
-              'selector'  : '.section--04 .section--title--wrapper',
-              'opacity'   : next_contentOpacity 
-            } , {
-              'selector'  : '.section--04 .section--description',
-              'opacity'   : next_contentOpacity 
-            }   
+              'selector'  : '.section--04 .shutter_sw .flap',
+              // 'rotate'    : next_shutterSWFixed
+              'rotate'    : [-90, -65]
+            }
           ]
         } , { // —————————————————————————————————————  SHUTTER 04
           'wrapper'       : 'main',
           'target'        : '.section--04',
-          'anchor'        : 5,
+          'anchor'        : 4,
           'duration'      : '100%',
           'animations'    : [
             {
-              'selector'  : '.mainShutter_04 .shutter_ne .flap',
+              'selector'  : '.section--04 .shutter_ne .flap',
               'translateX': shutterTranslateX,
-              'rotate'    : shutterNERotate
+              // 'rotate'    : shutterNERotate
+              'rotate'    : [65, 42]
             } , {
-              'selector'  : '.mainShutter_04 .shutter_sw .flap',
+              'selector'  : '.section--04 .shutter_sw .flap',
               'translateX': shutterTranslateX,
-              'rotate'    : shutterSWRotate
+              // 'rotate'    : shutterSWRotate
+              'rotate'    : [-65, -42],
             } , {
-              'selector'  : '.mainShutter_05 .shutter_ne .flap',
-              'translateX': next_shutterTranslateX,
-              'rotate'    : next_shutterNEFixed 
-            } , {
-              'selector'  : '.mainShutter_05 .shutter_sw .flap',
-              'translateX': next_shutterTranslateX,
-              'rotate'    : next_shutterSWFixed
+              'selector'  : '.section--04',
+              'opacity'   : [3, 0]
             } , {
               'selector'  : '.section--04 .section--title--wrapper',
               'opacity'   : prev_contentOpacity,
@@ -227,21 +265,22 @@ function animateStart(action) {
               'opacity'   : prev_contentOpacity,
               'translateX': prev_descTranslateX
             } , {
-              'selector'  : '.section--05 .section__references--pattern',
-              'opacity'   : dGrid_contentOpacity,
-              'rotate'    : [-45, -45]
+              'selector'  : '.nextSection--arrow',
+              'opacity'   : [1,0]
             } , {
-              'selector'  : '.section--05 .section--title--wrapper',
-              'opacity'   : next_contentOpacity 
+              'selector'  : '.mail--icon-black',
+              'opacity'   : mailOpacityIn
             } , {
-              'selector'  : '.section--05 .reference--list',
-              'opacity'   : dGrid_contentOpacity 
-            }  
+              'selector'  : '.logo--icon-white',
+              'opacity'   : [4, 0]
+            }
+
           ]
         } , { // —————————————————————————————————————  SHUTTER 05
           'wrapper'       : 'main',
           'target'        : '.section--05',
-          'anchor'        : 6,
+          'anchor'        : 5,
+          'visibility'    : 'always',
           'duration'      : '100%',
           'animations'    : [
           ]
@@ -251,6 +290,7 @@ function animateStart(action) {
     /*  Construction
     -------------------------------------------------- */
     _init = function() {
+      _scrollTo($(window), 1, 400); // force top of page
       scrollIntervalID = setInterval(_updatePage, 10); //default = 10
       _setupValues();
       is_playable = true;
@@ -290,9 +330,9 @@ function animateStart(action) {
       $body.height(bodyHeight); 
       $window.scroll(0);
 
-      currentWrapper = wrappers[0];
-      $(currentWrapper).addClass('is_visible');
-      $shutter.attr('data__anchor-total', anchorTotal);
+      // set current wrapper and shutter and make then visible
+      currentWrapper = keyframes[currentKeyframe].target;
+      $main.attr('data__anchor-total', anchorTotal);
     };
 
     _convertAllPropsToPx = function() {
@@ -387,7 +427,7 @@ function animateStart(action) {
       } else {
         value = _getDefaultPropertyValue(property);
       }
-      value = +value.toFixed(4) 
+      value = +value.toFixed(5) 
       return value;
     };
 
@@ -397,8 +437,9 @@ function animateStart(action) {
     };
 
     _linear = function(t, b, c, d) {
+
       return c * t / d + b
-    }
+    };
 
     _setKeyframe = function() {
       if($scrollTop >= (keyframes[currentKeyframe].duration + prevKeyframesDurations)) {
@@ -414,24 +455,31 @@ function animateStart(action) {
 
     _showCurrentWrappers = function() {
 
-      if(keyframes[currentKeyframe].target !== currentWrapper) {
+      if(keyframes[currentKeyframe].target !== currentWrapper) { 
 
-        // Toggle visibility
-        $(currentWrapper).removeClass('is_visible');
-        $(keyframes[currentKeyframe].target).addClass('is_visible');
+        
 
-        currentWrapper = keyframes[currentKeyframe].target;
+        // MANAGE VISIBILITY
+
+        // Hide only if scrolling down
+        var nextAnchor = keyframes[currentKeyframe].anchor;
+        if(nextAnchor > anchor){ $(currentWrapper).hide(); };
+
+        // Always show upcoming section
+        $(keyframes[currentKeyframe].target).show();
 
         // Update nav data
+        currentWrapper = keyframes[currentKeyframe].target;
         anchor = keyframes[currentKeyframe].anchor;
-        $shutter.attr('data__current-shutter', anchor);
 
-        // Update nav control color
-        if( anchor % 2 == 0){ // if even
-          $next.addClass('even');
+        //
+        $main.attr('data__current-shutter', anchor);
+
+        if(anchor === anchorTotal){
+          $('.nextSection--arrow').hide();
         } else {
-          $next.removeClass('even');
-        }
+          $('.nextSection--arrow').show();
+        };
         
       }
       
@@ -452,6 +500,7 @@ function animateStart(action) {
 
 
     _scrollTo = function(element, to, duration) {
+
         var start = element.scrollTop(),
             change = to - start,
             currentTime = 0,
@@ -482,9 +531,9 @@ function animateStart(action) {
       e.preventDefault();
 
       if(direction === 'down') {
-        target = ((anchor) * windowHeight); 
+        target = ((anchor + 1) * windowHeight); 
       } else {
-        target = ((anchor - 2) * windowHeight);
+        target = ((anchor - 1) * windowHeight);
       }
 
       _scrollTo(element, target, 800);
@@ -510,19 +559,27 @@ function animateStart(action) {
 
     }
 
+
+
+    // Launcher
+
     if (action === 'start'){
       _init();
+      //_scrollTo($(document), 0, 800);
     } else {
       _kill();
     }
 
-    // Binding event
+
+
+
+    // Bind event on UI element
 
     $('.js--nextSection').click(function(e){
       _goTo($(document), 'down', anchor, e);
     });
 
-    // Quickly bind same event on down arrow
+    // Bind same event on keyboard controls
     $('body').keydown(function(e){
 
       keyCode = e.keyCode;

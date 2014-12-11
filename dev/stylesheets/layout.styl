@@ -12,6 +12,49 @@ body
   &.no-scroll main
     overflow hidden
     
+/* Mail icon ********************************************************************/
+
+.mail--wrapper
+  position  fixed
+  top       $paddingViewport-mobile
+  right     @top
+  width     40px
+  height    @width
+  display   block
+  fix3d()
+  will-change opacity
+  
+  .mail--icon
+    position  absolute
+    width     100%
+    height    100%
+  
+  // @media screen and (min-width $laptop['min-width'])
+  //   top   $paddingViewport-tablet
+  //   right @top
+    
+/* logo icon ********************************************************************/
+
+.logo--wrapper
+  position  fixed
+  top       $paddingViewport-mobile
+  left      @top
+  width     70px
+  height    @width
+  display   block
+  fix3d()
+  will-change transform, opacity
+  
+  .logo--icon
+    position  absolute
+    width     100%
+    height    100%
+  
+  // @media screen and (min-width $laptop['min-width'])
+  //   top   $paddingViewport-tablet
+  //   left  @top
+    
+      
 
 /******************************************************************************/
 /* Main sections **************************************************************/
@@ -26,13 +69,25 @@ section
     
   &.section--intro
     height 100%
-    margin 0  
-    @media screen and (min-width $laptop['min-width'])
-      .js &
-        display block
+    margin 0
 
 .section--title
   margin-bottom step(30)
+
+  
+// @media screen and (min-width $phoneLandscape['width']) and (max-width $tabletPortrait['width'])
+//   section
+//     background-color green !important
+    
+//     &.section--text
+//       width 200%
+//       height 50%
+//       margin 0
+//       transform-origin 0% 0%
+//       transform rotate(45deg)
+      
+//     .section--title
+      
 
 
 @media screen and (min-width $tabletPortrait['width']) and (max-width $laptop['max-width'])
@@ -47,22 +102,16 @@ section
     width         60%
     margin-bottom step(90)
 
+
 @media screen and (min-width $laptop['min-width'])
   section
     height    50%
-    padding   $paddingViewport-laptop
+    padding   $paddingViewport-tablet
       
     .js &
       position  fixed
       height    100%
       margin    0
-      pointer-events  none
-
-      &.is_visible
-        pointer-events  auto 
-      
-      &.section--intro
-        position  absolute
         
 
     .section--wrapper
@@ -74,14 +123,23 @@ section
     .section--description
       display         table-cell
       height          100%
-      width           50%
+      width           40%
       position        relative
       vertical-align  middle
       
       .js &
-        opacity 0
-    
+        opacity 1 //todo
+      
+    .section--title
+      float left
 
+    .section--description
+      width   60%
+      padding 0 $step*16 0 $step*16
+
+    &.section--image
+      pointer-events none
+    
     &.section--references 
       .section--wrapper
         display inline-block
@@ -92,14 +150,11 @@ section
         
       .section--title
         verticalAlign()
-      
-
+        
+@media screen and (min-width $desktop)
+  section
     .section--description
-      padding 0 $step*12
-            
-
-    .section--title
-      float left
+      padding 0 $step*32 0 0
       
 
 
@@ -109,6 +164,7 @@ section
 
 .section--intro
   overflow hidden //hides :after diagonale
+  background-color white !important //todo
 
   + section
     margin-top 90%
@@ -133,7 +189,12 @@ section
 
     @media screen and (min-width $tabletPortrait['width'])
       verticalAlign(-60%)  
-
+      
+    @media screen and (min-width $laptop['min-width'])  
+      transform none
+      top 0
+      left 0
+      height 100%
 
 
 
@@ -180,6 +241,8 @@ section
     position  relative
     width     $logo-wrapper-size_laptop
     horizontalAlign()
+    will-change opacity
+
 
   .logo--image
     float         left
@@ -187,16 +250,53 @@ section
     height        @width
     margin-bottom 0
 
+
   .logo--name
     margin      0
     width       auto
     height      $step*15
     padding-top 17px
 
+
   .baseline
     width       auto
     margin-left $logo-image-size_laptop
     margin-top  12px
+    
+
+
+
+@media screen and (min-width $laptop['min-width'])
+  .logo
+    top               18vw
+    left              18vw
+    width             60%
+    margin            0 0
+    
+
+  .logo--image
+    width             21%
+    height            @width
+    
+
+  .logo--name
+    margin      0
+    width       79%
+    height      auto
+    padding-top 3%
+
+
+/* Section 03 ****/
+
+.section--image
+  .section--wrapper
+    position relative
+  // margin-top -100vw
+  // height 300vw
+  
+  // @media screen and (min-width $laptop['min-width'])
+  //   margin-top 0
+  //   height 100%
 
 
 
@@ -208,9 +308,6 @@ section
   padding-top $step*16
   font-size   0
   line-height normal
-  
-  @media screen and (min-width $laptop['min-width'])
-    opacity 0
 
   $$mq2-min = (($section-padding * 2) - $diamond__interval + ($diamond__size + $diamond__interval) * 2)px
   $$mq3-min = (($section-padding * 2) - $diamond__interval + ($diamond__size + $diamond__interval) * 3)px
@@ -230,7 +327,6 @@ section
     
   @media screen and (min-width $laptop['min-width'])
     .js &
-      background-color rgba(red,0.1) // todo : remove color
       max-width none
       position absolute
       top 0
@@ -362,7 +458,6 @@ section
       position  fixed
       top       0
       left      0
-      opacity 0
       transform-origin 0 0
       transform rotate(-45deg)
       background transparent url("/_assets/i/__ref_diamond_pattern.svg") repeat 1px 2px

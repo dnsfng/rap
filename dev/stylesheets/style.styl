@@ -6,18 +6,46 @@ body
   background-color white
   
 
-
-
 html
   font-size 100%
   -webkit-text-size-adjust 100%
   -ms-text-size-adjust     100%
 
 
-
-
 body
   font em(16)\/em(24) mg, Arial, sans-serif normal
+
+
+/* Mail icon ********************************************************************/
+
+.mail--icon
+  background transparent url("/_assets/i/__nav_mail.svg") no-repeat
+  background-size cover
+  
+  &.mail--icon-white
+    background-position right center
+
+  &.mail--icon-black
+    background-position left center
+
+
+/* Mail icon ********************************************************************/
+
+.logo--wrapper
+  opacity 0
+
+.logo--icon
+  background transparent url("/_assets/i/__nav_logo.svg") no-repeat
+  background-size cover
+  
+  &.logo--icon-white
+    background-position right center
+
+  &.logo--icon-black
+    background-position left center
+              
+
+
 
 /******************************************************************************/
 /* Main sections **************************************************************/
@@ -40,7 +68,6 @@ section
       .js &
         content none
 
-
   &:before
     bottom        100%
     right         0%
@@ -52,10 +79,11 @@ section
     left          0%
     border-width  0 100vw 100vw 0
     border-color  transparent white transparent transparent
+    
 
-  &:nth-child(even)
-    background-color  black
-    color             white
+  &.odd
+    color white
+    background-color black
     @media screen and (min-width $laptop['min-width'])
       .js &
         background-color transparent
@@ -66,14 +94,20 @@ section
     &:after
       border-color transparent black transparent transparent 
 
-
+  
   &:first-child:before
   &:first-child:after
     content none /*remove :after & :before triangle on .section--intro so
     before diagonal stays visible*/
 
+  &.section--image
+    color white
 
-  &:nth-last-child(2):after
+    &:before
+    &:after
+      content none
+
+  &:nth-last-child(3):after
     content none
 
 
@@ -85,29 +119,46 @@ section
   font-size       em(35)
   text-transform  uppercase
   MissionGothic-Black()
+  
+.section--description
+  * + *
+    margin-top em(24)
+
 
 @media screen and (min-width $tabletPortrait['width'])
   .section--title
     font-size   em(48)
-    text-align  right
+    text-align  left
 
   .section--description
     font-size   em(22)
     line-height em(28/@font-size)
     
-@media screen and (min-width $laptop['min-width'])
+
+@media screen and (min-width $laptop['min-width']) and ( min-height $laptop['height-small'])
+  .section--title
+    font-size   em(40)
+    
+
+@media screen and (min-width $laptop['min-width']) and ( min-height $laptop['height-regular'])
+  .section--title
+    font-size   em(48)
+    
+    
+@media screen and (min-width $laptop['min-width']) and ( min-height $laptop['height-large'])
   .section--title
     font-size   em(60)
-    text-align  left
     
+
+@media screen and (min-width $desktop)
   .section--description
     font-size   em(26)
     line-height em(32/@font-size)
+  
 
 
 
-
-/* Section 00 *****************************************************************/
+/* Section--intro *****************************************************************/
 
 .logo
   &:visited
@@ -159,12 +210,11 @@ section
       left        @top
       margin-left auto
       
-  @media screen and (min-width $laptop['min-width'])  
-
+  @media screen and (min-width $laptop['min-width'])
     &:before
     &:after
       content none
-
+      
 
 
 
@@ -183,6 +233,9 @@ aside
     
     @media screen and (min-width $tabletLandscape['width'])
       text-align left  
+      
+    @media screen and (min-width $desktop) 
+      font-size em(30)
 
   .error--baseline
     @extends aside .intro--baseline
@@ -196,7 +249,7 @@ aside
 
 
 
-// References on diamond grid 
+/* Section--references *****************************************************************/
 
 .reference--item
       
@@ -214,10 +267,12 @@ aside
     width auto
     height $step*8
     background-size cover
-    background-position left bottom
+    background-position center bottom
     
     @media screen and (min-width $laptop['min-width'])
-      height $step*16
+      width 220px
+      height 71px
+      margin 0 auto
 
   &:hover
     position  relative

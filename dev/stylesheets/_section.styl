@@ -1,34 +1,34 @@
 /* Shutter *****************************************************************/
 
-.mainShutter
-  display         none
-  pointer-events  none
-  @media screen and (min-width $laptop['min-width'])
-    .js &
-      display block
-      
+.bgImage
+  position  absolute
+  top       0
+  left      0
+  width     100%
+  height    100%
+  pointer-events    none
+  background-size   cover
+  background-repeat no-repeat
+
 
 
 
 .mainShutter--wrapper
-  position fixed
-  top 0
-  bottom 0
-  left 0
-  right 0
-
-  &:nth-child(even)
-    .flap
-      // background-color red
-      background-color white
+  display         none
   
-  &:nth-child(4)
-    .flap
-      background-color blue
+  @media screen and (min-width $laptop['min-width'])
+    .js &
+      position          fixed
+      top               0
+      bottom            0
+      left              0
+      right             0
+      display           block
 
-  &:nth-child(5)
-    .flap
-      background-color white
+    .js section:nth-child(even) &
+      .flap
+        // background-color red
+        background-color black
      
 
 
@@ -51,30 +51,45 @@
 
 
 .flap
-  background-color black
+  background-color white
   // background-color blue
   position absolute
   width 100%
   height 100%
-  transform-origin 0% 0%
-  margin-left 130vh
-  
-  .shutter_ne &
-    transform-origin 0% 100%
-    transform translate3d(10%, 0, 0) rotate(65deg)
-    .mainShutter_00 &
-      transform translate3d(0, 0 ,0) rotate(65deg)
-    
-  .shutter_sw &
-    transform translate3d(10%, 0, 0) rotate(-65deg)
-    .mainShutter_00 &
-      transform translate3d(0, 0, 0) rotate(-65deg)
+  transform-origin 130vh 0%
+  transform translate3d(0, 0, 0) rotate(0deg)
+  overflow hidden
   
 
+  .shutter_ne &
+    transform-origin 130vh 100%
     
+
+  .section--00 .shutter_ne &
+    transform translate3d(0, 0, 0) rotate(-20deg)
+    
+
+  .section--00 .shutter_sw &
+    transform translate3d(0, 0, 0) rotate(20deg)
+    
+   
+  .section--image &
+    margin-left 130vh
+
+
+  .section--image .shutter_ne &
+    transform-origin 0 100%
+    transform translate3d(0, 0, 0) rotate(90deg)
+
+      
+  .section--image .shutter_sw &
+    transform-origin 0 0%
+    transform translate3d(0, 0, 0) rotate(-90deg)
+    
+    
+
         
 .nextSection--navigation
-.nextSection--stroke
   display none
   
   @media screen and (min-width $laptop['min-width'])
@@ -89,9 +104,6 @@
     transform         rotate(45deg) translateY(-1px)
     transition        opacity $t-slow ease-out
 
-
-.nextSection--stroke
-  border-bottom 1px solid $grey_light 
   
 .nextSection--navigation
   // Targets the section nav arrow when the last section is visible
@@ -108,27 +120,28 @@
   margin   -(@width/2) 0 0 133vh
     
   .nextSection--arrow
-    position        absolute
-    width           100%
-    height          @width
-    background      transparent url("/_assets/i/__nav_next_section.svg") no-repeat
-    background-size cover
+    position            absolute
+    width               100%
+    height              @width
+    background          transparent url("/_assets/i/__nav_next_section.svg") no-repeat
+    background-position center center
+    background-size     cover
     
-    transition      opacity $t-fast ease-in
-    
-    &.nextSection--arrow-white
-      background-position left center
-      opacity 0
+    &:before
+    &:after
+      fakeContent();
+      width             100vw
+      height            1px
+      top               50%
+      background-color  $grey_light 
       
-      .even &
-        opacity 1
+    &:before
+      right 80%
+      
+    &:after
+      left 90%
+      
 
-    &.nextSection--arrow-black
-      background-position right center
-      opacity 1
-      
-      .even &
-        opacity 0
 
     
     

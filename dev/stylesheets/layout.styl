@@ -109,6 +109,7 @@ section
     // margin-top  35%
     padding-left  22%
     padding-right @padding-left
+        
     
   
 
@@ -212,9 +213,9 @@ section
 
   + section
     margin-top -10%
-  //   @media screen and (min-width $laptop['min-width'])
-  //     .js &
-  //       margin-top 0
+    @media screen and (min-width $laptop['min-width'])
+      .js &
+        margin-top 0
         
 
 
@@ -351,7 +352,9 @@ section
 
 .section--references
   margin-top -25%
-  padding    $paddingViewport-mobile
+  
+  // @media screen and (min-width $laptop['min-width'])
+  //   padding 0
 
 .reference--list
   horizontalAlign(0, $step*16)
@@ -379,8 +382,8 @@ section
     .js &
       max-width none
       position absolute
-      top 0
-      left $paddingViewport-laptop + 150
+      top -($paddingViewport-tablet)
+      left $paddingViewport-tablet + 130
       padding-top $diamond__interval
       
 
@@ -443,6 +446,7 @@ section
       display block
       float left
       
+      //todo
       &:nth-child(2)
         margin-right 0
 
@@ -506,8 +510,8 @@ section
       width     100%
       height    200%
       position  fixed
-      top       0
-      left      0
+      top       -($paddingViewport-tablet)
+      left      @top
       transform-origin 0 0
       transform rotate(-45deg)
       background transparent url("/_assets/i/__ref_diamond_pattern.svg") repeat 1px 2px

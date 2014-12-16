@@ -14,7 +14,6 @@
 
 
 .mainShutter--wrapper
-  display         none
   
   @media screen and (min-width $laptop['min-width'])
     .js &
@@ -38,6 +37,10 @@
   width 300%
   height 300%
   overflow hidden
+  display none
+  
+  @media screen and (min-width $laptop['min-width'])
+    display block
   
   &.shutter_ne
     transform-origin 0% 100%

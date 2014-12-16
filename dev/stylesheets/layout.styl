@@ -10,7 +10,11 @@ main
 body
   &.no-scroll
   &.no-scroll main
-    overflow hidden
+    overflow hidden 
+    
+body
+  -webkit-overflow-scrolling: touch;
+  
     
 /* Mail icon ********************************************************************/
 
@@ -63,13 +67,51 @@ section
   display         block
   position        relative
   width           100%
-  margin          100% 0
-  padding         $paddingViewport-mobile
+  margin-top      -100%
+  // padding         $paddingViewport-mobile
+  padding-top     90%
+  padding-bottom  100%
+  padding-left    $paddingViewport-mobile
+  padding-right   @padding-left
   fix3d()
+
     
-  &.section--intro
-    height 100%
-    margin 0
+  @media screen and (max-width $laptop['max-width'])
+    z-index 1 !important
+    
+
+
+  
+  @media screen and (min-width em(420))
+    // margin-top  65%
+    padding-left  12%
+    padding-right @padding-left
+
+  @media screen and (min-width em(600))
+    // margin-top  55%
+    padding-left  15%
+    padding-right @padding-left
+    
+      
+  @media screen and (min-width $tabletPortrait['width'])
+    // margin-top  55%
+    padding-left  15%
+    padding-right @padding-left
+    
+    
+  @media screen and (min-width em(960))
+    // margin-top  45%
+    padding-left  17%
+    padding-right @padding-left
+    
+      
+  @media screen and (min-width em(1080))
+    // margin-top  35%
+    padding-left  22%
+    padding-right @padding-left
+        
+    
+  
 
 .section--title
   margin-bottom step(30)
@@ -89,24 +131,24 @@ section
 //     .section--title
       
 
-
-@media screen and (min-width $tabletPortrait['width']) and (max-width $laptop['max-width'])
-  section
-    padding $paddingViewport-tablet
+// @media screen and (min-width $tabletPortrait['width']) and (max-width $laptop['max-width'])
+//   section
+//     padding $paddingViewport-tablet
     
-  .section--title
-    margin-top    step(250)
-    margin-bottom step(420)
+//   .section--title
+//     margin-top    step(250)
+//     margin-bottom step(420)
     
-  .section--description
-    width         60%
-    margin-bottom step(90)
+//   .section--description
+//     width         60%
+//     margin-bottom step(90)
 
 
 @media screen and (min-width $laptop['min-width'])
   section
-    height    50%
-    padding   $paddingViewport-tablet
+    height     50%
+    margin-top 0
+    padding    $paddingViewport-tablet
       
     .js &
       position  fixed
@@ -164,10 +206,13 @@ section
 
 .section--intro
   overflow hidden //hides :after diagonale
-  background-color white !important //todo
+  padding-top 0
+  padding-bottom 0
+  height 100%
+  margin 0
 
   + section
-    margin-top 90%
+    margin-top -10%
     @media screen and (min-width $laptop['min-width'])
       .js &
         margin-top 0
@@ -286,9 +331,11 @@ section
     padding-top 3%
 
 
-/* Section 03 ****/
+/* Section 03 *****************************************************************/
 
 .section--image
+  // margin-top -90%
+
   .section--wrapper
     position relative
   // margin-top -100vw
@@ -302,6 +349,14 @@ section
 
 
 /* Section 04 *****************************************************************/
+
+.section--references
+  margin-top -25%
+  padding $paddingViewport-mobile
+  
+  @media screen and (min-width $laptop['min-width'])
+    padding   $paddingViewport-tablet
+    transform none;
 
 .reference--list
   horizontalAlign(0, $step*16)
@@ -327,10 +382,10 @@ section
     
   @media screen and (min-width $laptop['min-width'])
     .js &
-      max-width none
+      width 1920px
       position absolute
-      top 0
-      left $paddingViewport-laptop + 150
+      top -($paddingViewport-tablet)
+      left $paddingViewport-tablet + 130
       padding-top $diamond__interval
       
 
@@ -393,29 +448,21 @@ section
       display block
       float left
       
-      &:nth-child(2)
-        margin-right 0
+      //todo
 
-      &:nth-child(3)
+      &:nth-child(4)
         margin-left $diamond__row-xoffset-large
         
-      &:nth-child(4)
-        margin-right 0
-        
-      &:nth-child(5)
-        margin-left ($diamond__row-xoffset-large * 2) - 0.5
-        clear left
-        
-      &:nth-child(6)
-        margin-right 0
-        
       &:nth-child(7)
-        margin-left ($diamond__row-xoffset-large * 3) - 0.5
+        margin-left ($diamond__row-xoffset-large * 2) - 0.5
         
-      &:nth-child(2n+3)
+      &:nth-child(10)
+        margin-left ($diamond__row-xoffset-large * 3) - 0.5
+
+      &:nth-child(3n+4)
         clear left
               
-      &:nth-child(n+3)
+      &:nth-child(n+4)
         margin-top $diamond__row-yoffset-large + 0.5
       
 

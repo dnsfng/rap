@@ -99,7 +99,7 @@
 
     {% set image = block.backgroundImage.first() %}
 
-      <section class="section--0{{(block.sortOrder - 1)}} section--image" style="z-index:{{(20 - block.sortOrder)}}; ">
+      <section class="section--0{{(block.sortOrder - 1)}} section--image" style="z-index:{{(20 - block.sortOrder)}}; background-image: url({{image.url}}) ">
 
       <div class="bgImage" style="background-image: url({{image.url}})"></div>
 

@@ -51,64 +51,129 @@ body
 /* Main sections **************************************************************/
 
 section
-  background-color  white
-  color             black
+  color black
+  background transparent url("/_assets/i/_parallelepipede_white.svg") no-repeat left top
+  background-size 1280px
+
   @media screen and (min-width $laptop['min-width'])
     .js &
-      background-color transparent
-
-
-  &:before
-  &:after
-    fakeContent()
-    width         0
-    height        0
-    border-style  solid
-    @media screen and (min-width $laptop['min-width'])
-      .js &
-        content none
-
-  &:before
-    bottom        100%
-    right         0%
-    border-width  100vw 0 0 100vw
-    border-color  transparent transparent transparent white
-
-  &:after
-    top           100%
-    left          0%
-    border-width  0 100vw 100vw 0
-    border-color  transparent white transparent transparent
-    
-
+      background transparent none
+      
   &.odd
     color white
-    background-color black
+    background transparent url("/_assets/i/_parallelepipede_black.svg") no-repeat left -1px
+    background-size 1280px
+    
     @media screen and (min-width $laptop['min-width'])
       .js &
-        background-color transparent
+        background transparent none
+      
 
-    &:before
-      border-color transparent transparent transparent black
 
-    &:after
-      border-color transparent black transparent transparent 
+  // .mainShutter--wrapper
+  //   @media screen and (max-width $laptop['max-width'])
+  //     position  absolute 
+  //     width     100%
+  //     height    100%
+  //     left      50%
+  //     top       50%
+  //     transform-origin 50% 50%
+  //     transform translateX(-50%) translateY(-50%) rotate(45deg) //scale(4,1)
+  //     background-color white
+      
+  //     &:before
+  //     &:after
+  //       fakeContent()
+  //       width 100%
+  //       height 30%
+  //       bottom 99%
+  //       background-color rgba(white)
+        
+  //     &:after
+  //       height 50%
+  //       top 99%
+         
+  //   @media screen and (min-width 420px)and (max-width $laptop['max-width'])
+  //     &:before
+  //       height 20%
+        
+  //     &:after
+  //       height 40%
+        
+  //   @media screen and (min-width 600px)and (max-width $laptop['max-width'])        
+  //     &:after
+  //       height 30%
+        
+  //   @media screen and (min-width 960px)and (max-width $laptop['max-width'])
+  //     &:before
+  //       height 15%
+        
+  //     &:after
+  //       height 20%
+  
+  // &.odd .mainShutter--wrapper
+  //   background-color black
+    
+  //   &:before
+  //   &:after
+  //     background-color rgba(black,0.9)
+  
+  .section--wrapper
+    position relative
+    z-index 10
 
   
-  &:first-child:before
-  &:first-child:after
-    content none /*remove :after & :before triangle on .section--intro so
-    before diagonal stays visible*/
+  // &:before
+  // &:after
+  //   fakeContent()
+  //   width         0
+  //   height        0
+  //   border-style  solid
+  //   @media screen and (min-width $laptop['min-width'])
+  //     .js &
+  //       content none
 
-  &.section--image
-    color white
+  // &:before
+  //   bottom        100%
+  //   right         0%
+  //   border-width  100vw 0 0 100vw
+  //   border-color  transparent transparent transparent white
 
-    &:before
-    &:after
-      content none
+  // &:after
+  //   top           100%
+  //   left          0%
+  //   border-width  0 100vw 100vw 0
+  //   border-color  transparent white transparent transparent
+    
 
-  &:nth-last-child(3):after
-    content none
+  // &.odd
+  //   color white
+  //   background-color black
+  //   @media screen and (min-width $laptop['min-width'])
+  //     .js &
+  //       background-color transparent
+
+  //   &:before
+  //     border-color transparent transparent transparent black
+
+  //   &:after
+  //     border-color transparent black transparent transparent 
+
+  
+  // &:first-child:before
+  // &:first-child:after
+  //   content none /*remove :after & :before triangle on .section--intro so
+  //   before diagonal stays visible*/
+
+  // &.section--image
+  //   color white
+
+  //   &:before
+  //   &:after
+  //     content none
+
+  // &:nth-last-child(3):after
+  //   content none
 
 
 
@@ -124,20 +189,30 @@ section
   * + *
     margin-top em(24)
 
+@media screen and (min-width 600px)
+  .section--title
+    font-size   em(40)
+
+  .section--description
+    font-size   em(18)
+    line-height em(28/@font-size)
 
 @media screen and (min-width $tabletPortrait['width'])
   .section--title
-    font-size   em(48)
-    text-align  left
+    font-size   em(52)
 
   .section--description
     font-size   em(22)
-    line-height em(28/@font-size)
+    line-height em(32/@font-size)
     
 
 @media screen and (min-width $laptop['min-width']) and ( min-height $laptop['height-small'])
   .section--title
     font-size   em(40)
+    
+  .section--description
+    font-size   em(22)
+    line-height em(28/@font-size)
     
 
 @media screen and (min-width $laptop['min-width']) and ( min-height $laptop['height-regular'])
@@ -249,6 +324,30 @@ aside
 
 
 
+
+/* Section--image *****************************************************************/
+
+.section--image
+  background-size cover
+  @media screen and (min-width $laptop['min-width'])
+    background-image none !important 
+    
+  .bgImage
+    @media screen and (max-width $laptop['max-width'])
+      background-color transparent
+      background-repeat no-repeat, no-repeat
+      background-position left top, right bottom
+
+      .odd + &
+        background-image url("/_assets/i/_triangle_NE_black.svg"),
+                         url("/_assets/i/_triangle_SW_white.svg") !important
+     
+      .even + &
+        background-image url("/_assets/i/_triangle_NE_white.svg"),
+                         url("/_assets/i/_triangle_SW_black.svg") !important
+     
+    
+
 /* Section--references *****************************************************************/
 
 .reference--item
@@ -289,8 +388,4 @@ aside
     .reference--content-image
       background-position left top
     
-
-
-
-
 

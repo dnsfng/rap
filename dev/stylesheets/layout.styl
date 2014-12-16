@@ -352,9 +352,10 @@ section
 
 .section--references
   margin-top -25%
+  padding $paddingViewport-mobile
   
-  // @media screen and (min-width $laptop['min-width'])
-  //   padding 0
+  @media screen and (min-width $laptop['min-width'])
+    padding    $paddingViewport-tablet
 
 .reference--list
   horizontalAlign(0, $step*16)

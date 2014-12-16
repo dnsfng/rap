@@ -1336,7 +1336,7 @@ section {
 /* line 62 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
 section.odd {
   color: #fff;
-  background: transparent url("/_assets/i/_parallelepipede_black.svg") no-repeat left top;
+  background: transparent url("/_assets/i/_parallelepipede_black.svg") no-repeat left -1px;
   background-size: 1280px;
 }
 @media screen and (min-width: 75em) {

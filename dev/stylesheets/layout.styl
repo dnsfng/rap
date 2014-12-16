@@ -381,7 +381,7 @@ section
     
   @media screen and (min-width $laptop['min-width'])
     .js &
-      max-width none
+      width 1920px
       position absolute
       top -($paddingViewport-tablet)
       left $paddingViewport-tablet + 130
@@ -448,29 +448,20 @@ section
       float left
       
       //todo
-      &:nth-child(2)
-        margin-right 0
 
-      &:nth-child(3)
+      &:nth-child(4)
         margin-left $diamond__row-xoffset-large
         
-      &:nth-child(4)
-        margin-right 0
-        
-      &:nth-child(5)
-        margin-left ($diamond__row-xoffset-large * 2) - 0.5
-        clear left
-        
-      &:nth-child(6)
-        margin-right 0
-        
       &:nth-child(7)
-        margin-left ($diamond__row-xoffset-large * 3) - 0.5
+        margin-left ($diamond__row-xoffset-large * 2) - 0.5
         
-      &:nth-child(2n+3)
+      &:nth-child(10)
+        margin-left ($diamond__row-xoffset-large * 3) - 0.5
+
+      &:nth-child(3n+4)
         clear left
               
-      &:nth-child(n+3)
+      &:nth-child(n+4)
         margin-top $diamond__row-yoffset-large + 0.5
       
 

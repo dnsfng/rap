@@ -110,7 +110,24 @@ $(document).ready(function(){
     $('.carousel--reference').removeClass('is_out is_in is_first_in is_going_left is_going_right');
   }
 
+
+
+  //function mailHandler(){
+    // $(window).scroll(function(){
+    //   $("section").each(function(){
+    //     var height = $(window).scrollTop(),
+    //         prevOffset = 0;
+
+    //     if( height >= prevOffset && height < $(this).offset().top) {
+    //       console.log(this);
+    //       console.log("scrolled section : " + $(this).name);
+    //     }
+    //   });
+    // });
+  //}
   
+  
+
   // Binding and behavior
 
   $('.js--ref-test').click(function(e){

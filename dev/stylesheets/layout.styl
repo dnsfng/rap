@@ -191,8 +191,7 @@ section
 
 .section--intro
   overflow hidden //hides :after diagonale
-  padding-top 0
-  padding-bottom 0
+  padding 0
   height 100%
   margin 0
 
@@ -247,6 +246,10 @@ section
   height  32px
 
 
+.logo--baseline
+  display none
+
+
 .baseline
   width 90%
   horizontalAlign()
@@ -298,22 +301,28 @@ section
 
 @media screen and (min-width $laptop['min-width'])
   .logo
-    top     18vw
-    left    18vw
-    width   60%
+    top     24vw
+    left    24vw
+    width   52%
     margin  0 0
     
 
   .logo--image
-    width   21%
+    width   22%
     height  @width
     
 
-  .logo--name
+  .logo--baseline
+    display     block
     margin      0
-    width       79%
+    width       78%
     height      auto
     padding-top 3%
+    
+  .logo--name
+  .baseline
+    display none
+
 
 
 /* Section 03 *****************************************************************/

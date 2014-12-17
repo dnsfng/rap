@@ -92,7 +92,7 @@ function animateStart(action) {
               'selector'  : '.logo--wrapper',
               'translateX': ['-9%','0%'],
               'translateY': ['-16%','0%'],
-              'opacity'   : [-6, 1]
+              'opacity'   : [-6, 1.5]
             }
           ]
         } , { //  Transition

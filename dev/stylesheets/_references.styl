@@ -160,8 +160,11 @@
   .reference--description-wrapper
     display table
     float left
-    width 50%
+    width 40%
     height 100%
+    
+  .reference--description-wrapper
+    width 60%
     
   .reference--description
   .reference--logo
@@ -181,8 +184,30 @@
 
 @media screen and (min-width $laptop['min-width'])
   .reference--description
-    padding 0 $step*12
+    padding 0 $step*16
 
+@media screen and (min-width $laptop['min-width']) and ( min-height $laptop['height-small'])
+  .reference--logo
+    .reference--logo-image
+      width  35%
+      padding-bottom  11.55%
+
+@media screen and (min-width $laptop['min-width']) and ( min-height $laptop['height-regular'])
+  .reference--logo
+    .reference--logo-image
+      width  42%
+      padding-bottom  13.86%
+    
+@media screen and (min-width $laptop['min-width']) and ( min-height $laptop['height-large'])
+  .reference--logo
+    .reference--logo-image
+      width  50%
+      padding-bottom  16.5%
+      
+@media screen and (min-width $desktop)
+  .reference--description
+    padding 0 $step*32 0 0
+    
 
 
 

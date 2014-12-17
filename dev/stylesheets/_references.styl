@@ -37,7 +37,6 @@
     
 .reference
   padding $paddingViewport-mobile
-  
   color   white
   
   // todo
@@ -50,8 +49,11 @@
 // Reference : Content
 
 .reference--logo
-  horizontalAlign($step*3, $step*8)
-  max-width 60%
+  //horizontalAlign($step*3, $step*8)
+  // max-width 50%
+  // position absolute
+  // top 20%
+  // right @top
   
   .reference--logo-image
     display           block
@@ -68,38 +70,91 @@
       
       @media screen and (min-width ($tabletPortrait['width'])) and (min-height $tabletLandscape['height'])
         margin 0
-      
+
+
+.reference--logo-wrapper
+  @media screen and (max-width $tabletLandscape['width'])
+    position          absolute
+    width             50%
+    height            auto
+    top               step(75px)
+    right             $paddingViewport-mobile
+    
 
 .reference--description
-  font-size   em(22)
-  line-height em(28/@font-size)
+  margin-top    85%
+  padding-right 20%
   
-  @media screen and (min-width $laptop['min-width'])
-    font-size   em(26)
-    line-height em(32/@font-size)
+  
+@media screen and (min-width em(420)) and (max-width $laptop['max-width'])
+  .reference--logo-wrapper
+    top 12%
+
+  .reference--description
+    margin-top    70%
+    padding-right 35%
+
+      
+@media screen and (min-width em(510)) and (max-width $laptop['max-width'])
+  .reference--logo-wrapper
+    top 16%
+
+
+@media screen and (min-width em(600)) and (max-width $laptop['max-width'])
+  .reference--logo-wrapper
+    width 45%
+    top   21%
+    
+
+@media screen and (min-width em(768)) and (max-width $laptop['max-width'])
+  .reference--logo-wrapper
+    width 40%
+    top   25%
+    right $paddingViewport-tablet
+
+  .reference--description
+    margin-top    60%
+    padding-right 50%
+    padding-left  $paddingViewport-mobile
+    
+  
+@media screen and (min-width em(960)) and (max-width $laptop['max-width'])
+  .reference--logo-wrapper
+    top 25%
+  
+
+      
+
+// .reference--description
+//   font-size   em(22)
+//   line-height em(28/@font-size)
+  
+//   @media screen and (min-width $laptop['min-width'])
+//     font-size   em(26)
+//     line-height em(32/@font-size)
         
       
 
 
-@media screen and (min-width $tabletPortrait['width']) and (max-width $laptop['max-width'])
+// @media screen and (min-width $tabletPortrait['width']) and (max-width $tabletLandscape['width'])
 
-  .reference--logo
-    display   inline
-    width     100%
-    max-width 30%
-    margin    10% 5% 10%
-    float     right
+//   .reference--logo
+//     display   inline
+//     width     100%
+//     max-width 30%
+//     margin    10% 5% 10%
+//     float     right
     
 
-  .reference--description
-    width         60%
-    margin-bottom step(90)
-    clear         right
+//   .reference--description
+//     // width         60%
+//     // margin-bottom step(90)
+//     clear         right
     
 
 
 
-@media screen and (min-width $laptop['min-width'])
+@media screen and (min-width $tabletLandscape['width'])
       
   .reference--logo-wrapper
   .reference--description-wrapper
@@ -119,10 +174,15 @@
       margin          0
       width           50%
       padding-bottom  16.5%
-      
+  
+  .reference--description
+    padding 0 $step*6 0 $step*12
+  
+
+@media screen and (min-width $laptop['min-width'])
   .reference--description
     padding 0 $step*12
-    
+
 
 
 
@@ -133,11 +193,15 @@
   overflow    hidden
   
   &.reference--nav-inner
-    display block
+    display   block
+    position  absolute
+    left      0
+    width     100%
+    padding   0 10px
 
   &.reference--nav-outer
     display none
-    padding $step*10
+    padding $paddingViewport-mobile
     
     .modal &
       position  absolute
@@ -229,7 +293,7 @@
     
     @media screen and (min-width $laptop['min-width'])
       position fixed
-      top step(50)
-      right step(50)
+      top $paddingViewport-mobile
+      right @top
       left auto
       margin-left 0

@@ -82,23 +82,19 @@ section
 
   
 .section--title--wrapper
-.section--description 
+.section--description
   padding 0
   
-  @media screen and (min-width em(420))
+  @media screen and (min-width em(420)) and (max-width $laptop['max-width'])
     padding 0 10%
 
-  @media screen and (min-width em(600))
+  @media screen and (min-width em(600)) and (max-width $laptop['max-width'])
     padding 0 13%
     
-  @media screen and (min-width $tabletPortrait['width'])
-    padding 0 13%
-    
-  @media screen and (min-width em(960))
+  @media screen and (min-width em(960)) and (max-width $laptop['max-width'])
     padding 0 15%
     
-      
-  @media screen and (min-width em(1080))
+  @media screen and (min-width em(1080)) and (max-width $laptop['max-width'])
     padding 0 20%
 
 

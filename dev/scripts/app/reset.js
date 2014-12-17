@@ -54,7 +54,7 @@ $(document).ready(function(){
         $('.carousel--reference-child-'+(position+1)).addClass('is_in');
       } else {
         $c_wrapper.attr('data-ref-current', 1);
-        $('.carousel--reference-child-'+position_end).addClass('is_out');
+        $('.carousel--reference-child-'+position_end).addClass('is_out is_looping_right');
         $('.carousel--reference-child-1').addClass('is_in');
       }
     }
@@ -66,7 +66,7 @@ $(document).ready(function(){
         $('.carousel--reference-child-'+(position-1)).addClass('is_in');
       } else {
         $c_wrapper.attr('data-ref-current', position_end);
-        $('.carousel--reference-child-1').addClass('is_out');
+        $('.carousel--reference-child-1').addClass('is_out is_looping_left');
         $('.carousel--reference-child-'+position_end).addClass('is_in');
       }
     }

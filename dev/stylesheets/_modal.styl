@@ -177,14 +177,23 @@
       will-change transform
       transform translate3d(0)
 
+
   .reference--description
     .is_out.is_going_right &
       transform translate3d(150%,0,0)
+     
+    // set exception when looping from first to last project 
+    :first-child.is_out.is_looping_left &
+      transform translate3d(500%,0,0)
       
 
   .reference--logo
     .is_out.is_going_left &
       transform translate3d(-150%,0,0)
+    
+    // set exception when looping from last to first project
+    :last-child.is_out.is_looping_right &
+      transform translate3d(-500%,0,0)
       
 
   .reference--description

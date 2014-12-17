@@ -228,13 +228,13 @@
     display none
     padding $paddingViewport-mobile
     
-    .modal &
-      position  absolute
-      right     0
-      bottom    0
-      left      0  
+    // .modal &
+    //   position  absolute
+    //   right     0
+    //   bottom    0
+    //   left      0  
   
-  @media screen and (min-width ($tabletPortrait['width'])) and (min-height $tabletLandscape['height'])
+  @media screen and (min-width ($tabletPortrait['width']))
     // @extend .modal .reference--nav !
     position  absolute
     bottom    $step*8
@@ -246,6 +246,12 @@
 
     &.reference--nav-outer
       display block
+      
+      .modal &
+        position  absolute
+        right     0
+        bottom    0
+        left      0  
       
   @media screen and (min-width $laptop['min-width'])
     bottom    $step*14

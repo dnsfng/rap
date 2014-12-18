@@ -20,6 +20,8 @@ $(document).ready(function(){
       if (Modernizr.mq('screen and (max-width : 1199px)') ) {
         $(window).resize(debounce(setScrollOffset));
         $(window).scroll(iconToggle_Manager);
+
+        $(".logo--wrapper").off("click");
       }
     });
 
@@ -253,7 +255,6 @@ $(document).ready(function(){
     $(window).resize(debounce(setScrollOffset));
     $(window).scroll(iconToggle_Manager);
 
-
   }
 
   if(Modernizr.mq('screen and (min-width : 1200px)')){
@@ -261,7 +262,6 @@ $(document).ready(function(){
 
     $(".logo--wrapper").show().css("opacity", 0);
     $(".logo--icon").show();
-
 
   }
 

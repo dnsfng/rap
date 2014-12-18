@@ -599,4 +599,9 @@ function animateStart(action) {
 
     });
 
+    $('.logo--wrapper').click(function(e){
+      e.preventDefault();
+      _scrollTo($(document), 0, 2000);
+    });
+
 };

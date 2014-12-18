@@ -34,7 +34,7 @@ $(document).ready(function(){
         $(".logo--wrapper").show().css("opacity", 0);
         $(".logo--icon").show();
 
-        Modernizr.load(['/_assets/j/vendor/mediaCheck-min.js','/_assets/j/app/play.js']);        
+        Modernizr.load(['/_assets/j/app/play.js']);        
       }
     });
 

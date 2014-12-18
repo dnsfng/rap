@@ -102,7 +102,9 @@
 
       <section class="section--0{{(block.sortOrder - 1)}} section--image" style="z-index:{{(20 - block.sortOrder)}}; background-image: url({{image.url}}) ">
 
-      <div class="bgImage" style="background-image: url({{image.url}})"></div>
+      <div class="bgImage--wrapper">
+        <div class="bgImage" style="background-image: url({{image.url}})"></div>
+      </div>
 
       <div class="mainShutter--wrapper">
           <header class="shutter shutter_ne">

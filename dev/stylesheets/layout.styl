@@ -41,7 +41,7 @@ body
 
 .logo--wrapper
   position  fixed
-  top       $paddingViewport-mobile
+  top       17px
   left      @top
   width     70px
   height    @width
@@ -49,6 +49,11 @@ body
   fix3d()
   will-change transform, opacity
   
+  @media screen and (min-width em(420))
+    top       $paddingViewport-mobile
+    left      @top
+    
+
   .logo--icon
     position  absolute
     width     100%
@@ -345,8 +350,8 @@ section
 /* Section 04 *****************************************************************/
 
 .section--references
-  margin-top -25%
-  padding $paddingViewport-mobile
+  margin-top -100%
+  padding 90% $paddingViewport-mobile 0
   
   @media screen and (min-width $laptop['min-width'])
     padding   $paddingViewport-tablet

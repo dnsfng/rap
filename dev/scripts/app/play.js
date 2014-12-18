@@ -299,7 +299,6 @@ function animateStart(action) {
       _scrollTo($(window), 1, 400); // force top of page
       scrollIntervalID = setInterval(_updatePage, 10); //default = 10
       _setupValues();
-      is_playable = true;
     };
 
     _setupValues = function() {

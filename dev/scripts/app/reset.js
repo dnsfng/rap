@@ -1,25 +1,47 @@
-var is_playable = false;
+var $_modal               = $('.modal'),
+      $c_wrapper            = $('.carousel--wrapper'),
+      $c_translate          = $('.carousel--translate'),
+      $c_flap               = $('.carousel--flap'),
+      position_end          = +($c_wrapper.attr('data-ref-total')),
+      $offsetSectionTitle   = ["0"],
+      $offsetSection        = [],
+      myInterval;
+
+
+
 
 $(document).ready(function(){
 
 
+  function init(){
+
+    // Later, if resized to small screen size
+    $(window).resize(function() {
+      if (Modernizr.mq('screen and (max-width : 1199px)') ) {
+        $(window).resize(debounce(setScrollOffset));
+        $(window).scroll(iconToggle_Manager);
+      }
+    });
+
+    // Later, if resized to large screen size
+    $(window).resize(function() {
+      if (Modernizr.mq('screen and (min-width : 1200px)') ) {
+        $(window).off("resize", debounce);
+        $(window).off("scroll", iconToggle_Manager);
+
+        $(".logo--wrapper").show().css("opacity", 0);
+        $(".logo--icon").show();
+
+        Modernizr.load(['/_assets/j/vendor/mediaCheck-min.js','/_assets/j/app/play.js']);        
+      }
+    });
+
+  }
+
   // ———————————————————————————————————————————————————————
   // Carousel handler
 
-
   // Config
-
-
-  var $_modal       = $('.modal'),
-      $c_wrapper    = $('.carousel--wrapper'),
-      $c_translate  = $('.carousel--translate'),
-      $c_flap       = $('.carousel--flap'),
-      position_end  = +($c_wrapper.attr('data-ref-total'));
-
-
-
-
-  // Functions
 
 
   function navigateCarousel(position) {
@@ -39,8 +61,6 @@ $(document).ready(function(){
     });
 
   }
-
-
 
 
   function updateCarouselPosition(direction, position, position_end){
@@ -72,8 +92,6 @@ $(document).ready(function(){
     }
 
   }
-
-
 
 
   function modalReference(status, index){
@@ -111,21 +129,77 @@ $(document).ready(function(){
   }
 
 
+  function debounce(myFunction){
+    clearTimeout(myInterval);
+    myInterval = setTimeout(myFunction, 400);
+  }
 
-  //function mailHandler(){
-    // $(window).scroll(function(){
-    //   $("section").each(function(){
-    //     var height = $(window).scrollTop(),
-    //         prevOffset = 0;
+  function setScrollOffset(){
 
-    //     if( height >= prevOffset && height < $(this).offset().top) {
-    //       console.log(this);
-    //       console.log("scrolled section : " + $(this).name);
-    //     }
-    //   });
-    // });
-  //}
-  
+    $(".section--title--wrapper").each(function(index){
+      var offset = $(this).offset().top.toFixed(0);
+      $offsetSectionTitle[index+1] = offset;
+    });
+
+    $("section").each(function(index){
+      var offset = $(this).offset().top.toFixed(0);
+      $offsetSection[index] = offset;
+    });
+
+  }
+
+  function iconToggle_Manager(){
+
+    var height = $(window).scrollTop(),
+        lastSection = $offsetSectionTitle.length - 1;
+
+    if (height >= $offsetSection[1]){
+      $(".logo--wrapper").fadeIn();
+    } else {
+      $(".logo--wrapper").fadeOut();
+    }
+
+    if (height <= $offsetSection[lastSection]){
+
+      for(var i = 0; i <= lastSection; i++){
+
+          // Manage Mail Icon visibility
+          if( height >= $offsetSectionTitle[i] && height < $offsetSectionTitle[i+1]){
+            
+            if($("section").eq(i).hasClass("even")){
+              $(".mail--icon-black").fadeIn();
+            } else {
+              $(".mail--icon-black").fadeOut();
+            }
+
+          }
+
+          // Manage Small Logo visibility
+          if( $offsetSection[i] <= height && height < $offsetSection[i+1]){          
+
+            if($("section").eq(i).hasClass("even")){
+              $(".logo--icon-white").fadeOut();
+            } else {
+              $(".logo--icon-white").fadeIn();
+            }
+          }
+          
+        } 
+
+      } else {
+
+        if($("section").last().hasClass("even")){
+          $(".logo--icon-white").fadeOut();
+        } else {
+          $(".logo--icon-white").fadeIn();
+        }
+
+        // WIP
+
+      }
+  }
+    
+
   
 
   // Binding and behavior
@@ -172,16 +246,28 @@ $(document).ready(function(){
   // Conditional loader
 
 
-  if(!Modernizr.mq('screen and (min-width : 1200px)')){
-    // If screen is below 1200px wide
+  if(Modernizr.mq('screen and (max-width : 1199px)')){
+    // If screen is below 1199px wide
 
-    $(window).resize(function() {
-      if (Modernizr.mq('screen and (min-width : 1200px)') && is_playable === false){
-        Modernizr.load(['/_assets/j/vendor/mediaCheck-min.js','/_assets/j/app/play.js']);
-      }
-    });
+    // init resize and scroll event
+    $(window).resize(debounce(setScrollOffset));
+    $(window).scroll(iconToggle_Manager);
+
 
   }
 
+  if(Modernizr.mq('screen and (min-width : 1200px)')){
+    // If screen is above 1200px wide
+
+    $(".logo--wrapper").show().css("opacity", 0);
+    $(".logo--icon").show();
+
+
+  }
+
+  
+
+
+  init();
 
 });

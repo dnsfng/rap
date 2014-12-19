@@ -349,6 +349,7 @@ section
 
 /* Section 04 *****************************************************************/
 
+
 .section--references
   margin-top -100%
   padding 90% $paddingViewport-mobile 0
@@ -356,6 +357,9 @@ section
   @media screen and (min-width $laptop['min-width'])
     padding   $paddingViewport-tablet
     transform none;
+
+
+
 
 .reference--list
   horizontalAlign(0, $step*16)
@@ -381,11 +385,21 @@ section
     
   @media screen and (min-width $laptop['min-width'])
     .js &
-      width 1920px
-      position absolute
-      top -($paddingViewport-tablet)
-      left $paddingViewport-tablet + 130
-      padding-top $diamond__interval
+      $marginTop = 0.5 * ($diamond__size-large * 3)
+
+      width             1920px
+      position          absolute
+      top               50vh
+      left              "calc(50vh - %s)" % $marginTop
+      margin            (- $marginTop) 0 0 ($diamond__diagonal-large/2)
+      padding           0
+      
+  @media screen and (min-width $desktop)
+    .js &
+      $marginTop = 0.5 * ($diamond__size-xlarge * 3)
+      top               50vh
+      left              "calc(50vh - %s)" % $marginTop
+      margin            (- $marginTop) 0 0 ($diamond__diagonal-xlarge/2)
       
 
 
@@ -448,7 +462,6 @@ section
       float left
       
       //todo
-
       &:nth-child(4)
         margin-left $diamond__row-xoffset-large
         
@@ -463,7 +476,29 @@ section
               
       &:nth-child(n+4)
         margin-top $diamond__row-yoffset-large + 0.5
+        
+
+    @media screen and (min-width $desktop)
+      margin-right $diamond__interval-xlarge
       
+      
+      //todo
+      &:nth-child(4)
+        margin-left $diamond__row-xoffset-xlarge
+        
+      &:nth-child(7)
+        margin-left ($diamond__row-xoffset-xlarge * 2) - 0.5
+        
+      &:nth-child(10)
+        margin-left ($diamond__row-xoffset-xlarge * 3) - 0.5
+
+      &:nth-child(3n+4)
+        clear left
+              
+      &:nth-child(n+4)
+        margin-top $diamond__row-yoffset-xlarge + 0.5
+      
+
 
     a
     .reference--content
@@ -474,7 +509,14 @@ section
         .js &
           height  $diamond__size-large
           width   @height
+      @media screen and (min-width $desktop)
+        .js &
+          height  $diamond__size-xlarge
+          width   @height
           
+
+
+
     a
       position  relative
       display   block
@@ -493,20 +535,48 @@ section
       text-align      center
       transform       rotate(-45deg) translate3d(0,0,0)
       
+    .reference--content-image
+      @media screen and (min-width $laptop['min-width'])
+        width $diamond__size-large
+        height @width * 0.3237
+        margin 0 auto
+      @media screen and (min-width $desktop)
+        width $diamond__size-xlarge
+        height @width * 0.3237
+      
 
 
 
 .section__references--pattern
-  @media screen and (min-width $laptop['min-width'])
-    .js &
-      width     100%
-      height    200%
+  .js &
+    @media screen and (min-width $laptop['min-width'])
+      width     400%
+      height    1000%
       position  fixed
-      top       0
-      left      0
+      top 50vh
+      left 50vh
+      margin (- ($diamond__diagonal-large * 5)) 0 0 (- ($diamond__diagonal-large*5))
       transform-origin 0 0
       transform rotate(-45deg)
-      background transparent url("/_assets/i/__ref_diamond_pattern.svg") repeat 1px 2px
-      background-size 249px 249px
+      background transparent url("/_assets/i/__ref_diamond_pattern.svg") repeat 1px 1px
+      background-size 179px 179px
+      
+      @media screen and (min-height em(380))
+        height 800%
+        
+      @media screen and (min-height em(580))
+        height 600%
+        
+      @media screen and (min-height em(880))
+        height 400%
+        
+        
+    @media screen and (min-width $desktop)
+      margin (- ($diamond__diagonal-xlarge * 5) - 13) 0 0 (- ($diamond__diagonal-xlarge*5) - 13)
+      background-size 229px 229px
+      
+    
+      
+
       
 

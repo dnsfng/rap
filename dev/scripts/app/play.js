@@ -603,8 +603,6 @@
       for(i=0;i<keyframes.length;i++) { // loop keyframes
         for(j=0;j<keyframes[i].animations.length;j++) { // loop animations
           var modifiedElements = keyframes[i].animations[j].selector
-          console.log($(modifiedElements));
-
           $(modifiedElements).attr("style","");
         }
       }

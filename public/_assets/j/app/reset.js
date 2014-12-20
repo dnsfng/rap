@@ -107,7 +107,7 @@ $(document).ready(function(){
       }, 1200);
       
       $_modal.addClass('is_visible');
-      $c_wrapper.toggleClass('shutter-toggle');
+      $c_wrapper.toggleClass('is_closed');
       
 
       $('.carousel--reference-child-'+index).addClass('is_first_in');
@@ -117,7 +117,7 @@ $(document).ready(function(){
 
       $('body').removeClass('no-scroll');
       $_modal.removeClass('is_visible');
-      $c_wrapper.toggleClass('shutter-toggle');
+      $c_wrapper.toggleClass('is_closed');
       window.location = "#references" ;
     }
 

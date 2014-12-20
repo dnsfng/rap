@@ -58,14 +58,15 @@
         width     100%
         height    @width
         transform translate3d(@width/2,0,0)
-        
+       
+      // diagonal stroke  
       &:before
         fakeContent()
         width 1px
         height 400%
-        transform translate3d(0,-@height/4,10px)
-        
+        transform translate3d(0,-@height/4,0)
         background-color white
+        z-index 10
 
     &.carousel--shutter-sw
       width     200%
@@ -82,10 +83,15 @@
         width 300%
     
 
-  &.shutter-toggle
+  // shutter system is closed
+  &.is_closed
     .carousel--shutter
+      
+      // translate diagonal stroke
       &:before
-        transform translate3d(0,-90%,1px)
+        transform translate3d(0,-80%,1px)
+        
+      // translate flaps near stroke
       .carousel--flap
         transform translate3d(0,0,0)
 

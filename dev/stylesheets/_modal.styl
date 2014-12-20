@@ -41,12 +41,22 @@
 
     &.carousel--shutter-ne
       width     200%
-      height    @width*2
+      height    @width*4
       transform rotate(-45deg) //translateX(1px)
 
+      @media screen and (min-width em(960)) and (min-height em(320))
+        height 700%
+              
+      @media screen and (min-width em(960)) and (min-height em(480))
+        height 500%
+        
+      @media screen and (min-width em(960)) and (min-height em(640))
+        height 300%
+
+
       .carousel--flap
-        width     200%
-        height    @width*2
+        width     100%
+        height    @width
         transform translate3d(@width/2,0,0)
         
       &:before
@@ -63,9 +73,14 @@
       transform rotate(45deg) //translateY(-1px) 
 
       .carousel--flap
-        width     200%
+        width     100%
         height    @width
         transform translate3d(0,@width/2,0)
+        
+    @media screen and (min-height em(720))
+      &.carousel--shutter-sw
+        width 300%
+    
 
   &.shutter-toggle
     .carousel--shutter

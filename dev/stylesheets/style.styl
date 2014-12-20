@@ -19,14 +19,19 @@ body
 /* Mail icon ********************************************************************/
 
 .mail--icon
-  background transparent url("/_assets/i/__nav_mail.svg") no-repeat
+  background      transparent url("/_assets/i/__nav_mail.svg") no-repeat
   background-size cover
+  transition      transform $t-fast ease-in
   
   &.mail--icon-white
     background-position right center
 
   &.mail--icon-black
     background-position left center
+    
+  &:hover
+    transform scale(1.05)
+    
 
 
 /* Mail icon ********************************************************************/

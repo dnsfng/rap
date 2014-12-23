@@ -37,9 +37,13 @@ body
   //   top   $paddingViewport-tablet
   //   right @top
     
-/* logo icon ********************************************************************/
 
-.logo--wrapper
+
+
+
+/* logo mini icon ********************************************************************/
+
+.logoSymbol--wrapper
   position  fixed
   top       17px
   left      @top
@@ -208,7 +212,6 @@ section
         
 
 
-
 // Wrapper
 .section--intro
   .section--wrapper
@@ -224,7 +227,8 @@ section
     @media screen and (min-width $tabletPortrait['width'])
       verticalAlign(-60%)  
       
-    @media screen and (min-width $laptop['min-width'])  
+    @media screen and (min-width $laptop['min-width'])
+      display none
       transform none
       top 0
       left 0
@@ -262,6 +266,11 @@ section
   strong
     display block
 
+    
+// logo duplicata to fix z-index style on laptop viewport
+.logo--wrapper.logo
+  display none
+
 
 @media screen and (min-width $tabletPortrait['width'])
   .logo--image
@@ -271,6 +280,8 @@ section
   .logo--name
     width   350px
     height  45px
+  
+  
 
 
 @media screen and (min-width $tabletLandscape['width'])
@@ -305,11 +316,19 @@ section
 
 
 @media screen and (min-width $laptop['min-width'])
+
+  // hides the one used inside the introduction section
+
   .logo
     top     22vw
     left    22vw
     width   58%
     margin  0 0
+    
+    // shows the one outside
+    .logo--wrapper&
+      display   block
+      position  fixed
     
 
   .logo--image

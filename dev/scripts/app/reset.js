@@ -21,7 +21,7 @@ $(document).ready(function(){
         $(window).resize(debounce(setScrollOffset));
         $(window).scroll(iconToggle_Manager);
 
-        $(".logo--wrapper").off("click");
+        $(".logoSymbol--wrapper").off("click");
       }
     });
 
@@ -31,7 +31,7 @@ $(document).ready(function(){
         $(window).off("resize", debounce);
         $(window).off("scroll", iconToggle_Manager);
 
-        $(".logo--wrapper").show().css("opacity", 0);
+        $(".logoSymbol--wrapper").show().css("opacity", 0);
         $(".logo--icon").show();
 
         Modernizr.load(['/_assets/j/app/play.js']);        
@@ -156,9 +156,9 @@ $(document).ready(function(){
         lastSection = $offsetSectionTitle.length - 1;
 
     if (height >= $offsetSection[1]){
-      $(".logo--wrapper").fadeIn();
+      $(".logoSymbol--wrapper").fadeIn();
     } else {
-      $(".logo--wrapper").fadeOut();
+      $(".logoSymbol--wrapper").fadeOut();
     }
 
     if (height <= $offsetSection[lastSection]){
@@ -260,7 +260,7 @@ $(document).ready(function(){
   if(Modernizr.mq('screen and (min-width : 1200px)')){
     // If screen is above 1200px wide
 
-    $(".logo--wrapper").show().css("opacity", 0);
+    $(".logoSymbol--wrapper").show().css("opacity", 0);
     $(".logo--icon").show();
 
   }

@@ -49,7 +49,7 @@
           'duration'      : '20%',
           'animations'    : [
           {
-            'selector'  : '.section--00 .logo',
+            'selector'  : '.logo--wrapper',
             'opacity'   : [1,1]
           }
           ]
@@ -68,7 +68,7 @@
               'translateX': shutterTranslateX,
               'rotate'    : shutterSWRotate
             } , {
-              'selector'  : '.section--00 .logo',
+              'selector'  : '.logo--wrapper',
               'opacity'   : [1,-6]
             } , {
               'selector'  : '.section--01 .flap',
@@ -83,7 +83,7 @@
               'selector'  : '.mail--icon-black',
               'opacity'   : mailOpacityOut
             } , {
-              'selector'  : '.logo--wrapper',
+              'selector'  : '.logoSymbol--wrapper',
               'translateX': ['-9%','0%'],
               'translateY': ['-16%','0%'],
               'opacity'   : [-6, 1.5]
@@ -633,7 +633,7 @@
 
     });
 
-    $('.logo--wrapper').click(function(e){
+    $('.logoSymbol--wrapper').click(function(e){
       e.preventDefault();
       _scrollTo($(document), 0, 2000);
     });

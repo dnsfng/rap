@@ -56,7 +56,6 @@
             <aside class="baseline">
               <strong class="intro--baseline">{{ block.baseline }}</strong>
             </aside>
-            <img class="logo--component logo--baseline" src="/_assets/i/__logo_baseline.svg" alt="Reset & Play">
           </div>
         </div>
         
@@ -161,10 +160,19 @@
     <div class="mail--icon mail--icon-black"></div>
   </a>
 
-  <a class="logo--wrapper" href="#top">
+  <a class="logoSymbol--wrapper" href="#top">
     <div class="logo--icon logo--icon-black"></div> 
     <div class="logo--icon logo--icon-white"></div>
   </a>
+
+  <div class="logo--wrapper logo">
+    <h1>
+      <span class="out">{{ siteName }}</span>
+    </h1>
+    <img class="logo--component logo--image" src="/_assets/i/__logo_symbol.svg" alt="R&P">
+    <img class="logo--component logo--baseline" src="/_assets/i/__logo_baseline.svg" alt="Reset & Play">
+  </div>
+
 
 {% set length = craft.entries.type('projets').total() %}
 

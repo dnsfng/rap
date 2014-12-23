@@ -108,6 +108,7 @@ $(document).ready(function(){
       
       $_modal.addClass('is_visible');
       $c_wrapper.toggleClass('is_closed');
+      $c_wrapper.attr('data-ref-current', index);
       
 
       $('.carousel--reference-child-'+index).addClass('is_first_in');
@@ -127,7 +128,7 @@ $(document).ready(function(){
 
 
   function removeHelpers(){
-    $('.carousel--reference').removeClass('is_out is_in is_first_in is_going_left is_going_right');
+    $('.carousel--reference').removeClass('is_out is_in is_first_in is_going_left is_going_right is_looping_left is_looping_right');
   }
 
 
@@ -209,18 +210,20 @@ $(document).ready(function(){
   $('.js--ref-test').click(function(e){
     e.preventDefault();
     var index = $(this).attr('data-ref-index');
+    removeHelpers();
     modalReference(true, index);
   });
 
 
   $('.js--modal-open').click(function(){
+    removeHelpers();
     modalReference(true);
   });
 
 
   $('.js--modal-close').click(function(){
-    modalReference(false);
     removeHelpers();
+    modalReference(false);
   });
 
 

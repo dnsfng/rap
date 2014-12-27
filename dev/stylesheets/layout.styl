@@ -14,8 +14,44 @@ body
     
 body
   -webkit-overflow-scrolling: touch;
+
+
+/* Less Than IE10 ********************************************************************/  
+
+.lt-ie10
   
+  body
+    overflow hidden
+
+  section
+    display none
     
+    @media screen and (max-width $laptop['max-width'])
+     &.section--intro
+       display block
+
+  .browsehappy--wrapper
+    position fixed
+    z-index 20
+    width 100%
+    height 100%
+    
+  .browsehappy--disclaimer
+    position absolute
+    bottom 10%
+    width 100%
+    margin 0 auto
+    
+  .nextSection--arrowWrapper
+    .nextSection--arrow
+      
+      &:before
+        right 0%
+        
+      &:after
+        left 0%
+
+
 /* Mail icon ********************************************************************/
 
 .mail--wrapper

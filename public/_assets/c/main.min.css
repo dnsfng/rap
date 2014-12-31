@@ -2599,7 +2599,6 @@ section:last-of-type.is_visible + .nextSection--navigation {
 .carousel--translate {
   width: 100%;
   height: 100%;
-  overflow: scroll;
   -webkit-overflow-scrolling: touch;
   -webkit-transition: -webkit-transform 600ms ease-in-out;
           transition: transform 600ms ease-in-out;

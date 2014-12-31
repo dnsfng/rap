@@ -1,100 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 250 160" enable-background="new 0 0 250 160" xml:space="preserve">
-<g id="Layers" display="none">
-	<rect display="inline" fill="#FF0000" width="250" height="80"/>
-	<rect y="80" display="inline" opacity="0.5" fill="#FF0000" width="250" height="80"/>
-</g>
-<g id="Sprites">
-</g>
-<g id="Logo_Clients">
+<svg version="1.1" id="Logo_Clients" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="250px" height="160px" viewBox="0 0 250 160" enable-background="new 0 0 250 160" xml:space="preserve">
+<g>
 	<g>
-		<g>
-			<rect x="48.9" y="98" fill="#0033CC" width="28.4" height="4"/>
-			<rect x="48.9" y="90" fill="#0033CC" width="28.3" height="4"/>
-			<rect x="56.7" y="106" fill="#0033CC" width="12.8" height="4"/>
-			<rect x="56.7" y="114" fill="#0033CC" width="12.7" height="4"/>
-			<rect x="56.7" y="122" fill="#0033CC" width="12.7" height="4"/>
-			<rect x="56.7" y="130" fill="#0033CC" width="12.7" height="4"/>
-			<rect x="48.9" y="138" fill="#0033CC" width="28.4" height="4"/>
-			<rect x="48.9" y="146" fill="#0033CC" width="28.4" height="4"/>
-			<rect x="89.1" y="130" fill="#0033CC" width="12.8" height="4"/>
-			<rect x="140.4" y="130" fill="#0033CC" width="12.7" height="4"/>
-			<rect x="140.4" y="122" fill="#0033CC" width="12.7" height="4"/>
-			<rect x="180.6" y="130" fill="#0033CC" width="12.7" height="4"/>
-			<rect x="180.6" y="122" fill="#0033CC" width="12.7" height="4"/>
-			<rect x="180.6" y="138" fill="#0033CC" width="20.6" height="4"/>
-			<rect x="180.6" y="146" fill="#0033CC" width="20.6" height="4"/>
-			<rect x="132.6" y="138" fill="#0033CC" width="20.6" height="4"/>
-			<rect x="132.6" y="146" fill="#0033CC" width="20.6" height="4"/>
-			<rect x="89.1" y="106" fill="#0033CC" width="12.7" height="4"/>
-			<polygon fill="#0033CC" points="154.4,90 132.6,90 132.6,94 156,94 			"/>
-			<polygon fill="#0033CC" points="157.6,98 132.6,98 132.6,102 159.2,102 			"/>
-			<polygon fill="#0033CC" points="160.8,106 140.4,106 140.4,110 162.3,110 			"/>
-			<polygon fill="#0033CC" points="163.9,114 140.4,114 140.4,118 165.5,118 			"/>
-			<polygon fill="#0033CC" points="178.7,122 155.6,122 157.2,126 177.1,126 			"/>
-			<polygon fill="#0033CC" points="158.8,130 175.4,130 173.9,134 160.4,134 			"/>
-			<polygon fill="#0033CC" points="162,138 172.3,138 170.7,142 163.5,142 			"/>
-			<polygon fill="#0033CC" points="165.1,146 169.2,146 167.5,150 166.7,150 			"/>
-			<polygon fill="#0033CC" points="179.3,90 201.1,90 201.1,94 177.7,94 			"/>
-			<polygon fill="#0033CC" points="176.1,98 201.1,98 201.1,102 174.6,102 			"/>
-			<polygon fill="#0033CC" points="173,106 193.4,106 193.4,110 171.5,110 			"/>
-			<polygon fill="#0033CC" points="169.8,114 193.4,114 193.4,118 168.2,118 			"/>
-			<path fill="#0033CC" d="M111,150H81.3v-4h42C121.3,147.7,116.4,150,111,150z"/>
-			<path fill="#0033CC" d="M128.5,138H81.3v4H127C127.7,141.1,128.4,139.4,128.5,138z"/>
-			<path fill="#0033CC" d="M127.9,130h-13.4v4h14.2C128.8,133,128.5,131.2,127.9,130z"/>
-			<path fill="#0033CC" d="M121.4,122H89.1v4H126C125.6,125.1,122.8,122.4,121.4,122z"/>
-			<path fill="#0033CC" d="M125.7,114H89.1v4h32.1C122.7,117.4,125.1,115.5,125.7,114z"/>
-			<path fill="#0033CC" d="M128.4,106h-13.9v4h13.2C128.1,109.3,128.5,107.5,128.4,106z"/>
-			<path fill="#0033CC" d="M126.6,98H81.3v4h47C128.2,100.9,127.2,98.6,126.6,98z"/>
-			<path fill="#0033CC" d="M81.3,90v4h41.7c-1.3-1-6-4-12.3-4H81.3z"/>
-		</g>
-	</g>
-	<g>
-		<g>
-			<rect x="48.9" y="18" fill="#FFFFFF" width="28.4" height="4"/>
-			<rect x="48.9" y="10" fill="#FFFFFF" width="28.3" height="4"/>
-			<rect x="56.7" y="26" fill="#FFFFFF" width="12.8" height="4"/>
-			<rect x="56.7" y="34" fill="#FFFFFF" width="12.7" height="4"/>
-			<rect x="56.7" y="42" fill="#FFFFFF" width="12.7" height="4"/>
-			<rect x="56.7" y="50" fill="#FFFFFF" width="12.7" height="4"/>
-			<rect x="48.9" y="58" fill="#FFFFFF" width="28.4" height="4"/>
-			<rect x="48.9" y="66" fill="#FFFFFF" width="28.4" height="4"/>
-			<rect x="89.1" y="50" fill="#FFFFFF" width="12.8" height="4"/>
-			<rect x="140.4" y="50" fill="#FFFFFF" width="12.7" height="4"/>
-			<rect x="140.4" y="42" fill="#FFFFFF" width="12.7" height="4"/>
-			<rect x="180.6" y="50" fill="#FFFFFF" width="12.7" height="4"/>
-			<rect x="180.6" y="42" fill="#FFFFFF" width="12.7" height="4"/>
-			<rect x="180.6" y="58" fill="#FFFFFF" width="20.6" height="4"/>
-			<rect x="180.6" y="66" fill="#FFFFFF" width="20.6" height="4"/>
-			<rect x="132.6" y="58" fill="#FFFFFF" width="20.6" height="4"/>
-			<rect x="132.6" y="66" fill="#FFFFFF" width="20.6" height="4"/>
-			<rect x="89.1" y="26" fill="#FFFFFF" width="12.7" height="4"/>
-			<polygon fill="#FFFFFF" points="154.4,10 132.6,10 132.6,14 156,14 			"/>
-			<polygon fill="#FFFFFF" points="157.6,18 132.6,18 132.6,22 159.2,22 			"/>
-			<polygon fill="#FFFFFF" points="160.8,26 140.4,26 140.4,30 162.3,30 			"/>
-			<polygon fill="#FFFFFF" points="163.9,34 140.4,34 140.4,38 165.5,38 			"/>
-			<polygon fill="#FFFFFF" points="178.7,42 155.6,42 157.2,46 177.1,46 			"/>
-			<polygon fill="#FFFFFF" points="158.8,50 175.4,50 173.9,54 160.4,54 			"/>
-			<polygon fill="#FFFFFF" points="162,58 172.3,58 170.7,62 163.5,62 			"/>
-			<polygon fill="#FFFFFF" points="165.1,66 169.2,66 167.5,70 166.7,70 			"/>
-			<polygon fill="#FFFFFF" points="179.3,10 201.1,10 201.1,14 177.7,14 			"/>
-			<polygon fill="#FFFFFF" points="176.1,18 201.1,18 201.1,22 174.6,22 			"/>
-			<polygon fill="#FFFFFF" points="173,26 193.4,26 193.4,30 171.5,30 			"/>
-			<polygon fill="#FFFFFF" points="169.8,34 193.4,34 193.4,38 168.2,38 			"/>
-			<path fill="#FFFFFF" d="M111,70H81.3v-4h42C121.3,67.7,116.4,70,111,70z"/>
-			<path fill="#FFFFFF" d="M128.5,58H81.3v4H127C127.7,61.1,128.4,59.4,128.5,58z"/>
-			<path fill="#FFFFFF" d="M127.9,50h-13.4v4h14.2C128.8,53,128.5,51.2,127.9,50z"/>
-			<path fill="#FFFFFF" d="M121.4,42H89.1v4H126C125.6,45.1,122.8,42.4,121.4,42z"/>
-			<path fill="#FFFFFF" d="M125.7,34H89.1v4h32.1C122.7,37.4,125.1,35.5,125.7,34z"/>
-			<path fill="#FFFFFF" d="M128.4,26h-13.9v4h13.2C128.1,29.3,128.5,27.5,128.4,26z"/>
-			<path fill="#FFFFFF" d="M126.6,18H81.3v4h47C128.2,20.9,127.2,18.6,126.6,18z"/>
-			<path fill="#FFFFFF" d="M81.3,10v4h41.7c-1.3-1-6-4-12.3-4H81.3z"/>
-		</g>
+		<rect x="48.9" y="98" fill="#0033CC" width="28.4" height="4"/>
+		<rect x="48.9" y="90" fill="#0033CC" width="28.3" height="4"/>
+		<rect x="56.7" y="106" fill="#0033CC" width="12.8" height="4"/>
+		<rect x="56.7" y="114" fill="#0033CC" width="12.7" height="4"/>
+		<rect x="56.7" y="122" fill="#0033CC" width="12.7" height="4"/>
+		<rect x="56.7" y="130" fill="#0033CC" width="12.7" height="4"/>
+		<rect x="48.9" y="138" fill="#0033CC" width="28.4" height="4"/>
+		<rect x="48.9" y="146" fill="#0033CC" width="28.4" height="4"/>
+		<rect x="89.1" y="130" fill="#0033CC" width="12.8" height="4"/>
+		<rect x="140.4" y="130" fill="#0033CC" width="12.7" height="4"/>
+		<rect x="140.4" y="122" fill="#0033CC" width="12.7" height="4"/>
+		<rect x="180.6" y="130" fill="#0033CC" width="12.7" height="4"/>
+		<rect x="180.6" y="122" fill="#0033CC" width="12.7" height="4"/>
+		<rect x="180.6" y="138" fill="#0033CC" width="20.6" height="4"/>
+		<rect x="180.6" y="146" fill="#0033CC" width="20.6" height="4"/>
+		<rect x="132.6" y="138" fill="#0033CC" width="20.6" height="4"/>
+		<rect x="132.6" y="146" fill="#0033CC" width="20.6" height="4"/>
+		<rect x="89.1" y="106" fill="#0033CC" width="12.7" height="4"/>
+		<polygon fill="#0033CC" points="154.4,90 132.6,90 132.6,94 156,94 		"/>
+		<polygon fill="#0033CC" points="157.6,98 132.6,98 132.6,102 159.2,102 		"/>
+		<polygon fill="#0033CC" points="160.8,106 140.4,106 140.4,110 162.3,110 		"/>
+		<polygon fill="#0033CC" points="163.9,114 140.4,114 140.4,118 165.5,118 		"/>
+		<polygon fill="#0033CC" points="178.7,122 155.6,122 157.2,126 177.1,126 		"/>
+		<polygon fill="#0033CC" points="158.8,130 175.4,130 173.9,134 160.4,134 		"/>
+		<polygon fill="#0033CC" points="162,138 172.3,138 170.7,142 163.5,142 		"/>
+		<polygon fill="#0033CC" points="165.1,146 169.2,146 167.5,150 166.7,150 		"/>
+		<polygon fill="#0033CC" points="179.3,90 201.1,90 201.1,94 177.7,94 		"/>
+		<polygon fill="#0033CC" points="176.1,98 201.1,98 201.1,102 174.6,102 		"/>
+		<polygon fill="#0033CC" points="173,106 193.4,106 193.4,110 171.5,110 		"/>
+		<polygon fill="#0033CC" points="169.8,114 193.4,114 193.4,118 168.2,118 		"/>
+		<path fill="#0033CC" d="M111,150H81.3v-4h42C121.3,147.7,116.4,150,111,150z"/>
+		<path fill="#0033CC" d="M128.5,138H81.3v4H127C127.7,141.1,128.4,139.4,128.5,138z"/>
+		<path fill="#0033CC" d="M127.9,130h-13.4v4h14.2C128.8,133,128.5,131.2,127.9,130z"/>
+		<path fill="#0033CC" d="M121.4,122H89.1v4H126C125.6,125.1,122.8,122.4,121.4,122z"/>
+		<path fill="#0033CC" d="M125.7,114H89.1v4h32.1C122.7,117.4,125.1,115.5,125.7,114z"/>
+		<path fill="#0033CC" d="M128.4,106h-13.9v4h13.2C128.1,109.3,128.5,107.5,128.4,106z"/>
+		<path fill="#0033CC" d="M126.6,98H81.3v4h47C128.2,100.9,127.2,98.6,126.6,98z"/>
+		<path fill="#0033CC" d="M81.3,90v4h41.7c-1.3-1-6-4-12.3-4H81.3z"/>
 	</g>
 </g>
-<g id="Repères" display="none">
+<g>
+	<g>
+		<rect x="48.9" y="18" fill="#FFFFFF" width="28.4" height="4"/>
+		<rect x="48.9" y="10" fill="#FFFFFF" width="28.3" height="4"/>
+		<rect x="56.7" y="26" fill="#FFFFFF" width="12.8" height="4"/>
+		<rect x="56.7" y="34" fill="#FFFFFF" width="12.7" height="4"/>
+		<rect x="56.7" y="42" fill="#FFFFFF" width="12.7" height="4"/>
+		<rect x="56.7" y="50" fill="#FFFFFF" width="12.7" height="4"/>
+		<rect x="48.9" y="58" fill="#FFFFFF" width="28.4" height="4"/>
+		<rect x="48.9" y="66" fill="#FFFFFF" width="28.4" height="4"/>
+		<rect x="89.1" y="50" fill="#FFFFFF" width="12.8" height="4"/>
+		<rect x="140.4" y="50" fill="#FFFFFF" width="12.7" height="4"/>
+		<rect x="140.4" y="42" fill="#FFFFFF" width="12.7" height="4"/>
+		<rect x="180.6" y="50" fill="#FFFFFF" width="12.7" height="4"/>
+		<rect x="180.6" y="42" fill="#FFFFFF" width="12.7" height="4"/>
+		<rect x="180.6" y="58" fill="#FFFFFF" width="20.6" height="4"/>
+		<rect x="180.6" y="66" fill="#FFFFFF" width="20.6" height="4"/>
+		<rect x="132.6" y="58" fill="#FFFFFF" width="20.6" height="4"/>
+		<rect x="132.6" y="66" fill="#FFFFFF" width="20.6" height="4"/>
+		<rect x="89.1" y="26" fill="#FFFFFF" width="12.7" height="4"/>
+		<polygon fill="#FFFFFF" points="154.4,10 132.6,10 132.6,14 156,14 		"/>
+		<polygon fill="#FFFFFF" points="157.6,18 132.6,18 132.6,22 159.2,22 		"/>
+		<polygon fill="#FFFFFF" points="160.8,26 140.4,26 140.4,30 162.3,30 		"/>
+		<polygon fill="#FFFFFF" points="163.9,34 140.4,34 140.4,38 165.5,38 		"/>
+		<polygon fill="#FFFFFF" points="178.7,42 155.6,42 157.2,46 177.1,46 		"/>
+		<polygon fill="#FFFFFF" points="158.8,50 175.4,50 173.9,54 160.4,54 		"/>
+		<polygon fill="#FFFFFF" points="162,58 172.3,58 170.7,62 163.5,62 		"/>
+		<polygon fill="#FFFFFF" points="165.1,66 169.2,66 167.5,70 166.7,70 		"/>
+		<polygon fill="#FFFFFF" points="179.3,10 201.1,10 201.1,14 177.7,14 		"/>
+		<polygon fill="#FFFFFF" points="176.1,18 201.1,18 201.1,22 174.6,22 		"/>
+		<polygon fill="#FFFFFF" points="173,26 193.4,26 193.4,30 171.5,30 		"/>
+		<polygon fill="#FFFFFF" points="169.8,34 193.4,34 193.4,38 168.2,38 		"/>
+		<path fill="#FFFFFF" d="M111,70H81.3v-4h42C121.3,67.7,116.4,70,111,70z"/>
+		<path fill="#FFFFFF" d="M128.5,58H81.3v4H127C127.7,61.1,128.4,59.4,128.5,58z"/>
+		<path fill="#FFFFFF" d="M127.9,50h-13.4v4h14.2C128.8,53,128.5,51.2,127.9,50z"/>
+		<path fill="#FFFFFF" d="M121.4,42H89.1v4H126C125.6,45.1,122.8,42.4,121.4,42z"/>
+		<path fill="#FFFFFF" d="M125.7,34H89.1v4h32.1C122.7,37.4,125.1,35.5,125.7,34z"/>
+		<path fill="#FFFFFF" d="M128.4,26h-13.9v4h13.2C128.1,29.3,128.5,27.5,128.4,26z"/>
+		<path fill="#FFFFFF" d="M126.6,18H81.3v4h47C128.2,20.9,127.2,18.6,126.6,18z"/>
+		<path fill="#FFFFFF" d="M81.3,10v4h41.7c-1.3-1-6-4-12.3-4H81.3z"/>
+	</g>
 </g>
 </svg>

@@ -86,7 +86,7 @@
   padding-right 20%
   
   
-@media screen and (min-width em(420)) and (max-width $laptop['max-width'])
+@media screen and (min-width em(420)) and (max-width em(768))
   .reference--logo-wrapper
     top 12%
 
@@ -95,73 +95,41 @@
     padding-right 35%
 
       
-@media screen and (min-width em(510)) and (max-width $laptop['max-width'])
+@media screen and (min-width em(510)) and (max-width em(768))
   .reference--logo-wrapper
     top 16%
 
 
-@media screen and (min-width em(600)) and (max-width $laptop['max-width'])
+@media screen and (max-width em(768))
   .reference--logo-wrapper
     width 45%
     top   21%
     
 
-@media screen and (min-width em(768)) and (max-width $laptop['max-width'])
-  .reference--logo-wrapper
-    width 40%
-    top   25%
-    right $paddingViewport-tablet
-
-  .reference--description
-    margin-top    60%
-    padding-right 50%
-    padding-left  $paddingViewport-mobile
-    
-  
-@media screen and (min-width em(960)) and (max-width $laptop['max-width'])
-  .reference--logo-wrapper
-    top 25%
-  
-
-      
-
-// .reference--description
-//   font-size   em(22)
-//   line-height em(28/@font-size)
-  
-//   @media screen and (min-width $laptop['min-width'])
-//     font-size   em(26)
-//     line-height em(32/@font-size)
-        
-      
-
-
-// @media screen and (min-width $tabletPortrait['width']) and (max-width $tabletLandscape['width'])
-
-//   .reference--logo
-//     display   inline
-//     width     100%
-//     max-width 30%
-//     margin    10% 5% 10%
-//     float     right
-    
+// @media screen and (min-width em(768)) and (max-width $tabletLandscape['width'])
+//   .reference--logo-wrapper
+//     width 40%
+//     top   25%
+//     right $paddingViewport-tablet
 
 //   .reference--description
-//     // width         60%
-//     // margin-bottom step(90)
-//     clear         right
-    
+//     margin-top    60%
+//     padding-right 50%
+//     padding-left  $paddingViewport-mobile
+     
 
 
-
-@media screen and (min-width $tabletLandscape['width'])
+@media screen and (min-width em(768))
       
   .reference--logo-wrapper
   .reference--description-wrapper
     display table
-    float left
     width 40%
     height 100%
+    position relative
+    top auto
+    right auto
+    float left
     
   .reference--description-wrapper
     width 60%

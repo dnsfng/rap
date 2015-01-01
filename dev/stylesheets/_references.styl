@@ -72,54 +72,107 @@
         margin 0
 
 
-.reference--logo-wrapper
-  @media screen and (max-width $tabletLandscape['width'])
+
+@media screen and (max-width em(1023))
+
+  .reference--logo-wrapper
     position          absolute
     width             50%
     height            auto
     top               step(75px)
     right             $paddingViewport-mobile
-    
 
-.reference--description
-  margin-top    85%
-  padding-right 20%
-  
-  
-@media screen and (min-width em(420)) and (max-width em(768))
-  .reference--logo-wrapper
-    top 12%
+  .reference--description-wrapper
+    position relative
+    top step(250px)   
 
   .reference--description
-    margin-top    70%
-    padding-right 35%
-
-      
-@media screen and (min-width em(510)) and (max-width em(768))
-  .reference--logo-wrapper
-    top 16%
-
-
-@media screen and (max-width em(768))
-  .reference--logo-wrapper
-    width 45%
-    top   21%
+    padding-right 20%
     
 
-// @media screen and (min-width em(768)) and (max-width $tabletLandscape['width'])
-//   .reference--logo-wrapper
-//     width 40%
-//     top   25%
-//     right $paddingViewport-tablet
+  @media (min-width em(420))
+    .reference--logo-wrapper
+      top 12%
+      
+    .reference--description-wrapper
+      top 60%
 
-//   .reference--description
-//     margin-top    60%
-//     padding-right 50%
-//     padding-left  $paddingViewport-mobile
-     
+    .reference--description
+      padding-right 35%
+
+    @media (min-height em(480))
+      .reference--description-wrapper
+        top 65%
+        
+    @media (min-height em(600))
+      .reference--description-wrapper
+        top auto
+      
+      .reference--description
+        margin-top    70%
+
+        
+  @media (min-width em(510))
+    .reference--logo-wrapper
+      top 16%
+      
+    .reference--description-wrapper
+      top 60%
+      
+    @media (min-height em(480))
+      .reference--description-wrapper
+        top 65%
+        
+    @media (min-height em(600))
+      .reference--description-wrapper
+        top auto
+      
+      .reference--description
+        margin-top    70%
 
 
-@media screen and (min-width em(768))
+  @media (min-width em(600))
+    .reference--logo-wrapper
+      width 45%
+      top   21%
+      
+    .reference--description-wrapper
+      top 75%
+      
+    @media (min-height em(480))
+      .reference--description-wrapper
+        top 70%
+        
+    @media (min-height em(600))
+      .reference--description-wrapper
+        top auto
+      
+      .reference--description
+        margin-top    70%
+      
+
+  @media (min-width em(768))
+    .reference--logo-wrapper
+      width 40%
+      top   25%
+      right $paddingViewport-tablet
+
+    .reference--description
+      padding-right 50%
+      padding-left  $paddingViewport-mobile
+    
+    @media (min-height em(600))
+      .reference--description-wrapper
+        top auto
+      
+      .reference--description
+        margin-top    55%
+        
+
+
+
+
+@media screen and (min-width $tabletLandscape['width'])
       
   .reference--logo-wrapper
   .reference--description-wrapper
@@ -182,7 +235,7 @@
 // Reference : Navigation
 
 .reference--nav
-  margin-top  $step*20
+  margin-top  $step*10
   overflow    hidden
   
   &.reference--nav-inner
@@ -190,7 +243,6 @@
     position  absolute
     left      0
     width     100%
-    padding   0 10px
 
   &.reference--nav-outer
     display none
@@ -202,7 +254,7 @@
     //   bottom    0
     //   left      0  
   
-  @media screen and (min-width ($tabletPortrait['width']))
+  @media screen and (min-width $tabletPortrait['width']) and (min-height em(800)), screen and (min-width $tabletLandscape['width']), screen and (min-height em(800))
     // @extend .modal .reference--nav !
     position  absolute
     bottom    $step*8
@@ -259,6 +311,9 @@
   &.reference--nav-prev
     float left
     
+    .reference--nav-inner &
+      margin-left -15px
+    
     a
     span 
       background-position left center
@@ -269,6 +324,9 @@
 
   &.reference--nav-next
     float right
+    
+    .reference--nav-inner &
+      margin-right -15px
     
     a
     span

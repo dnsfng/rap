@@ -1075,7 +1075,7 @@ section {
 /* line 409 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
 .section--references {
   margin-top: -100%;
-  padding: 90% 25px 0;
+  padding: 90% 25px 40px;
 }
 @media screen and (min-width: 75em) {
 
@@ -1182,7 +1182,7 @@ section {
 
 /* line 489 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
   .reference--list .reference--item:nth-child(n+2) {
-    margin-top: -39.5px;
+    margin-top: -38.5px;
   }
 }
 @media screen and (min-width: 544px) and (max-width: 775px) {
@@ -1199,14 +1199,14 @@ section {
 
 /* line 500 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
   .reference--list .reference--item:nth-child(n+3) {
-    margin-top: -39.5px;
+    margin-top: -38.5px;
   }
 }
 @media screen and (min-width: 776px) and (max-width: 74.938em) {
 
 /* line 505 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
   .reference--list .reference--item:nth-child(7n+5) {
-    margin-left: 91px;
+    margin-left: 91.5px;
   }
 
 /* line 508 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */

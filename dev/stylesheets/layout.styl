@@ -408,7 +408,7 @@ section
 
 .section--references
   margin-top -100%
-  padding 90% $paddingViewport-mobile 0
+  padding 90% $paddingViewport-mobile 40px
   
   @media screen and (min-width $laptop['min-width'])
     padding   $paddingViewport-tablet
@@ -487,7 +487,7 @@ section
         margin-right 0
         
       &:nth-child(n+2)
-        margin-top $diamond__row-yoffset
+        margin-top $diamond__row-yoffset + 1
 
 
     @media screen and (min-width $$mq3-min) and (max-width ($$mq4-min - 1))
@@ -498,12 +498,12 @@ section
         margin-right 0
         
       &:nth-child(n+3)
-        margin-top $diamond__row-yoffset
+        margin-top $diamond__row-yoffset + 1
 
 
     @media screen and (min-width $$mq4-min) and (max-width $laptop['max-width'])
       &:nth-child(7n+5)
-        margin-left $diamond__row-xoffset
+        margin-left $diamond__row-xoffset + 0.5
       
       &:nth-child(7n+4)
         margin-right 0

@@ -2417,7 +2417,7 @@ section:last-of-type.is_visible + .nextSection--navigation {
 .reference--nav-control.reference--nav-close {
   position: absolute;
   left: 50%;
-  margin-left: -20px;
+  margin-left: -30px;
 }
 
 /* line 344 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */

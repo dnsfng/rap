@@ -233,7 +233,7 @@ $(document).ready(function(){
 
   // Binding and behavior
 
-  $('.js--ref-test').click(function(e){
+  $('.js--modal-start').click(function(e){
     e.preventDefault();
     var index = $(this).attr('data-ref-index');
     removeHelpers();

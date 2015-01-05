@@ -546,10 +546,10 @@ section
         margin-left $diamond__row-xoffset-xlarge
         
       &:nth-child(7)
-        margin-left ($diamond__row-xoffset-xlarge * 2) - 0.5
+        margin-left ($diamond__row-xoffset-xlarge * 2)
         
       &:nth-child(10)
-        margin-left ($diamond__row-xoffset-xlarge * 3) - 0.5
+        margin-left ($diamond__row-xoffset-xlarge * 3)
 
       &:nth-child(3n+4)
         clear left
@@ -617,8 +617,6 @@ section
       margin (- ($diamond__diagonal-large * 5)) 0 0 (- ($diamond__diagonal-large*5))
       transform-origin 0 0
       transform rotate(-45deg)
-      background transparent url("/_assets/i/__ref_diamond_pattern.svg") repeat 1px 1px
-      background-size 179px 179px
       
       @media screen and (min-height em(380))
         height 800%
@@ -632,7 +630,6 @@ section
         
     @media screen and (min-width $desktop)
       margin (- ($diamond__diagonal-xlarge * 5) - 13) 0 0 (- ($diamond__diagonal-xlarge*5) - 13)
-      background-size 229px 229px
       
     
       

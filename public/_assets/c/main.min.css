@@ -1267,12 +1267,12 @@ section {
 
 /* line 548 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
   .reference--list .reference--item:nth-child(7) {
-    margin-left: 323.5px;
+    margin-left: 324px;
   }
 
 /* line 551 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
   .reference--list .reference--item:nth-child(10) {
-    margin-left: 485.5px;
+    margin-left: 486px;
   }
 
 /* line 554 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
@@ -1384,41 +1384,38 @@ section {
             transform-origin: 0 0;
     -webkit-transform: rotate(-45deg);
             transform: rotate(-45deg);
-    background: transparent url("/_assets/i/__ref_diamond_pattern.svg") repeat 1px 1px;
-    background-size: 179px 179px;
   }
 }
 @media screen and (min-width: 92.5em) {
 
-/* line 633 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
+/* line 631 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
   .js .section__references--pattern {
     margin: -1638px 0 0 -1638px;
-    background-size: 229px 229px;
   }
 }
 @media screen and (min-width: 75em) and (min-height: 23.75em) {
 
-/* line 623 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
+/* line 621 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
   .js .section__references--pattern {
     height: 800%;
   }
 }
 @media screen and (min-width: 75em) and (min-height: 36.25em) {
 
-/* line 626 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
+/* line 624 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
   .js .section__references--pattern {
     height: 600%;
   }
 }
 @media screen and (min-width: 75em) and (min-height: 55em) {
 
-/* line 629 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
+/* line 627 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
   .js .section__references--pattern {
     height: 400%;
   }
 }
 
-/* line 635 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
+/* line 632 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
 
 /* line 1 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/zindex.styl */
 
@@ -1879,7 +1876,27 @@ aside .error--link a {
   background-position: left top;
 }
 
-/* line 405 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
+/* line 410 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
+
+/* line 411 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
+@media screen and (min-width: 75em) {
+
+/* line 412 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
+  .js .section__references--pattern {
+    background: transparent url("/_assets/i/__ref_diamond_pattern.svg") repeat 0 1px;
+    background-size: 179px 179px;
+  }
+}
+@media screen and (min-width: 92.5em) {
+
+/* line 416 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
+  .js .section__references--pattern {
+    background-image: url("/_assets/i/__ref_diamond_pattern_xl.svg");
+    background-size: 229px 229px;
+  }
+}
+
+/* line 418 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
 
 /* line 1 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_section.styl */
 

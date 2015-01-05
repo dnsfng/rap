@@ -7,6 +7,9 @@ main
   height  100%
   width   100%
 
+  @media screen and (min-width $tabletLandscape['width']) and (max-width $laptop['min-width'])
+    overflow-x hidden // Fixes logo bottom diagonal on tablet landscape viewport
+
 body
   &.no-scroll
   &.no-scroll main
@@ -14,6 +17,7 @@ body
     
 body
   -webkit-overflow-scrolling: touch;
+  
 
 
 /* Less Than IE10 ********************************************************************/  
@@ -239,6 +243,9 @@ section
   padding 0
   height 100%
   margin 0
+  
+  @media screen and (min-width $tabletLandscape['width']) and (max-width $laptop['min-width'])
+    overflow visible
 
   + section
     margin-top -10%

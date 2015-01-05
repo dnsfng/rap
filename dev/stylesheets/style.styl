@@ -277,8 +277,11 @@ section
     transform   rotate(45*5deg)
 
   &:after
-    width     200%
-    transform rotate(45deg)
+    fakeContent()
+    width       200%
+    transform   rotate(45deg)
+    margin-left 175px
+    margin-top  15px
     
   .logo--image
     background-color white
@@ -305,6 +308,7 @@ section
       bottom      auto
       left        @top
       margin-left auto
+      margin-top  auto
       
   @media screen and (min-width $laptop['min-width'])
     &:before

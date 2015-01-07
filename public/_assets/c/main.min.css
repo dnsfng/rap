@@ -2633,12 +2633,13 @@ section:last-of-type.is_visible + .nextSection--navigation {
 
 /* line 10 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 .modal {
+  -webkit-transform: translate3d(0, 200%, 0);
+          transform: translate3d(0, 200%, 0);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 0;
   overflow: hidden;
   pointer-events: none;
   color: #fff;
@@ -2646,7 +2647,8 @@ section:last-of-type.is_visible + .nextSection--navigation {
 
 /* line 21 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 .modal.is_visible {
-  opacity: 1;
+  -webkit-transform: none;
+          transform: none;
   pointer-events: auto;
 }
 
@@ -2787,15 +2789,15 @@ section:last-of-type.is_visible + .nextSection--navigation {
 
 /* line 124 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 .modal {
-  will-change: opacity;
-  -webkit-transition: opacity 2000ms ease-out 600ms;
-          transition: opacity 2000ms ease-out 600ms;
+  will-change: transform;
+  -webkit-transition: -webkit-transform 0 ease 1200ms;
+          transition: transform 0 ease 1200ms;
 }
 
 /* line 127 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 .modal.is_visible {
-  -webkit-transition: opacity 200ms ease-in;
-          transition: opacity 200ms ease-in;
+  -webkit-transition: -webkit-transform 0 ease 0;
+          transition: transform 0 ease 0;
 }
 
 /* line 130 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */

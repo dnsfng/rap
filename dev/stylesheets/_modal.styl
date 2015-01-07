@@ -8,18 +8,18 @@
 
 
 .modal
+  transform         translate3d(0,200%,0)
   position          fixed
   top               0
   left              0
   right             0
   bottom            0
-  opacity           0
   overflow          hidden
   pointer-events    none
   color             white
 
   &.is_visible
-    opacity         1
+    transform       none
     pointer-events  auto
 
 
@@ -122,10 +122,10 @@
 
 
 .modal
-  will-change opacity
-  transition opacity $t-slower ease-out $t-reg
+  will-change transform
+  transition transform 0 ease $t-slow
   &.is_visible
-    transition opacity $t-fast ease-in
+    transition transform 0 ease 0
 
 .carousel--wrapper
   .carousel--shutter

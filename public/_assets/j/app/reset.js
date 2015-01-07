@@ -76,6 +76,10 @@ $(document).ready(function(){
 
     position = position || '1';
 
+    window.setTimeout(function(){
+        $c_translate.scrollTop(0);
+      }, 600);
+
     $c_translate.css('transform', function(){
       // Can't use vw because of iOS 7 support, can't fix it with buggyfill
       //return 'translate3d(-'+ (position - 1) * 100 +'vw,0,0)';
@@ -89,6 +93,8 @@ $(document).ready(function(){
     });
 
   }
+
+
 
 
   function updateCarouselPosition(direction, position, position_end){
@@ -122,6 +128,15 @@ $(document).ready(function(){
   }
 
 
+
+
+  function removeHelpers(){
+    $('.carousel--reference').removeClass('is_out is_in is_first_in is_going_left is_going_right is_looping_left is_looping_right');
+  }
+
+
+
+
   function modalReference(status, index){
 
     index = index || '1';
@@ -146,6 +161,15 @@ $(document).ready(function(){
       $_modal.removeClass('is_visible');
       $c_wrapper.toggleClass('is_closed');
       window.location = "#references" ;
+
+      $('.carousel--flap').on("transitionend webkitTransitionEnd oTransitionEnd", function(){
+        if (!$_modal.hasClass('is_visible')){
+          $c_flap.css('background-color', 'transparent');
+          $c_translate.scrollTop(0); // Reset scroll position to 0
+          console.log("coucou");
+        }
+      });
+      
     }
 
   }
@@ -153,15 +177,13 @@ $(document).ready(function(){
 
 
 
-  function removeHelpers(){
-    $('.carousel--reference').removeClass('is_out is_in is_first_in is_going_left is_going_right is_looping_left is_looping_right');
-  }
-
-
   function debounce(myFunction){
     clearTimeout(myInterval);
     myInterval = setTimeout(myFunction, 400);
   }
+
+
+
 
   function setScrollOffset(){
 
@@ -176,6 +198,9 @@ $(document).ready(function(){
     });
 
   }
+
+
+
 
   function iconToggle_Manager(){
 
@@ -264,7 +289,6 @@ $(document).ready(function(){
 
     // Move
     var nextPosition = +($c_wrapper.attr('data-ref-current'));
-
     navigateCarousel(nextPosition);
 
   });

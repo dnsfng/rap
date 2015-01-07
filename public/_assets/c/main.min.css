@@ -2719,8 +2719,15 @@ section:last-of-type.is_visible + .nextSection--navigation {
   background-color: rgba(255,255,255,0.2);
   z-index: 10;
 }
+@media screen and (min-width: 600px) {
 
 /* line 71 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+  .carousel--wrapper .carousel--shutter.carousel--shutter-ne:before {
+    background-color: #fff;
+  }
+}
+
+/* line 74 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 .carousel--wrapper .carousel--shutter.carousel--shutter-sw {
   width: 200%;
   height: 200%;
@@ -2728,7 +2735,7 @@ section:last-of-type.is_visible + .nextSection--navigation {
           transform: rotate(45deg);
 }
 
-/* line 76 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 79 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 .carousel--wrapper .carousel--shutter.carousel--shutter-sw .carousel--flap {
   width: 100%;
   height: 100%;
@@ -2737,29 +2744,29 @@ section:last-of-type.is_visible + .nextSection--navigation {
 }
 @media screen and (min-height: 45em) {
 
-/* line 82 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 85 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
   .carousel--wrapper .carousel--shutter.carousel--shutter-sw {
     width: 300%;
   }
 }
 
-/* line 87 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
-
-/* line 88 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 90 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 
 /* line 91 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+
+/* line 94 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 .carousel--wrapper.is_closed .carousel--shutter:before {
   -webkit-transform: translate3d(0, -80%, 1px);
           transform: translate3d(0, -80%, 1px);
 }
 
-/* line 95 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 98 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 .carousel--wrapper.is_closed .carousel--shutter .carousel--flap {
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
 }
 
-/* line 99 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 102 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 .carousel--translate {
   width: 100%;
   height: 100%;
@@ -2769,7 +2776,7 @@ section:last-of-type.is_visible + .nextSection--navigation {
           transition: transform 600ms ease-in-out;
 }
 
-/* line 107 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 110 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 .carousel--reference {
   float: left;
   position: relative;
@@ -2778,72 +2785,72 @@ section:last-of-type.is_visible + .nextSection--navigation {
   z-index: 1;
 }
 
-/* line 121 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 124 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 .modal {
   will-change: opacity;
   -webkit-transition: opacity 2000ms ease-out 600ms;
           transition: opacity 2000ms ease-out 600ms;
 }
 
-/* line 124 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 127 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 .modal.is_visible {
   -webkit-transition: opacity 200ms ease-in;
           transition: opacity 200ms ease-in;
 }
 
-/* line 127 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 130 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 
-/* line 128 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 131 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 
-/* line 129 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 132 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 .carousel--wrapper .carousel--shutter .carousel--flap {
   will-change: transform, background-color;
   -webkit-transition: -webkit-transform 600ms ease-in-out 600ms;
           transition: transform 600ms ease-in-out 600ms;
 }
 
-/* line 133 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 136 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 .is_visible .carousel--wrapper .carousel--shutter .carousel--flap {
   -webkit-transition: -webkit-transform 600ms ease-out, background-color 600ms ease 200ms;
           transition: transform 600ms ease-out, background-color 600ms ease 200ms;
 }
 
-/* line 137 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 140 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 
-/* line 138 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 141 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 .carousel--wrapper .carousel--shutter.carousel--shutter-ne:before {
   will-change: transform;
   -webkit-transition: -webkit-transform 200ms ease-out 600ms;
           transition: transform 200ms ease-out 600ms;
 }
 
-/* line 143 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 146 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 .carousel--translate {
   will-change: transform;
   -webkit-transition: -webkit-transform 600ms ease-in-out;
           transition: transform 600ms ease-in-out;
 }
 
-/* line 153 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 156 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 .reference--nav-control {
   will-change: opacity;
 }
 
-/* line 156 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 159 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 .modal .reference--nav-control {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in;
           transition: opacity 200ms ease-in;
 }
 
-/* line 160 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 163 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 .is_visible .reference--nav-control {
   opacity: 1;
   -webkit-transition: opacity 600ms ease-out 1600ms;
           transition: opacity 600ms ease-out 1600ms;
 }
 
-/* line 169 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 172 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 .reference--logo-wrapper,
 .reference--description-wrapper {
   will-change: opacity;
@@ -2851,7 +2858,7 @@ section:last-of-type.is_visible + .nextSection--navigation {
           transition: opacity 1200ms ease-in;
 }
 
-/* line 174 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 177 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 .modal .reference--logo-wrapper,
 .modal .reference--description-wrapper {
   opacity: 0;
@@ -2859,7 +2866,7 @@ section:last-of-type.is_visible + .nextSection--navigation {
           transition: opacity 200ms ease-in;
 }
 
-/* line 178 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 181 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 .is_first_in .reference--logo-wrapper,
 .is_first_in .reference--description-wrapper {
   opacity: 1;
@@ -2867,7 +2874,7 @@ section:last-of-type.is_visible + .nextSection--navigation {
           transition: opacity 200ms ease-out 1200ms;
 }
 
-/* line 182 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 185 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 .is_in .reference--logo-wrapper,
 .is_in .reference--description-wrapper {
   opacity: 1;
@@ -2875,7 +2882,7 @@ section:last-of-type.is_visible + .nextSection--navigation {
           transition: opacity 200ms ease-out 600ms;
 }
 
-/* line 186 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 189 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 .is_out .reference--logo-wrapper,
 .is_out .reference--description-wrapper {
   opacity: 0;
@@ -2884,9 +2891,9 @@ section:last-of-type.is_visible + .nextSection--navigation {
 }
 @media screen and (min-width: 75em) {
 
-/* line 195 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 198 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 
-/* line 197 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 200 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
   .modal .reference--description,
   .modal .reference--logo {
     will-change: transform;
@@ -2894,37 +2901,37 @@ section:last-of-type.is_visible + .nextSection--navigation {
             transform: translate3d(0);
   }
 
-/* line 202 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 205 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 
-/* line 203 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 206 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
   .is_out.is_going_right .reference--description {
     -webkit-transform: translate3d(150%, 0, 0);
             transform: translate3d(150%, 0, 0);
   }
 
-/* line 207 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 210 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
   :first-child.is_out.is_looping_left .reference--description {
     -webkit-transform: translate3d(500%, 0, 0);
             transform: translate3d(500%, 0, 0);
   }
 
-/* line 211 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 214 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 
-/* line 212 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 215 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
   .is_out.is_going_left .reference--logo {
     -webkit-transform: translate3d(-150%, 0, 0);
             transform: translate3d(-150%, 0, 0);
   }
 
-/* line 216 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 219 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
   :last-child.is_out.is_looping_right .reference--logo {
     -webkit-transform: translate3d(-500%, 0, 0);
             transform: translate3d(-500%, 0, 0);
   }
 
-/* line 220 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 223 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 
-/* line 222 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
+/* line 225 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
   .is_out .reference--description,
   .is_out .reference--logo {
     -webkit-transition: -webkit-transform 200ms ease-in;

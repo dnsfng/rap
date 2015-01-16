@@ -1910,15 +1910,22 @@ aside .error--link a {
 
 /* line 308 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
 .reference--item:hover .reference--content-image {
-  background-position: left top;
+  background-position: center -1px;
 }
-
-/* line 314 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
-
-/* line 315 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
 @media screen and (min-width: 75em) {
 
+/* line 310 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
+  .reference--item:hover .reference--content-image {
+    background-position: center top;
+  }
+}
+
 /* line 316 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
+
+/* line 317 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
+@media screen and (min-width: 75em) {
+
+/* line 318 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
   .js .section__references--pattern {
     background: transparent url("/_assets/i/__ref_diamond_pattern.svg") repeat 0 1px;
     background-size: 179px 179px;
@@ -1926,14 +1933,14 @@ aside .error--link a {
 }
 @media screen and (min-width: 92.5em) {
 
-/* line 320 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
+/* line 322 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
   .js .section__references--pattern {
     background-image: url("/_assets/i/__ref_diamond_pattern_xl.svg");
     background-size: 229px 229px;
   }
 }
 
-/* line 322 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
+/* line 324 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/style.styl */
 
 /* line 1 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_section.styl */
 

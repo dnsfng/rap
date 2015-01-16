@@ -28,10 +28,11 @@
       right             0
       display           block
 
-    .js section:nth-child(even) &
+    .js section.even &
+    .js section.odd + .section--image &
       .flap
         // background-color red
-        background-color black
+        background-color white
      
 
 
@@ -58,7 +59,7 @@
 
 
 .flap
-  background-color white
+  background-color black
   // background-color blue
   position absolute
   width 100%

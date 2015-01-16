@@ -27,7 +27,6 @@
 
     {# var moderator helps cancel the color pattern of image section #}
     {% if block.type == "sectionImage" %} {% set moderator = moderator + 1 %} {% endif %}
-
     {% set count = (block.sortOrder - moderator - 1) %}
     {% set evenOrOdd = count % 2 == 0 ? 'even' : 'odd' %}
 
@@ -38,14 +37,7 @@
 
       <section class="section--00 section--intro {{evenOrOdd}}" style="z-index:{{(20 - block.sortOrder)}}">
 
-        <div class="mainShutter--wrapper">
-          <header class="shutter shutter_ne">
-              <div class="flap"></div>
-          </header>
-          <footer class="shutter shutter_sw">
-              <div class="flap"></div>
-          </footer>
-        </div>
+        {% include "__shutter_system.html" %}
 
         <div class="section--wrapper">
           <div class="logo">
@@ -68,94 +60,88 @@
     {% elseif block.type == "sectionTitle" %}
 
       <section class="section--0{{(block.sortOrder - 1)}} section--references {{evenOrOdd}}" style="z-index:{{(20 - block.sortOrder)}}">
+
+        {% include "__shutter_system.html" %}
+
         <div class="section--wrapper">
+
           <div class="section__references--pattern"></div>
+
           <div class="section--title--wrapper">
             <h2 class="section--title">{{ block.heading }}</h2>
           </div>
+
           <ul class="reference--list" id="references">
+
             {% for entry in craft.entries.type('project').order('title') %}
+
               <li class="reference--item reference--item-child-{{loop.index}}">
                 <div class="reference--itemLayer" style="background-color : {{entry.backgroundColor}}"></div>
-
                 {% set image = entry.logo.first() %}
-
                 <a href="{{ entry.url }}" class="js--modal-start" data-ref-index="{{loop.index}}">
                   <div class="reference--content">
+
                   {% if image %}
                   <div class="reference--content-image" style="background-image:url({{image.url}})"></div>
                   {% else %}
                     {{ entry.title }}
                   {% endif %}
+
                   </div>
                 </a>
               </li>
             {% endfor %}
+
           </ul>
+
         </div>
+
       </section>
 
-    {% else %}
 
-{# IMAGE & DEFAULT TEMPLATE #}
-    {% if block.type == "sectionImage" %}
+{# IMAGE TEMPLATE #}
+    {% elseif block.type == "sectionImage" %}
 
-    {% set image = block.backgroundImage.first() %}
+      {% set image = block.backgroundImage.first() %}
 
       <section class="section--0{{(block.sortOrder - 1)}} section--image" style="z-index:{{(20 - block.sortOrder)}}; background-image: url({{image.url}}) ">
 
-      <div class="bgImage--wrapper">
-        <div class="bgImage" style="background-image: url({{image.url}})"></div>
-      </div>
+        <div class="bgImage--wrapper">
+          <div class="bgImage" style="background-image: url({{image.url}})"></div>
+        </div>
 
-      <div class="mainShutter--wrapper">
-          <header class="shutter shutter_ne">
-             <div class="flap">
-              </div>
-         </header>
-          <footer class="shutter shutter_sw">
-             <div class="flap">
-              </div>
-         </footer>
-      </div>
+        {% include "__shutter_system.html" %}
 
+        <div class="section--wrapper">
+
+          <div class="section--title--wrapper">
+            <h2 class="section--title" style="color:{{ block.headingColor }}">{{ block.heading }}</h2>
+          </div>
+
+          <div class="section--description">
+            <span style="color:{{ block.descriptionColor }}">{{ block.description }}</span>
+          </div>
+
+        </div>
+
+      </section>
+
+{# DEFAULT TEMPLATE #}
     {% else %}
 
       <section class="section--0{{(block.sortOrder - 1)}} {{evenOrOdd}}" style="z-index:{{(20 - block.sortOrder)}}">
 
-      <div class="mainShutter--wrapper">
-        <header class="shutter shutter_ne">
-            <div class="flap"></div>
-        </header>
-        <footer class="shutter shutter_sw">
-            <div class="flap"></div>
-        </footer>
-      </div>
-
-    {% endif %}
+      {% include "__shutter_system.html" %}
 
       <div class="section--wrapper">
 
         <div class="section--title--wrapper">
-          {% if block.type == "sectionImage" %}
-            <h2 class="section--title" style="color:{{ block.headingColor }}">
-          {% else %}
-            <h2 class="section--title">
-          {% endif %}
-            {{ block.heading }}</h2>
+            <h2 class="section--title">{{ block.heading }}</h2>
         </div>
 
-        {% if block.type == "sectionDefault" or block.type == "sectionImage" %}
-          <div class="section--description">
-            
-            {% if block.type == "sectionImage" %}<span style="color:{{ block.descriptionColor }}">{% endif %}
-
-              {{ block.description }}
-
-            {% if block.type == "sectionImage" %}</span>{% endif %}
-
-          </div>
-        {% endif %}
+        <div class="section--description">
+          <span>{{ block.description }}</span>
+         </div>
 
       </div>
 
@@ -165,12 +151,16 @@
 
   {% endfor %}
 
+
+{# ANIMATED VERSION NAVIGATION #}
   <div class="nextSection--navigation">
     <a href="#" class="nextSection--arrowWrapper js--nextSection">
       <div class="nextSection--arrow"></div>
     </a>
   </div>
 
+
+{# ICONS #}
   <a class="mail--wrapper" href="mailto:welcome@resetandplay.com">
     <div class="mail--icon mail--icon-white"></div>
     <div class="mail--icon mail--icon-black"></div>
@@ -181,6 +171,8 @@
     <div class="logo--icon logo--icon-white"></div>
   </a>
 
+
+{# LOGO FOR ANIMATED VERSION #}
   <div class="logo--wrapper logo">
     <h1>
       <span class="out">{{ siteName }}</span>
@@ -190,6 +182,7 @@
   </div>
 
 
+{# REFERENCES MODAL #}
 {% set length = craft.entries.type('project').total() %}
 
   <div class="modal" id="modal">

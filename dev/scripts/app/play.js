@@ -292,7 +292,17 @@
           'anchor'        : 5,
           'visibility'    : 'always',
           'duration'      : '100%',
-          'animations'    : []
+          'animations'    : [
+            {
+              'selector'  : '.section--05 .shutter_ne .flap',
+              'translateX': shutterTranslateX,
+              'rotate'    : shutterNERotate
+            } , {
+              'selector'  : '.section--05 .shutter_sw .flap',
+              'translateX': shutterTranslateX,
+              'rotate'    : shutterSWRotate
+            } 
+          ]
         }
         ];
 

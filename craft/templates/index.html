@@ -134,11 +134,20 @@
       <div class="section--wrapper">
 
         <div class="section--title--wrapper">
-          <h2 class="section--title">{{ block.heading }}</h2>
+          {% if block.type == "sectionImage" %}
+            <h2 class="section--title" style="color:{{ block.headingColor }}">
+          {% else %}
+            <h2 class="section--title">
+          {% endif %}
+            {{ block.heading }}</h2>
         </div>
 
-        {% if block.type == "sectionDefault" or block.type == "sectionImage" %}
+        {% if block.type == "sectionDefault" %}
           <div class="section--description">{{ block.description }}</div>
+        {% endif %}
+
+        {% if block.type == "sectionImage" %}
+          <div class="section--description" style="color:{{ block.descriptionColor }}">{{ block.description }}</div>
         {% endif %}
 
       </div>

@@ -214,6 +214,16 @@
               'opacity'   : prev_contentOpacity,
               'translateX': prev_descTranslateX
             }
+            // } , { // no team section
+            //   'selector'  : '.nextSection--arrow',
+            //   'opacity'   : [1,0]
+            // } , {
+            //   'selector'  : '.mail--icon-black',
+            //   'opacity'   : mailOpacityIn
+            // } , {
+            //   'selector'  : '.logo--icon-white',
+            //   'opacity'   : [4, 0]
+            // }
           ]
         } , { //  Transition
           'wrapper'       : 'main',
@@ -240,12 +250,10 @@
             {
               'selector'  : '.section--04 .shutter_ne .flap',
               'translateX': shutterTranslateX,
-              // 'rotate'    : shutterNERotate
               'rotate'    : [65, 42]
             } , {
               'selector'  : '.section--04 .shutter_sw .flap',
               'translateX': shutterTranslateX,
-              // 'rotate'    : shutterSWRotate
               'rotate'    : [-65, -42]
             } , {
               'selector'  : '.section--04 .bgImage--wrapper',
@@ -278,12 +286,13 @@
           ]
         } , { // —————————————————————————————————————  SHUTTER 05
           'wrapper'       : 'main',
+          // 'target'        : '.section--04',
+          // 'anchor'        : 4,
           'target'        : '.section--05',
           'anchor'        : 5,
           'visibility'    : 'always',
           'duration'      : '100%',
-          'animations'    : [
-          ]
+          'animations'    : []
         }
         ];
 

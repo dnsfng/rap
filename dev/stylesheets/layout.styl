@@ -484,6 +484,9 @@ section
 
       &:nth-child(n+1)
         margin-top $diamond__row-yoffset
+        
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)
+          margin-top $diamond__row-yoffset + 1.5
 
     
     @media screen and (min-width $$mq2-min) and (max-width ($$mq3-min - 1))
@@ -508,7 +511,7 @@ section
         margin-right 0
         
       &:nth-child(n+3)
-        margin-top $diamond__row-yoffset + 1
+        margin-top $diamond__row-yoffset + 0.5
 
 
     @media screen and (min-width $$mq4-min) and (max-width $laptop['max-width'])

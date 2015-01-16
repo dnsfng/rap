@@ -56,18 +56,22 @@
 	<!-- <script type="text/javascript" src="/_assets/j/vendor/viewport-units-buggyfill.js"></script>
 	<script>window.viewportUnitsBuggyfill.init();</script> -->
 
-	<!-- App Scripts -->
-	<script type="text/javascript" src="/_assets/j/app/reset.js"></script>
+	{% if bodyClass is not defined %}
 
-	<script>
-	
-	Modernizr.load({
-	  // test: !Modernizr.touch,
-	  test: Modernizr.mq('screen and (min-width : 1200px)'),
-	  yep : ['/_assets/j/app/play.js'],
-	});
+		<!-- App Scripts -->
+		<script type="text/javascript" src="/_assets/j/app/reset.js"></script>
 
-	</script>
+		<script>
+		
+		Modernizr.load({
+		  // test: !Modernizr.touch,
+		  test: Modernizr.mq('screen and (min-width : 1200px)'),
+		  yep : ['/_assets/j/app/play.js'],
+		});
+
+		</script>
+
+	{% endif %}
 
 	<script>
 	    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=

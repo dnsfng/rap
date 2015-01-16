@@ -2153,8 +2153,8 @@ section:last-of-type.is_visible + .nextSection--navigation {
 /* line 17 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
 .header--top .close {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 10px;
+  right: 10px;
 }
 
 /* line 26 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
@@ -2374,15 +2374,22 @@ section:last-of-type.is_visible + .nextSection--navigation {
     right: 60px;
     left: 60px;
   }
+
+/* line 281 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
+  .template--references .reference--nav {
+    bottom: 30px;
+    right: 20px;
+    left: 20px;
+  }
 }
 
-/* line 286 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
+/* line 291 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
 .reference--nav-control {
   display: inline-block;
   padding: 0;
 }
 
-/* line 290 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
+/* line 295 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
 .reference--nav-control a,
 .reference--nav-control span {
   display: table-cell;
@@ -2396,7 +2403,7 @@ section:last-of-type.is_visible + .nextSection--navigation {
           transition: opacity 600ms ease-out, transform 600ms ease-out;
 }
 
-/* line 303 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
+/* line 308 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
 .reference--nav-control a:hover,
 .reference--nav-control span:hover {
   opacity: 0.5;
@@ -2404,66 +2411,66 @@ section:last-of-type.is_visible + .nextSection--navigation {
           transition: opacity 200ms ease-in, transform 200ms ease-in;
 }
 
-/* line 311 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
+/* line 316 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
 .reference--nav-control.reference--nav-prev {
   float: left;
 }
 
-/* line 314 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
+/* line 319 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
 .reference--nav-inner .reference--nav-control.reference--nav-prev {
   margin-left: -15px;
 }
 
-/* line 317 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
+/* line 322 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
 .reference--nav-control.reference--nav-prev a,
 .reference--nav-control.reference--nav-prev span {
   background-position: left center;
 }
 
-/* line 321 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
+/* line 326 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
 .reference--nav-control.reference--nav-prev a:hover,
 .reference--nav-control.reference--nav-prev span:hover {
   -webkit-transform: translateX(-5%);
           transform: translateX(-5%);
 }
 
-/* line 325 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
+/* line 330 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
 .reference--nav-control.reference--nav-next {
   float: right;
 }
 
-/* line 328 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
+/* line 333 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
 .reference--nav-inner .reference--nav-control.reference--nav-next {
   margin-right: -15px;
 }
 
-/* line 331 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
+/* line 336 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
 .reference--nav-control.reference--nav-next a,
 .reference--nav-control.reference--nav-next span {
   background-position: center center;
 }
 
-/* line 335 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
+/* line 340 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
 .reference--nav-control.reference--nav-next a:hover,
 .reference--nav-control.reference--nav-next span:hover {
   -webkit-transform: translateX(5%);
           transform: translateX(5%);
 }
 
-/* line 339 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
+/* line 344 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
 .reference--nav-control.reference--nav-close {
   position: absolute;
   left: 50%;
   margin-left: -30px;
 }
 
-/* line 344 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
+/* line 349 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
 .reference--nav-control.reference--nav-close a,
 .reference--nav-control.reference--nav-close span {
   background-position: right center;
 }
 
-/* line 348 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
+/* line 353 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
 .reference--nav-control.reference--nav-close a:hover,
 .reference--nav-control.reference--nav-close span:hover {
   -webkit-transform: scale(1.1);
@@ -2471,7 +2478,7 @@ section:last-of-type.is_visible + .nextSection--navigation {
 }
 @media screen and (min-width: 75em) {
 
-/* line 351 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
+/* line 356 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
   .reference--nav-control.reference--nav-close {
     position: fixed;
     top: 25px;
@@ -2629,7 +2636,7 @@ section:last-of-type.is_visible + .nextSection--navigation {
   }
 }
 
-/* line 356 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
+/* line 361 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_references.styl */
 
 /* line 1 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/_modal.styl */
 

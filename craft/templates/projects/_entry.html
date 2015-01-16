@@ -13,8 +13,8 @@
  # http://buildwithcraft.com/docs/routing
  #}
 
-{% extends craft.request.isAjax ? "news/_reference/_ajax" : "news/_reference/" %}
+{% extends craft.request.isAjax ? "projects/_reference/_ajax" : "projects/_reference/" %}
 
-{% set criteria = {section: 'news', type: 'projets', order: 'postDate'} %}
+{% set criteria = {section: 'projects', type: 'project', order: 'postDate'} %}
 {% set prev = entry.getPrev(criteria) %}
 {% set next = entry.getNext(criteria) %}

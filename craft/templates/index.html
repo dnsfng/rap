@@ -72,7 +72,7 @@
             <h2 class="section--title">{{ block.heading }}</h2>
           </div>
           <ul class="reference--list" id="references">
-            {% for entry in craft.entries.type('projets').order('title') %}
+            {% for entry in craft.entries.type('project').order('title') %}
               <li class="reference--item reference--item-child-{{loop.index}}">
                 <div class="reference--itemLayer" style="background-color : {{entry.backgroundColor}}"></div>
 
@@ -183,7 +183,7 @@
   </div>
 
 
-{% set length = craft.entries.type('projets').total() %}
+{% set length = craft.entries.type('project').total() %}
 
   <div class="modal" id="modal">
     
@@ -198,11 +198,11 @@
 
       <div class="carousel--translate">
 
-      {% for entry in craft.entries.type('projets').order('title') %}
+      {% for entry in craft.entries.type('project').order('title') %}
 
         <article class="carousel--reference carousel--reference-child-{{loop.index}} reference" data-ref-bgColor="{{entry.backgroundColor}}" data-ref-index="{{loop.index}}">
 
-          {% include "/news/_reference/__content" %}
+          {% include "/projects/_reference/__content" %}
 
         </article>
       {% endfor %}

@@ -73,100 +73,65 @@
 
 
 
-@media screen and (max-width em(1023))
+@media screen and (max-width em(599))
 
   .reference--logo-wrapper
-    position          absolute
-    width             50%
-    height            auto
-    top               step(75px)
-    right             $paddingViewport-mobile
+    position     absolute
+    width        50%
+    height       auto
+    top          step(75px)
+    left         50%
+    margin-left  -25vw
 
   .reference--description-wrapper
     position relative
-    top step(250px)   
+    top step(180px)
+
+
+@media screen and (min-width em(600))
+  
+  .reference--logo-wrapper 
+    position          absolute
+    height            auto
+    right             $paddingViewport-mobile
+    width             45%
+    top               21%
+    
+  .reference--description-wrapper
+    position relative
+    top 75%   
 
   .reference--description
-    padding-right 20%
+    padding-right 40%
     
-
-  @media (min-width em(420))
-    .reference--logo-wrapper
-      top 12%
-      
+  @media (min-height em(480))
     .reference--description-wrapper
-      top 60%
-
-    .reference--description
-      padding-right 35%
-
-    @media (min-height em(480))
-      .reference--description-wrapper
-        top 65%
-        
-    @media (min-height em(600))
-      .reference--description-wrapper
-        top auto
+      top 70%
       
-      .reference--description
-        margin-top    70%
-
-        
-  @media (min-width em(510))
-    .reference--logo-wrapper
-      top 16%
-      
+  @media (min-height em(600))
     .reference--description-wrapper
-      top 60%
-      
-    @media (min-height em(480))
-      .reference--description-wrapper
-        top 65%
-        
-    @media (min-height em(600))
-      .reference--description-wrapper
-        top auto
-      
-      .reference--description
-        margin-top    70%
-
-
-  @media (min-width em(600))
-    .reference--logo-wrapper
-      width 45%
-      top   21%
-      
-    .reference--description-wrapper
-      top 75%
-      
-    @media (min-height em(480))
-      .reference--description-wrapper
-        top 70%
-        
-    @media (min-height em(600))
-      .reference--description-wrapper
-        top auto
-      
-      .reference--description
-        margin-top    70%
-      
-
-  @media (min-width em(768))
-    .reference--logo-wrapper
-      width 40%
-      top   25%
-      right $paddingViewport-tablet
-
-    .reference--description
-      padding-right 50%
-      padding-left  $paddingViewport-mobile
+      top auto
     
-    @media (min-height em(600))
-      .reference--description-wrapper
-        top auto
+    .reference--description
+      margin-top    70%
       
-      .reference--description
-        margin-top    55%
+
+@media screen and (min-width em(768))
+  .reference--logo-wrapper
+    width 40%
+    top   25%
+    right $paddingViewport-tablet
+
+  .reference--description
+    padding-right 50%
+    padding-left  $paddingViewport-mobile
+  
+  @media (min-height em(600))
+    .reference--description-wrapper
+      top auto
+    
+    .reference--description
+      margin-top    55%
         
 
 

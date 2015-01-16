@@ -166,7 +166,6 @@ $(document).ready(function(){
         if (!$_modal.hasClass('is_visible')){
           $c_flap.css('background-color', 'transparent');
           $c_translate.scrollTop(0); // Reset scroll position to 0
-          console.log("coucou");
         }
       });
       

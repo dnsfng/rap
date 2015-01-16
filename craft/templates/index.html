@@ -25,7 +25,7 @@
 
   {% for block in entry.slides %}
 
-    {# var moderator helps escape the color pattern of image section #}
+    {# var moderator helps cancel the color pattern of image section #}
     {% if block.type == "sectionImage" %}
         {% set moderator = moderator + 1 %}
     {% endif %}
@@ -142,12 +142,16 @@
             {{ block.heading }}</h2>
         </div>
 
-        {% if block.type == "sectionDefault" %}
-          <div class="section--description">{{ block.description }}</div>
-        {% endif %}
+        {% if block.type == "sectionDefault" or block.type == "sectionImage" %}
+          <div class="section--description">
+            
+            {% if block.type == "sectionImage" %}<span style="color:{{ block.descriptionColor }}">{% endif %}
 
-        {% if block.type == "sectionImage" %}
-          <div class="section--description" style="color:{{ block.descriptionColor }}">{{ block.description }}</div>
+              {{ block.description }}
+
+            {% if block.type == "sectionImage" %}</span>{% endif %}
+
+          </div>
         {% endif %}
 
       </div>

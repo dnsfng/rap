@@ -26,13 +26,14 @@
   {% for block in entry.slides %}
 
     {# var moderator helps cancel the color pattern of image section #}
-    {% if block.type == "sectionImage" %}
-        {% set moderator = moderator + 1 %}
-    {% endif %}
+    {% if block.type == "sectionImage" %} {% set moderator = moderator + 1 %} {% endif %}
 
     {% set count = (block.sortOrder - moderator - 1) %}
     {% set evenOrOdd = count % 2 == 0 ? 'even' : 'odd' %}
 
+
+
+{# INTRO TEMPLATE #}
     {% if block.type == "sectionIntro" %}
 
       <section class="section--00 section--intro {{evenOrOdd}}" style="z-index:{{(20 - block.sortOrder)}}">
@@ -63,6 +64,7 @@
 
       </section>
 
+{# TITLE ONLY TEMPLATE #}
     {% elseif block.type == "sectionTitle" %}
 
       <section class="section--0{{(block.sortOrder - 1)}} section--references {{evenOrOdd}}" style="z-index:{{(20 - block.sortOrder)}}">
@@ -95,6 +97,7 @@
 
     {% else %}
 
+{# IMAGE & DEFAULT TEMPLATE #}
     {% if block.type == "sectionImage" %}
 
     {% set image = block.backgroundImage.first() %}

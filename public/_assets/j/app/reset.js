@@ -212,44 +212,54 @@ $(document).ready(function(){
       $(".logoSymbol--wrapper").fadeOut();
     }
 
-    if (height <= $offsetSection[lastSection]){
+    if (height <= $offsetSection[lastSection] || height <= $offsetSectionTitle[lastSection]){
 
       for(var i = 0; i <= lastSection; i++){
 
-          // Manage Mail Icon visibility
-          if( height >= $offsetSectionTitle[i] && height < $offsetSectionTitle[i+1]){
-            
-            if($("section").eq(i).hasClass("even")){
-              $(".mail--icon-black").fadeIn();
-            } else {
-              $(".mail--icon-black").fadeOut();
-            }
-
-          }
-
-          // Manage Small Logo visibility
-          if( $offsetSection[i] <= height && height < $offsetSection[i+1]){          
-
-            if($("section").eq(i).hasClass("even")){
-              $(".logo--icon-white").fadeOut();
-            } else {
-              $(".logo--icon-white").fadeIn();
-            }
-          }
+        // Manage Mail Icon visibility
+        if( height >= $offsetSectionTitle[i] && height < $offsetSectionTitle[i+1]){
           
-        } 
+          if($("section").eq(i).hasClass("even")){
+            $(".mail--icon-black").fadeIn();
+          } else {
+            $(".mail--icon-black").fadeOut();
+          }
 
-      } else {
-
-        if($("section").last().hasClass("even")){
-          $(".logo--icon-white").fadeOut();
-        } else {
-          $(".logo--icon-white").fadeIn();
         }
 
-        // WIP
+        // Manage Small Logo visibility
+        if( $offsetSection[i] <= height && height < $offsetSection[i+1]){          
 
+          if($("section").eq(i).hasClass("even")){
+            $(".logo--icon-white").fadeOut();
+          } else {
+            $(".logo--icon-white").fadeIn();
+          }
+        }
+      } 
+
+    }
+
+    if (height > $offsetSection[lastSection]){
+
+      if($("section").last().hasClass("even")){
+        $(".logo--icon-white").fadeOut();
+      } else {
+        $(".logo--icon-white").fadeIn();
       }
+
+    }
+
+    if(height > $offsetSectionTitle[lastSection]){
+
+      if($("section").last().hasClass("even")){
+        $(".mail--icon-black").fadeIn();
+      } else {
+        $(".mail--icon-black").fadeOut();
+      }
+
+    }
+
   }
     
 

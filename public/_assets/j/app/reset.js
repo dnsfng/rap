@@ -1,4 +1,6 @@
+// ——————————————————————————————————————————————————————————————————
 // Avoid `console` errors in browsers that lack a console.
+
 (function() {
     var method;
     var noop = function () {};
@@ -23,6 +25,10 @@
 
 
 
+
+// ——————————————————————————————————————————————————————————————————
+// Variables
+
 var $_modal               = $('.modal'),
       $c_wrapper            = $('.carousel--wrapper'),
       $c_translate          = $('.carousel--translate'),
@@ -35,6 +41,9 @@ var $_modal               = $('.modal'),
 
 
 
+
+// ——————————————————————————————————————————————————————————————————
+// Let's reset
 
 $(document).ready(function(){
 
@@ -66,12 +75,12 @@ $(document).ready(function(){
 
   }
 
+
   // ———————————————————————————————————————————————————————
   // Carousel handler
 
+
   // Config
-
-
   function navigateCarousel(position) {
 
     position = position || '1';
@@ -95,6 +104,10 @@ $(document).ready(function(){
   }
 
 
+  // Remove all animation helpers when hiding modal.
+  function removeHelpers(){
+    $('.carousel--reference').removeClass('is_out is_in is_first_in is_going_left is_going_right is_looping_left is_looping_right');
+  }
 
 
   function updateCarouselPosition(direction, position, position_end){
@@ -126,15 +139,6 @@ $(document).ready(function(){
     }
 
   }
-
-
-
-
-  function removeHelpers(){
-    $('.carousel--reference').removeClass('is_out is_in is_first_in is_going_left is_going_right is_looping_left is_looping_right');
-  }
-
-
 
 
   function modalReference(status, index){
@@ -174,8 +178,6 @@ $(document).ready(function(){
   }
 
 
-
-
   function debounce(myFunction){
     clearTimeout(myInterval);
     myInterval = setTimeout(myFunction, 400);
@@ -183,6 +185,9 @@ $(document).ready(function(){
 
 
 
+
+  // ———————————————————————————————————————————————————————
+  // Icon toggling manager (below animated version of website)
 
   function setScrollOffset(){
 
@@ -197,8 +202,6 @@ $(document).ready(function(){
     });
 
   }
-
-
 
 
   function iconToggle_Manager(){
@@ -264,8 +267,9 @@ $(document).ready(function(){
     
 
   
-
+  // ———————————————————————————————————————————————————————
   // Binding and behavior
+
 
   $('.js--modal-start').click(function(e){
     e.preventDefault();
@@ -274,7 +278,7 @@ $(document).ready(function(){
     modalReference(true, index);
   });
 
-
+  // Debuging helper.
   $('.js--modal-open').click(function(){
     removeHelpers();
     modalReference(true);
@@ -305,8 +309,7 @@ $(document).ready(function(){
 
 
 
-
-  // ———————————————————————————————————————————————————————
+  // ——————————————————————————————————————————————————————————————————
   // Conditional loader
 
 

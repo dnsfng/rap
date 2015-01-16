@@ -50,25 +50,21 @@
 	<!-- endbower -->
 
 	<!-- Vendor Scripts -->
-	<script type="text/javascript" src="/_assets/j/vendor/modernizr.load.js"></script>
-	<!-- <script type="text/javascript" src="/_assets/j/vendor/modernizr-custom.js"></script> -->
+	
+	<script type="text/javascript" src="/_assets/j/vendor/modernizr-custom.js"></script>
 	<script type="text/javascript" src="/_assets/j/vendor/jquery.min.js"></script>
-	<!-- <script type="text/javascript" src="/_assets/j/vendor/viewport-units-buggyfill.js"></script>
-	<script>window.viewportUnitsBuggyfill.init();</script> -->
 
 	{% if bodyClass is not defined %}
+	{# Removes javascript calls in SEO purpose page. See template : projects/_reference/index.html #}
 
 		<!-- App Scripts -->
 		<script type="text/javascript" src="/_assets/j/app/reset.js"></script>
-
 		<script>
-		
-		Modernizr.load({
-		  // test: !Modernizr.touch,
-		  test: Modernizr.mq('screen and (min-width : 1200px)'),
-		  yep : ['/_assets/j/app/play.js'],
-		});
-
+			Modernizr.load({
+			  // test: !Modernizr.touch,
+			  test: Modernizr.mq('screen and (min-width : 1200px)'),
+			  yep : ['/_assets/j/app/play.js'],
+			});
 		</script>
 
 	{% endif %}

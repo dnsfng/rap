@@ -80,7 +80,7 @@
                 {% set image = entry.logo.first() %}
                 <a href="{{ entry.url }}" class="js--modal-start" data-ref-index="{{loop.index}}">
                   <div class="reference--content">
-
+                  
                   {% if image %}
                   <div class="reference--content-image" style="background-image:url({{image.url}})"></div>
                   {% else %}

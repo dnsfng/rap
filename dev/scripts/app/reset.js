@@ -151,9 +151,14 @@ $(document).ready(function(){
         $('body').addClass('no-scroll');
       }, 1200);
       
-      $_modal.addClass('is_visible');
-      $c_wrapper.toggleClass('is_closed');
-      $c_wrapper.attr('data-ref-current', index);
+      $_modal.show(0,function(){
+      // modal is display as block first, than animated (opacity and shutter system).
+      // this was originaly a IE10 debug but it doesn't seem to slow other browser down anyway.
+        $_modal.addClass('is_visible');
+        $c_wrapper.toggleClass('is_closed');
+        $c_wrapper.attr('data-ref-current', index);
+        console.log("ok");
+      });
       
 
       $('.carousel--reference-child-'+index).addClass('is_first_in');
@@ -167,9 +172,12 @@ $(document).ready(function(){
       window.location = "#references" ;
 
       $('.carousel--flap').on("transitionend webkitTransitionEnd oTransitionEnd", function(){
+      // modal is hidden after all transitions end.
+
         if (!$_modal.hasClass('is_visible')){
           $c_flap.css('background-color', 'transparent');
           $c_translate.scrollTop(0); // Reset scroll position to 0
+          $_modal.hide();
         }
       });
       

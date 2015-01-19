@@ -558,6 +558,11 @@
         // Hide only if scrolling down
         var nextAnchor = keyframes[currentKeyframe].anchor;
         if(nextAnchor > anchor){ $(currentWrapper).hide(); };
+        if(nextAnchor > 2){
+          $(".logo--wrapper").hide();
+        } else {
+          $(".logo--wrapper").show();
+        }
 
         // Always show upcoming section
         $(keyframes[currentKeyframe].target).show();

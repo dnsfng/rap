@@ -50,7 +50,7 @@
           'animations'    : [
           {
             'selector'  : '.logo--wrapper',
-            'opacity'   : [1,1]
+            'opacity'   : [6,1]
           }
           ]
         } , { // ————————————————————————————————————————  SHUTTER 00
@@ -101,7 +101,10 @@
             } , {
               'selector'  : '.section--01 .shutter_sw .flap',
               'rotate'    : next_shutterSWFixed
-            }
+            } , {
+              'selector'  : '.logo--wrapper',
+              'opacity'   : [-6,-6]
+            } 
           ]
         } , { // —————————————————————————————————————  SHUTTER 01
           'wrapper'       : 'main',
@@ -145,6 +148,9 @@
             } , {
               'selector'  : '.section--02 .shutter_sw .flap',
               'rotate'    : next_shutterSWFixed
+            } , {
+              'selector'  : '.logo--wrapper',
+              'opacity'   : [-6,-6]
             }
           ]
         } , { // —————————————————————————————————————  SHUTTER 02
@@ -189,6 +195,9 @@
             } , {
               'selector'  : '.section--03 .shutter_sw .flap',
               'rotate'    : next_shutterSWFixed
+            } , {
+              'selector'  : '.logo--wrapper',
+              'opacity'   : [-6,-6]
             }
           ]
         } , { // —————————————————————————————————————  SHUTTER 03
@@ -213,7 +222,13 @@
               'selector'  : '.section--03 .section--description',
               'opacity'   : prev_contentOpacity,
               'translateX': prev_descTranslateX
-            }
+            } , {
+              'selector'  : '.section--04 .shutter_ne .flap',
+              'opacity'   : [0, 0]
+            } , {
+              'selector'  : '.section--04 .shutter_sw .flap',
+              'opacity'   : [0, 0]
+            } ,
             // } , { // no team section
             //   'selector'  : '.nextSection--arrow',
             //   'opacity'   : [1,0]
@@ -233,12 +248,15 @@
           'animations'    : [
             {
               'selector'  : '.section--04 .shutter_ne .flap',
-              // 'rotate'    : next_shutterNEFixed
-              'rotate'    : [90, 65]
+              'rotate'    : [90, 65],
+              'opacity'   : [0, 6]
             } , {
               'selector'  : '.section--04 .shutter_sw .flap',
-              // 'rotate'    : next_shutterSWFixed
-              'rotate'    : [-90, -65]
+              'rotate'    : [-90, -65],
+              'opacity'   : [0, 6]
+            } , {
+              'selector'  : '.logo--wrapper',
+              'opacity'   : [-6,-6]
             }
           ]
         } , { // —————————————————————————————————————  SHUTTER 04
@@ -274,6 +292,8 @@
               'translateX': prev_descTranslateX
             } , {
               'selector'  : '.nextSection--arrow',
+              'translateX': '0',
+              'translateY': '0',
               'opacity'   : [1,0]
             } , {
               'selector'  : '.mail--icon-black',
@@ -301,7 +321,10 @@
               'selector'  : '.section--05 .shutter_sw .flap',
               'translateX': shutterTranslateX,
               'rotate'    : shutterSWRotate
-            } 
+            } , {
+              'selector'  : '.logo--wrapper',
+              'opacity'   : [-6,-6]
+            }
           ]
         }
         ];

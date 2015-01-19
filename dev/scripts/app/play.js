@@ -275,13 +275,13 @@
               'rotate'    : [-65, -42]
             } , {
               'selector'  : '.section--04 .bgImage--wrapper',
-              'opacity'   : [4, -0.75]
+              'opacity'   : [8, -2]
             } , {
               'selector'  : '.section--04 .mainShutter--wrapper',
-              'opacity'   : [5, 0]
+              'opacity'   : [7, 0]
             } , {
               'selector'  : '.section--04 .section--wrapper',
-              'opacity'   : [5, 0]
+              'opacity'   : [7, 0]
             } , {
               'selector'  : '.section--04 .section--title--wrapper',
               'opacity'   : prev_contentOpacity,
@@ -301,6 +301,9 @@
             } , {
               'selector'  : '.logo--icon-white',
               'opacity'   : [4, 0]
+            } , {
+              'selector'  : '.section--05 .section--title--wrapper',
+              'opacity'   : [-3, 1]
             }
 
           ]

@@ -101,7 +101,7 @@
 .carousel--translate
   width   100%
   height  100%
-  //overflow-y scroll // Fix IE bug hiding last element of carousel
+  overflow-y scroll // Add scroll to low-height device (mobile)
   -webkit-overflow-scrolling touch
   
   transition  transform $t-reg ease-in-out
@@ -111,7 +111,10 @@
   position  relative
   height    100%
   width     100vw
-  z-index   1
+  
+  &:last-child
+  // Fix IE bug hiding last element of carousel because of scrollbar
+    width calc(100vw - 30px)
 
 
 

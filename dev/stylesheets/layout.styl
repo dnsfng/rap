@@ -7,9 +7,6 @@ main
   height  100%
   width   100%
 
-  @media screen and (min-width $tabletLandscape['width']) and (max-width $laptop['min-width'])
-    overflow-x hidden // Fixes logo bottom diagonal on tablet landscape viewport
-
 body
   &.no-scroll
   &.no-scroll main
@@ -224,7 +221,6 @@ section
     display block
     height  auto
     verticalAlign(-78%)
-    //transition transform $t-reg ease-out    
     
     @media screen and (min-height ($phoneLandscape['height']+1)) 
     // ————————————————————————————————————————— portrait mobile
@@ -273,6 +269,8 @@ section
     display block
 
     
+
+
 // logo duplicata to fix z-index style on laptop viewport
 .logo--wrapper.logo
   display         none

@@ -159,14 +159,14 @@ section
 
   &:before,
   &:after
+    fakeContent()
+    width             200%
     left              50%
     height            1px
     background-color  lighten(black,75%)
     transform-origin  0% 0%
     
   &:before
-    fakeContent()
-    width       200%
     top         0%
     left        50%
     margin-left - $logo-image-padding - ($logo-image-size/2)px
@@ -174,7 +174,6 @@ section
     transform   rotate(45*5deg)
 
   &:after
-    fakeContent()
     width       200%
     transform   rotate(45deg)
     margin-left 175px
@@ -184,9 +183,6 @@ section
     background-color white
   
   @media screen and (min-width $tabletPortrait['width'])
-    &:before
-    &:after
-      fakeContent()
 
     &:before
       margin-left - $logo-image-padding - ($logo-image-size_tablet/2)px
@@ -201,6 +197,7 @@ section
       margin-left - $logo-image-padding
 
     &:after
+      width       89vw
       top         $logo-image-size_laptop + $logo-image-padding
       bottom      auto
       left        @top

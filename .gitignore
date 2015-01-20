@@ -5,6 +5,9 @@
 !/craft/storage/logo/*
 /public/_assets/c/main.min.css
 
+# Build folder
+/build/*
+
 # Common
 .DS_Store
 

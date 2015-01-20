@@ -22,12 +22,11 @@ module.exports = function(grunt) {
       }
     },
     uglify: {
-      options: {
-        banner: '<%= banner %>'
-      },
-      dist: {
-        src: '<%= concat.dist.dest %>',
-        dest: 'dist/<%= pkg.name %>.min.js'
+      build: {
+        expand : true,
+        cwd: 'dev/scripts',
+        src: '**/*.js',
+        dest: 'build/public/_assets/j'
       }
     },
     jshint: {
@@ -55,6 +54,9 @@ module.exports = function(grunt) {
         src: 'Gruntfile.js'
       },
       js_test: {
+        src: ['dev/scripts/app/reset.js']
+      },
+      build: {
         src: ['dev/scripts/app/reset.js']
       }
     },
@@ -103,6 +105,22 @@ module.exports = function(grunt) {
         files: {
           'public/_assets/c/main.min.css': 'dev/stylesheets/main.styl'
         }
+      },
+      build: {
+        options: {
+          'include css': true,
+          compress : true,
+          paths: ['dev/stylesheets/**'],
+          urlfunc: 'embedurl',
+          use: [
+            function () {
+                      return require('autoprefixer-stylus')({ browsers: 'last 2 version' });
+                    },
+          ]
+        },
+        files: {
+          'build/public/_assets/c/main.min.css': 'dev/stylesheets/main.styl'
+        }
       }
     },
     copy: {
@@ -111,6 +129,21 @@ module.exports = function(grunt) {
         src: 'dev/scripts/app/*',
         dest: 'public/_assets/j/app/',
         flatten: true
+      },
+      build_public: {
+        expand: true,
+        cwd: 'public/_assets/',
+        src: [
+          'i/*',
+          'f/*'
+        ],
+        dest: 'build/public/_assets'
+      },
+      build_templates: {
+        expand: true,
+        cwd : 'craft/templates/', 
+        src: '**/*',
+        dest: 'build/craft/templates'
       }
     },
     wiredep: {
@@ -134,7 +167,7 @@ module.exports = function(grunt) {
                 "shiv" : true,
                 "printshiv" : false,
                 "load" : true,
-                "mq" : false,
+                "mq" : true,
                 "cssclasses" : true
             },
 
@@ -198,7 +231,8 @@ module.exports = function(grunt) {
 
   // Default task.
   //grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify', 'stylus']);
-  grunt.registerTask('default', ['jshint','stylus']);
+  grunt.registerTask('default', ['jshint','stylus', 'concat', 'uglify']);
+  grunt.registerTask('build', ['jshint:build','uglify:build', 'stylus:build', 'copy:build_public', 'copy:build_templates']);
 
 
 };

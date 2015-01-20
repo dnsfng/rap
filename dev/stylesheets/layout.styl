@@ -205,7 +205,12 @@ section
   margin 0
   
   @media screen and (min-width $tabletLandscape['width']) and (max-width $laptop['min-width'])
-    overflow visible
+    overflow visible //show :after diagonale
+    
+    @media (min-width:0\0)
+    /* IE9 and IE10 rule sets go here */
+    // Not sur if it works
+      overflow hidden
 
   + section
     margin-top -10%

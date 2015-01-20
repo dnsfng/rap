@@ -1786,8 +1786,8 @@ section .section--wrapper {
     width: 88vw;
     -webkit-transform: rotate(225deg);
             transform: rotate(225deg);
-    top: calc(300px + 50vw);
-    left: calc(300px + 50vw);
+    top: calc(299px + 50vw);
+    left: calc(299px + 50vw);
     margin-left: 0;
     margin-top: 0;
     bottom: auto;

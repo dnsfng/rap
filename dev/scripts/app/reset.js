@@ -157,7 +157,6 @@ $(document).ready(function(){
         $_modal.addClass('is_visible');
         $c_wrapper.toggleClass('is_closed');
         $c_wrapper.attr('data-ref-current', index);
-        console.log("ok");
       });
       
 

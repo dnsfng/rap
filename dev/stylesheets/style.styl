@@ -25,6 +25,20 @@ p
       
     &:active
       border-bottom-color transparent
+  
+// 404  
+ 
+.error
+  text-align center 
+  
+  p 
+    &.error--baseline
+      a
+        color               black
+        border-bottom-color black
+        
+        &:active
+          border-bottom-color transparent 
 
 
 /* Less Than IE10 ********************************************************************/  
@@ -247,16 +261,6 @@ aside
       
     @media screen and (min-width $desktop) 
       font-size em(30)
-
-  .error--baseline
-    @extends aside .intro--baseline
-    margin-top $step*10
-
-  .error--link
-    @extend aside .intro--baseline
-    a
-      color           black
-      text-decoration underline
 
 
 

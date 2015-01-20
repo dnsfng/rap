@@ -18,23 +18,33 @@
 
 {% extends "_layout" %}
 {% set title = "404" %}
+{% set bodyClass = 'template--404' %}
 
 {% block content %}
-  <section class="section--00 section--intro">
-    <div class="section--00--wrapper">
+  <section class="section--00 section--intro section--404">
+    <div class="section--wrapper">
       <a class="logo" href="{{ siteUrl }}">
         <h1>
-          <span class="out test">{{ siteName }}</span>
+          <span class="out">{{ siteName }}</span>
         </h1>
-        <img class="logo--component logo--image todo" src="_assets/i/_logo_w100_h100.svg" alt="Logo Reset & Play">
-        <img class="logo--component logo--name todo" src="" alt="">
+        <img class="logo--component logo--image" src="/_assets/i/__logo_symbol.svg" alt="R&P">
+        <img class="logo--component logo--name" src="/_assets/i/__logo_logotype.svg" alt="Reset & Play">
+        <aside class="baseline">
+          <strong class="intro--baseline">Concepteur d'expériences, de services et de produits.</strong>
+        </aside>
       </a>
-      <aside class="baseline">
-        <p class="error--baseline">La page n'a pas été trouvée</p>
-        <p class="error--link">
-          <a href="{{ siteUrl }}">retourner à l'accueil</a>
-        </p>
-      </aside>
     </div>
   </section>
+
+  <div class="logo--wrapper logo">
+    <h1>
+      <span class="out">{{ siteName }}</span>
+    </h1>
+    <img class="logo--component logo--image" src="/_assets/i/__logo_symbol.svg" alt="R&P">
+    <img class="logo--component logo--baseline" src="/_assets/i/__logo_baseline.svg" alt="Reset & Play">
+  </div>
+
+  <div class="error">
+    <p class="error--baseline">La page n'a pas été trouvée. <a href="{{ siteUrl }}">Retourner à l'accueil</a></p>
+  </div>
 {% endblock %}

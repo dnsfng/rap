@@ -406,24 +406,33 @@ section
 
   @media screen and (min-width $$mq4-min) and (max-width $laptop['max-width'])
     max-width (($diamond__size + $diamond__interval) * 4) - $diamond__interval
-    
+     
   @media screen and (min-width $laptop['min-width'])
-    .js &
-      $marginTop = 0.5 * ($diamond__size-large * 3)
-
-      width             1920px
-      position          absolute
-      top               50vh
-      left              "calc(50vh - %s)" % $marginTop
-      margin            (- $marginTop) 0 0 ($diamond__diagonal-large/2)
-      padding           0
+    width             1920px
+    position          absolute
+    top               50vh
+    padding           0
+    
+    &.row-3
+      $marginTop = 12 + (0.5 * ($diamond__diagonal-large * (0.5 + (0.5 * 3))))  
+      left   "calc(50vh - %s)" % $marginTop
+      margin (- $marginTop) 0 0 ($diamond__diagonal-large/2)
+      
+    &.row-4
+      $marginTop = 12 + (0.5 * ($diamond__diagonal-large * (0.5 + (0.5 * 4))))
+      left   "calc(50vh - %s)" % $marginTop
+      margin (- $marginTop) 0 0 ($diamond__diagonal-large/2)
       
   @media screen and (min-width $desktop)
-    .js &
-      $marginTop = 0.5 * ($diamond__size-xlarge * 3)
-      top               50vh
-      left              "calc(50vh - %s)" % $marginTop
-      margin            (- $marginTop) 0 0 ($diamond__diagonal-xlarge/2)
+    &.row-3
+      $marginTop = 0.5 * ($diamond__size-large * 3)
+      left   "calc(50vh - %s)" % $marginTop
+      margin (- $marginTop) 0 0 ($diamond__diagonal-xlarge/2)
+      
+    &.row-4
+      $marginTop = 0.5 * ($diamond__diagonal-xlarge * (0.5 + (0.5 * 4)))
+      left   "calc(50vh - %s)" % $marginTop
+      margin (- $marginTop) 0 0 ($diamond__diagonal-xlarge/2)
       
 
 
@@ -586,9 +595,14 @@ section
       position  fixed
       top 50vh
       left 50vh
-      margin (- ($diamond__diagonal-large * 5)) 0 0 (- ($diamond__diagonal-large*5))
       transform-origin 0 0
       transform rotate(-45deg)
+      
+      &.row-3
+        margin (- $diamond__diagonal-large*5 + 4) 0 0 (- $diamond__diagonal-large*5 + 4)
+        
+      &.row-4
+        margin (- $diamond__diagonal-large*5.25 + 4) 0 0 (- $diamond__diagonal-large*5.25 + 4)
       
       @media screen and (min-height em(380))
         height 800%
@@ -601,8 +615,13 @@ section
         
         
     @media screen and (min-width $desktop)
-      margin (- ($diamond__diagonal-xlarge * 5) - 13) 0 0 (- ($diamond__diagonal-xlarge*5) - 13)
-      
+        
+      &.row-3
+        margin (- $diamond__diagonal-xlarge*5 + 5 - 1) 0 0 (- $diamond__diagonal-xlarge*5 + 5 - 1)
+        
+      &.row-4
+        margin (- $diamond__diagonal-xlarge*5.25 + 7) 0 0 (- $diamond__diagonal-xlarge*5.25 + 7)
+
     
       
 

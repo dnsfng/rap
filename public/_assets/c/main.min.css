@@ -525,9 +525,9 @@ table {
 
 /* line 1 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/values.styl */
 
-/* line 100 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/values.styl */
+/* line 110 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/values.styl */
 
-/* line 100 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/init.styl */
+/* line 110 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/init.styl */
 
 /* line 1 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/init.styl */
 * {
@@ -1187,14 +1187,14 @@ section {
 
 /* line 423 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
   .reference--list.row-3 {
-    left: calc(50vh - 270px);
-    margin: -270px 0 0 162.5px;
+    left: calc(50vh - 328px);
+    margin: -328px 0 0 162.5px;
   }
 
 /* line 428 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
   .reference--list.row-4 {
-    left: calc(50vh - 406.25px);
-    margin: -406.25px 0 0 162.5px;
+    left: calc(50vh - 409.25px);
+    margin: -409.25px 0 0 162.5px;
   }
 }
 
@@ -1466,7 +1466,7 @@ section {
 
 /* line 618 : /Users/Work/Sites/resetandplay.com/201410_V.1.0/dev/stylesheets/layout.styl */
   .js .section__references--pattern.row-4 {
-    margin: -1699.25px 0 0 -1699.25px;
+    margin: -1702.25px 0 0 -1702.25px;
   }
 }
 @media screen and (min-width: 75em) and (min-height: 23.75em) {

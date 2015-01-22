@@ -82,6 +82,16 @@ $desktop = em(1480)
   $diamond__diagonal-large = _diamond__calcDiagonal($diamond__size-large)
   $diamond__diagonal-xlarge = _diamond__calcDiagonal($diamond__size-xlarge)
   
+// diamong grid pattern position offset
+  $offset = 5
+  
+  $margin_row3 = (- $diamond__diagonal-large * $offset + ($offset - $diamond__border-size))
+  $margin_row4 = (- $diamond__diagonal-large * ($offset + 0.25) + ($offset - $diamond__border-size))
+  
+  $margin_row3-xlarge = (- $diamond__diagonal-xlarge * $offset + ($offset - $diamond__border-size))
+  $margin_row4-xlarge = (- $diamond__diagonal-xlarge * ($offset + 0.25) + ($offset - $diamond__border-size))
+  
+  
 // diamond calc values
 
   // added horizontal space to parent block to join diamonds on the same row

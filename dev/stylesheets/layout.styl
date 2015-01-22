@@ -421,12 +421,12 @@ section
       
   @media screen and (min-width $desktop)
     &.row-3
-      $marginTop = 0.5 * ($diamond__size-large * 3)
+      $marginTop = 3 + 0.5 * ($diamond__diagonal-xlarge * (0.5 + (0.5 * 3)))
       left   "calc(50vh - %s)" % $marginTop
       margin (- $marginTop) 0 0 ($diamond__diagonal-xlarge/2)
       
     &.row-4
-      $marginTop = 0.5 * ($diamond__diagonal-xlarge * (0.5 + (0.5 * 4)))
+      $marginTop = 3+ 0.5 * ($diamond__diagonal-xlarge * (0.5 + (0.5 * 4)))
       left   "calc(50vh - %s)" % $marginTop
       margin (- $marginTop) 0 0 ($diamond__diagonal-xlarge/2)
       
@@ -595,10 +595,10 @@ section
       transform rotate(-45deg)
       
       &.row-3
-        margin (- $diamond__diagonal-large*5 + 4) 0 0 (- $diamond__diagonal-large*5 + 4)
+        margin $margin_row3 0 0 $margin_row3
         
       &.row-4
-        margin (- $diamond__diagonal-large*5.25 + 4) 0 0 (- $diamond__diagonal-large*5.25 + 4)
+        margin $margin_row4 0 0 $margin_row4
       
       @media screen and (min-height em(380))
         height 800%
@@ -611,13 +611,12 @@ section
         
         
     @media screen and (min-width $desktop)
-        
+    
       &.row-3
-        margin (- $diamond__diagonal-xlarge*5 + 5 - 1) 0 0 (- $diamond__diagonal-xlarge*5 + 5 - 1)
+        margin $margin_row3-xlarge 0 0 $margin_row3-xlarge
         
       &.row-4
-        margin (- $diamond__diagonal-xlarge*5.25 + 7) 0 0 (- $diamond__diagonal-xlarge*5.25 + 7)
-
+        margin $margin_row4-xlarge 0 0 $margin_row4-xlarge
     
       
 

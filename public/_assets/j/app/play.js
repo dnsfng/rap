@@ -314,7 +314,7 @@
           'target'        : '.section--05',
           'anchor'        : 5,
           'visibility'    : 'always',
-          'duration'      : '100%',
+          'duration'      : '150%',
           'animations'    : [
             {
               'selector'  : '.section--05 .shutter_ne .flap',

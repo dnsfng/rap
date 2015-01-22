@@ -91,8 +91,8 @@
           ]
         } , { //  Transition
           'wrapper'       : 'main',
-          'target'        : '.section--00',
-          'anchor'        : 0,
+          'target'        : '.section--01',
+          'anchor'        : 1,
           'duration'      : '20%',
           'animations'    : [
             {
@@ -138,8 +138,8 @@
           ]
         } , { // Transition
           'wrapper'       : 'main',
-          'target'        : '.section--01',
-          'anchor'        : 1,
+          'target'        : '.section--02',
+          'anchor'        : 2,
           'duration'      : '20%',
           'animations'    : [
             {
@@ -185,8 +185,8 @@
           ]
         } , { // Transition
           'wrapper'       : 'main',
-          'target'        : '.section--02',
-          'anchor'        : 2,
+          'target'        : '.section--03',
+          'anchor'        : 3,
           'duration'      : '20%',
           'animations'    : [
             {
@@ -242,8 +242,8 @@
           ]
         } , { //  Transition
           'wrapper'       : 'main',
-          'target'        : '.section--03',
-          'anchor'        : 3,
+          'target'        : '.section--04',
+          'anchor'        : 4,
           'duration'      : '20%',
           'animations'    : [
             {
@@ -314,7 +314,7 @@
           'target'        : '.section--05',
           'anchor'        : 5,
           'visibility'    : 'always',
-          'duration'      : '150%',
+          'duration'      : '100%',
           'animations'    : [
             {
               'selector'  : '.section--05 .shutter_ne .flap',

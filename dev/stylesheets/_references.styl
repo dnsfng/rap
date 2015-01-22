@@ -63,66 +63,57 @@
 
 
 
-@media screen and (max-width em(599))
+@media screen and (max-width $tabletLandscape['max-width'])
 
   .reference--logo-wrapper
     position     absolute
     width        50%
     height       auto
-    top          step(75px)
+    top          25%
     left         50%
     margin-left  -25vw
-
-  .reference--description-wrapper
-    position relative
-    top step(180px)
-
-
-@media screen and (min-width em(600))
-  
-  .reference--logo-wrapper 
-    position          absolute
-    height            auto
-    right             $paddingViewport-mobile
-    width             45%
-    top               21%
     
-  .reference--description-wrapper
-    position relative
-    top 75%   
-
-  .reference--description
-    padding-right 40%
-    
-  @media (min-height em(480))
-    .reference--description-wrapper
-      top 70%
-      
-  @media (min-height em(600))
-    .reference--description-wrapper
-      top auto
-    
-    .reference--description
-      margin-top    70%
-      
-
-@media screen and (min-width em(768))
-  .reference--logo-wrapper
-    width 40%
-    top   25%
-    right $paddingViewport-tablet
-
-  .reference--description
-    padding-right 50%
-    padding-left  $paddingViewport-mobile
-  
-  @media (min-height em(600))
-    .reference--description-wrapper
-      top auto
-    
-    .reference--description
-      margin-top    55%
+    @media (min-width $tabletPortrait['width'])
+      width 40%
+      margin-left  -20vw
         
+    @media (min-height em(220))
+      top 20%
+    
+    @media (min-height em(330))
+      top 13%
+
+    @media (min-height em(440))
+      top 14%
+      
+    @media (min-height em(560))
+      top 16%
+      
+    @media (min-height em(640))
+      top 20%
+
+  .reference--description-wrapper
+    position relative
+    top 120%
+    margin 0 auto
+    
+    @media (min-width $phoneLandscape['width'])
+      width 90%
+      
+    @media (min-width em(600))
+      width 80%
+    
+    @media (min-width $tabletPortrait['width'])
+      width 70%
+      
+    @media (min-height em(220))
+      top 90%
+      
+    @media (min-height em(270))
+      top 70%  
+    
+    @media (min-height em(330))
+      top 45%
 
 
 
